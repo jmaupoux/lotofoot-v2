@@ -18,7 +18,23 @@ WAMP :
 	Restart Wamp
 
 
-Pour lancer les doctrines Symfony :
+IMPORT :
+	File > Import
+	Project From GIT
+	URI
+	Dans URI, tu colles : https://github.com/attonnnn/lotofoot-v2.git
+	Next > Next
+	Directory : D:\zend-eclipse-php\workspace\lotofoot-v2
+	Next
+	Import Existing Projects
+	Cocher lotofoot-v2
+	OK
+
+TEST :	
+	Vérifier le fichier INSTALL et lancer WAMP, ca devrait fonctionner suivant le fichier alias/lotofoot-v2.conf
+
+GENERATION :
+	Pour lancer les doctrines Symfony :
 	Dans Eclipse, Run > External Tools > External Tools Conf...
 	Program > New
 		Location 			D:\wamp\bin\php\php5.4.16\php.exe
@@ -26,4 +42,4 @@ Pour lancer les doctrines Symfony :
 		Argument (exemple): app/console doctrine:generate:entity --entity="Lotofootv2Bundle:User" --fields="name:string(255) price:float description:text"
 		
 
-Accéder à l'URL http://localhost/lotofoot-v2/Symfony/web/config.php
+Accéder à l'URL http://localhost/lotofoot-v2/app_dev.php/
