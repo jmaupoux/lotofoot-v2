@@ -1,0 +1,29 @@
+Eclipse :
+	Extraire www.zend.com/en/download/725 
+		dans D:/
+	Démarrer en laissant le workspace par défaut
+	Help > Install new software > Add
+	egit / http://download.eclipse.org/egit/updates
+	Tout cocher > Next > Next > Accept > Finish
+	Window > Preferences > General > Workspace > Text file Encoding > UTF-8
+	
+WAMP :
+	Installer http://sourceforge.net/projects/wampserver/files/WampServer%202/Wampserver%202.4/Wampserver2.4-x86.exe/download
+		dans D:/wamp
+	Lancer
+
+	Ajouter dans  D:/wamp/alias le fichier lotofoot-v2.conf
+		Vérifier que le dossier du workspace dans ce fichier est OK
+
+	Restart Wamp
+
+
+Pour lancer les doctrines Symfony :
+	Dans Eclipse, Run > External Tools > External Tools Conf...
+	Program > New
+		Location 			D:\wamp\bin\php\php5.4.16\php.exe
+		Working Directory : ${workspace_loc:/lotofoot-v2/Symfony}
+		Argument (exemple): app/console doctrine:generate:entity --entity="Lotofootv2Bundle:User" --fields="name:string(255) price:float description:text"
+		
+
+Accéder à l'URL http://localhost/lotofoot-v2/Symfony/web/config.php

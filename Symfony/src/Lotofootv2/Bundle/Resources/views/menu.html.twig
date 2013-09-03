@@ -1,0 +1,56 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container" style="padding-left:20px;padding-right:20px">
+		
+			<ul class="nav">
+				<li style="width:30px">
+				&nbsp;
+				</li>
+				<li class="big-icon">
+					<a href="{{ path('_home') }}">
+						<img src="{{ asset('bundles/lotofootv2/img/menu/home.png') }}"></img> <br/>
+						Accueil
+					</a>
+				</li>
+				<li class="divider-vertical"></li>
+			</ul>
+			
+			
+			<ul class="nav nav pull-right">
+			
+				{% if is_granted('ROLE_ADMIN') %}
+				<li class="divider-vertical"></li>
+				<li class="dropdown big-icon">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<img src="{{ asset('bundles/lotofootv2/img/menu/admin.png') }}"/> <br/>
+						Administration
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">
+								entree1
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								entree1
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				{% endif %}
+				
+				<li class="divider-vertical"></li>
+				<li style="text-align:left">
+					<a href="#">
+						<i class="icon-user" ></i> Mon compte
+					</a>
+					<a href="{{ path('_logout') }}"><i class="icon-chevron-right" ></i> Déconnexion </a>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>

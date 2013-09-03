@@ -1,0 +1,17 @@
+_root:
+    pattern:  /
+    defaults: { _controller: Lotofootv2Bundle:Root:index }
+
+_login:
+    pattern:  /login
+    defaults: { _controller: Lotofootv2Bundle:Login:index }
+
+_login_check:
+    pattern:  /login_check
+
+_logout:
+    pattern:  /logout
+
+_home:
+    pattern:  /home
+    defaults: { _controller: Lotofootv2Bundle:Home:index }
