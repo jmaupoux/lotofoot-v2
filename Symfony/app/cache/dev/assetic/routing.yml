@@ -1,5 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-    resource: 'D:/zend-eclipse-php/workspace/lotofoot-v2/Symfony/app/config/routing_dev.yml'
