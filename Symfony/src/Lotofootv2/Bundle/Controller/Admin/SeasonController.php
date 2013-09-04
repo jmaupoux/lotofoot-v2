@@ -18,8 +18,10 @@ class SeasonController extends Controller
 		    WHERE s.state = :state'
 		)->setParameter('state', 1);
 		
-		$season = $query->getFirstResult();
-
+		$season = $query->getOneOrNullResult();
+		
+		$this->get('logger')->info('This will be written in logs'.$season);
+		
 		return $this->render('Lotofootv2Bundle:Admin:season.html.twig', array('season' => $season));    	
     }
     
@@ -34,8 +36,7 @@ class SeasonController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$em->persist($season);
     	$em->flush();
-    	    	
-    	return $this->render('Lotofootv2Bundle:Admin:season.html.twig', 
-    			array('season' => $season));
+    	
+    	return $this->redirect($this->generateUrl('_admin_season'));
     }
 }

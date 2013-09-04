@@ -151,4 +151,8 @@ class Season
     {
     	return $this->state;
     }
+    
+    public function __toString() {
+    	return "Season : {$this->name}\n";
+    }
 }
