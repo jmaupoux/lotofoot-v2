@@ -16,8 +16,7 @@ WAMP :
 		Vérifier que le dossier du workspace dans ce fichier est OK
 
 	Restart Wamp
-
-
+	
 IMPORT :
 	File > Import
 	Project From GIT
@@ -40,6 +39,18 @@ GENERATION :
 		Location 			D:\wamp\bin\php\php5.4.16\php.exe
 		Working Directory : ${workspace_loc:/lotofoot-v2/Symfony}
 		Argument (exemple): app/console doctrine:generate:entity --entity="Lotofootv2Bundle:User" --fields="name:string(255) price:float description:text"
-		
+
+INIT MYSQL :
+	Dans my.ini
+		Ajouter sous [mysql]
+			default-character-set=utf8
+		Ajouter sous [mysqld]
+			collation-server = utf8_general_ci
+			character-set-server = utf8
+	Lancer la doctrine dans Eclipse :
+		app/console doctrine:database:create
+		app/console doctrine:schema:create
+	Et a chaque modif des Entity...
+		app/console doctrine:schema:update
 
 Accéder à l'URL http://localhost/lotofoot-v2/app_dev.php/
