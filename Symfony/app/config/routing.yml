@@ -1,3 +1,2 @@
-# AcmeDemoBundle routes (to be removed)
 _lotofootv2:
     resource: "@Lotofootv2Bundle/Resources/config/routing.yml"
