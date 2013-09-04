@@ -1,0 +1,20 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	
+	{% if season is null %}
+		<b>Aucune saison trouvée !</b>
+		
+		{% include 'Lotofootv2Bundle:Admin/season:create.html.twig' %}
+		
+		{% else %}
+		
+		{% include 'Lotofootv2Bundle:Admin/season:display.html.twig' with {'season': season} %}
+		
+	{% endif %}	
+	
+{% endblock %}
