@@ -57,6 +57,11 @@ class Account implements UserInterface, \Serializable
      * @ORM\Column(name="is_admin", type="boolean")
      */
     private $isAdmin;
+    
+    /**
+     * @ORM\Column(name="points", type="integer")
+     */
+    private $points;
 
     public function __construct()
     {
@@ -119,6 +124,18 @@ class Account implements UserInterface, \Serializable
     public function getPassword()
     {
         return $this->password;
+    }
+    
+    public function setPoints($points)
+    {
+    	$this->points = $points;
+    
+    	return $this;
+    }
+
+    public function getPoints()
+    {
+    	return $this->points;
     }
 
     /**
