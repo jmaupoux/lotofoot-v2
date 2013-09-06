@@ -5,10 +5,10 @@ namespace Lotofootv2\Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
-class HomeController extends Controller
+class RegisterController extends Controller
 {
     public function indexAction()
     {
-    	return $this->render('Lotofootv2Bundle:User:home.html.twig', array('name' => $this->getUser()->getUsername()));
+       //register
     }
 }

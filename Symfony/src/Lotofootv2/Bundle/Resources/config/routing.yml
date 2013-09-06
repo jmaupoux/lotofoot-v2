@@ -14,15 +14,15 @@ _logout:
 
 _home:
     pattern:  /home
-    defaults: { _controller: Lotofootv2Bundle:Home:index }
+    defaults: { _controller: Lotofootv2Bundle:User\Home:index }
 
 _admin_season:
     pattern:  /admin/season
-    defaults: { _controller: Lotofootv2Bundle:Admin\Season:index }
+    defaults: { _controller: Lotofootv2Bundle:Admin\League:index }
     
 _admin_season_create:
     pattern:  /admin/season/create
-    defaults: { _controller: Lotofootv2Bundle:Admin\Season:create }
+    defaults: { _controller: Lotofootv2Bundle:Admin\League:create }
 
 _admin_day:
     pattern:  /admin/day

@@ -9,11 +9,11 @@
 	{% if season is null %}
 		<b>Aucune saison trouvée !</b>
 		
-		{% include 'Lotofootv2Bundle:Admin/season:create.html.twig' %}
+		{% include 'Lotofootv2Bundle:Admin/_chunks_league:create.html.twig' %}
 		
 		{% else %}
 		
-		{% include 'Lotofootv2Bundle:Admin/season:display.html.twig' with {'season': season} %}
+		{% include 'Lotofootv2Bundle:Admin/_chunks_league:display.html.twig' with {'season': season} %}
 		
 	{% endif %}	
 	

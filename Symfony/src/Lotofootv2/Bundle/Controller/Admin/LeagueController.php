@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 use Lotofootv2\Bundle\Entity\Season;
 
-class SeasonController extends Controller
+class LeagueController extends Controller
 {
     public function indexAction()
     {
@@ -22,7 +22,7 @@ class SeasonController extends Controller
 		
 		$this->get('logger')->info('This will be written in logs'.$season);
 		
-		return $this->render('Lotofootv2Bundle:Admin:season.html.twig', array('season' => $season));    	
+		return $this->render('Lotofootv2Bundle:Admin:league.html.twig', array('season' => $season));    	
     }
     
     public function createAction(Request $request)
