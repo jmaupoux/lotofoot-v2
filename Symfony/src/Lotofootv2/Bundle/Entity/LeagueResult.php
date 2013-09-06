@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Results
  *
- * @ORM\Table(name="lfv2_result")
+ * @ORM\Table(name="lfv2_league_result")
  * @ORM\Entity
  */
-class Result
+class LeagueResult
 {
     /**
      * @var integer

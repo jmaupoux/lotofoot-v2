@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Season
  *
- * @ORM\Table(name="lfv2_season")
+ * @ORM\Table(name="lfv2_league")
  * @ORM\Entity
  */
-class Season
+class League
 {
     /**
      * @var integer
@@ -31,9 +31,9 @@ class Season
     /**
      * @var integer
      *
-     * @ORM\Column(name="day", type="integer")
+     * @ORM\Column(name="currentDay", type="integer")
      */
-    private $day;
+    private $currentDay;
 
     /**
      * @var string
@@ -84,26 +84,26 @@ class Season
     }
 
     /**
-     * Set day
+     * Set currentDay
      *
-     * @param integer $day
+     * @param integer $currentDay
      * @return Season
      */
-    public function setDay($day)
+    public function setCurrentDay($currentDay)
     {
-        $this->day = $day;
+        $this->currentDay = $currentDay;
     
         return $this;
     }
 
     /**
-     * Get day
+     * Get currentDay
      *
      * @return integer 
      */
-    public function getDay()
+    public function getCurrentDay()
     {
-        return $this->day;
+        return $this->currentDay;
     }
 
     /**

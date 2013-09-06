@@ -5,12 +5,12 @@ namespace Lotofootv2\Bundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Day
+ * LeagueDay
  *
- * @ORM\Table(name="lfv2_day")
+ * @ORM\Table(name="lfv2_league_day")
  * @ORM\Entity
  */
-class Day
+class LeagueDay
 {
     /**
      * @var integer
@@ -31,9 +31,9 @@ class Day
     /**
      * @var integer
      *
-     * @ORM\Column(name="season_id", type="integer")
+     * @ORM\Column(name="league_id", type="integer")
      */
-    private $season_id;
+    private $league_id;
 
     /**
      * @var \DateTime
@@ -84,33 +84,31 @@ class Day
     }
 
     /**
-     * Set season_id
+     * Set league_id
      *
-     * @param integer $seasonId
-     * @return Day
+     * @param integer $leagueId
      */
-    public function setSeasonId($seasonId)
+    public function setLeagueId($leagueId)
     {
-        $this->season_id = $seasonId;
+        $this->league_id = $leagueId;
     
         return $this;
     }
 
     /**
-     * Get season_id
+     * Get league_id
      *
      * @return integer 
      */
-    public function getSeasonId()
+    public function getLeagueId()
     {
-        return $this->season_id;
+        return $this->league_id;
     }
 
     /**
      * Set deadline
      *
      * @param \DateTime $deadline
-     * @return Day
      */
     public function setDeadline($deadline)
     {

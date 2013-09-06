@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Matchh
  *
- * @ORM\Table(name="lfv2_matchh")
+ * @ORM\Table(name="lfv2_league_match")
  * @ORM\Entity
  */
-class Matchh
+class LeagueMatch
 {
     /**
      * @var integer
@@ -31,9 +31,9 @@ class Matchh
     /**
      * @var integer
      *
-     * @ORM\Column(name="day_id", type="integer")
+     * @ORM\Column(name="league_day_id", type="integer")
      */
-    private $day_id;
+    private $league_day_id;
 
     /**
      * @var string
@@ -84,26 +84,26 @@ class Matchh
     }
 
     /**
-     * Set day_id
+     * Set league_day_id
      *
      * @param integer $dayId
      * @return Matchh
      */
-    public function setDayId($dayId)
+    public function setLeagueDayId($dayId)
     {
-        $this->day_id = $dayId;
+        $this->league_day_id = $dayId;
     
         return $this;
     }
 
     /**
-     * Get day_id
+     * Get league_day_id
      *
      * @return integer 
      */
-    public function getDayId()
+    public function getLeagueDayId()
     {
-        return $this->day_id;
+        return $this->league_day_id;
     }
 
     /**

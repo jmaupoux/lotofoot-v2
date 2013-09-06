@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * History
  *
- * @ORM\Table(name="lfv2_history")
+ * @ORM\Table(name="lfv2_league_history")
  * @ORM\Entity
  */
-class History
+class LeagueHistory
 {
     /**
      * @var integer
@@ -24,16 +24,9 @@ class History
     /**
      * @var integer
      *
-     * @ORM\Column(name="seasonNumber", type="integer")
+     * @ORM\Column(name="league_day_id", type="integer")
      */
-    private $seasonNumber;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="dayNumber", type="integer")
-     */
-    private $dayNumber;
+    private $league_day_id;
 
     /**
      * @var integer
@@ -48,6 +41,13 @@ class History
      * @ORM\Column(name="points", type="integer")
      */
     private $points;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rank", type="integer")
+     */
+    private $rank;
 
 
     /**
@@ -61,49 +61,26 @@ class History
     }
 
     /**
-     * Set seasonNumber
+     * Set league_day_id
      *
-     * @param integer $seasonNumber
+     * @param integer $league_day_id
      * @return History
      */
-    public function setSeasonNumber($seasonNumber)
+    public function setLeagueDayId($league_day_id)
     {
-        $this->seasonNumber = $seasonNumber;
+        $this->league_day_id = $league_day_id;
     
         return $this;
     }
 
     /**
-     * Get seasonNumber
+     * Get league_day_id
      *
      * @return integer 
      */
-    public function getSeasonNumber()
+    public function getLeagueDayId()
     {
-        return $this->seasonNumber;
-    }
-
-    /**
-     * Set dayNumber
-     *
-     * @param integer $dayNumber
-     * @return History
-     */
-    public function setDayNumber($dayNumber)
-    {
-        $this->dayNumber = $dayNumber;
-    
-        return $this;
-    }
-
-    /**
-     * Get dayNumber
-     *
-     * @return integer 
-     */
-    public function getDayNumber()
-    {
-        return $this->dayNumber;
+        return $this->league_day_id;
     }
 
     /**
@@ -150,5 +127,27 @@ class History
     public function getPoints()
     {
         return $this->points;
+    }
+    
+    /**
+     * Set rank
+     *
+     * @param integer $rank
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+    
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return integer 
+     */
+    public function getRank()
+    {
+        return $this->rank;
     }
 }

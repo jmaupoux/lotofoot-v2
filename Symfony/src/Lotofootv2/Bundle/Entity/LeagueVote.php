@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Vote
  *
- * @ORM\Table(name="lfv2_vote")
+ * @ORM\Table(name="lfv2_league_vote")
  * @ORM\Entity
  */
-class Vote
+class LeagueVote
 {
     /**
      * @var integer
@@ -24,13 +24,6 @@ class Vote
     /**
      * @var integer
      *
-     * @ORM\Column(name="day_id", type="integer")
-     */
-    private $day_id;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="account_id", type="integer")
      */
     private $account_id;
@@ -38,9 +31,9 @@ class Vote
     /**
      * @var integer
      *
-     * @ORM\Column(name="match_id", type="integer")
+     * @ORM\Column(name="league_match_id", type="integer")
      */
-    private $match_id;
+    private $league_match_id;
 
     /**
      * @var \DateTime
@@ -75,29 +68,6 @@ class Vote
     }
 
     /**
-     * Set day_id
-     *
-     * @param integer $dayId
-     * @return Vote
-     */
-    public function setDayId($dayId)
-    {
-        $this->day_id = $dayId;
-    
-        return $this;
-    }
-
-    /**
-     * Get day_id
-     *
-     * @return integer 
-     */
-    public function getDayId()
-    {
-        return $this->day_id;
-    }
-
-    /**
      * Set account_id
      *
      * @param integer $accountId
@@ -121,26 +91,26 @@ class Vote
     }
 
     /**
-     * Set match_id
+     * Set league_match_id
      *
      * @param integer $matchId
      * @return Vote
      */
-    public function setMatchId($matchId)
+    public function setLeagueMatchId($matchId)
     {
-        $this->match_id = $matchId;
+        $this->league_match_id = $matchId;
     
         return $this;
     }
 
     /**
-     * Get match_id
+     * Get league_match_id
      *
      * @return integer 
      */
-    public function getMatchId()
+    public function getLeagueMatchId()
     {
-        return $this->match_id;
+        return $this->league_match_id;
     }
 
     /**
