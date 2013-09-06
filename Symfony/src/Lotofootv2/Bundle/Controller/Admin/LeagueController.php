@@ -11,7 +11,7 @@ class LeagueController extends Controller
 {
     public function indexAction()
     {
-    	$em = $this->getDoctrine()->getEntityManager();
+    	$em = $this->getDoctrine()->getManager();
     	$query = $em->createQuery(
 		    'SELECT l
 		    FROM Lotofootv2Bundle:League l

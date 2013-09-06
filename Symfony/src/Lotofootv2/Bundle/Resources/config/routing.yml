@@ -15,6 +15,10 @@ _logout:
 _home:
     pattern:  /home
     defaults: { _controller: Lotofootv2Bundle:User\Home:index }
+    
+_league_vote:
+    pattern:  /league/vote
+    defaults: { _controller: Lotofootv2Bundle:User\League\Vote:index }
 
 _admin_league:
     pattern:  /admin/league
