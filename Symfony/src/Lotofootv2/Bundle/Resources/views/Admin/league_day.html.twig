@@ -5,17 +5,12 @@
 {% endblock %}
 
 {% block body %}
-	Admin de la journée <br/>
-	
-	{% if leagueDay is null %}
-	
-		Aucune journée en cours !
+
+	{% if leagueDay is not defined or leagueDay is null %}
 		
 		{% include 'Lotofootv2Bundle:Admin/_chunks_league_day:new.html.twig' %}
 		
 	{% else %}
-	
-		Journée trouvée !
 		
 		{% include 'Lotofootv2Bundle:Admin/_chunks_league_day:mark.html.twig' %}
 	

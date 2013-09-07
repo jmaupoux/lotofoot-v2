@@ -8,7 +8,7 @@
 	Vote ! <br/>
 	
 	{% if leagueDay is null %}
-	Aucun vote en cours
+		Aucun vote en cours
 		
 		//TODO afficher la précédente journée
 		
@@ -16,7 +16,66 @@
 	
 		Journée trouvée !
 		
-		//TODO formulaire de vote
+		<form action="{{ path('_league_vote_post') }}" method="post" style="width:800px;margin:auto">
+
+			<table class="table table-striped">
+				<tr>
+					<th>
+						N°
+					</th>
+					<th>
+						Domicile
+					</th>
+					<th>
+						Pari
+					</th>
+					<th>
+						Extérieur
+					</th>
+				</tr>
+				{% for match in matches %}
+				<tr {{(match.bonus)?'style="background-color:yellow"':''}}>
+					<td>
+						{{match.number}}
+					</td>
+					<td>
+						{{match.team_home}}
+					</td>
+					<td>
+						{% if not closed %}
+							<table>
+								<tr><th>1</th><th>N</th><th>2</th></tr>
+								<tr>
+									<td><input type="radio" name="result_{{match.id}}" value="1"
+										{% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
+									<td><input type="radio" name="result_{{match.id}}" value="N"
+										{% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
+									<td><input type="radio" name="result_{{match.id}}" value="2"
+										{% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}</td>
+								</tr>
+							</table>
+							Score :  <input type="text" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+						{% else %}
+							Pari : {{ app.request.get('result_'~match.id) }}<br/>
+							Score : {{ app.request.get('score_'~match.id) }}
+						{% endif %}
+					</td>
+					<td>
+						{{match.team_visitor}}
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+			
+			{% if not closed %}
+			<div class="control-group">
+				<div class="controls">
+					 <input type="submit" class="btn" value="Voter !"/>
+				</div>
+			</div>
+			{% endif %}
+		
+		</form>
 	
 	{% endif %}
 	

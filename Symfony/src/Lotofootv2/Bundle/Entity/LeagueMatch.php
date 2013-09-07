@@ -48,6 +48,27 @@ class LeagueMatch
      * @ORM\Column(name="team_visitor", type="string", length=255)
      */
     private $team_visitor;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="bonus", type="boolean")
+     */
+    private $bonus;
+    
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="score", type="string", length=3)
+     */
+    private $score;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="result", type="string", length=1)
+     */
+    private $result;
 
 
     /**
@@ -150,5 +171,74 @@ class LeagueMatch
     public function getTeamVisitor()
     {
         return $this->team_visitor;
+    }
+    
+/**
+     * Set team_visitor
+     *
+     * @param string $teamVisitor
+     * @return Matchh
+     */
+    public function setBonus($bonus)
+    {
+        $this->bonus = $bonus;
+    
+        return $this;
+    }
+
+    /**
+     * Get team_visitor
+     *
+     * @return string 
+     */
+    public function getBonus()
+    {
+        return $this->bonus;
+    }
+    
+    /**
+     * Set score
+     *
+     * @param string $score
+     * @return Results
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return string 
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * Set result
+     *
+     * @param string $result
+     * @return Results
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getResult()
+    {
+        return $this->result;
     }
 }
