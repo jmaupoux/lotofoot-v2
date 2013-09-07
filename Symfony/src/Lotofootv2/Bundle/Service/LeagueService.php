@@ -116,7 +116,7 @@ class LeagueService
 		    ORDER BY m.number'
 		)->setParameter('ldi', $leagueDayId);
 		
-		return $query->getArrayResult();
+		return $query->getResult();
     }
     
 	public function getLeagueDayVotes($leagueDayId, $accountId){
@@ -130,5 +130,22 @@ class LeagueService
 		->setParameter('ldi', $leagueDayId);
 		
 		return $query->getResult();
+    }
+    
+    public function voteLeagueDay($votes){
+    	$queryDel = $this->em->createQuery(
+		    'DELETE FROM Lotofootv2Bundle:LeagueVote v 
+		    WHERE v.account_id = :accountId 
+		    AND v.league_match_id = :lmid'
+		)->setParameter('accountId', $votes[0]->getAccountId())
+		->setParameter('lmid', $votes[0]->getLeagueMatchId());
+		
+		$queryDel->getResult();
+		
+		for($i=0;$i<count($votes);$i++){
+			$this->em->persist($votes[$i]);
+		}
+		
+		$this->em->flush();
     }
 }

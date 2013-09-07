@@ -45,14 +45,14 @@ class LeagueVote
     /**
      * @var string
      *
-     * @ORM\Column(name="score", type="string", length=3)
+     * @ORM\Column(name="score", type="string", length=3, nullable=true)
      */
     private $score;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="result", type="string", length=1)
+     * @ORM\Column(name="result", type="string", length=1, nullable=true)
      */
     private $result;
 

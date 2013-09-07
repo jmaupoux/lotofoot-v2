@@ -2,6 +2,10 @@
 
 namespace Lotofootv2\Bundle\Controller\User\League;
 
+use Lotofootv2\Bundle\Entity\LeagueVote;
+
+use Lotofootv2\Bundle\Entity\LeagueMatch;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -29,8 +33,8 @@ class VoteController extends Controller
 			$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
 			
 			for($i=0;$i<count($votes);$i++){
-				$request->request->set('score_'.$votes[$i].getMatchId(), $votes[$i]->getScore());
-				$request->request->set('result_'.$votes[$i].getMatchId(), $votes[$i]->getResult());
+				$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
+				$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
 			}
 			
 			return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
@@ -56,11 +60,21 @@ class VoteController extends Controller
 		$closed = ($day->getDeadline() < new DateTime());			
 		$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
     
-    	return $this->render('Lotofootv2Bundle:User\League:vote.html.twig',
-    	array(
-		'leagueDay' => $day,
-		'closed' => $closed,
-		'matches' => $matches
-		));
+		$votes = array();
+		
+		for($i=0;$i<count($matches);$i++){
+			$vote = new LeagueVote();	
+			$vote->setDate(new DateTime());
+			$vote->setAccountId($this->getUser()->getId());
+			$vote->setLeagueMatchId($matches[$i]->getId());
+			$vote->setResult($request->request->get('result_'.$matches[$i]->getId()));
+			$vote->setScore($request->request->get('score_'.$matches[$i]->getId()));
+			
+			array_push($votes, $vote);
+		}
+		
+		$this->get('league_service')->voteLeagueDay($votes);
+		
+    	return $this->redirect($this->generateUrl('_league_vote'));
     }
 }
