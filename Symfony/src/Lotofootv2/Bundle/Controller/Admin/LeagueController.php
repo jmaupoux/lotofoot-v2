@@ -32,14 +32,10 @@ class LeagueController extends Controller
     {
     	$league = new League();
     	$league->setName($request->request->get('name'));
-    	$league->setCurrentDay(0);
-    	$league->setNumber($request->request->get('number'));
     	$league->setState(1);
     	
-    	$em = $this->getDoctrine()->getManager();
-    	$em->persist($league);
-    	$em->flush();
-    	
+    	$this->get('league_service')->createLeague($league);
+
     	return $this->redirect($this->generateUrl('_admin_league'));
     }
 }

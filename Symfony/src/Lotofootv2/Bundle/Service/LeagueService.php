@@ -2,15 +2,19 @@
 
 namespace Lotofootv2\Bundle\Service;
 
+use Monolog\Logger;
+
 use Doctrine\ORM\EntityManager;
 
 class LeagueService
 {
 	private $em;
+	private $logger;
 	
-	public function __construct(EntityManager $em)
+	public function __construct(EntityManager $em, Logger $logger)
     {
         $this->em = $em;
+        $this->logger = $logger;
     }
 	
     public function getRunningLeague()
@@ -49,5 +53,26 @@ class LeagueService
 		->setParameter('corrected', false);
 		
 		return $query->getOneOrNullResult();
+    }
+    
+	public function createLeague($league)
+    {
+    	$league->setCurrentDay(0);
+    	
+    	$number = $this->em->createQuery(
+		    'SELECT max(l.number)
+		    FROM Lotofootv2Bundle:League l')->getSingleScalarResult();
+    	
+    	if($number > 0){
+    		$number = $number + 1;
+    	}else{
+    		$number = 1;
+    	}
+    	
+		$league->setNumber($number);
+		
+    	$this->em->persist($league);
+    	$this->em->flush();
+    	
     }
 }

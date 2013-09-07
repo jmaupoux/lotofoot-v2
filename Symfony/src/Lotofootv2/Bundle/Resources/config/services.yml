@@ -1,4 +1,4 @@
 services:
     league_service:
         class:        "Lotofootv2\Bundle\Service\\LeagueService"
-        arguments:    [@doctrine.orm.entity_manager]
+        arguments:    [@doctrine.orm.entity_manager, @logger]
