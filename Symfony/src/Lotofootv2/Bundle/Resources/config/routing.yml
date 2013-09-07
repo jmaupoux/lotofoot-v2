@@ -1,10 +1,14 @@
 _root:
-    pattern:  /
-    defaults: { _controller: Lotofootv2Bundle:Root:index }
+    resource: "@Lotofootv2Bundle/Controller/RootController.php"
+    type:     annotation
 
 _login:
-    pattern:  /login
-    defaults: { _controller: Lotofootv2Bundle:Login:index }
+    resource: "@Lotofootv2Bundle/Controller/LoginController.php"
+    type:     annotation
+    
+_register:
+    resource: "@Lotofootv2Bundle/Controller/RegisterController.php"
+    type:     annotation
 
 _login_check:
     pattern:  /login_check
@@ -13,21 +17,17 @@ _logout:
     pattern:  /logout
 
 _home:
-    pattern:  /home
-    defaults: { _controller: Lotofootv2Bundle:User\Home:index }
+    resource: "@Lotofootv2Bundle/Controller/User/HomeController.php"
+    type:     annotation
     
 _league_vote:
-    pattern:  /league/vote
-    defaults: { _controller: Lotofootv2Bundle:User\League\Vote:index }
+    resource: "@Lotofootv2Bundle/Controller/User/League/VoteController.php"
+    type:     annotation
 
 _admin_league:
-    pattern:  /admin/league
-    defaults: { _controller: Lotofootv2Bundle:Admin\League:index }
-    
-_admin_league_create:
-    pattern:  /admin/season/create
-    defaults: { _controller: Lotofootv2Bundle:Admin\League:create }
+    resource: "@Lotofootv2Bundle/Controller/Admin/LeagueController.php"
+    type:     annotation
 
-_admin_day:
-    pattern:  /admin/day
-    defaults: { _controller: Lotofootv2Bundle:Admin\LeagueDay:index }
+_admin_league_day:
+    resource: "@Lotofootv2Bundle/Controller/Admin/LeagueDayController.php"
+    type:     annotation

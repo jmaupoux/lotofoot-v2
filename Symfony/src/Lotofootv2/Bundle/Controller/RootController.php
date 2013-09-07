@@ -2,10 +2,14 @@
 
 namespace Lotofootv2\Bundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class RootController extends Controller
 {
+	/**
+     * @Route("/", name="_root")
+     */
     public function indexAction()
     {
     	if( $this->getUser() ){

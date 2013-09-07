@@ -3,10 +3,14 @@
 namespace Lotofootv2\Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Core\SecurityContext;
 
 class LoginController extends Controller
 {
+	/**
+     * @Route("/login", name="_login")
+     */
     public function indexAction()
     {
         $request = $this->getRequest();

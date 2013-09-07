@@ -17,6 +17,10 @@ security:
         root_firewall:
             pattern:    ^/$
             security: false
+        
+        register_firewall:
+            pattern:    ^/register
+            security: false
 
         login_firewall:
             pattern:    ^/login$

@@ -11,13 +11,13 @@
 	
 		Aucune journée en cours !
 		
-		//TODO formulaire de création
+		{% include 'Lotofootv2Bundle:Admin/_chunks_league_day:new.html.twig' %}
 		
 	{% else %}
 	
 		Journée trouvée !
 		
-		//TODO formulaire de correction
+		{% include 'Lotofootv2Bundle:Admin/_chunks_league_day:mark.html.twig' %}
 	
 	{% endif %}
 	
