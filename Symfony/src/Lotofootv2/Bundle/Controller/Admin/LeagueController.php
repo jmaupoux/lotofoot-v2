@@ -22,7 +22,11 @@ class LeagueController extends Controller
 		
 		$this->get('logger')->info('This will be written in logs'.$league);
 		
-		return $this->render('Lotofootv2Bundle:Admin:league.html.twig', array('league' => $league));    	
+		$toCorrect = $this->get('league_service')->getNotCorrectedLeagueDay() != null;
+		
+		return $this->render('Lotofootv2Bundle:Admin:league.html.twig', 
+			array('league' => $league, 'toCorrect' => $toCorrect)
+		);    	
     }
     
     /**

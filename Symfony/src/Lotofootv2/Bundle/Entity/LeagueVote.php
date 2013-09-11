@@ -55,6 +55,13 @@ class LeagueVote
      * @ORM\Column(name="result", type="string", length=1, nullable=true)
      */
     private $result;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="integer", nullable=true)
+     */
+    private $points;
 
 
     /**
@@ -180,5 +187,25 @@ class LeagueVote
     public function getResult()
     {
         return $this->result;
+    }
+    
+    /**
+     * @return Vote
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getPoints()
+    {
+        return $this->points;
     }
 }

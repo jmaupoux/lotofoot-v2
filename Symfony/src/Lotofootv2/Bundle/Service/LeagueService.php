@@ -148,4 +148,54 @@ class LeagueService
 		
 		$this->em->flush();
     }
+    
+    public function computeLeagueDay($matches){
+    	
+    	$leagueDay = $this->getNotCorrectedLeagueDay();
+    	
+    	$queryAccounts =  $this->em->createQuery(
+		    'SELECT a FROM Lotofootv2Bundle:Account a
+		    WHERE a.isActive = true');
+
+    	$accounts = $queryAccounts->getResult();
+    	
+    	for($i=0;$i<count($accounts);$i++){
+    		$account = $accounts[$i];
+    		$points = 0;
+    		
+    		$votes = $this->getLeagueDayVotes($leagueDay->getId(), $account->getId());
+    		
+    		for($v=0;$v<count($votes);$v++){
+    			$vote = $votes[$v];
+    			
+    			$votePoints = 0;
+    			
+    			for($m=0;$m<count($matches);$m++){
+    				$match = $matches[$m];
+    				
+    				if($match->getId() == $vote->getLeagueMatchId()){
+    					if($match->getScore() == $vote->getScore()){
+    						$votePoints = 3;
+    					}
+    					if($match->getResult() == $vote->getResult()){
+    						$votePoints += 1;
+    					}
+    					if($match->getBonus()){
+    						$votePoints *= 3;
+    					}
+    					break;
+    				}
+    			}
+    			
+    			$vote->setPoints($votePoints);
+    			$points += $votePoints;		
+    		}
+    		
+    		$account->setPoints($account->getPoints()+$points);
+    	}
+    	
+    	$leagueDay->setCorrected(true);
+    	
+    	$this->em->flush();
+    }
 }
