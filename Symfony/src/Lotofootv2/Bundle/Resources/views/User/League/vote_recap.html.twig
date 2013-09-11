@@ -1,0 +1,44 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	Récapitulatif des paris en cours : <br/>
+
+	<table class="table table-striped">
+		<tr>
+			<th>
+				N°
+			</th>
+			<th>
+				Domicile
+			</th>
+			<th>
+				Pari
+			</th>
+			<th>
+				Extérieur
+			</th>
+		</tr>
+		{% for match in matches %}
+		<tr {{(match.bonus)?'style="background-color:yellow"':''}}>
+			<td>
+				{{match.number}}
+			</td>
+			<td>
+				{{match.teamHome}}
+			</td>
+			<td>
+				Pari : {{ app.request.get('result_'~match.id) }}<br/>
+				Score : {{ app.request.get('score_'~match.id) }}
+			</td>
+			<td>
+				{{match.teamVisitor}}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+{% endblock %}

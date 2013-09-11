@@ -26,9 +26,7 @@ class VoteController extends Controller
 		
 		$accountId = $this->getUser()->getId();
 		
-		if($day != null){
-			$closed = ($day->getDeadline() < new DateTime());
-			
+		if($day != null){			
 			$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
 			$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
 			
@@ -40,13 +38,44 @@ class VoteController extends Controller
 			return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
 				array(
 				'leagueDay' => $day,
-				'closed' => $closed,
 				'matches' => $matches
 				)
 			);
+		}else{
+			if($this->get('league_service')->getNotCorrectedLeagueDay() != null){
+				return $this->redirect($this->generateUrl('_league_vote_recap'));
+			}			
 		}
 		
 		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', array('leagueDay' => $day));
+    }
+    
+    /**
+     * @Route("/league/vote/recap", name="_league_vote_recap")
+     */
+    public function recapAction(Request $request)
+    {
+    	$day = $this->get('league_service')->getNotCorrectedLeagueDay();
+    	
+    	if($day == null){
+    		return $this->redirect($this->generateUrl('_league_vote'));
+    	}
+    	
+    	$accountId = $this->getUser()->getId();
+    	$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
+		$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
+		
+    	for($i=0;$i<count($votes);$i++){
+			$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
+			$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
+		}
+		
+		return $this->render('Lotofootv2Bundle:User\League:vote_recap.html.twig', 
+			array(
+			'leagueDay' => $day,
+			'matches' => $matches
+			)
+		);
     }
     
     /**
@@ -57,7 +86,12 @@ class VoteController extends Controller
     {	$day = $this->get('league_service')->getOpenedLeagueDay();
     
 
-		$closed = ($day->getDeadline() < new DateTime());			
+		$closed = ($day->getDeadline() < new DateTime());
+
+		if($closed){
+			return $this->redirect($this->generateUrl('_league_vote'));
+		}
+		
 		$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
     
 		$votes = array();
