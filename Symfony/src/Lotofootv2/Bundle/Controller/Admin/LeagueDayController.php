@@ -20,7 +20,7 @@ class LeagueDayController extends Controller
     {		
 		$leagueDay = $this->get('league_service')->getNotCorrectedLeagueDay();
 		
-		$stillOpen = false;
+		$closed = true;
 		$matches = null;
 		
 		if($leagueDay != null){
