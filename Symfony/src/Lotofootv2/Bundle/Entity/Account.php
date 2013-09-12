@@ -62,6 +62,11 @@ class Account implements UserInterface, \Serializable
      * @ORM\Column(name="points", type="integer")
      */
     private $points;
+    
+    /**
+     * @ORM\Column(name="rank", type="integer")
+     */
+    private $rank;
 
     public function __construct()
     {
@@ -136,6 +141,18 @@ class Account implements UserInterface, \Serializable
     public function getPoints()
     {
     	return $this->points;
+    }
+    
+	public function setRank($rank)
+    {
+    	$this->rank = $rank;
+    
+    	return $this;
+    }
+
+    public function getRank()
+    {
+    	return $this->rank;
     }
 
     /**

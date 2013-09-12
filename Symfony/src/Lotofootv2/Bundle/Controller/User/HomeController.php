@@ -13,6 +13,6 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-    	return $this->render('Lotofootv2Bundle:User:home.html.twig', array('name' => $this->getUser()->getUsername()));
+    	return $this->render('Lotofootv2Bundle:User:home.html.twig');
     }
 }

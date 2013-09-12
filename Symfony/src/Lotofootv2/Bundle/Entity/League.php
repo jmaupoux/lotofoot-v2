@@ -49,7 +49,6 @@ class League
      */
     private $state;
 
-
     /**
      * Get id
      *

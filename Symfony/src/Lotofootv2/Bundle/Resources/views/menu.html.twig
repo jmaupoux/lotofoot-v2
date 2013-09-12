@@ -1,17 +1,11 @@
 <div class="navibar">
 	<div class="container">
-		<span class="navibar-element">Hello {{ name }}</span>
-		<span class="navibar-element">Classement : 3</span>
-		<span class="navibar-element">Score : 42</span>
+		<span class="navibar-element">Hello {{ app.user.username }}</span>
+		<span class="navibar-element">Classement : {{ app.user.rank }}</span>
+		<span class="navibar-element">Score : {{ app.user.points }}</span>
 		<div class="logo-disconnect"></div>
 	</div>	
 </div>	
-	
-	
-	
-	 
-		
-
 
 
 <div class="container">
