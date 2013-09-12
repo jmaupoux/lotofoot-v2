@@ -5,7 +5,7 @@ INSERT INTO `lfv2_league` (`id`, `number`, `currentDay`, `name`, `state`) VALUES
 (1, 1, 0, 's1', 1);
 
 INSERT INTO `lfv2_league_day` (`id`, `number`, `league_id`, `deadline`, `corrected`) VALUES
-(1, 2, 1, '1994-12-13 16:59:00', 1);
+(1, 1, 1, '2014-12-13 16:59:00', 0);
 
 INSERT INTO `lfv2_league_match` (`id`, `number`, `league_day_id`, `team_home`, `team_visitor`, `bonus`, `score`, `result`) VALUES
 (1, 1, 1, 'fsdfdf', 'sdfsdf', 1, '', ''),
