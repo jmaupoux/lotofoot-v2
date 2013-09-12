@@ -1,0 +1,181 @@
+#content{
+	
+}
+
+.container{
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 20px 0px 20px;	
+	
+}
+
+/*Layout*/
+/*********************************************/
+body{
+	background: rgb(55,46,50);
+	background-image: url(../img/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center 0;
+	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
+	font-size: 14px;
+	/*margin: 0;*/
+}
+.bg-transparent{
+	opacity:0.85;
+    filter:alpha(opacity=85); 
+    background: rgb(255,255,255);
+    height: 683px;
+    box-shadow: 6px 6px 15px black;	
+    
+}
+
+.navibar{
+	height: 36px;
+	background: rgb(55,46,50);
+	color: rgb(255,255,255);
+}
+
+.navibar-element{
+	font-size: 16px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-top: 7px;
+	border-right: 1px solid rgb(255,255,255);
+	
+}
+
+.logo-disconnect{
+	float: right;
+	background-image: url(../img/logo-disconnect.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 19px;
+	height: 22px;
+}
+
+.logo-ballon{
+	background-image: url(../img/logo-ballon.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 0;
+	margin-top: 1px;
+	width: 85px;
+	height: 90px;
+	
+}
+
+.menu-content{
+	width: 868px;
+	height: 90px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0px;
+	margin-right: 0;
+	margin-left: -4px;
+}
+
+.logo-lotofoot{
+	background-image: url(../img/logo-lotofoot.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	vertical-align: top;
+	margin: 12px 0 9px 19px;
+	width: 868px;
+	height: 31px;
+	
+}
+
+/*Menu*/
+/*********************************************/
+
+.menu-1-accueil{
+	background-image: url(../img/menu-1-accueil.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 120px;
+	height: 38px;
+	margin: 0;
+}
+
+.menu-2-championnat{
+	background-image: url(../img/menu-2-championnat.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 133px;
+	height: 38px;
+	margin-top: 2px;
+}
+
+.menu-3-championsleague{
+	background-image: url(../img/menu-3-championsleague.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 174px;
+	height: 38px;
+	margin-top: 2px;
+}
+
+.menu-4-calendar{
+	background-image: url(../img/menu-4-calendrier.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 132px;
+	height: 38px;
+	margin-top: 2px;
+}
+
+.menu-5-forum{
+	background-image: url(../img/menu-5-forum.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 132px;
+	height: 38px;
+	margin-top: 2px;
+}
+
+.menu-6-stats{
+	background-image: url(../img/menu-6-stats.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 177px;
+	height: 38px;
+	margin-top: 2px;
+}
+
+
+/*Login*/
+/*********************************************/
+.login-box{
+	width: 541px;
+	height: 312px;
+	margin-top: 100px;
+	margin-left: auto;
+  	margin-right: auto;
+	background: rgb(64,55,59);
+	color: rgb(255,255,255);
+	box-shadow: 6px 6px 20px black;	
+	font-size: 18px;
+}
+
+.login-top{
+	height: 161px;
+	background: url(../img/login-logo.jpg) no-repeat;
+	
+}
+
+.login-bottom{
+	height: 141px;
+	border-left: 2px solid rgb(255,255,255);
+	border-bottom: 2px solid rgb(255,255,255);
+	border-right: 2px solid rgb(255,255,255);
+	padding-top: 10px;
+	padding-left: 30px;
+	background: rgb(64,55,59);
+}
+
+.login-controls{
+	float: left;
+}
+/****************************************************/

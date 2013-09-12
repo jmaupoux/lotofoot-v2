@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="login">
+	<div class="login-box">
 		<div class="login-top">
 		</div>
 		<div class="login-bottom">
@@ -18,9 +18,9 @@
 			<form action="{{ path('_login_check') }}" method="post" class="form form-horizontal">
 				<div class="control-group">
 					<label class="control-label" for="_username">
-						 Nom d'utilisateur <span style="color:red"> * </span> 
+						 Pseudo 
 					</label>
-					<div class="controls">
+					<div class="login-controls">
 						<div class="input-prepend">
 							<span class="add-on">
 								<i class="icon-user"></i>
@@ -31,9 +31,9 @@
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="_username">
-						 Mot de passe <span style="color:red"> * </span> 
+						 Mot de passe 
 					</label>
-					<div class="controls">
+					<div class="login-controls">
 						<div class="input-prepend">
 							<span class="add-on">
 								<i class="icon-lock"></i>
@@ -46,15 +46,15 @@
 			    <input type="hidden" name="_target_path" value="/home" />
 				
 				<div class="control-group">
-					<div class="controls">
+					<div class="login-controls">
 						<button type="submit" class="btn" value="">Connexion</button>	
 					</div>
 
-					<div class="controls">
+					<div class="login-controls">
 						<a class="btn" href="{{path('_register')}}">Créer un compte</a>	
 					</div>
 					
-					<div class="controls">
+					<div class="login-controls">
 						<a class="btn" href="{{path('_register')}}">Mot de pass oublié</a>	
 					</div>
 				</div>
