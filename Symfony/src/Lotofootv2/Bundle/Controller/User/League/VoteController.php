@@ -3,6 +3,7 @@
 namespace Lotofootv2\Bundle\Controller\User\League;
 
 use Lotofootv2\Bundle\Entity\LeagueVote;
+use Lotofootv2\Bundle\LotofootUtil;
 
 use Lotofootv2\Bundle\Entity\LeagueMatch;
 
@@ -97,12 +98,34 @@ class VoteController extends Controller
 		$votes = array();
 		
 		for($i=0;$i<count($matches);$i++){
+			
+			if(LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId())) != '' 
+				&& ! LotofootUtil::validScore($request->request->get('score_'.$matches[$i]->getId()))){
+    			return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
+    				array('error' => 'Score incorrect pour le match : '.($i+1),
+    				'leagueDay' => $day,
+    				'matches' => $matches)
+    			);
+    		}
+			if(LotofootUtil::clearSpaces($request->request->get('result_'.$matches[$i]->getId())) != '' 
+				&& ! LotofootUtil::validResult($request->request->get('result_'.$matches[$i]->getId()))){
+    			return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
+    				array('error' => 'Résultat incorrect pour le match : '.($i+1),
+    				'leagueDay' => $day,
+    				'matches' => $matches)
+    			);
+    		}
+			
 			$vote = new LeagueVote();	
 			$vote->setDate(new DateTime());
 			$vote->setAccountId($this->getUser()->getId());
 			$vote->setLeagueMatchId($matches[$i]->getId());
-			$vote->setResult($request->request->get('result_'.$matches[$i]->getId()));
-			$vote->setScore($request->request->get('score_'.$matches[$i]->getId()));
+			$vote->setResult(
+				LotofootUtil::clearSpaces($request->request->get('result_'.$matches[$i]->getId()))
+			);
+			$vote->setScore(
+				LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()))
+			);
 			
 			array_push($votes, $vote);
 		}

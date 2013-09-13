@@ -67,6 +67,11 @@ class Account implements UserInterface, \Serializable
      * @ORM\Column(name="rank", type="integer")
      */
     private $rank;
+    
+    /**
+     * @ORM\Column(name="progression", type="integer")
+     */
+    private $progression;
 
     public function __construct()
     {
@@ -176,6 +181,29 @@ class Account implements UserInterface, \Serializable
     public function getEmail()
     {
         return $this->email;
+    }
+    
+    /**
+     * Set progression
+     *
+     * @param string $progression
+     * @return Account
+     */
+    public function setProgression($progression)
+    {
+        $this->progression = $progression;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getProgression()
+    {
+        return $this->progression;
     }
     
     /**

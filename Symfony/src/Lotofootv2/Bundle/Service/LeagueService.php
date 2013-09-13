@@ -149,8 +149,15 @@ class LeagueService
 		$this->em->flush();
     }
     
-    public function computeLeagueDay($matches){
+    public function processLeagueDay($matches){
     	
+    	$this->computeLeagueDayPoints($matches);
+    	$this->em->flush();
+    	$this->updateRanks();
+    	$this->em->flush();
+    }
+    
+    private function computeLeagueDayPoints($matches){
     	$leagueDay = $this->getNotCorrectedLeagueDay();
     	
     	$queryAccounts =  $this->em->createQuery(
@@ -190,12 +197,28 @@ class LeagueService
     			$vote->setPoints($votePoints);
     			$points += $votePoints;		
     		}
-    		
+    		$this->logger->debug('Points : '.$points.' for : '.$account->getUsername().'');
     		$account->setPoints($account->getPoints()+$points);
     	}
     	
     	$leagueDay->setCorrected(true);
+    }
+    
+	public function updateRanks()
+    {
+    	$queryAccounts =  $this->em->createQuery(
+		    'SELECT a FROM Lotofootv2Bundle:Account a
+		    WHERE a.isActive = true
+		    ORDER BY a.points DESC');
+
+    	$accounts = $queryAccounts->getResult();
     	
-    	$this->em->flush();
+    	for($i=0;$i<count($accounts);$i++){
+    		$account = $accounts[$i];
+    		
+    		$oldRank = $account->getRank();
+    		$account->setRank($i+1);
+    		$account->setProgression($oldRank-$account->getRank());
+    	}
     }
 }

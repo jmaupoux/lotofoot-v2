@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \DateTime;
 
 use Lotofootv2\Bundle\Entity\LeagueMatch;
+use Lotofootv2\Bundle\LotofootUtil;
 
 class LeagueDayController extends Controller
 {
@@ -112,33 +113,25 @@ class LeagueDayController extends Controller
     	$matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());
     	
     	for($i=1;$i<=13;$i++){
-    		if(!$request->request->has('score_'.$matches[$i-1]->getId())){
-    			 return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Score incorrect pour le match : '.$i));
-    		}
-    		
-    		$score = preg_split("/-/", $request->request->get('score_'.$matches[$i-1]->getId()));
-    		
-    		if(count($score) != 2){
+    		$error = null;
+    		if(! LotofootUtil::validScore($request->request->get('score_'.$matches[$i-1]->getId()))){
     			return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Score incorrect pour le match : '.$i));
     		}
-    		
-    		$test = intval($score[0]);
-    		$test = intval($score[1]);
     	}
     	
 	    for($i=1;$i<=13;$i++){	
-    		$score = $request->request->get('score_'.$matches[$i-1]->getId());
+    		$score = LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i-1]->getId()));
     		$matches[$i-1]->setScore($score);
     		
     		$score = preg_split("/-/", $score);
     		
     		$result = (intval($score[0]) > intval($score[1]))? '1' :
-    				((intval($score[0]) < intval($score[1])) ? '2' : 'N');	
+    				(intval($score[0]) < intval($score[1]) ? '2' : 'N');	
     		
     		$matches[$i-1]->setResult($result);
     	}
 
-    	$this->get('league_service')->computeLeagueDay($matches);
+    	$this->get('league_service')->processLeagueDay($matches);
 		
     	return $this->redirect($this->generateUrl('_admin_league'));
     }
