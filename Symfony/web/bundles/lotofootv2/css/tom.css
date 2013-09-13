@@ -69,12 +69,64 @@ body{
 .menu-content{
 	width: 868px;
 	height: 90px;
+	filter:alpha(opacity=100); 
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 0px;
 	margin-right: 0;
 	margin-left: -4px;
+	list-style: none;
+	padding: 0;
 }
+
+.menu-navigation{
+	display: inline-block;
+	margin:0;
+	padding:0;
+}
+
+/*.navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #000;
+  color: #fff;
+  width: 200px;
+  font: 1.2em "Trebuchet MS", sans-serif;
+}
+
+ul.navigation{
+	display: block;
+}
+
+.navigation a, .navigation span {
+  display: block;
+
+  color: #fff;
+  text-decoration: none;
+  background: #000 url(menu-item.png) left bottom no-repeat;
+}
+.navigation .toggleSubMenu a, .navigation .toggleSubMenu span {
+  background-image: url(menu-item-deroule.png);
+}
+.navigation .open a, .navigation .open span {
+  background-image: url(menu-item-enroule.png);
+}
+.navigation a:hover, .navigation a:focus, .navigation a:active {
+  text-decoration: underline;
+}
+.subMenu {
+  font-size: .8em;
+  background: #ccc url(subMenu.png) 0 0 repeat-x;
+  font-size: .9em;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #666;
+}
+ul.subMenu a {
+  background: none;
+
+}*/
 
 .logo-lotofoot{
 	background-image: url(../img/logo-lotofoot.png);
@@ -97,7 +149,9 @@ body{
 	width: 120px;
 	height: 38px;
 	margin: 0;
+	list-style: none;
 }
+
 
 .menu-2-championnat{
 	background-image: url(../img/menu-2-championnat.png);
@@ -106,6 +160,17 @@ body{
 	width: 133px;
 	height: 38px;
 	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-2-championnat:hover{
+	background-image: url(../img/menu-2-championnat-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 133px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
 }
 
 .menu-3-championsleague{
@@ -115,6 +180,17 @@ body{
 	width: 174px;
 	height: 38px;
 	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-3-championsleague:hover{
+	background-image: url(../img/menu-3-championsleague-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 174px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
 }
 
 .menu-4-calendar{
@@ -124,6 +200,17 @@ body{
 	width: 132px;
 	height: 38px;
 	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-4-calendar:hover{
+	background-image: url(../img/menu-4-calendrier-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 132px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
 }
 
 .menu-5-forum{
@@ -133,6 +220,17 @@ body{
 	width: 132px;
 	height: 38px;
 	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-5-forum:hover{
+	background-image: url(../img/menu-5-forum-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 132px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
 }
 
 .menu-6-stats{
@@ -142,8 +240,60 @@ body{
 	width: 177px;
 	height: 38px;
 	margin-top: 2px;
+	list-style: none;
 }
 
+.menu-6-stats:hover{
+	background-image: url(../img/menu-6-stats-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 177px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+}
+
+.submenu-2-championnat{
+	margin-top: 38px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu-3-championsleague{
+	margin-top: 38px;
+	margin-left: 20px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu-6-stats{
+	margin-top: 40px;
+	margin-left: 700px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu{
+	width: 134px;
+	height: 24px;
+	background-image: url(../img/sub-menu-bg.jpg);
+	background-repeat: repeat-x;
+	position: relative;
+	z-index: 4;
+	list-style: none;
+	color: white;
+	border: 1px solid rgb(55,46,50);
+}
+
+.submenu:hover{
+	width: 134px;
+	height: 24px;
+	background-color: white;
+	background-image: none;
+	list-style: none;
+	color: rgb(55,46,50);
+	border: 1px solid rgb(55,46,50);
+}
 
 /*Login*/
 /*********************************************/
