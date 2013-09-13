@@ -1,3 +1,9 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src='menu_index.js' type='text/javascript'></script>
+
+
+
+
 <div class="navibar">
 	<div class="container">
 		<span class="navibar-element">Hello {{ app.user.username }}</span>
@@ -15,19 +21,36 @@
 		<div class="menu-content">
 			<div class="logo-lotofoot">
 			</div>
-			<div class="menu-1-accueil" onclick="location.href='{{ path('_home') }}';" style="cursor: pointer;">
-			</div>
-			<div class="menu-2-championnat">
-			</div>
-			<div class="menu-3-championsleague">
-			</div>
-			<div class="menu-4-calendar">
-			</div>
-			<div class="menu-5-forum">
-			</div>
-			<div class="menu-6-stats">
-			</div>
-		</div>
+			<ul class="menu-navigation">
+			  <a href="{{ path('_home') }}" title="Aller à la page d'accueil"><li class="menu-1-accueil"></li></a>
+			  <li class="menu-2-championnat"><span></span>
+			    <ul class="submenu-2-championnat">
+			      <li class="submenu"><a href="{{ path('_league_vote') }}" title="Parier"></a>Parier</li>
+			      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
+			      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
+			      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
+			    </ul>
+			    </li>
+			    <li class="menu-3-championsleague">
+			      <ul class="submenu-3-championsleague">
+			       <li class="submenu"><a href="#" title="Parier"></a>Parier</li>
+			      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
+			      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
+			      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
+			      </ul>
+			    </li>
+			    <li class="menu-4-calendar"><a href="#" title=""></a></li>
+			    <li class="menu-5-forum"><a href="#" title=""></a></li>
+			    <li class="menu-6-stats"><a href="#" title=""></a></li>
+			    <ul class="submenu-6-stats">
+				    <li class="submenu"><a href="#" title="Équipes"></a>Équipes</li>
+			      	<li class="submenu"><a href="#" title="Récompenses"></a>Récompenses</li>
+				</ul>
+			    
+			</ul>
+		</div>		
+		
+		
 		
 		
 		<br/><br/>
