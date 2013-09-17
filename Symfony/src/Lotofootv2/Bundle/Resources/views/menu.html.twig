@@ -1,6 +1,5 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src='menu_index.js' type='text/javascript'></script>
-
+<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/menu.js')}}"></script> 
 
 
 
@@ -25,7 +24,7 @@
 			  <a href="{{ path('_home') }}" title="Aller à la page d'accueil"><li class="menu-1-accueil"></li></a>
 			  <li class="menu-2-championnat"><span></span>
 			    <ul class="submenu-2-championnat">
-			      <li class="submenu"><a href="{{ path('_league_vote') }}" title="Parier"></a>Parier</li>
+			      <a href="{{ path('_league_vote') }}" title="Parier"><li class="submenu">Parier</li></a>
 			      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
 			      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
 			      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
@@ -43,7 +42,7 @@
 			    <li class="menu-5-forum"><a href="#" title=""></a></li>
 			    <li class="menu-6-stats"><a href="#" title=""></a></li>
 			    <ul class="submenu-6-stats">
-				    <li class="submenu"><a href="#" title="Équipes"></a>Équipes</li>
+				    <li class="submenu"><a href="http://www.lequipe.fr" title="Équipes"></a>Équipes</li>
 			      	<li class="submenu"><a href="#" title="Récompenses"></a>Récompenses</li>
 				</ul>
 			    
