@@ -1,5 +1,5 @@
 #content{
-	
+		
 }
 
 .container{
@@ -26,7 +26,7 @@ body{
     filter:alpha(opacity=85); 
     background: rgb(255,255,255);
     height: 683px;
-    box-shadow: 6px 6px 15px black;	
+    box-shadow: 6px 0px 15px black;
     
 }
 
@@ -47,7 +47,6 @@ body{
 
 .logo-disconnect{
 	float: right;
-	background-image: url(../img/logo-disconnect.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 19px;
@@ -101,7 +100,6 @@ body{
 /*********************************************/
 
 .menu-1-accueil{
-	background-image: url(../img/menu-1-accueil.png);
 	background-repeat: no-repeat;
 	float:left;
 	width: 120px;
@@ -256,6 +254,16 @@ body{
 	border: 1px solid rgb(55,46,50);
 }
 
+.menu-lien{
+	color: white;
+	text-decoration:none;
+}
+
+.menu-lien:hover{	
+	color: black;
+	text-decoration:none;
+}
+
 /*Login*/
 /*********************************************/
 .login-box{
@@ -289,7 +297,64 @@ body{
 .login-controls{
 	float: left;
 }
+
+
+
+/*Footer*/
+/*********************************************/
+.footer-block{
+	height: 109px;
+	background: rgb(51,42,46);
+	box-shadow: 6px 0px 15px black;
+	padding: 10px 0 10px 130px;
+	color: white;
+}
+
+.footer-col{
+	width: 200px;
+	float: left;
+	padding-left: 45px;
+	border: none;
+}
+
+.footer-separate{
+	width: 1px;
+	height: 109px;
+	float: left;
+	background: rgb(255,255,255);
+}
+
+
+.footer-lien{
+	text-decoration:none;
+	color: white;
+	margin: 0;
+	padding-left: 18px;
+	text-indent: -10px;
+}
+
+.footer-ul{
+	text-decoration:none;
+	color: white;
+	margin: 0;
+	padding-left: 18px;
+	text-indent: -10px;
+}
+
+.footer-lien:hover{
+	text-decoration: underline;
+}
+
+.footer-title{
+	font-size: 15px;
+	line-height: 1.7em;
+}
+
 /****************************************************/
-a{
+
+
+a{	
+	color: white;
 	text-decoration:none;
 }
+
