@@ -1,6 +1,5 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src='menu_index.js' type='text/javascript'></script>
-
+<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/menu.js')}}"></script> 
 
 
 
@@ -9,7 +8,7 @@
 		<span class="navibar-element">Hello {{ app.user.username }}</span>
 		<span class="navibar-element">Classement : {{ app.user.rank }}</span>
 		<span class="navibar-element">Score : {{ app.user.points }}</span>
-		<div class="logo-disconnect"></div>
+		<div class="logo-disconnect"><a href="{{ path('_logout') }}"><img src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}"/></a></div>
 	</div>	
 </div>	
 
@@ -22,85 +21,39 @@
 			<div class="logo-lotofoot">
 			</div>
 			<ul class="menu-navigation">
-			  <a href="{{ path('_home') }}" title="Aller à la page d'accueil"><li class="menu-1-accueil"></li></a>
-			  <li class="menu-2-championnat"><span></span>
+			  <li class="menu-1-accueil"><a href="{{ path('_home') }}" title="Aller à la page d'accueil"><img src="{{ asset('bundles/lotofootv2/img/menu-1-accueil.png') }}"/></a></li>
+			  <li class="menu-2-championnat">
 			    <ul class="submenu-2-championnat">
-			      <li class="submenu"><a href="{{ path('_league_vote') }}" title="Parier"></a>Parier</li>
+			      <li class="submenu"> <a class="menu-lien" href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
 			      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
 			      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
 			      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
+			      {% if is_granted('ROLE_ADMIN') %}
+			      <li class="submenu"><a class="menu-lien" href="{{ path('_admin_league') }}" title="Administrer un championnat">Admin Ligue</a></li>
+			      <li class="submenu"><a class="menu-lien" href="{{ path('_admin_league_day') }}" title="Administrer une journée de championnat">Admin Journée</a></li>
+			      {% endif %}
 			    </ul>
 			    </li>
 			    <li class="menu-3-championsleague">
 			      <ul class="submenu-3-championsleague">
-			       <li class="submenu"><a href="#" title="Parier"></a>Parier</li>
-			      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
-			      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
-			      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
+				      <li class="submenu"><a href="#" title="Parier"></a>Parier</li>
+				      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
+				      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
+				      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
+				      {% if is_granted('ROLE_ADMIN') %}
+				      <li class="submenu"><a href="#" title="Administrer une Champion's League"></a>Admin Ligue</li>
+				      <li class="submenu"><a href="#" title="Administrer une journée de Champion's League"></a>Admin Journée</li>
+				      {% endif %}
 			      </ul>
 			    </li>
 			    <li class="menu-4-calendar"><a href="#" title=""></a></li>
 			    <li class="menu-5-forum"><a href="#" title=""></a></li>
-			    <li class="menu-6-stats"><a href="#" title=""></a></li>
-			    <ul class="submenu-6-stats">
-				    <li class="submenu"><a href="#" title="Équipes"></a>Équipes</li>
-			      	<li class="submenu"><a href="#" title="Récompenses"></a>Récompenses</li>
-				</ul>
-			    
-			</ul>
+			    <li class="menu-6-stats"></li>
+				    <ul class="submenu-6-stats">
+					    <li class="submenu"><a class="menu-lien" href="http://www.lequipe.fr" title="Équipes">Équipes</a></li>
+				      	<li class="submenu"><a href="#" title="Récompenses"></a>Récompenses</li>
+					</ul>  
+			</ul>			
 		</div>		
-		
-		
-		
-		
-		<br/><br/>
-			<div class="navbar-inner">
-			<ul class="nav">
-				
-				<li class="big-icon">
-					<a href="{{ path('_league_vote') }}">
-						<img src="{{ asset('bundles/lotofootv2/img/menu/home.png') }}"></img> <br/>
-						Voter !
-					</a>
-				</li>
-			</ul>
-			
-			
-			<ul class="nav nav pull-right">
-			
-				{% if is_granted('ROLE_ADMIN') %}
-				<li class="divider-vertical"></li>
-				<li class="dropdown big-icon">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<img src="{{ asset('bundles/lotofootv2/img/menu/admin.png') }}"/> <br/>
-						Administration
-						<b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="{{ path('_admin_league') }}">
-								Administrer la league
-							</a>
-						</li>
-						<li>
-							<a href="{{ path('_admin_league_day') }}">
-								Administrer la journée
-							</a>
-						</li>
-					</ul>
-				</li>
-
-				{% endif %}
-				
-				<li class="divider-vertical"></li>
-				<li style="text-align:left">
-					<a href="#">
-						<i class="icon-user" ></i> Mon compte
-					</a>
-					<a href="{{ path('_logout') }}"><i class="icon-chevron-right" ></i> Déconnexion </a>
-				</li>
-				
-			</ul>
-		</div>
-	</div>
+		</div>	
 </div>

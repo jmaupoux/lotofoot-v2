@@ -1,5 +1,5 @@
 #content{
-	
+		
 }
 
 .container{
@@ -26,7 +26,7 @@ body{
     filter:alpha(opacity=85); 
     background: rgb(255,255,255);
     height: 683px;
-    box-shadow: 6px 6px 15px black;	
+    box-shadow: 6px 0px 15px black;
     
 }
 
@@ -47,7 +47,6 @@ body{
 
 .logo-disconnect{
 	float: right;
-	background-image: url(../img/logo-disconnect.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 19px;
@@ -85,48 +84,6 @@ body{
 	padding:0;
 }
 
-/*.navigation {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #000;
-  color: #fff;
-  width: 200px;
-  font: 1.2em "Trebuchet MS", sans-serif;
-}
-
-ul.navigation{
-	display: block;
-}
-
-.navigation a, .navigation span {
-  display: block;
-
-  color: #fff;
-  text-decoration: none;
-  background: #000 url(menu-item.png) left bottom no-repeat;
-}
-.navigation .toggleSubMenu a, .navigation .toggleSubMenu span {
-  background-image: url(menu-item-deroule.png);
-}
-.navigation .open a, .navigation .open span {
-  background-image: url(menu-item-enroule.png);
-}
-.navigation a:hover, .navigation a:focus, .navigation a:active {
-  text-decoration: underline;
-}
-.subMenu {
-  font-size: .8em;
-  background: #ccc url(subMenu.png) 0 0 repeat-x;
-  font-size: .9em;
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid #666;
-}
-ul.subMenu a {
-  background: none;
-
-}*/
 
 .logo-lotofoot{
 	background-image: url(../img/logo-lotofoot.png);
@@ -143,7 +100,6 @@ ul.subMenu a {
 /*********************************************/
 
 .menu-1-accueil{
-	background-image: url(../img/menu-1-accueil.png);
 	background-repeat: no-repeat;
 	float:left;
 	width: 120px;
@@ -162,6 +118,7 @@ ul.subMenu a {
 	margin-top: 2px;
 	list-style: none;
 }
+
 
 .menu-2-championnat:hover{
 	background-image: url(../img/menu-2-championnat-hoover.png);
@@ -259,6 +216,8 @@ ul.subMenu a {
 	padding: 0;
 }
 
+
+
 .submenu-3-championsleague{
 	margin-top: 38px;
 	margin-left: 20px;
@@ -295,6 +254,16 @@ ul.subMenu a {
 	border: 1px solid rgb(55,46,50);
 }
 
+.menu-lien{
+	color: white;
+	text-decoration:none;
+}
+
+.menu-lien:hover{	
+	color: black;
+	text-decoration:none;
+}
+
 /*Login*/
 /*********************************************/
 .login-box{
@@ -328,4 +297,64 @@ ul.subMenu a {
 .login-controls{
 	float: left;
 }
+
+
+
+/*Footer*/
+/*********************************************/
+.footer-block{
+	height: 109px;
+	background: rgb(51,42,46);
+	box-shadow: 6px 0px 15px black;
+	padding: 10px 0 10px 130px;
+	color: white;
+}
+
+.footer-col{
+	width: 200px;
+	float: left;
+	padding-left: 45px;
+	border: none;
+}
+
+.footer-separate{
+	width: 1px;
+	height: 109px;
+	float: left;
+	background: rgb(255,255,255);
+}
+
+
+.footer-lien{
+	text-decoration:none;
+	color: white;
+	margin: 0;
+	padding-left: 18px;
+	text-indent: -10px;
+}
+
+.footer-ul{
+	text-decoration:none;
+	color: white;
+	margin: 0;
+	padding-left: 18px;
+	text-indent: -10px;
+}
+
+.footer-lien:hover{
+	text-decoration: underline;
+}
+
+.footer-title{
+	font-size: 15px;
+	line-height: 1.7em;
+}
+
 /****************************************************/
+
+
+a{	
+	color: white;
+	text-decoration:none;
+}
+
