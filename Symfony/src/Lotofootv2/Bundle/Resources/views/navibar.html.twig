@@ -1,0 +1,8 @@
+<div class="navibar">
+	<div class="container">
+		<span class="navibar-element">Hello {{ app.user.username }}</span>
+		<span class="navibar-element">Classement : {{ app.user.rank }}</span>
+		<span class="navibar-element">Score : {{ app.user.points }}</span>
+		<div class="logo-disconnect"><a href="{{ path('_logout') }}"><img src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}"/></a></div>
+	</div>	
+</div>	

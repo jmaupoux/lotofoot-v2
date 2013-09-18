@@ -14,15 +14,24 @@
 	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/tom.css') }}" />
     </head>
     <body>
-    	{% block menu %}
+        {% block navibar %}
 		{% endblock %}
-    
-        <div id="content">
-			{% block body %}
+    <div class="container">
+		<div class="bg-transparent">
+	    	{% block menu %}
 			{% endblock %}
+	    
+	        <div id="content">
+				{% block title_home %}
+				{% endblock %}
+				{% block actu_home %}
+				{% endblock %}
+			</div>
 		</div>
-		
+	</div>
+	
 		{% block footer %}
 		{% endblock %}
+		
 	</body>
 </html>

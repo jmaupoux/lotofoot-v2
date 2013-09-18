@@ -2,12 +2,20 @@
 {% extends 'Lotofootv2Bundle::layout.html.twig' %}
 
 
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
 {% block menu %}
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
-
-{% block body %}
+{% block title_home %}
+	{% include 'Lotofootv2Bundle::title_home.html.twig' %}
+{% endblock %}
+	
+{% block actu_home %}
+	{% include 'Lotofootv2Bundle::actu_1.html.twig' %}
 {% endblock %}
 
 {% block footer %}

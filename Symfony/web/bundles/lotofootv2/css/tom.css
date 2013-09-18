@@ -298,6 +298,55 @@ body{
 	float: left;
 }
 
+/*home*/
+/*********************************************/
+.title-body{
+	height: 32px;
+	width: 900px;
+	padding: 0px 40px 0px 40px;	
+	margin-top : 40px;
+	color: rgb(55,46,50);
+	font-size: 24px;
+	text-align: center;
+	float:left;
+}
+
+.prev{
+	float:left;
+	padding: 0 5px 0 5px;
+}
+
+.next{
+	float:right;
+	padding: 0 5px 0 5px;
+}
+
+.ligne-body-left{
+	width: 200px;
+	background: url(../img/bande_title.png) repeat-x;
+	margin: 0 10px 0 10px;
+	float: left;
+}
+
+.ligne-body-right{
+	width: 200px;
+	background: url(../img/bande_title.png) repeat-x;
+	margin: 0 10px 0 10px;
+	float: right;
+}
+
+.text-actu{
+	width: 900px;
+	padding: 40px 40px 40px 40px;	
+	color: rgb(55,46,50);
+	font-size: 14px;
+	text-align: justify;
+	display:inline-block;
+}
+
+.img-actu{
+	float: right;
+}
 
 
 /*Footer*/
