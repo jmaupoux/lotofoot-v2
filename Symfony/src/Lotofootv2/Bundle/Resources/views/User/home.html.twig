@@ -10,11 +10,19 @@
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
-{% block title_home %}
-	{% include 'Lotofootv2Bundle::title_home.html.twig' %}
+{% block title_body %}
+	<div class="title-body">
+		<a class="prev" href="#" title="Info origine"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
+		<a class="prev" href="#" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+		<div class="ligne-body-left">&nbsp;</div>
+		Journée 1 - Résumé	
+		<a class="next" href="#" title="Dernière info"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
+		<a class="next" href="#" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
 {% endblock %}
 	
-{% block actu_home %}
+{% block body %}
 	{% include 'Lotofootv2Bundle::actu_1.html.twig' %}
 {% endblock %}
 

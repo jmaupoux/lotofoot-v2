@@ -1,0 +1,30 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+		<a class="prev" href="#" title="Paris N°1"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
+		<a class="prev" href="#" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+		<div class="ligne-body-left">&nbsp;</div>
+		Journée 1 - Paris	
+		<a class="next" href="#" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
+		<a class="next" href="#" title="Derniers paris"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
+{% endblock %}
+	<img src="{{ asset('bundles/lotofootv2/img/cl-coming-soon.png') }}"/>
+{% block body %}
+		
+
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}
