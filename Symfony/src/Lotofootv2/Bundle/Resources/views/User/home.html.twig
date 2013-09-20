@@ -12,18 +12,37 @@
 
 {% block title_body %}
 	<div class="title-body">
-		<a class="prev" href="#" title="Info origine"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
-		<a class="prev" href="#" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+		{% if news is not null%}
+			<a class="prev" href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info origine"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
+			<a class="prev" href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+		{% endif %}
+		
 		<div class="ligne-body-left">&nbsp;</div>
-		Journée 1 - Résumé	
-		<a class="next" href="#" title="Dernière info"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
-		<a class="next" href="#" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+		{% if news is not null%}
+			{{news.title}}
+		{% else %}
+			 Bienvenue sur Lotofoot !
+		{% endif %}
+		
+		{% if news is not null%}
+		<a class="next" href="{{ path('_home_next_news')~'?number='~news.number}}" title="Dernière info"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
+		<a class="next" href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+		{% endif %}
 		<div class="ligne-body-right">&nbsp;</div>
 	</div>
 {% endblock %}
 	
 {% block body %}
-	{% include 'Lotofootv2Bundle::actu_1.html.twig' %}
+	
+	{% if news is not null%}
+		{{ news.date|date("d/m/Y") }}
+		{% autoescape false %}
+			{{news.text}}
+		{% endautoescape %}
+	{% else %}
+		 Aucune news à afficher
+	{% endif %}
+	
 {% endblock %}
 
 {% block footer %}
