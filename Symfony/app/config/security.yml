@@ -27,7 +27,7 @@ security:
             anonymous:  true
 
         public:
-            pattern:  ^/(css|images|js|img)$
+            pattern:  ^/(css|images|js|img|lib)$
             security: false
 
         secured_area:
