@@ -8,6 +8,10 @@
 {% block body %}
 	<div style="padding-top:100px;margin:auto;width:550px" class="well">
 		
+		{% if error is defined and error is not null %}
+	        <div style="color:red">{{ error }}</div>
+	    {% endif %}
+		
 		<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
 			<div class="control-group">
 				<label class="control-label" for="_username">
@@ -18,12 +22,25 @@
 						<span class="add-on">
 							<i class="icon-user"></i>
 						</span>
-						 <input type="text" id="_username" name="_username" value="" placeholder="Nom d'utilisateur"/>
+						 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur"/>
 					 </div>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="_username">
+				<label class="control-label" for="_mail">
+					 Email <span style="color:red"> * </span> 
+				</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on">
+							<i class="icon-lock"></i>
+						</span>
+						 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}"/>
+					 </div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="_password">
 					 Mot de passe <span style="color:red"> * </span> 
 				</label>
 				<div class="controls">
@@ -31,12 +48,12 @@
 						<span class="add-on">
 							<i class="icon-lock"></i>
 						</span>
-						 <input type="password" id="_password" name="_password"/>
+						 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}"/>
 					 </div>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="_username">
+				<label class="control-label" for="_password2">
 					 Mot de passe (vérification) <span style="color:red"> * </span> 
 				</label>
 				<div class="controls">
@@ -44,7 +61,7 @@
 						<span class="add-on">
 							<i class="icon-lock"></i>
 						</span>
-						 <input type="password" id="_password" name="_password"/>
+						 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}"/>
 					 </div>
 				</div>
 			</div>

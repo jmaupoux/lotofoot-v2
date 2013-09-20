@@ -99,12 +99,12 @@ class Account implements UserInterface, \Serializable
     	$this->isAdmin = false;
     	$this->points = 0;
     	$this->progression = 0;
-    	$this->rank = 0;
+    	$this->rank = 99;
     	$this->statBonuses = 0;
     	$this->statDays = 0;
     	$this->statResults = 0;
     	$this->statScores = 0;
-    	$this->salt = md5(uniqid(null, true));
+    	$this->salt = '';
     }
     
     /**

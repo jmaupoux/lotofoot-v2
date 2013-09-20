@@ -5,3 +5,6 @@ services:
     news_service:
         class:        "Lotofootv2\Bundle\Service\\NewsService"
         arguments:    [@doctrine.orm.entity_manager, @logger]
+    account_service:
+        class:        "Lotofootv2\Bundle\Service\\AccountService"
+        arguments:    [@doctrine.orm.entity_manager, @logger]
