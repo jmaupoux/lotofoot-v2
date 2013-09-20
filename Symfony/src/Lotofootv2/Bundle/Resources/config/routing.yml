@@ -27,6 +27,10 @@ _league_ranking:
 _league_vote:
     resource: "@Lotofootv2Bundle/Controller/User/League/VoteController.php"
     type:     annotation
+    
+_stats:
+    resource: "@Lotofootv2Bundle/Controller/User/Stats/RewardsController.php"
+    type:     annotation
 
 _admin_league:
     resource: "@Lotofootv2Bundle/Controller/Admin/LeagueController.php"
