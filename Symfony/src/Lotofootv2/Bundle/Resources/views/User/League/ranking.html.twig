@@ -1,0 +1,42 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	
+	<table>
+		<tr>
+			<th>Rang</th>
+			<th>Joueur</th>
+			<th>Points</th>
+			<th>Journées jouées</th>
+			<th>Bonus trouvés</th>
+			<th>Matchs trouvés</th>
+			<th>Scores trouvés</th>
+			<th>Evolution</th>
+		</tr>
+		{% for account in accounts %}
+		<tr>
+			<td>{{account.rank}}</td>
+			<td>{{account.username}}</td>
+			<td>{{account.points}}</td>
+			<td>{{account.statDays}}</td>
+			<td>{{account.statBonuses}}</td>
+			<td>{{account.statResults}}</td>
+			<td>{{account.statScores}}</td>
+			<td>{{account.progression}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

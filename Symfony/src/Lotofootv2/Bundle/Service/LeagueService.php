@@ -30,6 +30,17 @@ class LeagueService
     	return $query->getOneOrNullResult();
     }
     
+    public function getRunningLeagueAccounts()
+    {
+    	$query = $this->em->createQuery(
+		    'SELECT a
+		    FROM Lotofootv2Bundle:Account a
+		    WHERE a.isActive = :active'
+		)->setParameter('active', true);
+    	
+    	return $query->getResult();
+    }
+    
 	public function getNotCorrectedLeagueDay()
     {
     	$query = $this->em->createQuery(
@@ -83,7 +94,7 @@ class LeagueService
     	
     	$number = $this->em->createQuery(
 		    'SELECT max(l.number)
-		    FROM Lotofootv2Bundle:League l')->getSingleScalarResult();
+		    FROM Lotofootv2Bundle:LeagueDay l')->getSingleScalarResult();
     	
     	if($number > 0){
     		$number = $number + 1;
@@ -160,17 +171,17 @@ class LeagueService
     private function computeLeagueDayPoints($matches){
     	$leagueDay = $this->getNotCorrectedLeagueDay();
     	
-    	$queryAccounts =  $this->em->createQuery(
-		    'SELECT a FROM Lotofootv2Bundle:Account a
-		    WHERE a.isActive = true');
-
-    	$accounts = $queryAccounts->getResult();
+    	$accounts = $this->getRunningLeagueAccounts();
     	
     	for($i=0;$i<count($accounts);$i++){
     		$account = $accounts[$i];
     		$points = 0;
     		
     		$votes = $this->getLeagueDayVotes($leagueDay->getId(), $account->getId());
+    		
+    		if(count($votes) > 0){
+    			$account->setStatDays($account->getStatDays()+1);
+    		}
     		
     		for($v=0;$v<count($votes);$v++){
     			$vote = $votes[$v];
@@ -183,11 +194,16 @@ class LeagueService
     				if($match->getId() == $vote->getLeagueMatchId()){
     					if($match->getScore() == $vote->getScore()){
     						$votePoints = 3;
+    						$account->setStatScores($account->getStatScores()+1);
     					}
     					if($match->getResult() == $vote->getResult()){
     						$votePoints += 1;
+    						$account->setStatResults($account->getStatResults()+1);
     					}
     					if($match->getBonus()){
+    						if($votePoints == 4){
+    							$account->setStatBonuses($account->getStatBonuses()+1);
+    						}    						
     						$votePoints *= 3;
     					}
     					break;

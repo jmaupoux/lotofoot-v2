@@ -12,7 +12,7 @@
 	  <li class="menu-2-championnat">
 	    <ul class="submenu-2-championnat">
 	      <li class="submenu"> <a class="menu-lien" href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
-	      <li class="submenu"><a href="#" title="Classement"></a>Classement</li>
+	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_ranking') }}" title="Classement">Classement</a></li>
 	      <li class="submenu"><a href="#" title="Règlement"></a>Règlement</li>
 	      <li class="submenu"><a href="#" title="Cadeaux"></a>Cadeaux</li>
 	      {% if is_granted('ROLE_ADMIN') %}
