@@ -35,7 +35,8 @@ class LeagueService
     	$query = $this->em->createQuery(
 		    'SELECT a
 		    FROM Lotofootv2Bundle:Account a
-		    WHERE a.isActive = :active'
+		    WHERE a.isActive = :active
+		    ORDER BY a.rank'
 		)->setParameter('active', true);
     	
     	return $query->getResult();
