@@ -63,12 +63,17 @@ class VoteController extends Controller
 		if($request->query->get('m') == 1){
 			$info = "Votes enregistrés";
 		}
+		$warn = null;
+    	if($request->query->get('f') == 0){
+			$warn = "Attention, vous n'avez pas parié sur l'ensemble de la journée !";
+		}
 		
 		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
 			array(
 			'leagueDay' => $day,
 			'matches' => $matches,
-			'info' => $info
+			'info' => $info,
+			'warn' => $warn
 			)
 		);
     }
@@ -124,6 +129,8 @@ class VoteController extends Controller
     
 		$votes = array();
 		
+		$full = 1;
+		
 		for($i=0;$i<count($matches);$i++){
 			
 			if(LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId())) != '' 
@@ -154,11 +161,16 @@ class VoteController extends Controller
 				LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()))
 			);
 			
+			if($vote->getResult() == '' || $vote->getResult() == null ||
+				$vote->getScore() == '' || $vote->getScore() == null ){
+				$full = 0;
+			}
+			
 			array_push($votes, $vote);
 		}
 		
 		$this->get('league_service')->voteLeagueDay($votes);
 		
-    	return $this->redirect($this->generateUrl('_league_vote', array('m' => 1)));
+    	return $this->redirect($this->generateUrl('_league_vote', array('m' => 1, 'f' => $full)));
     }
 }
