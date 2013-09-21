@@ -23,38 +23,54 @@ class VoteController extends Controller
      */
     public function indexAction(Request $request)
     {
-		$day = $this->get('league_service')->getOpenedLeagueDay();
+    	$leagueDay = null;
+    	if($request->query->get('next')){
+    		$leagueDay = $this->get('league_service')->getNextLeagueDay($request->query->get('next'));
+    	}
+    	else if($request->query->get('prev')){
+    		$leagueDay = $this->get('league_service')->getPreviousLeagueDay($request->query->get('prev'));
+    	}
+    	
+    	
+    	if($leagueDay == null){
+    		$leagueDay = $this->get('league_service')->getLastLeagueDay();
+    	}
+    	
+    	//no day found
+    	if($leagueDay == null){
+    		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', array('leagueDay' => $day));
+    	}
+    	
+    	if($leagueDay->getDeadline() > new DateTime()){
+    		return $this->voteOpenAction($request, $leagueDay);
+    	}else{
+    		return $this->redirect($this->generateUrl('_league_vote_recap', array('d'=>$leagueDay->getNumber())));
+    	}
+    }
+    
+    private function voteOpenAction(Request $request, $day){
+    	$accountId = $this->getUser()->getId();
+					
+		$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
+		$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
 		
-		$accountId = $this->getUser()->getId();
-		
-		if($day != null){			
-			$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
-			$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
-			
-			for($i=0;$i<count($votes);$i++){
-				$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
-				$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
-			}
-			
-			$info = null;
-			if($request->query->get('m') == 1){
-				$info = "Votes enregistrés";
-			}
-			
-			return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
-				array(
-				'leagueDay' => $day,
-				'matches' => $matches,
-				'info' => $info
-				)
-			);
-		}else{
-			if($this->get('league_service')->getNotCorrectedLeagueDay() != null){
-				return $this->redirect($this->generateUrl('_league_vote_recap'));
-			}			
+		for($i=0;$i<count($votes);$i++){
+			$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
+			$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
 		}
 		
-		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', array('leagueDay' => $day));
+		$info = null;
+		if($request->query->get('m') == 1){
+			$info = "Votes enregistrés";
+		}
+		
+		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
+			array(
+			'leagueDay' => $day,
+			'matches' => $matches,
+			'info' => $info
+			)
+		);
     }
     
     /**
@@ -62,7 +78,11 @@ class VoteController extends Controller
      */
     public function recapAction(Request $request)
     {
-    	$day = $this->get('league_service')->getNotCorrectedLeagueDay();
+    	if(!$request->query->get('d')){
+    		return $this->redirect($this->generateUrl('_league_vote'));
+    	}
+    	
+    	$day = $this->get('league_service')->getLeagueDayByNumber($request->query->get('d'));
     	
     	if($day == null){
     		return $this->redirect($this->generateUrl('_league_vote'));
@@ -75,6 +95,7 @@ class VoteController extends Controller
     	for($i=0;$i<count($votes);$i++){
 			$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
 			$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
+			$request->request->set('points_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getPoints());
 		}
 		
 		return $this->render('Lotofootv2Bundle:User\League:vote_recap.html.twig', 
@@ -90,9 +111,9 @@ class VoteController extends Controller
      * @Method("POST")
      */
     public function voteAction(Request $request)
-    {	$day = $this->get('league_service')->getOpenedLeagueDay();
+    {	
+    	$day = $this->get('league_service')->getOpenedLeagueDay();
     
-
 		$closed = ($day->getDeadline() < new DateTime());
 
 		if($closed){

@@ -45,14 +45,14 @@ class League
     /**
      * @var string
      *
-     * @ORM\Column(name="state", type="integer")
+     * @ORM\Column(name="opened", type="boolean")
      */
-    private $state;
+    private $opened;
 
     public function __construct()
     {
     	$this->currentDay = 1;
-    	$this->state = 1;//open
+    	$this->opened = true;
     }
     
     /**
@@ -140,9 +140,9 @@ class League
      * @param string $name
      * @return Season
      */
-    public function setState($state)
+    public function setOpened($state)
     {
-    	$this->state = $state;
+    	$this->opened = $state;
     
     	return $this;
     }
@@ -152,12 +152,12 @@ class League
      *
      * @return string
      */
-    public function getState()
+    public function getOpened()
     {
-    	return $this->state;
+    	return $this->opened;
     }
     
     public function __toString() {
-    	return "Season : {$this->name}\n";
+    	return "League : {$this->name}\n";
     }
 }

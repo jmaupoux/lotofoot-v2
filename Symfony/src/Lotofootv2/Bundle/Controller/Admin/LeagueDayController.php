@@ -18,7 +18,11 @@ class LeagueDayController extends Controller
      * @Route("/admin/league/day", name="_admin_league_day")
      */
     public function indexAction()
-    {		
+    {	
+    	if($this->get('league_service')->getRunningLeague() == null){
+    		return $this->redirect($this->generateUrl('_admin_league'));
+    	}
+    	
 		$leagueDay = $this->get('league_service')->getNotCorrectedLeagueDay();
 		
 		$closed = true;
