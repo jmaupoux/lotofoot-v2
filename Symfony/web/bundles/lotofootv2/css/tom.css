@@ -1,5 +1,6 @@
 #content{
-		
+		padding: 20px;
+		text-align: justify;
 }
 
 .container{
@@ -299,10 +300,10 @@ body{
 /*home*/
 /*********************************************/
 .title-body{
-	height: 32px;
-	width: 900px;
-	padding: 0px 40px 0px 40px;	
-	margin-top : 40px;
+	height: 52px;
+	width: 940px;
+	padding-bottom: 20px;
+	margin:0;	
 	color: rgb(55,46,50);
 	font-size: 24px;
 	text-align: center;
