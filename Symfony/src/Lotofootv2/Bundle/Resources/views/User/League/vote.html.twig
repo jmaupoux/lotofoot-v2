@@ -30,7 +30,7 @@
 	{% else %}
 	
 		{% if error is defined %}
-		    <div class="alert alert-error">{{ error }}</div>
+		    <div style="color:red">{{ error }}</div>
 		{% endif %}
 		{% if info is defined and info is not null %}
 		    <div style="color:green">{{ info }}</div>
