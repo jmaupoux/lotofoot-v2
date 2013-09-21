@@ -36,10 +36,16 @@ class VoteController extends Controller
 				$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
 			}
 			
+			$info = null;
+			if($request->query->get('m') == 1){
+				$info = "Votes enregistrés";
+			}
+			
 			return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
 				array(
 				'leagueDay' => $day,
-				'matches' => $matches
+				'matches' => $matches,
+				'info' => $info
 				)
 			);
 		}else{
@@ -132,6 +138,6 @@ class VoteController extends Controller
 		
 		$this->get('league_service')->voteLeagueDay($votes);
 		
-    	return $this->redirect($this->generateUrl('_league_vote'));
+    	return $this->redirect($this->generateUrl('_league_vote', array('m' => 1)));
     }
 }
