@@ -35,3 +35,29 @@ _admin_league_day:
 _admin_news:
     resource: "@Lotofootv2Bundle/Controller/Admin/NewsController.php"
     type:     annotation
+
+_rules:
+    resource: "@Lotofootv2Bundle/Controller/RulesController.php"
+    type:     annotation
+
+_prizes:
+    resource: "@Lotofootv2Bundle/Controller/PrizesController.php"
+    type:     annotation
+    
+    
+_calendar:
+    resource: "@Lotofootv2Bundle/Controller/CalendarController.php"
+    type:     annotation
+    
+_forum:
+    resource: "@Lotofootv2Bundle/Controller/ForumController.php"
+    type:     annotation    
+    
+_stats_teams:
+    resource: "@Lotofootv2Bundle/Controller/StatsTeamsController.php"
+    type:     annotation
+
+_rewards:
+    resource: "@Lotofootv2Bundle/Controller/RewardsController.php"
+    type:     annotation
+     

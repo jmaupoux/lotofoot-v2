@@ -1,0 +1,33 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Stats Équipes
+			<img src="{{ asset('bundles/lotofootv2/img/title-stats.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
+	<div class="title-body">
+		A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	</div>
+{% endblock %}
+
+{% block body %}
+	
+	<div class="title-letter">A</div>
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}
