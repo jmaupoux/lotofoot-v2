@@ -1,7 +1,7 @@
 INSERT INTO `lfv2_account` (`id`, `username`, `password`, `email`, `salt`, `is_active`, `is_admin`) VALUES
 (1, 'julien', 'julien', 'julien@gmail.com', '', 1, 1);
 
-INSERT INTO `lfv2_league` (`id`, `number`, `currentDay`, `name`, `state`) VALUES
+INSERT INTO `lfv2_league` (`id`, `number`, `currentDay`, `name`, `opened`) VALUES
 (1, 1, 0, 's1', 1);
 
 INSERT INTO `lfv2_league_day` (`id`, `number`, `league_id`, `deadline`, `corrected`) VALUES
