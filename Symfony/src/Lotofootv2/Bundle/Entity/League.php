@@ -49,6 +49,12 @@ class League
      */
     private $state;
 
+    public function __construct()
+    {
+    	$this->currentDay = 1;
+    	$this->state = 1;//open
+    }
+    
     /**
      * Get id
      *

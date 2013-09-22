@@ -72,12 +72,39 @@ class Account implements UserInterface, \Serializable
      * @ORM\Column(name="progression", type="integer")
      */
     private $progression;
+    
+    /**
+     * @ORM\Column(name="stat_days", type="integer")
+     */
+    private $statDays;
+    
+    /**
+     * @ORM\Column(name="stat_bonuses", type="integer")
+     */
+    private $statBonuses;
 
+    /**
+     * @ORM\Column(name="stat_results", type="integer")
+     */
+    private $statResults;
+    
+    /**
+     * @ORM\Column(name="stat_scores", type="integer")
+     */
+    private $statScores;
+    
     public function __construct()
     {
-    	$this->isActive = true;
-    	$this->isAdmin = true;
-    	$this->salt = md5(uniqid(null, true));
+    	$this->isActive = false;
+    	$this->isAdmin = false;
+    	$this->points = 0;
+    	$this->progression = 0;
+    	$this->rank = 99;
+    	$this->statBonuses = 0;
+    	$this->statDays = 0;
+    	$this->statResults = 0;
+    	$this->statScores = 0;
+    	$this->salt = '';
     }
     
     /**
@@ -204,6 +231,54 @@ class Account implements UserInterface, \Serializable
     public function getProgression()
     {
         return $this->progression;
+    }
+    
+    public function getStatDays()
+    {
+    	return $this->statDays;
+    }
+    
+    public function setStatDays($stat)
+    {
+    	$this->statDays = $stat;
+    	
+    	return $this;
+    }
+    
+	public function getStatBonuses()
+    {
+    	return $this->statBonuses;
+    }
+    
+	public function setStatBonuses($stat)
+    {
+    	$this->statBonuses = $stat;
+    	
+    	return $this;
+    }
+    
+	public function getStatScores()
+    {
+    	return $this->statScores;
+    }
+    
+	public function setStatScores($stat)
+    {
+    	$this->statScores = $stat;
+    	
+    	return $this;
+    }
+    
+	public function getStatResults()
+    {
+    	return $this->statResults;
+    }
+
+	public function setStatResults($stat)
+    {
+    	$this->statResults = $stat;
+    	
+    	return $this;
     }
     
     /**

@@ -1,15 +1,19 @@
 {# src/Lotofootv2/Bundle/Resources/views/Hello/login.html.twig #}
- {% extends 'Lotofootv2Bundle::layout_login.html.twig' %}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
 
 {% block title %}
-	Connexion au Lotofoot !
+	Inscription au Lotofoot v2 !
 {% endblock %}
 
 {% block body %}
-	<div class="login-box">
+		<div class="login-box">
 		<div class="login-top">
 		</div>
 		<div class="login-bottom">
+		
+		{% if error is defined and error is not null %}
+	        <div style="color:red">{{ error }}</div>
+	    {% endif %}
 		
 		<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
 			<div class="control-group">
@@ -18,25 +22,37 @@
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="text" id="_username" name="_username" value="" placeholder="Nom d'utilisateur"/>
+						 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur"/>
 					 </div>
 				</div>
-			
-				<label class="control-label" for="_username">
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="_mail">
+					 Email <span style="color:red"> * </span> 
+				</label>
+				<div class="controls">
+					<div class="input-prepend">
+						 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}"/>
+					 </div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="_password">
 					 Mot de passe <span style="color:red"> * </span> 
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="password" id="_password" name="_password"/>
+						 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}"/>
 					 </div>
 				</div>
-			
-				<label class="control-label" for="_username">
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="_password2">
 					 Mot de passe (vérification) <span style="color:red"> * </span> 
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="password" id="_password" name="_password"/>
+						 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}"/>
 					 </div>
 				</div>
 			</div>

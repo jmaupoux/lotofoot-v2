@@ -20,8 +20,16 @@ _home:
     resource: "@Lotofootv2Bundle/Controller/User/HomeController.php"
     type:     annotation
     
+_league_ranking:
+    resource: "@Lotofootv2Bundle/Controller/User/League/RankingController.php"
+    type:     annotation
+    
 _league_vote:
     resource: "@Lotofootv2Bundle/Controller/User/League/VoteController.php"
+    type:     annotation
+    
+_stats:
+    resource: "@Lotofootv2Bundle/Controller/User/Stats/RewardsController.php"
     type:     annotation
 
 _admin_league:
