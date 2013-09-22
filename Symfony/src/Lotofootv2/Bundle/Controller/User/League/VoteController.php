@@ -64,7 +64,7 @@ class VoteController extends Controller
 			$info = "Votes enregistrés";
 		}
 		$warn = null;
-    	if($request->query->get('f') == 0){
+    	if($request->query->has('f') && $request->query->get('f') == 0){
 			$warn = "Attention, vous n'avez pas parié sur l'ensemble de la journée !";
 		}
 		
