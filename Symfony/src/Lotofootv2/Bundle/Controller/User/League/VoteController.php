@@ -64,7 +64,7 @@ class VoteController extends Controller
 			$info = "Votes enregistrés";
 		}
 		$warn = null;
-    	if($request->query->get('f') == 0){
+    	if($request->query->has('f') && $request->query->get('f') == 0){
 			$warn = "Attention, vous n'avez pas parié sur l'ensemble de la journée !";
 		}
 		
@@ -97,16 +97,20 @@ class VoteController extends Controller
     	$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
 		$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
 		
+		$points = 0;
+		
     	for($i=0;$i<count($votes);$i++){
 			$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
 			$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
 			$request->request->set('points_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getPoints());
+			$points+=$votes[$i]->getPoints();
 		}
 		
 		return $this->render('Lotofootv2Bundle:User\League:vote_recap.html.twig', 
 			array(
 			'leagueDay' => $day,
-			'matches' => $matches
+			'matches' => $matches,
+			'total' => $points
 			)
 		);
     }

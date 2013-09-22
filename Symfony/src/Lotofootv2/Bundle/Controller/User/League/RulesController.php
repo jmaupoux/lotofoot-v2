@@ -1,6 +1,6 @@
 <?php
 
-namespace Lotofootv2\Bundle\Controller;
+namespace Lotofootv2\Bundle\Controller\User\League;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -11,11 +11,11 @@ class RulesController extends Controller
 {
 	
 	/**
-     * @Route("/rules", name="_rules")
+     * @Route("/league/rules", name="_league_rules")
      */
     public function indexAction()
     {
-       return $this->render('Lotofootv2Bundle::rules.html.twig');
+       return $this->render('Lotofootv2Bundle:User\League:rules.html.twig');
     }
 
 }

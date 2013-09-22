@@ -45,11 +45,11 @@ _admin_news:
     type:     annotation
 
 _rules:
-    resource: "@Lotofootv2Bundle/Controller/RulesController.php"
+    resource: "@Lotofootv2Bundle/Controller/User/League/RulesController.php"
     type:     annotation
 
 _prizes:
-    resource: "@Lotofootv2Bundle/Controller/PrizesController.php"
+    resource: "@Lotofootv2Bundle/Controller/User/League/PrizesController.php"
     type:     annotation
     
     

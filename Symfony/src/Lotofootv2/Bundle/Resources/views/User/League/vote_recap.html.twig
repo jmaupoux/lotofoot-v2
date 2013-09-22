@@ -36,6 +36,15 @@
 		 .vote.noresult{
 		 	background-color:red;
 		 }
+		 td.invisible{
+		 	border-left:none;
+		 	border-right:none;
+		 	border-bottom:none
+		 }
+		 .total{
+		 	color:red;
+		 	font-weight:bold
+		 }
 	
 	</style>
 
@@ -82,6 +91,17 @@
 			</td>
 		</tr>
 		{% endfor %}
+		<tr>
+			<td class="invisible"></td>
+			<td class="invisible"></td>
+			<td class="invisible"></td>
+			<td class="invisible"></td>
+			<td class="invisible"></td>
+			<td class="invisible"></td>
+			<td class="invisible"></td>
+			<td><span class="total">Total</span></td>
+			<td><span class="total">{{total}}</span></td>
+		</tr>
 	</table>
 	<br/>Score sur la journée : //TODO JUL
 {% endblock %}
