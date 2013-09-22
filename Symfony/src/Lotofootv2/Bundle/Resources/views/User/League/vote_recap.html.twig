@@ -4,23 +4,50 @@
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
+{% block title_body %}
+	{% if leagueDay is defined and leagueDay is not null %}
+		<div class="title-body">
+			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris N°1"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
+			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+			<div class="ligne-body-left">&nbsp;</div>
+			Journée {{leagueDay.number}}	
+			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
+			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Derniers paris"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
 {% block body %}
-	Récapitulatif des paris en cours : <br/>
+	Revue des paris : <br/>
+	
+	<style type="text/css">
+		 .vote{
+		 	background-color:blue;
+		 }
+		 .result{
+		 	background-color:gray;
+		 }
+		 .vote.result{
+		 	background-color:green;
+		 }
+		 .vote.noresult{
+		 	background-color:red;
+		 }
+	
+	</style>
 
 	<table class="table table-striped">
 		<tr>
-			<th>
-				N°
-			</th>
-			<th>
-				Domicile
-			</th>
-			<th>
-				Pari
-			</th>
-			<th>
-				Extérieur
-			</th>
+			<th>N°</th>
+			<th>Domicile</th>
+			<th>1</th>
+			<th>N</th>
+			<th>2</th>
+			<th>Extérieur</th>
+			<th>Score parié</th>
+			<th>Score effectif</th>
+			<th>Points</th>
 		</tr>
 		{% for match in matches %}
 		<tr {{(match.bonus)?'style="background-color:yellow"':''}}>
@@ -30,12 +57,20 @@
 			<td>
 				{{match.teamHome}}
 			</td>
-			<td>
-				Pari : {{ app.request.get('result_'~match.id) }}<br/>
-				Score : {{ app.request.get('score_'~match.id) }}
-			</td>
+			<td class="{% if app.request.get('result_'~match.id) == '1'%} vote {%endif%} {% if leagueDay.corrected %}{%if match.result == '1'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+			<td class="{% if app.request.get('result_'~match.id) == 'N'%} vote {%endif%} {% if leagueDay.corrected %}{%if match.result == 'N'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+			<td class="{% if app.request.get('result_'~match.id) == '2'%} vote {%endif%} {% if leagueDay.corrected %}{%if match.result == '2'%} result {%else %} noresult {%endif%}{%endif%}"></td>
 			<td>
 				{{match.teamVisitor}}
+			</td>
+			<td>
+				{{app.request.get('score_'~match.id)}}
+			</td>
+			<td>
+				{{match.score}}
+			</td>
+			<td>
+				{{app.request.get('points_'~match.id)}}
 			</td>
 		</tr>
 		{% endfor %}

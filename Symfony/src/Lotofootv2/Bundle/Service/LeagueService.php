@@ -24,8 +24,8 @@ class LeagueService
     	$query = $this->em->createQuery(
 		    'SELECT l
 		    FROM Lotofootv2Bundle:League l
-		    WHERE l.state = :state'
-		)->setParameter('state', 1);
+		    WHERE l.opened = :opened'
+		)->setParameter('opened', true);
     	
     	return $query->getOneOrNullResult();
     }
@@ -47,9 +47,10 @@ class LeagueService
     	$query = $this->em->createQuery(
 		    'SELECT d
 		    FROM Lotofootv2Bundle:League l, Lotofootv2Bundle:LeagueDay d 
-		    WHERE l.state = :state
+		    WHERE l.opened = :opened
+		    AND d.league_id = l.id 
 		    AND d.corrected = :corrected'
-		)->setParameter('state', 1)
+		)->setParameter('opened', true)
 		->setParameter('corrected', false);
 		
 		return $query->getOneOrNullResult();
@@ -60,13 +61,62 @@ class LeagueService
     	$query = $this->em->createQuery(
 		    'SELECT d
 		    FROM Lotofootv2Bundle:League l, Lotofootv2Bundle:LeagueDay d 
-		    WHERE l.state = :state
+		    WHERE l.opened = :opened
 		    AND d.corrected = :corrected
 		    AND d.deadline > CURRENT_TIMESTAMP()'
-		)->setParameter('state', 1)
+		)->setParameter('opened', true)
 		->setParameter('corrected', false);
 		
 		return $query->getOneOrNullResult();
+    }
+    
+	public function getLastLeagueDay()
+    {
+		$query = $this->em->createQuery(
+		    'SELECT ld
+		    FROM Lotofootv2Bundle:LeagueDay ld
+		    ORDER BY ld.number DESC');
+		$query->setMaxResults(1);
+    	
+    	return $query->getOneOrNullResult();
+    }
+    
+	public function getLeagueDayByNumber($number)
+    {
+		$query = $this->em->createQuery(
+		    'SELECT ld
+		    FROM Lotofootv2Bundle:LeagueDay ld
+		    WHERE ld.number = :number')
+		->setParameter('number', $number);
+		$query->setMaxResults(1);
+    	
+    	return $query->getOneOrNullResult();
+    }
+    
+	public function getNextLeagueDay($number)
+    {
+    	$query = $this->em->createQuery(
+		    'SELECT ld
+		    FROM Lotofootv2Bundle:LeagueDay ld
+		    WHERE ld.number > :number 
+		    ORDER BY ld.number ASC')
+    		->setParameter('number', $number);
+    	$query->setMaxResults(1);
+    	
+    	return $query->getOneOrNullResult();
+    }
+    
+	public function getPreviousLeagueDay($number)
+    {
+    	$query = $this->em->createQuery(
+		    'SELECT ld
+		    FROM Lotofootv2Bundle:LeagueDay ld
+		    WHERE ld.number < :number 
+		    ORDER BY ld.number DESC')
+    		->setParameter('number', $number);
+    	$query->setMaxResults(1);
+    	
+    	return $query->getOneOrNullResult();
     }
     
 	public function createLeague($league)

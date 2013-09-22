@@ -9,15 +9,17 @@
 {% endblock %}
 
 {% block title_body %}
-	<div class="title-body">
-		<a class="prev" href="#" title="Paris N°1"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
-		<a class="prev" href="#" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
-		<div class="ligne-body-left">&nbsp;</div>
-		Journée 1 - Paris	
-		<a class="next" href="#" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
-		<a class="next" href="#" title="Derniers paris"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
-		<div class="ligne-body-right">&nbsp;</div>
-	</div>
+	{% if leagueDay is defined and leagueDay is not null %}
+		<div class="title-body">
+			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris N°1"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
+			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+			<div class="ligne-body-left">&nbsp;</div>
+			Journée {{leagueDay.number}}	
+			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
+			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Derniers paris"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+	{% endif %}
 {% endblock %}
 
 {% block body %}
@@ -30,10 +32,13 @@
 	{% else %}
 	
 		{% if error is defined %}
-		    <div class="alert alert-error">{{ error }}</div>
+		    <div style="color:red">{{ error }}</div>
 		{% endif %}
 		{% if info is defined and info is not null %}
 		    <div style="color:green">{{ info }}</div>
+		{% endif %}
+		{% if warn is defined and warn is not null %}
+		    <div style="color:orange">{{ warn }}</div>
 		{% endif %}
 		<br/><br/>
 		<div class="date-limite">Date limite pour voter à cette journée : </div>
