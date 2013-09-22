@@ -3,6 +3,7 @@
 #content{
 		padding: 20px;
 		text-align: justify;
+		
 }
 
 .container{
@@ -28,6 +29,8 @@ body{
     background: rgb(255,255,255);
     height: 683px;
     box-shadow: 6px 0px 15px black;  
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 /*Login*/
@@ -454,11 +457,12 @@ input{
 
 /* Stats */
 /*********************************************/
-.letter-a{	
-	float: left;
+a.letter{	
+	cursor:pointer;
+	color: rgb(55,46,50);
 }
 
-.letter-a:hover{
+a.letter:hover{
 	text-decoration: underline;
 }
 
@@ -470,7 +474,7 @@ input{
 
 .title-letter{
 	
-	width: 940px;
+	width: 930px;
 	color: rgb(55,46,50);
 	border-bottom: 1px solid rgb(55,46,50);
 	font-size: 36px;
