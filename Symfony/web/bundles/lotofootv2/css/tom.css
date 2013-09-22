@@ -78,6 +78,7 @@ body{
 
 .lien-login:hover{
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 input{
@@ -185,6 +186,7 @@ input{
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
+	cursor: pointer;
 }
 
 .menu-3-championsleague{
@@ -205,6 +207,7 @@ input{
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
+	cursor: pointer;
 }
 
 .menu-4-calendar{
@@ -224,6 +227,7 @@ input{
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
+	cursor: pointer;
 }
 
 .menu-5-forum{
@@ -244,6 +248,7 @@ input{
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
+	cursor: pointer;
 }
 
 .menu-6-stats{
@@ -264,6 +269,7 @@ input{
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
+	cursor: pointer;
 }
 
 .submenu-2-championnat{
@@ -308,6 +314,7 @@ input{
 	list-style: none;
 	color: rgb(55,46,50);
 	border: 1px solid rgb(55,46,50);
+	cursor: pointer;
 }
 
 .menu-lien{
@@ -318,6 +325,7 @@ input{
 .menu-lien:hover{	
 	color: black;
 	text-decoration:none;
+	cursor: pointer;
 }
 
 

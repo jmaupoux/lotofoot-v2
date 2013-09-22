@@ -11,11 +11,9 @@
 {% block title_body %}
 	{% if leagueDay is defined and leagueDay is not null %}
 		<div class="title-body">
-			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris N°1"><img src="{{ asset('bundles/lotofootv2/img/prev_tot.png') }}"/></a>
 			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
 			<div class="ligne-body-left">&nbsp;</div>
 			Journée {{leagueDay.number}}	
-			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
 			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Derniers paris"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
 			<div class="ligne-body-right">&nbsp;</div>
 		</div>
