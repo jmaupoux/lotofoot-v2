@@ -66,11 +66,11 @@
 		{% for match in matches %}
 		<tr {{(match.bonus)?'style="background-color:rgb(82,96,200);color:white;"':''}}>
 					<td>
-						{% if match.number == 13 %}
+						{% if match.bonus == true %}
 						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
 						{% endif %}
 						{{match.number}}
-						{% if match.number == 13 %}
+						{% if match.bonus == true %}
 						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
 						{% endif %}
 					</td>

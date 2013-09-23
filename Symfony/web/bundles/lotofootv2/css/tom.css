@@ -320,14 +320,12 @@ input{
 	cursor: pointer;
 }
 
-.menu-lien{
-	color: white;
+a.menu-lien{
 	text-decoration:none;
-}
+	}
 
-.menu-lien:hover{	
-	color: black;
-	text-decoration:none;
+a.menu-lien:hover{	
+	color: rgb(55,46,50);
 	cursor: pointer;
 }
 
