@@ -14,7 +14,7 @@
 			<a class="prev" href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
 			<div class="ligne-body-left">&nbsp;</div>
 			Journée {{leagueDay.number}}	
-			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next_tot.png') }}"/></a>
+			<a class="next" href="{{ path('_league_vote')~'?next='~leagueDay.number}}" title="Paris suivants"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
 			<div class="ligne-body-right">&nbsp;</div>
 		</div>
 	{% endif %}
@@ -45,7 +45,10 @@
 		 	color:red;
 		 	font-weight:bold
 		 }
-	
+		 .scoreok{
+		 	background-color:green;
+		 	color:white;
+		 }
 	</style>
 
 	<table class="table table-striped">
@@ -80,7 +83,7 @@
 			<td>
 				{{match.teamVisitor}}
 			</td>
-			<td>
+			<td class="{% if app.request.get('score_'~match.id) == match.score%} scoreok {% endif %}">
 				{{app.request.get('score_'~match.id)}}
 			</td>
 			<td>
@@ -103,5 +106,5 @@
 			<td><span class="total">{{total}}</span></td>
 		</tr>
 	</table>
-	<br/>Score sur la journée : //TODO JUL
+	<br/>
 {% endblock %}

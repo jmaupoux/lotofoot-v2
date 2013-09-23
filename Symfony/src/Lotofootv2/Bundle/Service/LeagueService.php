@@ -2,6 +2,8 @@
 
 namespace Lotofootv2\Bundle\Service;
 
+use Lotofootv2\Bundle\Entity\LeagueHistory;
+
 use Lotofootv2\Bundle\Entity\LeagueDay;
 
 use Monolog\Logger;
@@ -12,11 +14,13 @@ class LeagueService
 {
 	private $em;
 	private $logger;
+	private $rewardService;
 	
-	public function __construct(EntityManager $em, Logger $logger)
+	public function __construct(EntityManager $em, Logger $logger, RewardService $rewardService)
     {
         $this->em = $em;
         $this->logger = $logger;
+        $this->rewardService = $rewardService;
     }
 	
     public function getRunningLeague()
@@ -195,27 +199,29 @@ class LeagueService
     }
     
     public function voteLeagueDay($votes){
-    	$queryDel = $this->em->createQuery(
+    	foreach($votes as $vote){
+    		
+			$queryDel = $this->em->createQuery(
 		    'DELETE FROM Lotofootv2Bundle:LeagueVote v 
 		    WHERE v.account_id = :accountId 
 		    AND v.league_match_id = :lmid'
-		)->setParameter('accountId', $votes[0]->getAccountId())
-		->setParameter('lmid', $votes[0]->getLeagueMatchId());
-		
-		$queryDel->getResult();
-		
-		for($i=0;$i<count($votes);$i++){
-			$this->em->persist($votes[$i]);
+			)->setParameter('accountId', $vote->getAccountId())
+			->setParameter('lmid', $vote->getLeagueMatchId());
+			
+			$queryDel->getResult();
+			
+			$this->em->persist($vote);
 		}
 		
 		$this->em->flush();
     }
     
-    public function processLeagueDay($matches){
-    	
-    	$this->computeLeagueDayPoints($matches);
+    public function processLeagueDay($matches){    	
+    	$histories = $this->computeLeagueDayPoints($matches);
     	$this->em->flush();
-    	$this->updateRanks();
+    	$accounts = $this->updateRanks($histories);
+    	$this->em->flush();
+    	$this->updateRewards($accounts);
     	$this->em->flush();
     }
     
@@ -223,6 +229,8 @@ class LeagueService
     	$leagueDay = $this->getNotCorrectedLeagueDay();
     	
     	$accounts = $this->getRunningLeagueAccounts();
+    	
+    	$histories = array();
     	
     	for($i=0;$i<count($accounts);$i++){
     		$account = $accounts[$i];
@@ -265,13 +273,33 @@ class LeagueService
     			$points += $votePoints;		
     		}
     		$this->logger->debug('Points : '.$points.' for : '.$account->getUsername().'');
+    		
+    		if($account->getPoints() < 50 && ($account->getPoints()+$points) >=50){
+    			$this->rewardService->reward50($account->getId());
+    		}
+    		if($account->getPoints() < 100 && ($account->getPoints()+$points) >=100){
+    			$this->rewardService->reward100($account->getId());
+    		}
+    		if($account->getPoints() < 500 && ($account->getPoints()+$points) >=500){
+    			$this->rewardService->reward500($account->getId());
+    		}
+    		
     		$account->setPoints($account->getPoints()+$points);
+    		
+    		$history = new LeagueHistory();
+    		$history->setAccountId($account->getId());
+    		$history->setLeagueDayId($leagueDay->getId());
+    		$history->setPoints($points);
+    		
+    		array_push($histories, $history);
     	}
     	
     	$leagueDay->setCorrected(true);
+    	
+    	return $histories;
     }
     
-	public function updateRanks()
+	public function updateRanks($histories)
     {
     	$queryAccounts =  $this->em->createQuery(
 		    'SELECT a FROM Lotofootv2Bundle:Account a
@@ -280,12 +308,36 @@ class LeagueService
 
     	$accounts = $queryAccounts->getResult();
     	
-    	for($i=0;$i<count($accounts);$i++){
-    		$account = $accounts[$i];
-    		
+    	$i = 1;
+    	foreach($accounts as $account){    		
     		$oldRank = $account->getRank();
-    		$account->setRank($i+1);
-    		$account->setProgression($oldRank-$account->getRank());
+    		$account->setRank($i);
+    		
+    		//first vote
+    		if($oldRank == 99){
+    			$account->setProgression(0);
+    		}else{
+    			$account->setProgression($oldRank-$account->getRank());
+    		}
+    		
+    		foreach($histories as $h){
+    			if($h->getAccountId() == $account->getId()){
+    				$h->setRank($i);
+    				$this->em->persist($h);
+    				break;
+    			}
+    		}
+    		$i++;
     	}
+    	
+    	return $accounts;
+    }
+    
+	public function updateRewards($accounts)
+    {
+		$this->rewardService->cleanUpDailies();
+		$this->em->flush();
+		$this->rewardService->rewardAllDailies($accounts);
+		$this->em->flush();
     }
 }

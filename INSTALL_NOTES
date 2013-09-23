@@ -53,4 +53,9 @@ INIT MYSQL :
 	Et a chaque modif des Entity...
 		app/console doctrine:schema:update
 
+CONFIG PHP :
+	Dans php.ini
+		Changer :
+			date.timezone = "Europe/Paris"
+
 Accéder à l'URL http://localhost/lotofoot-v2/app_dev.php/

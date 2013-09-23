@@ -1,8 +1,19 @@
 <div class="navibar">
 	<div class="container">
 		<span class="navibar-element">Hello {{ app.user.username }}</span>
-		<span class="navibar-element">Classement : {{ app.user.rank }}</span>
+		<span class="navibar-element">Classement : 
+			{% if app.user.rank == 99 %}
+				-
+			{% else %}
+				{{app.user.rank}}
+			{% endif %}
+		</span>
 		<span class="navibar-element">Score : {{ app.user.points }}</span>
-		<div class="logo-disconnect"><a href="{{ path('_logout') }}"><img src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}"/></a></div>
+		<div class="logo-disconnect" style="width:auto">
+			{% for r in rewards(app.user.id)%}
+				<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~r.rewardId~'.png') }}"></img>
+			{% endfor %}
+			<a href="{{ path('_logout') }}"><img src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}"/></a>
+		</div>
 	</div>	
 </div>	

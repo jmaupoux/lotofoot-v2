@@ -77,7 +77,7 @@
 						{{match.teamVisitor}}
 					</td>
 					<td>	
-						<input type="text" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+						<input type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
 					</td>
 				</tr>
 				{% endfor %}

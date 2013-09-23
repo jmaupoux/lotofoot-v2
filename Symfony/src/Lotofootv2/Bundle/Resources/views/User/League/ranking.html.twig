@@ -23,7 +23,13 @@
 		</tr>
 		{% for account in accounts %}
 		<tr>
-			<td>{{account.rank}}</td>
+			<td>
+			{% if account.rank == 99 %}
+				-
+			{% else %}
+				{{account.rank}}
+			{% endif %}
+			</td>
 			<td>{{account.username}}</td>
 			<td>{{account.points}}</td>
 			<td>{{account.statDays}}</td>

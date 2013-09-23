@@ -1,10 +1,18 @@
 services:
+    reward_service:
+        class:        "Lotofootv2\Bundle\Service\\RewardService"
+        arguments:    [@doctrine.orm.entity_manager, @logger]
     league_service:
         class:        "Lotofootv2\Bundle\Service\\LeagueService"
-        arguments:    [@doctrine.orm.entity_manager, @logger]
+        arguments:    [@doctrine.orm.entity_manager, @logger, @reward_service]
     news_service:
         class:        "Lotofootv2\Bundle\Service\\NewsService"
         arguments:    [@doctrine.orm.entity_manager, @logger]
     account_service:
         class:        "Lotofootv2\Bundle\Service\\AccountService"
         arguments:    [@doctrine.orm.entity_manager, @logger]
+    lotofootv2.twig.extension.rewards:
+        class: "Lotofootv2\Bundle\Twig\Extension\\Lotofootv2Extensions"
+        arguments: [@reward_service]
+        tags:
+          - { name: twig.extension }

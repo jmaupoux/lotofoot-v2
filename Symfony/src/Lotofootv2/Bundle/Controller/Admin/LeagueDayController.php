@@ -111,7 +111,7 @@ class LeagueDayController extends Controller
     	$leagueDay = $this->get('league_service')->getNotCorrectedLeagueDay();
     	
     	if($leagueDay == null){
-    		$this->redirect($this->generateUrl('_admin_league'));
+    		return $this->redirect($this->generateUrl('_admin_league'));
     	}
     	
     	$matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());

@@ -36,7 +36,7 @@ class LeagueController extends Controller
     {
     	$league = new League();
     	$league->setName($request->request->get('name'));
-    	$league->setState(1);
+    	$league->setOpened(true);
     	
     	$this->get('league_service')->createLeague($league);
 
