@@ -45,9 +45,23 @@ class LeagueHistory
     /**
      * @var integer
      *
+     * @ORM\Column(name="total_points", type="integer")
+     */
+    private $totalPoints;
+    
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="rank", type="integer")
      */
     private $rank;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="voted", type="boolean")
+     */
+    private $voted;
 
 
     /**
@@ -129,6 +143,28 @@ class LeagueHistory
         return $this->points;
     }
     
+	/**
+     * Set totalPoints
+     *
+     * @param integer $totalPoints
+     */
+    public function setTotalPoints($totalPoints)
+    {
+        $this->totalPoints = $totalPoints;
+    
+        return $this;
+    }
+
+    /**
+     * Get totalPoints
+     *
+     * @return totalPoints 
+     */
+    public function getTotalPoints()
+    {
+        return $this->totalPoints;
+    }
+    
     /**
      * Set rank
      *
@@ -149,5 +185,27 @@ class LeagueHistory
     public function getRank()
     {
         return $this->rank;
+    }
+    
+	/**
+     * Set voted
+     *
+     * @param boolean $voted
+     */
+    public function setVoted($voted)
+    {
+        $this->voted = $voted;
+    
+        return $this;
+    }
+
+    /**
+     * Get voted
+     *
+     * @return voted 
+     */
+    public function getVoted()
+    {
+        return $this->voted;
     }
 }

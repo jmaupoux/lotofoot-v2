@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 23 Septembre 2013 à 10:01
+-- Généré le: Lun 23 Septembre 2013 à 22:06
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `lfv2_account` (
 --
 
 INSERT INTO `lfv2_account` (`id`, `username`, `password`, `email`, `salt`, `is_active`, `is_admin`, `points`, `rank`, `progression`, `stat_days`, `stat_bonuses`, `stat_results`, `stat_scores`) VALUES
-(1, 'admin', 'admin', 'admin@mail.com', '', 1, 1, 0, 99, 0, 0, 0, 0, 0),
-(2, 'user', 'user', 'user@mail.com', '', 1, 0, 0, 99, 0, 0, 0, 0, 0);
+(1, 'admin', 'admin', 'admin@mail.com', '', 1, 1, 12, 1, -1, 1, 1, 1, 1),
+(2, 'user', 'user', 'user@mail.com', '', 1, 0, 0, 2, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `lfv2_league_day` (
 --
 
 INSERT INTO `lfv2_league_day` (`id`, `number`, `league_id`, `deadline`, `corrected`) VALUES
-(1, 1, 1, '2014-12-13 20:00:00', 0);
+(1, 1, 1, '2012-12-13 20:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -110,8 +110,18 @@ CREATE TABLE IF NOT EXISTS `lfv2_league_history` (
   `account_id` int(11) NOT NULL,
   `points` int(11) NOT NULL,
   `rank` int(11) NOT NULL,
+  `total_points` int(11) NOT NULL,
+  `voted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `lfv2_league_history`
+--
+
+INSERT INTO `lfv2_league_history` (`id`, `league_day_id`, `account_id`, `points`, `rank`, `total_points`, `voted`) VALUES
+(1, 1, 1, 12, 1, 12, 1),
+(2, 1, 2, 0, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -136,19 +146,19 @@ CREATE TABLE IF NOT EXISTS `lfv2_league_match` (
 --
 
 INSERT INTO `lfv2_league_match` (`id`, `number`, `league_day_id`, `team_home`, `team_visitor`, `bonus`, `score`, `result`) VALUES
-(1, 1, 1, 'dom', 'ext', 1, NULL, NULL),
-(2, 2, 1, 'dom', 'ext', 0, NULL, NULL),
-(3, 3, 1, 'dom', 'ext', 0, NULL, NULL),
-(4, 4, 1, 'dom', 'ext', 0, NULL, NULL),
-(5, 5, 1, 'dom', 'ext', 0, NULL, NULL),
-(6, 6, 1, 'dom', 'ext', 0, NULL, NULL),
-(7, 7, 1, 'dom', 'ext', 0, NULL, NULL),
-(8, 8, 1, 'dom', 'ext', 0, NULL, NULL),
-(9, 9, 1, 'dom', 'ext', 0, NULL, NULL),
-(10, 10, 1, 'dom', 'ext', 0, NULL, NULL),
-(11, 11, 1, 'dom', 'ext', 0, NULL, NULL),
-(12, 12, 1, 'dom', 'ext', 0, NULL, NULL),
-(13, 13, 1, 'dom', 'ext', 0, NULL, NULL);
+(1, 1, 1, 'dom', 'ext', 1, '1-0', '1'),
+(2, 2, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(3, 3, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(4, 4, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(5, 5, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(6, 6, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(7, 7, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(8, 8, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(9, 9, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(10, 10, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(11, 11, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(12, 12, 1, 'dom', 'ext', 0, '0-0', 'N'),
+(13, 13, 1, 'dom', 'ext', 0, '0-0', 'N');
 
 -- --------------------------------------------------------
 
@@ -165,39 +175,39 @@ CREATE TABLE IF NOT EXISTS `lfv2_league_vote` (
   `result` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `points` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=92 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
 -- Contenu de la table `lfv2_league_vote`
 --
 
 INSERT INTO `lfv2_league_vote` (`id`, `account_id`, `league_match_id`, `date`, `score`, `result`, `points`) VALUES
-(53, 1, 1, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(54, 1, 2, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(55, 1, 3, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(56, 1, 4, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(57, 1, 5, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(58, 1, 6, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(59, 1, 7, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(60, 1, 8, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(61, 1, 9, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(62, 1, 10, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(63, 1, 11, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(64, 1, 12, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(65, 1, 13, '2013-09-23 10:00:00', '1-0', '1', NULL),
-(79, 2, 1, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(80, 2, 2, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(81, 2, 3, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(82, 2, 4, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(83, 2, 5, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(84, 2, 6, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(85, 2, 7, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(86, 2, 8, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(87, 2, 9, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(88, 2, 10, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(89, 2, 11, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(90, 2, 12, '2013-09-23 10:00:47', '0-1', '2', NULL),
-(91, 2, 13, '2013-09-23 10:00:47', '1-1', 'N', NULL);
+(1, 1, 1, '2013-09-23 22:04:18', '1-0', '1', 12),
+(2, 1, 2, '2013-09-23 22:04:18', '1-0', '1', 0),
+(3, 1, 3, '2013-09-23 22:04:18', '1-0', '1', 0),
+(4, 1, 4, '2013-09-23 22:04:18', '1-0', '1', 0),
+(5, 1, 5, '2013-09-23 22:04:18', '1-0', '1', 0),
+(6, 1, 6, '2013-09-23 22:04:18', '1-0', '1', 0),
+(7, 1, 7, '2013-09-23 22:04:18', '1-0', '1', 0),
+(8, 1, 8, '2013-09-23 22:04:18', '1-0', '1', 0),
+(9, 1, 9, '2013-09-23 22:04:18', '1-0', '1', 0),
+(10, 1, 10, '2013-09-23 22:04:18', '1-0', '1', 0),
+(11, 1, 11, '2013-09-23 22:04:18', '1-0', '1', 0),
+(12, 1, 12, '2013-09-23 22:04:18', '1-0', '1', 0),
+(13, 1, 13, '2013-09-23 22:04:18', '1-0', '1', 0),
+(14, 2, 1, '2013-09-23 22:04:46', '0-2', '2', 0),
+(15, 2, 2, '2013-09-23 22:04:46', '0-2', '2', 0),
+(16, 2, 3, '2013-09-23 22:04:46', '0-2', '2', 0),
+(17, 2, 4, '2013-09-23 22:04:46', '0-2', '2', 0),
+(18, 2, 5, '2013-09-23 22:04:46', '0-2', '2', 0),
+(19, 2, 6, '2013-09-23 22:04:46', '0-2', '2', 0),
+(20, 2, 7, '2013-09-23 22:04:46', '0-2', '2', 0),
+(21, 2, 8, '2013-09-23 22:04:46', '0-2', '2', 0),
+(22, 2, 9, '2013-09-23 22:04:46', '0-2', '2', 0),
+(23, 2, 10, '2013-09-23 22:04:46', '0-2', '2', 0),
+(24, 2, 11, '2013-09-23 22:04:46', '0-2', '2', 0),
+(25, 2, 12, '2013-09-23 22:04:46', '0-2', '2', 0),
+(26, 2, 13, '2013-09-23 22:04:46', '0-2', '2', 0);
 
 -- --------------------------------------------------------
 
@@ -226,7 +236,19 @@ CREATE TABLE IF NOT EXISTS `lfv2_reward` (
   `reward_id` int(11) NOT NULL,
   `type` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+--
+-- Contenu de la table `lfv2_reward`
+--
+
+INSERT INTO `lfv2_reward` (`id`, `account_id`, `reward_id`, `type`) VALUES
+(1, 1, 1, 'd'),
+(2, 1, 2, 'd'),
+(3, 2, 3, 'd'),
+(4, 1, 4, 'd'),
+(5, 2, 5, 'd'),
+(6, 1, 6, 'd');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

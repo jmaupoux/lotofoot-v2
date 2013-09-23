@@ -144,8 +144,13 @@ class RewardService
 	public function rewardBourseMolle($accounts){
 		$queryMinPoints = $this->em->createQuery(
 		    'SELECT DISTINCT (h.account_id) 
-		     FROM Lotofootv2Bundle:LeagueHistory h 
-		     WHERE h.points = (SELECT min(h2.points) FROM Lotofootv2Bundle:LeagueHistory h2)');
+		     FROM Lotofootv2Bundle:LeagueHistory h  
+		     WHERE h.voted = true  
+		     AND h.points = (
+		     	SELECT min(h2.points) 
+		     	FROM Lotofootv2Bundle:LeagueHistory h2 
+		     	WHERE h2.voted = true
+		     )');
 
     	$rewarded = $queryMinPoints->getResult();
     	

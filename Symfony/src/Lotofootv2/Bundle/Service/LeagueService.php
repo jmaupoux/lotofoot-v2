@@ -290,6 +290,13 @@ class LeagueService
     		$history->setAccountId($account->getId());
     		$history->setLeagueDayId($leagueDay->getId());
     		$history->setPoints($points);
+    		$history->setTotalPoints($account->getPoints());
+    		
+    		if(count($votes) > 0){
+    			$history->setVoted(true);
+    		}else{
+    			$history->setVoted(false);
+    		}
     		
     		array_push($histories, $history);
     	}
@@ -339,5 +346,67 @@ class LeagueService
 		$this->em->flush();
 		$this->rewardService->rewardAllDailies($accounts);
 		$this->em->flush();
+    }
+    
+	public function getDayPointsHistory()
+    {
+    	$accounts = $this->getRunningLeagueAccounts();
+    	
+    	$fullHistory = array();
+    	
+    	foreach($accounts as $acc){
+	    	$queryHistories =  $this->em->createQuery(
+			    'SELECT h.points,d.number FROM Lotofootv2Bundle:LeagueHistory h,Lotofootv2Bundle:LeagueDay d
+			    WHERE h.account_id = :accountId
+			    AND d.id = h.league_day_id
+			    ORDER BY h.league_day_id ASC')
+	    		->setParameter('accountId', $acc->getId());
+
+	    	$accHistories = $queryHistories->getScalarResult();
+	    	
+	    	$extractPoints = function($item) {
+	    		$arr = array();
+	    		array_push($arr, intval($item['number']), intval($item['points']));
+	    		
+	    		return $arr;
+			};
+	    	
+	    	$accHistories = array_map($extractPoints, $accHistories);
+	    	
+	    	array_push($fullHistory, array('name'=>$acc->getUsername(), 'data'=>$accHistories));
+    	}
+		 
+		 return $fullHistory;
+    }
+    
+	public function getRankingHistory()
+    {
+    	$accounts = $this->getRunningLeagueAccounts();
+    	
+    	$fullHistory = array();
+    	
+    	foreach($accounts as $acc){
+	    	$queryHistories =  $this->em->createQuery(
+			    'SELECT h.rank,d.number FROM Lotofootv2Bundle:LeagueHistory h,Lotofootv2Bundle:LeagueDay d
+			    WHERE h.account_id = :accountId
+			    AND d.id = h.league_day_id
+			    ORDER BY h.league_day_id ASC')
+	    		->setParameter('accountId', $acc->getId());
+
+	    	$accHistories = $queryHistories->getScalarResult();
+	    	
+	    	$extractPoints = function($item) {
+	    		$arr = array();
+	    		array_push($arr, intval($item['number']), intval($item['rank']));
+	    		
+	    		return $arr;
+			};
+	    	
+	    	$accHistories = array_map($extractPoints, $accHistories);
+	    	
+	    	array_push($fullHistory, array('name'=>$acc->getUsername(), 'data'=>$accHistories));
+    	}
+		 
+		 return $fullHistory;
     }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 23 Septembre 2013 à 09:36
+-- Généré le: Lun 23 Septembre 2013 à 22:03
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -110,6 +110,8 @@ CREATE TABLE IF NOT EXISTS `lfv2_league_history` (
   `account_id` int(11) NOT NULL,
   `points` int(11) NOT NULL,
   `rank` int(11) NOT NULL,
+  `total_points` int(11) NOT NULL,
+  `voted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
