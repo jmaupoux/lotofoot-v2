@@ -11,7 +11,7 @@
 {% if closed == true %}
 
 	<div class="alert alert-info">
-		Les votes sont clos ! La journée peut être corrigée
+		<span class="center">Les votes sont clos ! La journée peut être corrigée</span>
 	</div>										
 	
 	{% else %}
@@ -21,7 +21,7 @@
 	</div>
 	
 {% endif %}
-
+<br/
 {% if closed == true %}
 	
 	<form action="{{ path('_admin_league_day_mark') }}" method="post" style="width:800px;margin:auto">
@@ -44,18 +44,19 @@
 			{% for match in matches %}
 			<tr>
 				<td>
+					{% if match.bonus == true %}
+					<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+					{% endif %}
 					{{match.number}}
+					{% if match.bonus == true %}
+					<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+					{% endif %}
 				</td>
 				<td>
 					{{match.teamHome}}
 				</td>
 				<td>
-	
-					<input type="text" name="score_{{match.id}}" size="3" autocomplete="off"/>										
-					
-					{% if match.bonus == true %}
-						<span style="color:red"> Bonus </span> 
-					{% endif %}
+					<input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px"/>															
 				</td>
 				<td>
 					{{match.teamVisitor}}
@@ -64,7 +65,7 @@
 			{% endfor %}
 		</table>
 
-		<input type="submit" name="Valider" class="btn"/>										
+		<input type="submit" name="Valider" class="btn-admin center"/>										
 	
 	</form>
 	

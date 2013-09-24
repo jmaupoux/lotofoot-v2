@@ -31,10 +31,10 @@
 				{{i}}
 			</td>
 			<td>
-				<input type="text" name="home_{{i}}" value="{{ app.request.get('home_'~i) }}"/>
+				<input type="text" name="home_{{i}}" value="{{ app.request.get('home_'~i) }}" style="border:0px"/>
 			</td>
 			<td>
-				<input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}"/>
+				<input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}" style="border:0px"/>
 			</td>
 			<td>
 				<input type="checkbox" name="bonus_{{i}}" {{app.request.get('bonus_'~i) == 'on' ? 'checked' : ''}}/>
@@ -42,8 +42,8 @@
 		</tr>
 		{% endfor %}
 	</table>
-	
-	<div class="control-group">
+	<br/>
+	<div class="control-group-admin">
 		<label class="control-label" for="_deadline">
 			 Dernier délai le <span style="color:red"> * </span> 
 		</label>
@@ -61,7 +61,7 @@
 	</div>
 	<div class="control-group">
 		<div class="controls">
-			 <input type="submit" class="btn" value="Lancer !"/>
+			 <input type="submit" class="btn-admin" value="Lancer !"/>
 		</div>
 	</div>
 

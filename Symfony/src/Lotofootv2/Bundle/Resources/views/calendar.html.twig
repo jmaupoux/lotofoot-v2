@@ -13,18 +13,71 @@
 {% block title_body %}
 	<div class="title-body">
 		<div class="ligne-body-left">&nbsp;</div>
-			Stats Équipes
-			<img src="{{ asset('bundles/lotofootv2/img/title-stats.png') }}"/>
+			Calendrier des journées &nbsp;&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-calendar.png') }}"/>
 		<div class="ligne-body-right">&nbsp;</div>
-	</div>
-	<div class="title-body">
-		A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 	</div>
 {% endblock %}
 
 {% block body %}
-	
-	<div class="title-letter">A</div>
+	<table class="calendar">
+		<tr>
+			<th>N°</th>
+			<th>Journée</th>
+			<th>Date</th>
+			<th>Etat</th>
+		</tr>
+		<tr class="calendar">
+			<td>1</td>
+			<td>Journée de championnat N°7</td>
+			<td>Avant le 13/10/2013 - 13:00	</td>
+			<td class="calendar-termine">Terminé</td>
+		</tr>
+		<tr class="calendar">
+			<td>2</td>
+			<td>Journée de championnat N°8</td>
+			<td>Avant le 18/10/2013 - 13:00	</td>
+			<td class="calendar-termine">Terminé</td>
+		</tr>
+		<tr class="calendar">
+			<td>3</td>
+			<td>Journée de championnat N°9</td>
+			<td>Avant le 20/10/2013 - 13:00	</td>
+			<td class="calendar-encours">En Cours</td>
+		</tr>
+		<tr class="calendar-cl">
+			<td>4</td>
+			<td>Journée de Ligue des Champions N°1</td>
+			<td>Avant le 13/11/2013 - 13:00	</td>
+			<td class="calendar-avenir">A venir</td>
+		</tr>
+		<tr class="calendar">
+			<td>5</td>
+			<td>Journée de championnat N°10</td>
+			<td>Avant le 20/11/2013 - 13:00	</td>
+			<td class="calendar-avenir">A venir</td>
+		</tr>
+		<tr class="calendar">
+			<td>6</td>
+			<td>Journée de championnat N°11</td>
+			<td>Avant le 27/11/2013 - 13:00	</td>
+			<td class="calendar-avenir">A venir</td>
+		</tr>
+		<tr class="calendar">
+			<td>7</td>
+			<td>Journée de championnat N°12</td>
+			<td>Avant le 13/10/2013 - 13:00	</td>
+			<td class="calendar-avenir">A venir</td>
+		</tr>
+		<tr class="calendar-cl">
+			<td>8</td>
+			<td>Journée de Ligue des Champions N°2</td>
+			<td>Avant le 13/10/2013 - 13:00	</td>
+			<td class="calendar-avenir">A venir</td>
+		</tr>
+		
+	</table>
+
 	
 {% endblock %}
 
