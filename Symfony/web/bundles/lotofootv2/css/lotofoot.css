@@ -3,6 +3,7 @@
 #content{
 		padding: 20px;
 		text-align: justify;
+		background-position:fixed;
 		
 }
 
@@ -22,6 +23,7 @@ body{
 	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
 	font-size: 14px;
 	/*margin: 0;*/
+	background-position:fixed;
 }
 .bg-transparent{
 	opacity:0.85;
@@ -615,5 +617,10 @@ td.calendar-avenir{
 a{	
 	color: white;
 	text-decoration:none;
+}
+
+h1{
+	color: rgb(55,46,50);
+	text-decoration: underline;
 }
 

@@ -26,18 +26,20 @@
 		Aucune journée créée !		
 	{% else %}
 	
-		{% if error is defined %}
-		    <div style="color:red">{{ error }}</div>
-		{% endif %}
-		{% if info is defined and info is not null %}
-		    <div style="color:green">{{ info }}</div>
-		{% endif %}
-		{% if warn is defined and warn is not null %}
-		    <div style="color:orange">{{ warn }}</div>
-		{% endif %}
+		
 		<br/><br/>
 		<div class="date-limite">Date limite pour voter à cette journée : 
-			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}</span></div>
+			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}</span>
+			{% if error is defined %}
+		    <div style="color:red">{{ error }}</div>
+			{% endif %}
+			{% if info is defined and info is not null %}
+		    <div style="color:green">{{ info }}</div>
+			{% endif %}
+			{% if warn is defined and warn is not null %}
+		    <div style="color:orange">{{ warn }}</div>
+			{% endif %}
+		</div>
 		<br/><br/>
 		
 		<form action="{{ path('_league_vote_post') }}" method="post" style="width:800px;margin:auto">
