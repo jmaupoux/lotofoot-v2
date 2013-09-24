@@ -1,0 +1,55 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Calendrier des journées &nbsp;&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-calendar.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
+{% endblock %}
+
+{% block body %}
+	<table class="calendar">
+		<tr>
+			<th>N°</th>
+			<th>Journée</th>
+			<th>Date</th>
+			<th>Etat</th>
+		</tr>
+		{% for day in days %}
+			<tr class="calendar{% if day.type == 'cl' %}-cl{% endif %}">
+				<td>{{day.number}}</td>
+				<td>Journée de 
+					{% if day.type == 'l' %}championnat{% else %}Ligue des Champions{%endif%} 
+					N°{{day.number}}</td>
+				<td>Avant le {{ day.before|date("d/m/Y H:i") }}</td>
+				
+				{% if day.before <  date() %}
+				<td class="calendar-termine">Terminé</td>
+				{% elseif day.opened == true %}
+				<td class="calendar-encours">En cours</td>
+				{% else %}
+				<td class="calendar-avenir">A venir</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+		
+	</table>
+
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

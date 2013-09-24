@@ -58,7 +58,7 @@ _prizes:
     
     
 _calendar:
-    resource: "@Lotofootv2Bundle/Controller/CalendarController.php"
+    resource: "@Lotofootv2Bundle/Controller/User/CalendarController.php"
     type:     annotation
     
 _forum:
