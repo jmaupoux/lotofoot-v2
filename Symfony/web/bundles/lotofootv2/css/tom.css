@@ -307,6 +307,7 @@ input{
 	list-style: none;
 	color: white;
 	border: 1px solid rgb(55,46,50);
+	display: block;
 }
 
 .submenu:hover{
@@ -321,7 +322,10 @@ input{
 }
 
 a.menu-lien{
+	width: 134px;
+	height: 24px;
 	text-decoration:none;
+	display: block;
 	}
 
 a.menu-lien:hover{	
@@ -453,6 +457,11 @@ a.menu-lien:hover{
 	cursor: pointer;
 }
 
+.control-group-admin{
+	padding-left: 180px;
+	float: left;
+}
+
 /* Stats */
 /*********************************************/
 a.letter{	
@@ -508,7 +517,40 @@ th{
 	color: white;
 	border: 1px solid rgb(55,46,50);
     padding: 10px 10px 10px 10px;
+	text-align: center;
+}
+
+table.calendar{
 	
+}
+
+tr.calendar{
+	height: 23px;
+	color: rgb(55,46,50);
+	background-image: url(../img/calendar-background-grey.jpg);
+	background-repeat: no-repeat-x;
+}
+
+tr.calendar-cl{
+	height: 23px;
+	color: white;
+	background-image: url(../img/calendar-background-blue.jpg);
+	background-repeat: no-repeat-x;
+}
+
+td.calendar-termine{
+	color:red;
+	background-color:white;
+}
+
+td.calendar-encours{
+	color:green;
+	background-color:white;
+}
+
+td.calendar-avenir{
+	color:rgb(55,46,50);
+	background-color:white;
 }
 
 /*Footer*/
@@ -563,6 +605,12 @@ th{
 
 /****************************************************/
 
+.center{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	display: block;
+}
 
 a{	
 	color: white;
