@@ -21,9 +21,8 @@
 {% endblock %}
 
 {% block body %}
-	Paris effectués : <br/>
 	
-	<style type="text/css">
+	<style type="text/css">	
 		 .vote{
 		 	background-color:rgb(55,46,50);
 		 }
@@ -36,6 +35,12 @@
 		 .vote.noresult{
 		 	background-color:red;
 		 }
+		 
+		 .notcorrected .vote.result, .notcorrected .vote.noresult, .notcorrected .scoreok{
+		 	background-color:inherit;
+		 	color:inherit;
+		 }
+		 
 		 td.invisible{
 		 	border-left:none;
 		 	border-right:none;
@@ -50,8 +55,14 @@
 		 	color:white;
 		 }
 	</style>
+	
+	{% if leagueDay.corrected == false %}
+		<div style="text-align:center;color:red">
+			<b>La journée est en attente de correction</b><br/><br/>
+		</div>
+	{% endif %}
 
-	<table class="table table-striped">
+	<table class="table table-striped {% if leagueDay.corrected == false %} notcorrected {% endif %}">
 		<tr>
 			<th>N°</th>
 			<th>Domicile</th>

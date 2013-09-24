@@ -20,7 +20,7 @@
 		{% if news is not null%}
 			{{news.title}}
 		{% else %}
-			 Bienvenue sur Lotofoot !
+			{{ 'home.welcome' | trans }}
 		{% endif %}
 		
 		{% if news is not null%}
@@ -38,7 +38,7 @@
 			{{news.text}}
 		{% endautoescape %}
 	{% else %}
-		 Aucune news à afficher
+		 {{ 'home.nonews' | trans }}
 	{% endif %}
 	
 {% endblock %}

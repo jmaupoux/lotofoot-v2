@@ -1,0 +1,28 @@
+rewards:
+    r1:
+        desc: The "KING" : Vous êtes le premier du classement
+    r2:
+        desc: The "KING" : Vous êtes le premier du classement
+    r3:
+        desc: The "KING" : Vous êtes le premier du classement
+    r4:
+        desc: The "KING" : Vous êtes le premier du classement
+    r5:
+        desc: The "KING" : Vous êtes le premier du classement
+    r6:
+        desc: The "KING" : Vous êtes le premier du classement
+    r7:
+        desc: The "KING" : Vous êtes le premier du classement
+    r8:
+        desc: The "KING" : Vous êtes le premier du classement
+    r9:
+        desc: The "KING" : Vous êtes le premier du classement
+        
+navibar:
+    hello: Bienvenue
+    ranking: Classement
+    score: Score
+    
+home:
+    welcome:  Bienvenue sur Lotofoot !
+    nonews:  Aucune news à afficher
