@@ -76,11 +76,7 @@ class LeagueDayController extends Controller
 			}
 			
 			if($bonus != null && $bonus == 'on'){
-				if($isbonus == true){
-					$error = '2 bonus détectés';
-				}else{
-					$isbonus = true;
-				}
+				$isbonus = true;
 			}
 			
 			$this->get('logger')->info($bonus);
@@ -119,7 +115,8 @@ class LeagueDayController extends Controller
     	for($i=1;$i<=13;$i++){
     		$error = null;
     		if(! LotofootUtil::validScore($request->request->get('score_'.$matches[$i-1]->getId()))){
-    			return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Score incorrect pour le match : '.$i));
+    			return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', 
+    			array('leagueDay' => $leagueDay, 'closed' => true, 'matches' => $matches, 'error' => 'Score incorrect pour le match : '.$i));
     		}
     	}
     	

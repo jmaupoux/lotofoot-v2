@@ -21,7 +21,7 @@
 	</div>
 	
 {% endif %}
-<br/
+<br/>
 {% if closed == true %}
 	
 	<form action="{{ path('_admin_league_day_mark') }}" method="post" style="width:800px;margin:auto">
@@ -56,7 +56,7 @@
 					{{match.teamHome}}
 				</td>
 				<td>
-					<input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px"/>															
+					<input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px" value="{{app.request.get('score_'~match.id)}}"/>															
 				</td>
 				<td>
 					{{match.teamVisitor}}
