@@ -14,6 +14,14 @@
 	padding: 0px 20px 0px 20px;	
 }
 
+.container-navbar{
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 20px 0px 20px;	
+	margin-top: 0;
+}
+
 
 body{
 	background: rgb(55,46,50);
@@ -23,16 +31,13 @@ body{
 	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
 	font-size: 14px;
 	/*margin: 0;*/
-	background-position:fixed;
+	background-attachment: fixed;
 }
 .bg-transparent{
 	opacity:0.85;
     filter:alpha(opacity=85); 
     background: rgb(255,255,255);
-    height: 683px;
     box-shadow: 6px 0px 15px black;  
-    overflow: auto;
-    overflow-x: hidden;
 }
 
 /*Login*/
@@ -95,8 +100,10 @@ input{
 
 .navibar{
 	height: 36px;
+	width:100%;
 	background: rgb(55,46,50);
 	color: rgb(255,255,255);
+	display:block;
 }
 
 .navibar-element{
@@ -624,3 +631,12 @@ h1{
 	text-decoration: underline;
 }
 
+h2{
+	color: rgb(55,46,50);
+	text-decoration: underline;
+}
+
+h3{
+	color: rgb(55,46,50);
+	text-decoration: underline;
+}
