@@ -57,5 +57,6 @@ CONFIG PHP :
 	Dans php.ini
 		Changer :
 			date.timezone = "Europe/Paris"
+	Activer le mod php_openssl pour envoi de mail en mode ssl
 
 Accéder à l'URL http://localhost/lotofoot-v2/app_dev.php/

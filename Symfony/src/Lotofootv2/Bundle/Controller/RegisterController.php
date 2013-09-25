@@ -61,6 +61,19 @@ class RegisterController extends Controller
     	
     	$this->get('account_service')->create($account);
     	
+    	$this->mailRegistration($account);
+    	
         return $this->redirect($this->generateUrl('_root'));
+    }
+    
+    private function mailRegistration($account)
+    {
+    	$message = \Swift_Message::newInstance()
+	        ->setSubject('Inscription Lotofoot')
+	        ->setFrom('lotofoot.mail@gmail.com')
+	        ->setTo($account->getEmail())
+	        ->setBody($this->renderView('Lotofootv2Bundle:mails:registration.txt.twig', array('account' => $account)));
+    	
+	    $this->get('mailer')->send($message);
     }
 }
