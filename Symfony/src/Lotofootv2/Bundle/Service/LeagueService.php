@@ -409,4 +409,16 @@ class LeagueService
 		 
 		 return $fullHistory;
     }
+    
+	public function getLeagueDayHistories($leagueDayId)
+    {
+    	$query = $this->em->createQuery(
+		    'SELECT l
+		    FROM Lotofootv2Bundle:LeagueHistory l 
+		    WHERE l.league_day_id = :league_day_id
+		    ORDER BY l.points DESC'
+		)->setParameter('league_day_id', $leagueDayId);
+		
+		return $query->getResult();
+    }
 }

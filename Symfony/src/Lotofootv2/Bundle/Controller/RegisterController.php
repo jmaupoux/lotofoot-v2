@@ -68,12 +68,22 @@ class RegisterController extends Controller
     
     private function mailRegistration($account)
     {
+    	$from = $this->container->getParameter('mailer_from');
+    	
     	$message = \Swift_Message::newInstance()
 	        ->setSubject('Inscription Lotofoot')
-	        ->setFrom('lotofoot.mail@gmail.com')
+	        ->setFrom($from)
 	        ->setTo($account->getEmail())
 	        ->setBody($this->renderView('Lotofootv2Bundle:mails:registration.txt.twig', array('account' => $account)));
     	
 	    $this->get('mailer')->send($message);
+	    
+	    $message2 = \Swift_Message::newInstance()
+	        ->setSubject('Inscription Lotofoot')
+	        ->setFrom($from)
+	        ->setTo($from)
+	        ->setBody('Compte à valider !');
+	    
+	   	$this->get('mailer')->send($message2);
     }
 }

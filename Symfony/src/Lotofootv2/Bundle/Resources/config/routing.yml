@@ -23,6 +23,10 @@ _home:
 _league_ranking:
     resource: "@Lotofootv2Bundle/Controller/User/League/RankingController.php"
     type:     annotation
+
+_league_ranking_day:
+    resource: "@Lotofootv2Bundle/Controller/User/League/RankingDayController.php"
+    type:     annotation
     
 _league_history:
     resource: "@Lotofootv2Bundle/Controller/User/League/HistoryController.php"

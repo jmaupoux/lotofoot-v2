@@ -12,7 +12,7 @@ class RootController extends Controller
      */
     public function indexAction()
     {
-    	if( $this->getUser() ){
+    	if( $this->getUser() != null ){
     		return $this->redirect($this->generateUrl('_home'));
     	}else{
     		return $this->redirect($this->generateUrl('_login'));

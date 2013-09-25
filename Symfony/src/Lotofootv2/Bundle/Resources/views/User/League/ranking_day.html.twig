@@ -1,0 +1,66 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+
+		<a href="{{ path('_league_ranking')}}" style="color:black">
+			Classement général
+		</a>
+		<br/>
+		<a href="{{ path('_league_ranking_day')}}" style="color:black">
+			Classement par journée
+		</a>
+	</div>
+
+	{% if  day is defined and day is not null %}
+		<div class="title-body">
+
+			<a class="prev" href="{{ path('_league_ranking_day')~'?prev='~day.number}}" title="Journée précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+			
+			<div class="ligne-body-left">&nbsp;</div>
+			Classement de la journée {{day.number}}			
+			<a class="next" href="{{ path('_league_ranking_day')~'?next='~day.number}}" title="Journée suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+	
+	{% if day is defined and day is not null %}
+	
+	<table>
+		<tr>
+			<th>Classement<br/> du jour</th>
+			<th>Joueur</th>
+			<th>Points</th>
+		</tr>
+		{% for history in histories %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{app.request.get('acc_'~history.accountId)}} ({{history.rank}}e)</td>
+			<td>{{history.points}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	{% else %}
+	
+	Aucune journée à afficher.
+	
+	{% endif %}
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

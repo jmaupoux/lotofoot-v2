@@ -6,9 +6,10 @@ parameters:
     database_user: root
     database_password: 
     mailer_transport: gmail
-    mailer_host: smtp.gmail.com
     mailer_user: lotofoot.mail
     mailer_password: A METTRE
+    mailer_from: lotofoot.mail@gmail.com
+    url: http://localhost/lotofoot-v2/app_dev.php/
     locale: fr
     secret: 0151ce848a4a6366e413b01411cb4dee972c1051
     database_path: null

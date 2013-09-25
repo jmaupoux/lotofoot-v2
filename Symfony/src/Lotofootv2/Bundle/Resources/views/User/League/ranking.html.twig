@@ -8,6 +8,19 @@
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
+{% block title_body %}
+	<div class="title-body">
+
+		<a href="{{ path('_league_ranking')}}" style="color:black">
+			Classement général
+		</a>
+		<br/>
+		<a href="{{ path('_league_ranking_day')}}" style="color:black">
+			Classement par journée
+		</a>
+	</div>
+{% endblock %}
+
 {% block body %}
 	
 	<table>

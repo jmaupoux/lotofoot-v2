@@ -96,7 +96,32 @@ class LeagueDayController extends Controller
     	
 		$this->get('league_service')->newLeagueDay($matches, $deadline);
 		
+		$this->mailNewDay($deadline);
+		
     	return $this->redirect($this->generateUrl('_admin_league_day'));
+    }
+    
+	private function mailNewDay($deadline)
+    {
+    	$from = $this->container->getParameter('mailer_from');
+    	
+    	$accounts = $this->get('league_service')->getRunningLeagueAccounts();
+    	
+    	$email = function($a)
+		{
+		    return $a->getEmail();
+		};
+		
+		$arr = array_map($email, $accounts);
+    	
+    	$message = \Swift_Message::newInstance()
+	        ->setSubject('Nouvelle journée Lotofoot')
+	        ->setFrom($from)
+	        ->setTo($arr)
+	        ->setBody($this->renderView('Lotofootv2Bundle:mails:new_league_day.txt.twig', 
+	        	array('deadline' => $deadline)));
+    	
+	    $this->get('mailer')->send($message);
     }
     
 	/**
