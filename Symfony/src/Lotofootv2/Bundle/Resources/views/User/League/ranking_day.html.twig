@@ -9,17 +9,6 @@
 {% endblock %}
 
 {% block title_body %}
-	<div class="title-body">
-
-		<a href="{{ path('_league_ranking')}}" style="color:black">
-			Classement général
-		</a>
-		<br/>
-		<a href="{{ path('_league_ranking_day')}}" style="color:black">
-			Classement par journée
-		</a>
-	</div>
-
 	{% if  day is defined and day is not null %}
 		<div class="title-body">
 
@@ -32,6 +21,11 @@
 			<div class="ligne-body-right">&nbsp;</div>
 		</div>
 	{% endif %}
+	<div class="title-body">
+		<a class="btn-admin" href="{{ path('_league_ranking')}}">Classement général</a>&nbsp;&nbsp;&nbsp;
+		<a class="btn-admin" href="{{ path('_league_ranking_day')}}">Classement par journée</a>
+	</div>
+	
 {% endblock %}
 
 {% block body %}
