@@ -14,8 +14,12 @@
 			{% if error %}
 		        <div class="error">{{ error.message }}</div>
 		    {% endif %}
+		    {% if registered %}
+		        <div>Votre inscription a bien été prise en compte et votre compte est en cours d'activation par les administrateurs</div>
+		        <br/>
+		    {% endif %}
 			
-			<form action="{{ path('_login_check') }}" method="post" class="form-login">
+			<form action="{{ path('_login_check') }}" method="post" class="form-login" style="height:149px">
 				<div class="control-group">
 					<label class="control-label" for="_username">
 						 Pseudo 
@@ -48,6 +52,7 @@
 						<a class="lien-login"  href="{{path('_register')}}">Créer un compte</a>	<a class="lien-login"  href="{{path('_register')}}">Password oublié</a>	
 					</div>
 				</div>
+				<div style="clear:both"></div>
 			</div>
 		</form>
 	</div>

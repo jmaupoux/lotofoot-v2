@@ -22,7 +22,7 @@
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur"/>
+						 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur" style="width:180px"/>
 					 </div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail"/>
+						 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail" style="width:180px"/>
 					 </div>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}"/>
+						 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}" style="width:180px"/>
 					 </div>
 				</div>
 			</div>
@@ -52,16 +52,29 @@
 				</label>
 				<div class="controls">
 					<div class="input-prepend">
-						 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}"/>
+						 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}" style="width:180px"/>
+					 </div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="_whoru">
+					Qui êtes vous ? <br/>(inscription modérée) <span style="color:red"> * </span> 
+				</label>
+				<div class="controls">
+					<div class="input-prepend">
+						 <textarea id="_whoru" name="whoru" rows="2">{{ app.request.get('whoru') }}</textarea>
 					 </div>
 				</div>
 			</div>
 			
-			<div class="control-group">
+			<div class="control-group" style="padding-top:20px">
 				<div class="controls">
 					<button type="submit" class="btn-admin" value="Créer login">Créer son identifiant LotoFoot</button>	
 				</div>
 			</div>
+			
+			<div style="clear:both"> </div>
+			<br/><br/>
 			
 		</form>
 	</div>
