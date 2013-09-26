@@ -35,7 +35,7 @@
 			<th>Evolution</th>
 		</tr>
 		{% for account in accounts %}
-		<tr>
+		<tr {% if account.id == app.user.id %} class="my-rank" {% endif %}>
 			<td>
 			{% if account.rank == 99 %}
 				-

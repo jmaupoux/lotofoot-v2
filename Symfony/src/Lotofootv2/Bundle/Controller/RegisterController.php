@@ -34,11 +34,13 @@ class RegisterController extends Controller
     	$mail = $request->request->get('mail');
     	$pass1 = $request->request->get('pass1');
     	$pass2 = $request->request->get('pass2');
+    	$whoru = $request->request->get('whoru');
     	
     	$error = null;
     	
     	if($username == null || $mail == null || $pass1 == null || $pass2 == null || 
-    		trim($username) == '' || trim($mail) == '' || trim($pass1) == '' || trim($pass2) == '' ){
+    		trim($username) == '' || trim($mail) == '' || trim($pass1) == '' || trim($pass2) == '' 
+    		|| trim($whoru) == '' ){
     		$error = "Tous les champs sont obligatoires";
     	}
     	else if(trim($pass1) != trim($pass2)){
@@ -61,12 +63,12 @@ class RegisterController extends Controller
     	
     	$this->get('account_service')->create($account);
     	
-    	$this->mailRegistration($account);
+    	$this->mailRegistration($account, $whoru);
     	
-        return $this->redirect($this->generateUrl('_root'));
+        return $this->redirect($this->generateUrl('_login', array('r' => 1)));
     }
     
-    private function mailRegistration($account)
+    private function mailRegistration($account, $whoru)
     {
     	$from = $this->container->getParameter('mailer_from');
     	
@@ -82,7 +84,7 @@ class RegisterController extends Controller
 	        ->setSubject('Inscription Lotofoot')
 	        ->setFrom($from)
 	        ->setTo($from)
-	        ->setBody('Compte à valider !');
+	        ->setBody('Compte à valider ! Account='.$account->getUsername().' (Identification fournie :'.$whoru.')');
 	    
 	   	$this->get('mailer')->send($message2);
     }

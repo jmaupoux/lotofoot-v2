@@ -45,7 +45,7 @@
 			<th>Points</th>
 		</tr>
 		{% for history in histories %}
-		<tr>
+		<tr {% if history.accountId == app.user.id %} class="my-rank" {% endif %}>
 			<td>{{loop.index}}</td>
 			<td>{{app.request.get('acc_'~history.accountId)}} ({{history.rank}}e)</td>
 			<td>{{history.points}}</td>
