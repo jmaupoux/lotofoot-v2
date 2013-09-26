@@ -33,7 +33,8 @@ class RewardService
 	public function getAccountRewards($accountId){
     	$query = $this->em->createQuery(
 		    'SELECT r FROM Lotofootv2Bundle:Reward r 
-		    WHERE r.account_id = :accountId')
+		    WHERE r.account_id = :accountId
+		    ORDER BY r.reward_id')
     	->setParameter('accountId', $accountId);
 
     	return $query->getResult();
