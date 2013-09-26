@@ -1,5 +1,6 @@
 {% extends 'Lotofootv2Bundle::layout.html.twig' %}
 
+
 {% block navibar %}
 	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
 {% endblock %}
@@ -8,10 +9,54 @@
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
+{% block title_body %}
+	
+{% endblock %}
+	
 {% block body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Récompenses &nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-stats.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
 	
-	Stats
-	
+	<div class="bloc-rewards">
+		<div class="bloc-reward">
+		THE KING <img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/><br/>
+		<div class="lign-blue"></div>
+		</div>
+	</div>
+	<div class="bloc-rewards">
+		<div class="bloc-reward">
+		THE KING <img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/><br/>
+		<div class="lign-blue"></div>
+		</div>
+	</div>
+	<div class="bloc-rewards">
+		<div class="bloc-reward">
+		THE KING <img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/><br/>
+		<div class="lign-blue"></div>
+		</div>
+	</div>
+	<div class="bloc-rewards">
+		<div class="bloc-reward">
+		THE KING <img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/><br/>
+		<div class="lign-blue"></div>
+		</div>
+	</div>
+	<div class="bloc-rewards">
+		<div class="bloc-reward">
+		THE KING <img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/><br/>
+		<div class="lign-blue"></div>
+		</div>
+	</div>
+	<div class="bloc-rewards">
+		<div class="bloc-reward">
+		THE KING <img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/><br/>
+		<div class="lign-blue"></div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block footer %}
