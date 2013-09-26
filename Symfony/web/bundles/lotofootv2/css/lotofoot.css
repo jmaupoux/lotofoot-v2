@@ -575,6 +575,10 @@ tr.calendar-cl{
 	background-repeat: no-repeat-x;
 }
 
+tr.my-rank{
+	background-color:#DABE67
+}
+
 td.calendar-termine{
 	color:red;
 	background-color:white;
