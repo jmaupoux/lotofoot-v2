@@ -151,7 +151,7 @@ input{
 
 .menu-navigation{
 	display: inline-block;
-	margin:0;
+	margin:-1px 0 0 0;
 	padding:0;
 }
 
@@ -508,8 +508,7 @@ a.letter:hover{
 /*********************************************/
 .bloc-rewards{
 	width: 940px;
-	margin: 10px;
-	margin:0;	
+	margin: 10px 30px 10px 30px;
 	color: rgb(29,174,234);
 	font-size: 24px;
 	text-align: center;
@@ -520,11 +519,11 @@ a.letter:hover{
 	background-color: rgb(55,46,50);
 	width: 260px;
 	min-height: 105px;
-	padding: 20px;
-	margin-left: 10px;	
-	margin-right: 10px;	
+	padding: 10px;
+	margin: 5px;	
 	float:left;
 }
+
 
 .lign-blue{
 	height:1px;
@@ -532,6 +531,11 @@ a.letter:hover{
 	background-color: rgb(29,174,234);
 }
 
+.txt-reward{
+	color:white;
+	font-size: 14px;
+	padding-top: 3px;
+}
 /* Tableaux */
 /*********************************************/
 

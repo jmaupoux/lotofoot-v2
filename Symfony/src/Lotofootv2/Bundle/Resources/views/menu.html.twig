@@ -12,7 +12,6 @@
 	    <ul class="submenu-2-championnat">
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_ranking') }}" title="Classement">Classement</a></li>
-	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_history') }}" title="Historique">Historique</a></li>
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_rules') }}" title="Règlement du championnat">Règlement</a></li>
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_prizes') }}" title="Cadeaux Championnat 2013-2014">Cadeaux</a></li>
 	      {% if is_granted('ROLE_ADMIN') %}
@@ -39,6 +38,7 @@
 	    <li class="menu-6-stats"></li>
 		    <ul class="submenu-6-stats">
 			    <li class="submenu"><a class="menu-lien" href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes</a></li>
+			    <li class="submenu"><a class="menu-lien" href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Historique</a></li>
 		      	<li class="submenu"><a class="menu-lien" href="{{ path('_stats_rewards') }}" title="Récompenses">Récompenses</a></li>
 			</ul>  
 	</ul>			
