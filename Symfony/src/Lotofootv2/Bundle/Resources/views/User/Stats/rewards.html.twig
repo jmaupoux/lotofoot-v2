@@ -1,5 +1,6 @@
 {% extends 'Lotofootv2Bundle::layout.html.twig' %}
 
+
 {% block navibar %}
 	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
 {% endblock %}
@@ -8,9 +9,17 @@
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
-{% block body %}
+{% block title_body %}
 	
-	Stats
+{% endblock %}
+	
+{% block body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Récompenses &nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-stats.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
 	
 {% endblock %}
 

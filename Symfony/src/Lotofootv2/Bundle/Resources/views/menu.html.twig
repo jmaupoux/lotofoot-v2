@@ -1,5 +1,4 @@
 <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/menu.js')}}"></script> 
-<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/stats-teams.js')}}"></script>
 
 
 <div class="logo-ballon">
@@ -35,8 +34,8 @@
 		      {% endif %}
 	      </ul>
 	    </li>
-	    <li class="menu-4-calendar"><a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir"><img src="{{ asset('bundles/lotofootv2/img/menu-4-calendrier.png') }}"/></a></li>
-	    <li class="menu-5-forum"><a href="{{ path('_forum') }}" title="Venez Zlataner !"><img src="{{ asset('bundles/lotofootv2/img/menu-5-forum.png') }}"/></a></li>
+	    <a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir"><li class="menu-4-calendar"></li></a>
+	    <a href="{{ path('_forum') }}" title="Venez Zlataner !"><li class="menu-5-forum"></li></a>
 	    <li class="menu-6-stats"></li>
 		    <ul class="submenu-6-stats">
 			    <li class="submenu"><a class="menu-lien" href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes</a></li>

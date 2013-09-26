@@ -18,7 +18,7 @@
 	width: 980px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0px 20px 0px 20px;	
+	padding: 5px 20px 0px 20px;	
 	margin-top: 0;
 }
 
@@ -30,7 +30,7 @@ body{
 	background-position: center 0;
 	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
 	font-size: 14px;
-	/*margin: 0;*/
+	margin: 0;
 	background-attachment: fixed;
 }
 .bg-transparent{
@@ -38,6 +38,7 @@ body{
     filter:alpha(opacity=85); 
     background: rgb(255,255,255);
     box-shadow: 6px 0px 15px black;  
+    min-height: 683px;
 }
 
 /*Login*/
@@ -129,7 +130,7 @@ input{
 	display: inline-block;
 	margin-left: 4px;
 	margin-right: 0;
-	margin-top: 1px;
+	margin-top: 0;
 	width: 85px;
 	height: 90px;
 	
@@ -143,7 +144,7 @@ input{
 	vertical-align: top;
 	margin-top: 0px;
 	margin-right: 0;
-	margin-left: -4px;
+	margin-left: -5px;
 	list-style: none;
 	padding: 0;
 }
@@ -205,7 +206,7 @@ input{
 	background-image: url(../img/menu-3-championsleague.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 174px;
+	width: 173px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
@@ -215,7 +216,7 @@ input{
 	background-image: url(../img/menu-3-championsleague-hoover.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 174px;
+	width: 173px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
@@ -223,9 +224,10 @@ input{
 }
 
 .menu-4-calendar{
+	background-image: url(../img/menu-4-calendrier.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 132px;
+	width: 131px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
@@ -235,7 +237,7 @@ input{
 	background-image: url(../img/menu-4-calendrier-hoover.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 132px;
+	width: 131px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
