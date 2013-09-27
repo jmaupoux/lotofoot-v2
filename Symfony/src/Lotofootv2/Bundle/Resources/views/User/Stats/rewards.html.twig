@@ -25,14 +25,14 @@
 		{% for r in rewards %}
 			
 			<div class="bloc-reward">
-			{{ ('rewards.r'~loop.index~'.title')|trans}} <img src="{{ asset('bundles/lotofootv2/img/rewards/r{{loop.index}}.png') }}"/><br/>
+			{{ ('rewards.r'~loop.index~'.title')|trans}} <img src="{{ asset('bundles/lotofootv2/img/rewards/r'~loop.index~'.png') }}"/><br/>
 			<div class="lign-blue"></div>
 			<div class="txt-reward">{{ r.username }}</div>
 			</div>
 		
 		{% endfor %}
 	</div>
-	
+	<div class="stop-float"></div>
 
 {% endblock %}
 
