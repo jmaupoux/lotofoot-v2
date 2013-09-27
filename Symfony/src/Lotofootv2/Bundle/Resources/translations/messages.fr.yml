@@ -1,21 +1,30 @@
 rewards:
     r1:
+        title: THE KING
         desc: The "KING" : Vous êtes le premier du classement
     r2:
+        title: THE CHOUNE
         desc: The "KING" : Vous êtes le premier du classement
     r3:
+        title: THE BOUSE
         desc: The "KING" : Vous êtes le premier du classement
     r4:
+        title: L'ÉCLAIR
         desc: The "KING" : Vous êtes le premier du classement
     r5:
+        title: THE BOURSE MOLLE
         desc: The "KING" : Vous êtes le premier du classement
     r6:
+        title: THE SMOKING
         desc: The "KING" : Vous êtes le premier du classement
     r7:
+        title: TOP 50
         desc: The "KING" : Vous êtes le premier du classement
     r8:
+        title: TOP 100
         desc: The "KING" : Vous êtes le premier du classement
     r9:
+        title: TOP 500
         desc: The "KING" : Vous êtes le premier du classement
         
 navibar:
