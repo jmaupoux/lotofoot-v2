@@ -20,12 +20,18 @@ class CalendarController extends Controller
     {
     	$days = array();
 
-    	array_push($days, new CalendarDay(1, 'l', new DateTime('2012-10-13 13:00')));
-    	array_push($days, new CalendarDay(2, 'l', new DateTime('2013-10-18 13:00')));
-    	array_push($days, new CalendarDay(3, 'l', new DateTime('2013-10-20 13:00')));
-    	array_push($days, new CalendarDay(4, 'cl', new DateTime('2013-11-13 13:00')));
-    	array_push($days, new CalendarDay(5, 'l', new DateTime('2018-11-20 13:00')));
-    	array_push($days, new CalendarDay(6, 'cl', new DateTime('2019-11-27 13:00')));
+    	array_push($days, new CalendarDay(1, 'l', new DateTime('2013-10-05 13:00')));
+    	array_push($days, new CalendarDay(2, 'l', new DateTime('2013-10-19 13:00')));
+    	array_push($days, new CalendarDay(3, 'l', new DateTime('2013-10-26 13:00')));
+    	array_push($days, new CalendarDay(4, 'l', new DateTime('2013-11-02 13:00')));
+    	array_push($days, new CalendarDay(5, 'l', new DateTime('2013-11-09 13:00')));
+    	array_push($days, new CalendarDay(6, 'l', new DateTime('2013-11-30 13:00')));
+    	array_push($days, new CalendarDay(7, 'l', new DateTime('2013-12-04 13:00')));
+    	array_push($days, new CalendarDay(8, 'l', new DateTime('2013-12-07 13:00')));
+    	array_push($days, new CalendarDay(9, 'l', new DateTime('2013-12-14 13:00')));
+    	array_push($days, new CalendarDay(10, 'l', new DateTime('2013-12-14 13:00')));
+    	array_push($days, new CalendarDay(11, 'l', new DateTime('2013-12-21 13:00')));
+    	array_push($days, new CalendarDay(1, 'cl', new DateTime('2014-02-18 13:00')));
     	
     	for($i=0;$i<count($days);$i++){
     		if($days[$i]->getBefore() < new DateTime()){
