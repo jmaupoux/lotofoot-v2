@@ -150,7 +150,7 @@ input{
 
 .menu-navigation{
 	display: inline-block;
-	margin:-1px 0 0 0;
+	margin:0;
 	padding:0;
 }
 
@@ -662,6 +662,10 @@ td.calendar-avenir{
 	margin-right: auto;
 	text-align: center;
 	display: block;
+}
+
+.stop-float{
+	clear:both;
 }
 
 a{	
