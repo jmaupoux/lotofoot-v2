@@ -22,15 +22,23 @@
 	</div>
 	
 	<div class="bloc-rewards">
-		{% for r in rewards %}
+	
+		{% for index in 1..9 %}
 			
 			<div class="bloc-reward">
-			{{ ('rewards.r'~loop.index~'.title')|trans}} <img src="{{ asset('bundles/lotofootv2/img/rewards/r'~loop.index~'.png') }}"/><br/>
-			<div class="lign-blue"></div>
-			<div class="txt-reward">{{ r.username }}</div>
+				{{ ('rewards.r'~index~'.title')|trans}} <img src="{{ asset('bundles/lotofootv2/img/rewards/r'~index~'.png') }}"/><br/>
+				<div class="lign-blue"></div>
+				<div class="txt-reward">
+					{% for r in rewards %}
+						{% if r.reward_id == index %}
+							{{ r.username }}<br/>
+						{% endif %}
+					{% endfor %}
+				</div>
 			</div>
-		
+			
 		{% endfor %}
+
 	</div>
 	<div class="stop-float"></div>
 
