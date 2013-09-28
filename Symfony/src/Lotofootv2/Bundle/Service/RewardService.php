@@ -42,11 +42,11 @@ class RewardService
     
 	public function getRewardedAccounts(){
     	$query = $this->em->createQuery(
-		    'SELECT a FROM Lotofootv2Bundle:Reward r, Lotofootv2Bundle:Account a  
+		    'SELECT a.username,r.reward_id FROM Lotofootv2Bundle:Reward r, Lotofootv2Bundle:Account a  
 		    WHERE r.account_id = a.id
 		    ORDER BY r.reward_id ASC');
 
-    	return $query->getArrayResult();
+    	return $query->getResult();
     }
     
 	public function rewardAllDailies($accounts){

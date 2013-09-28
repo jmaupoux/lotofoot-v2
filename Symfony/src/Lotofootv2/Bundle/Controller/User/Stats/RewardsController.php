@@ -14,9 +14,7 @@ class RewardsController extends Controller
     public function indexAction()
     {
     	$rewards = $this->get('reward_service')->getRewardedAccounts();
-    	
-    	$this->get('logger')->info('ttt'.count($rewards));
-    	
+ 
        return $this->render('Lotofootv2Bundle:User/Stats:rewards.html.twig', array('rewards' => $rewards));
     }
 }

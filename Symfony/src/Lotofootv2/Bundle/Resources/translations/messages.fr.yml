@@ -1,31 +1,31 @@
 rewards:
     r1:
         title: THE KING
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Tout simplement le Roi. 1er du championnat
     r2:
         title: THE CHOUNE
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Réservé au joueur qui a trouvé le plus de scores exacts depuis le début
     r3:
         title: THE BOUSE
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Le latéral gauche. Bref, le dernier
     r4:
         title: L'ÉCLAIR
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Le plus gros marqueur sur une journée
     r5:
         title: THE BOURSE MOLLE
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Le plus faible marqueur sur une journée
     r6:
         title: THE SMOKING
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Comme Ronnie, le mec choisit ses matchs. C'est le plus gros marqueur sur les bonus uniquement
     r7:
         title: TOP 50
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Vous avez dépassé la barre des 50 points
     r8:
         title: TOP 100
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Vous avez dépassé la barre des 100 points
     r9:
         title: TOP 500
-        desc: The "KING" : Vous êtes le premier du classement
+        desc: Vous avez dépassé la barre mythique des 500 points
         
 navibar:
     hello: Bienvenue
