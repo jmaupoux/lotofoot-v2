@@ -27,7 +27,7 @@ class NewsController extends Controller
     public function createAction(Request $request)
     {
     	$news = new News();
-    	$news->setTitle($request->request->get('title'));
+    	$news->setTitle(stripslashes($request->request->get('title')));
     	$news->setText($request->request->get('text'));
     	$news->setDate(new DateTime());
     	
