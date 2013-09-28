@@ -141,7 +141,7 @@ input{
 	filter:alpha(opacity=100); 
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 0px;
+	margin-top: -1px;
 	margin-right: 0;
 	margin-left: -5px;
 	list-style: none;
@@ -497,6 +497,17 @@ a.letter:hover{
 	border-bottom: 1px solid rgb(55,46,50);
 	font-size: 36px;
 	text-align: left;
+	clear: both;
+}
+
+.title-prizes{
+	
+	width: 930px;
+	color: rgb(55,46,50);
+	border-bottom: 1px solid rgb(55,46,50);
+	font-size: 20px;
+	text-align: left;
+	padding-top : 10px;
 	clear: both;
 }
 
