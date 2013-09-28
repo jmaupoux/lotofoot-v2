@@ -1,0 +1,5 @@
+Eclipse :
+	Export archive, 
+		Exclude cache & logs
+		Exclude parameter.yml
+	Delete Symfony folder and up all subfolders
