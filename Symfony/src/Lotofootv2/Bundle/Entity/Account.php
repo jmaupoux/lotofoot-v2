@@ -2,7 +2,7 @@
 
 namespace Lotofootv2\Bundle\Entity;
 
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="lfv2_account")
  */
-class Account implements UserInterface, \Serializable
+class Account implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var integer
@@ -326,5 +326,25 @@ class Account implements UserInterface, \Serializable
     	}else{
     		return array('ROLE_USER');
     	}
+    }
+    
+	public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
     }
 }
