@@ -335,6 +335,7 @@ a.menu-lien{
 	width: 134px;
 	height: 24px;
 	text-decoration:none;
+	color:white;
 	display: block;
 	}
 
@@ -680,7 +681,7 @@ td.calendar-avenir{
 }
 
 a{	
-	color: white;
+	/*color: white;*/
 	text-decoration:none;
 }
 
