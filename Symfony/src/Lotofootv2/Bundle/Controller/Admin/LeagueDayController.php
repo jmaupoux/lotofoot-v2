@@ -27,14 +27,19 @@ class LeagueDayController extends Controller
 		
 		$closed = true;
 		$matches = null;
+		$hasNotVoted = null;
 		
 		if($leagueDay != null){
 			$closed = ($leagueDay->getDeadline() < new DateTime());
 			$matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());
+			
+			if(!$closed){
+				$hasNotVoted = $this->get('league_service')->getHasNotVoted($leagueDay->getId());
+			}
 		}
 		
     	return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', 
-    		array('leagueDay' => $leagueDay, 'closed' => $closed, 'matches' => $matches)
+    		array('leagueDay' => $leagueDay, 'closed' => $closed, 'matches' => $matches, 'hasNotVoted' => $hasNotVoted)
     	);
     }
     

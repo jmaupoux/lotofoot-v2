@@ -20,6 +20,19 @@
 		Les votes sont toujours en cours !
 	</div>
 	
+	<br/></br>
+	Les joueurs suivants n'ont pas joué :
+	<ul>
+		{% for a in hasNotVoted %}
+			<li>{{a.username}}</li>
+		{% endfor %}
+	</ul>
+	<br/>
+	Mail à envoyer à : 
+	{% for a in hasNotVoted %}
+		{{a.email}};
+	{% endfor %}
+	
 {% endif %}
 <br/>
 {% if closed == true %}

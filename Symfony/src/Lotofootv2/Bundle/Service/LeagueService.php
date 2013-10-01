@@ -74,6 +74,21 @@ class LeagueService
 		return $query->getOneOrNullResult();
     }
     
+	public function getHasNotVoted($dayId)
+    {
+    	$query = $this->em->createQuery(
+		    'SELECT a
+		    FROM Lotofootv2Bundle:Account a  
+		    WHERE a.isActive = true
+		    AND not exists (SELECT 1 FROM Lotofootv2Bundle:LeagueMatch m, Lotofootv2Bundle:LeagueVote v
+		    	WHERE v.account_id = a.id
+		    	AND m.league_day_id=:dayId
+		    	AND v.league_match_id = m.id)'
+		)->setParameter('dayId', $dayId);
+		
+		return $query->getResult();
+    }
+    
 	public function getLastLeagueDay()
     {
 		$query = $this->em->createQuery(
