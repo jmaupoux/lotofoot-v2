@@ -48,6 +48,13 @@ class LeagueDay
      * @ORM\Column(name="corrected", type="boolean")
      */
     private $corrected;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="word", type="string", length=1024)
+     */
+    private $word;
 
 
     /**
@@ -144,5 +151,24 @@ class LeagueDay
     public function getCorrected()
     {
     	return $this->corrected;
+    }
+    
+	/**     
+     */
+    public function setWord($word)
+    {
+    	$this->word = $word;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get deadline
+     *
+     * @return String
+     */
+    public function getWord()
+    {
+    	return $this->word;
     }
 }

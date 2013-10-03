@@ -115,6 +115,25 @@ class VoteController extends Controller
 		);
     }
     
+	/**
+     * @Route("/league/vote/word", name="_league_vote_word")
+     * @Method("POST")
+     */
+    public function wordAction(Request $request)
+    {	
+    	$day = $this->get('league_service')->getOpenedLeagueDay();
+    	
+    	if($day == null || $this->getUser()->getRank() != 1){
+    		return $this->redirect($this->generateUrl('_league_vote'));
+    	}
+    	
+    	$word = $request->request->get('word');
+    	
+    	$this->get('league_service')->publishWord($word);
+		
+    	return $this->redirect($this->generateUrl('_league_vote'));
+    }
+    
     /**
      * @Route("/league/vote", name="_league_vote_post")
      * @Method("POST")

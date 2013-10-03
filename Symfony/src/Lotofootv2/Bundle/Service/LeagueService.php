@@ -74,6 +74,15 @@ class LeagueService
 		return $query->getOneOrNullResult();
     }
     
+	public function publishWord($word)
+    {
+    	$query = $this->em->createQuery(
+		    'UPDATE Lotofootv2Bundle:LeagueDay l SET l.word = :word WHERE l.corrected = false AND l.deadline > CURRENT_TIMESTAMP()'
+		)->setParameter('word', $word);
+		
+		return $query->getResult();
+    }
+    
 	public function getHasNotVoted($dayId)
     {
     	$query = $this->em->createQuery(

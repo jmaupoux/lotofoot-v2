@@ -25,9 +25,36 @@
 	{% if leagueDay is null %}
 		Aucune journée créée !		
 	{% else %}
-	
 		
-		<br/><br/>
+		{% if app.user.rank == 1 %}
+		<form action="{{ path('_league_vote_word') }}" method="post" style="width:800px;margin:auto">
+			Vous êtes l'actuel EXPERT lotofoot :<br/>
+			
+			<div style="text-align: center">
+			<textarea name="word" style="width:300px;height:50px">{{leagueDay.word}}</textarea>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					 <input type="submit" class="btn-vote" value="Diffuser"/>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+		</form>
+		
+		{% else %}
+		
+		{% if leagueDay.word is not null %}
+			
+			<fieldset style="width: 600px; margin: auto; opacity: 1; background-color: #666666; color: white;">
+				<legend style="color:black;background-color:white">Le mot de l'expert lotofoot</legend>
+				"{{leagueDay.word}}"
+			</fieldset>
+		
+		{% endif %}
+		
+		{% endif %}
+		
+		<br/>
 		<div class="date-limite">Date limite pour voter à cette journée : 
 			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}</span>
 			{% if error is defined %}
@@ -90,7 +117,7 @@
 					 <input type="submit" class="btn-vote" value="Valider vos votes pour la journée !"/>
 				</div>
 			</div>
-		
+			<div style="clear:both"></div>
 		</form>
 	
 	{% endif %}
