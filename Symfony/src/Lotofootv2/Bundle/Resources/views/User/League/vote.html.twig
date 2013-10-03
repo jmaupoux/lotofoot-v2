@@ -95,22 +95,24 @@
 					<td>
 						{{match.teamHome}}
 					</td>
-					<td><input type="radio" name="result_{{match.id}}" value="1"
+					<td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
 						{% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
-					<td><input type="radio" name="result_{{match.id}}" value="N"
+					<td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
 						{% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
-					<td><input type="radio" name="result_{{match.id}}" value="2"
+					<td><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
 						{% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
 					
 					<td>
 						{{match.teamVisitor}}
 					</td>
 					<td>	
-						<input type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+						<input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
 					</td>
 				</tr>
 				{% endfor %}
 			</table>
+			
+			<input type="button" class="btn-vote tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
 			
 			<div class="control-group">
 				<div class="controls">
@@ -121,6 +123,28 @@
 		</form>
 	
 	{% endif %}
+	
+	<script type="text/javascript">
+	
+	function autoResult(){
+		if(confirm("Attention, cette action modifiera vos résultats selon le score parié")){
+			$("[id^='score_']").each(function(){
+				if($(this).val() != ""){
+					var i = this.id.split("_")[1];
+					var scores = $(this).val().split('-');
+					if(scores[0] > scores[1]){
+						$("#result_"+i+"_1").attr('checked', 'checked');
+					}else if(scores[0] < scores[1]){
+						$("#result_"+i+"_2").attr('checked', 'checked');
+					}else if(scores[0] == scores[1]){
+						$("#result_"+i+"_N").attr('checked', 'checked');
+					}
+				}
+			});
+		}
+	}
+		
+	</script>
 	
 {% endblock %}
 
