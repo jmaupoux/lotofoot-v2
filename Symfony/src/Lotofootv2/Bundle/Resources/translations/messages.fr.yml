@@ -25,7 +25,10 @@ rewards:
         desc: Vous avez dépassé la barre des 100 points
     r9:
         title: TOP 500
-        desc: Vous avez dépassé la barre mythique des 500 points
+        desc: Vous avez dépassé la barre mythique des 500 points        
+    r10:
+        title: LA CAGNOUTE
+        desc: Vous avez payé le droit de conquérir à la cagnoute suprême
         
 navibar:
     hello: Bienvenue

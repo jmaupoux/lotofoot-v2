@@ -25,8 +25,12 @@
 
 body{
 	background: rgb(55,46,50);
-	background-image: url(../img/bg.jpg);
+	background-image: url(../img/bg2.jpg);
 	background-repeat: no-repeat;
+	-webkit-background-size: cover; /* pour Chrome et Safari */
+ 	-moz-background-size: cover; /* pour Firefox */
+    -o-background-size: cover; /* pour Opera */
+    background-size: cover; /* version standardisée */
 	background-position: center 0;
 	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
 	font-size: 14px;
@@ -81,10 +85,13 @@ body{
 }
 
 .lien-login{
+	color: white;
 	font-size: 12px;
 	float: left;
 	padding-right: 20px;
+	text-decoration: none;
 }
+
 
 .lien-login:hover{
 	text-decoration: underline;
@@ -611,6 +618,29 @@ td.calendar-avenir{
 	background-color:white;
 }
 
+
+/* Le Mot du King */
+/*********************************************/
+.king-punchline{
+	font-family: 'Georgia', 'Times New Roman', Times, serif;
+	font-style: italic;
+	font-size: 16px;
+	width: 600px;
+	margin: auto;
+	opacity: 1;
+	background-color: #666666;
+	color: white;
+}
+
+.king-punchline-legend{
+	color: #666666;
+	background-color:white;
+	font-weight: bold;
+	font-style: normal;
+	border: 1px solid rgb(55,46,50);
+	box-shadow: 6px 0px 6px black;  
+}
+
 /*Footer*/
 /*********************************************/
 .footer-block{
@@ -680,10 +710,15 @@ td.calendar-avenir{
 	clear:both;
 }
 
-a{	
-	/*color: white;*/
+/*a{	
+	color: black;
 	text-decoration:none;
 }
+
+a:visited{	
+	color: black;
+	text-decoration:none;
+}*/
 
 h1{
 	color: rgb(55,46,50);
