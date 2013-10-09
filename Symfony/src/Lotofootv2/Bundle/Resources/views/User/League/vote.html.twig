@@ -26,33 +26,35 @@
 		Aucune journée créée !		
 	{% else %}
 		
-		{% if app.user.rank == 1 %}
-		<form action="{{ path('_league_vote_word') }}" method="post" style="width:800px;margin:auto">
-			Vous êtes l'actuel EXPERT lotofoot :<br/>
+		
+			{% if leagueDay.word == "" %}
+				{% if app.user.rank == 1 %}
+					<form action="{{ path('_league_vote_word') }}" method="post" style="width:800px;margin:auto;text-align:center;">
+						Vous êtes le KING, vous pouvez adresser une punchline qui sera affichée à tous les autres parieurs (max 150 caractères):<br/><br/>
+						
+						<div style="text-align: center">
+						<textarea name="word" style="width:600px;height:50px; float:left" maxlength="150">{{leagueDay.word}}</textarea>
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								 <input type="submit" class="btn-admin" style="float:left" value="Diffuser"/>
+							</div>
+						</div>
+						<div style="clear:both"></div>
+					</form>
+				{% endif %}
+			{% else %}
 			
-			<div style="text-align: center">
-			<textarea name="word" style="width:300px;height:50px">{{leagueDay.word}}</textarea>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					 <input type="submit" class="btn-vote" value="Diffuser"/>
-				</div>
-			</div>
-			<div style="clear:both"></div>
-		</form>
-		
-		{% else %}
-		
-		{% if leagueDay.word is not null %}
+				{% if leagueDay.word is not null %}
+					
+					<fieldset class="king-punchline">
+						<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
+						"{{leagueDay.word}}"
+					</fieldset>
+				
+				{% endif %}
 			
-			<fieldset style="width: 600px; margin: auto; opacity: 1; background-color: #666666; color: white;">
-				<legend style="color:black;background-color:white">Le mot de l'expert lotofoot</legend>
-				"{{leagueDay.word}}"
-			</fieldset>
-		
-		{% endif %}
-		
-		{% endif %}
+			{% endif %}
 		
 		<br/>
 		<div class="date-limite">Date limite pour voter à cette journée : 
