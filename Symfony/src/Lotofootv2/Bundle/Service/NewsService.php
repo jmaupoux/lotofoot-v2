@@ -19,16 +19,18 @@ class NewsService
         $this->logger = $logger;
     }
 	
-    public function createNews($news)
+    public function createUpdateNews($news)
     {
-    	$number = 1;
-    	
-    	$previous = $this->getLastNews();
-    	if($previous != null){
-    		$number = $previous->getNumber()+1;
+    	if($news->getNumber() == 0){
+	    	$number = 1;
+	    	
+	    	$previous = $this->getLastNews();
+	    	if($previous != null){
+	    		$number = $previous->getNumber()+1;
+	    	}
+	    	
+	    	$news->setNumber($number);
     	}
-    	
-    	$news->setNumber($number);
     	
     	$this->em->persist($news);
     	$this->em->flush();
