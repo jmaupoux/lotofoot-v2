@@ -89,10 +89,27 @@ class LeagueService
 		    'SELECT a
 		    FROM Lotofootv2Bundle:Account a  
 		    WHERE a.isActive = true
-		    AND not exists (SELECT 1 FROM Lotofootv2Bundle:LeagueMatch m, Lotofootv2Bundle:LeagueVote v
+		    AND 13 != (SELECT count(v) FROM Lotofootv2Bundle:LeagueMatch m, Lotofootv2Bundle:LeagueVote v
 		    	WHERE v.account_id = a.id
 		    	AND m.league_day_id=:dayId
-		    	AND v.league_match_id = m.id)'
+		    	AND v.league_match_id = m.id
+		    	AND v.score != \'\' and v.result != \'\')'
+		)->setParameter('dayId', $dayId);
+		
+		return $query->getResult();
+    }
+    
+	public function getHasVoted($dayId)
+    {
+    	$query = $this->em->createQuery(
+		    'SELECT a
+		    FROM Lotofootv2Bundle:Account a  
+		    WHERE a.isActive = true
+		    AND 13 = (SELECT count(v) FROM Lotofootv2Bundle:LeagueMatch m, Lotofootv2Bundle:LeagueVote v
+		    	WHERE v.account_id = a.id
+		    	AND m.league_day_id=:dayId
+		    	AND v.league_match_id = m.id
+		    	AND v.score != \'\' and v.result != \'\')'
 		)->setParameter('dayId', $dayId);
 		
 		return $query->getResult();
@@ -335,7 +352,7 @@ class LeagueService
     	$queryAccounts =  $this->em->createQuery(
 		    'SELECT a FROM Lotofootv2Bundle:Account a
 		    WHERE a.isActive = true
-		    ORDER BY a.points DESC');
+		    ORDER BY a.points DESC, a.statBonuses DESC, a.id ASC');
 
     	$accounts = $queryAccounts->getResult();
     	

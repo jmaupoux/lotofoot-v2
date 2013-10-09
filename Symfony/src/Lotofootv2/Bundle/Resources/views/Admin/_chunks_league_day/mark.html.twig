@@ -16,19 +16,22 @@
 	
 	{% else %}
 	
-	<div class="alert alert-warning">
+	<div style="border : 1px solid red">
 		Les votes sont toujours en cours !
 	</div>
+	<br/>
 	
-	<br/></br>
-	Les joueurs suivants n'ont pas joué :
+	Nombre de votants : {{ hasVoted | length }} / {{ (hasVoted | length) + (hasNotVoted | length) }}
+	
+	<br/><hr/>
+	Les joueurs suivants n'ont pas voté (ou pas totalement) :
 	<ul>
 		{% for a in hasNotVoted %}
 			<li>{{a.username}}</li>
 		{% endfor %}
 	</ul>
-	<br/>
-	Mail à envoyer à : 
+	<br/><hr/>
+	Mail à envoyer à : <br/>
 	{% for a in hasNotVoted %}
 		{{a.email}};
 	{% endfor %}
