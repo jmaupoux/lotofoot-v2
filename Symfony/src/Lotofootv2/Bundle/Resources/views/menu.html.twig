@@ -9,7 +9,7 @@
 	<ul class="menu-navigation">
 	  <li class="menu-1-accueil"><a href="{{ path('_home') }}" title="Aller à la page d'accueil"><img src="{{ asset('bundles/lotofootv2/img/menu-1-accueil.png') }}"/></a></li>
 	  <li class="menu-2-championnat">
-	    <ul class="submenu-2-championnat">
+	    <ul class="submenu-2-championnat" style="display:none">
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_ranking') }}" title="Classement">Classement</a></li>
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_rules') }}" title="Règlement du championnat">Règlement</a></li>
@@ -22,7 +22,7 @@
 	    </ul>
 	    </li>
 	    <li class="menu-3-championsleague">
-	      <ul class="submenu-3-championsleague">
+	      <ul class="submenu-3-championsleague" style="display:none">
 		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_coming') }}" title="Parier sur la prochaine journée de Champion's League">Parier</a></li>
 		      <li class="submenu"><a href="{{ path('_cl_coming') }}" title="Classement"></a>Classement</li>
 		      <li class="submenu"><a href="{{ path('_cl_coming') }}" title="Règlement"></a>Règlement</li>
@@ -36,7 +36,7 @@
 	    <a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir"><li class="menu-4-calendar"></li></a>
 	    <a href="{{ path('_forum') }}" title="Venez Zlataner !"><li class="menu-5-forum"></li></a>
 	    <li class="menu-6-stats"></li>
-		    <ul class="submenu-6-stats">
+		    <ul class="submenu-6-stats" style="display:none">
 			    <li class="submenu"><a class="menu-lien" href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes</a></li>
 			    <li class="submenu"><a class="menu-lien" href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Historique</a></li>
 		      	<li class="submenu"><a class="menu-lien" href="{{ path('_stats_rewards') }}" title="Récompenses">Récompenses</a></li>
