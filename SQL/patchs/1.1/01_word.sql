@@ -1,1 +1,2 @@
 ALTER TABLE `lfv2_league_day` ADD `word` VARCHAR( 1024 ) NULL DEFAULT NULL ;
+ALTER TABLE `lfv2_league_day` ADD `king_tag` VARCHAR( 255 ) NULL DEFAULT NULL ;

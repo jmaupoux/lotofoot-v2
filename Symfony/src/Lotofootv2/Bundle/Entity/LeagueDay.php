@@ -55,13 +55,19 @@ class LeagueDay
      * @ORM\Column(name="word", type="string", length=1024)
      */
     private $word;
-
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="king_tag", type="string", length=255)
+     */
+    private $king_tag;
 
     /**
      * Get id
      *
      * @return integer 
      */
+
     public function getId()
     {
         return $this->id;
@@ -170,5 +176,23 @@ class LeagueDay
     public function getWord()
     {
     	return $this->word;
+    }
+    /**
+     */
+    public function setKingTag($king_tag)
+    {
+    $this->king_tag = $king_tag;
+    
+    return $this;
+    }
+    
+    /**
+    * Get deadline
+    *
+    * @return String
+     */
+    public function getKingTag()
+    {
+    return $this->king_tag;
     }
 }

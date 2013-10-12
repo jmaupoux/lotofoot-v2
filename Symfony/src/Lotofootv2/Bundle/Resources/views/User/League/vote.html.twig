@@ -49,7 +49,8 @@
 					
 					<fieldset class="king-punchline">
 						<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
-						"{{leagueDay.word}}"
+						"{{leagueDay.word}}"<br/>
+						<span class="king-punchline-sign">- {{leagueDay.kingTag}} -</span>
 					</fieldset>
 				
 				{% endif %}
@@ -58,7 +59,9 @@
 		
 		<br/>
 		<div class="date-limite">Date limite pour voter à cette journée : 
-			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}</span>
+			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
+			<input type="button" class="btn-admin tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
+			
 			{% if error is defined %}
 		    <div style="color:red">{{ error }}</div>
 			{% endif %}
@@ -113,8 +116,6 @@
 				</tr>
 				{% endfor %}
 			</table>
-			
-			<input type="button" class="btn-vote tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
 			
 			<div class="control-group">
 				<div class="controls">

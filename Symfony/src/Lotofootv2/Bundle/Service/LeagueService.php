@@ -74,11 +74,11 @@ class LeagueService
 		return $query->getOneOrNullResult();
     }
     
-	public function publishWord($word)
+	public function publishWord($word,$king_tag)
     {
     	$query = $this->em->createQuery(
-		    'UPDATE Lotofootv2Bundle:LeagueDay l SET l.word = :word WHERE l.corrected = false AND l.deadline > CURRENT_TIMESTAMP()'
-		)->setParameter('word', $word);
+		    'UPDATE Lotofootv2Bundle:LeagueDay l SET l.word = :word, l.king_tag = :king_tag WHERE l.corrected = false AND l.deadline > CURRENT_TIMESTAMP()'
+		)->setParameter('word', $word)->setParameter('king_tag', $king_tag);
 		
 		return $query->getResult();
     }

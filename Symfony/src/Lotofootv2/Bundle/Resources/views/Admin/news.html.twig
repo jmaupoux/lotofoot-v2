@@ -13,9 +13,6 @@
 	<script src="{{asset('bundles/lotofootv2/lib/ckeditor/ckeditor.js')}}"></script>
 	<script src="{{asset('bundles/lotofootv2/lib/ckeditor/adapters/jquery.js')}}"></script>
 	
-	<a href="{{ path('_admin_news_edit') }}" class="btn-vote" >
-		Editer la news en cours
-	</a>
 	
 	<form action="{{ path('_admin_news_create') }}" method="post" style="width:800px;margin:auto">
 		
@@ -38,10 +35,12 @@
 			</div>
 		</div>
 		
-		<input type="submit" value="Publier"></input>
+		<input class="btn-admin" type="submit" value="Publier"></input> 	
+		<a href="{{ path('_admin_news_edit') }}" class="btn-admin" > Editer la news en cours </a>	
 	</form>
 	
-			
+		
+	
 	<script type="text/javascript">
 		$( document ).ready( function() {
 			$( 'textarea#_news-editor' ).ckeditor();

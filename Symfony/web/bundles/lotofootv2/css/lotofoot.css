@@ -139,8 +139,20 @@ input{
 	margin-top: 0;
 	width: 85px;
 	height: 90px;
-	
+	-webkit-transition: All .8s ease;
+	-moz-transition: All .8s ease;
+	-o-transition: All .8s ease;
+	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
+	-moz-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
+	-o-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
 }
+
+.logo-ballon:hover{
+	-webkit-transform: rotate(180deg) scale(1) skew(0deg) translate(0px);
+	-moz-transform: rotate(180deg) scale(1) skew(0deg) translate(0px);
+	-o-transform: rotate(180deg) scale(1) skew(0deg) translate(0px);
+	}
+
 
 .menu-content{
 	width: 868px;
@@ -634,11 +646,18 @@ td.calendar-avenir{
 
 .king-punchline-legend{
 	color: #666666;
+	padding: 3px;
 	background-color:white;
 	font-weight: bold;
 	font-style: normal;
 	border: 1px solid rgb(55,46,50);
 	box-shadow: 6px 0px 6px black;  
+}
+
+.king-punchline-sign{
+	float : right;
+	font-weight: bold;
+	font-style: normal;
 }
 
 /*Footer*/
