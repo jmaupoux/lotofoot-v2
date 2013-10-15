@@ -40,6 +40,15 @@ class RewardService
     	return $query->getResult();
     }
     
+	public function countRewardType($rewardId){
+    	$query = $this->em->createQuery(
+		    'SELECT count(r) FROM Lotofootv2Bundle:Reward r 
+		    WHERE r.reward_id = :rewardId')
+    	->setParameter('rewardId', $rewardId);
+
+    	return $query->getSingleScalarResult();
+    }
+    
 	public function getRewardedAccounts(){
     	$query = $this->em->createQuery(
 		    'SELECT a.username,r.reward_id FROM Lotofootv2Bundle:Reward r, Lotofootv2Bundle:Account a  

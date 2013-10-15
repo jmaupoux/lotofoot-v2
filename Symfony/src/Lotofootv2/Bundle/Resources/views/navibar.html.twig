@@ -13,6 +13,7 @@
 			{% endif %}
 		</span>
 		<span class="navibar-element">{{'navibar.score' | trans}} : {{ app.user.points }}</span>
+		<span class="navibar-element">En jeu : {{pot()*10}} €</span>
 		<div class="logo-disconnect" style="width:auto">
 			{% for r in rewards(app.user.id)%}
 				<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~r.rewardId~'.png') }}" 

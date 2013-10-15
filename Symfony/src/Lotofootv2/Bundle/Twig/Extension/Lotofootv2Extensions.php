@@ -24,11 +24,16 @@ class Lotofootv2Extensions extends \Twig_Extension
     {
         return array(
             'rewards' => new \Twig_Function_Method($this, 'getRewards', array('is_safe' => array('html'))),
+          	'pot' => new \Twig_Function_Method($this, 'getPot', array('is_safe' => array('html'))),
         );
     }
     
     public function getRewards($accountId){
     	return $this->rewardService->getAccountRewards($accountId);
+    }
+    
+	public function getPot(){
+    	return $this->rewardService->countRewardType(10);
     }
 
     /**
