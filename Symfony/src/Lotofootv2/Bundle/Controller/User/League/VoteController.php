@@ -127,7 +127,7 @@ class VoteController extends Controller
     		return $this->redirect($this->generateUrl('_league_vote'));
     	}
     	
-    	$word = $request->request->get('word');
+    	$word = stripslashes($request->request->get('word'));
     	
     	$this->get('league_service')->publishWord($word,$this->getUser()->getUsername());
 		
