@@ -276,6 +276,9 @@ class LeagueService
     	for($i=0;$i<count($accounts);$i++){
     		$account = $accounts[$i];
     		$points = 0;
+    		$dayResults = 0;
+    		$dayScores = 0;
+    		$dayBonus = false;
     		
     		$votes = $this->getLeagueDayVotes($leagueDay->getId(), $account->getId());
     		
@@ -294,15 +297,16 @@ class LeagueService
     				if($match->getId() == $vote->getLeagueMatchId()){
     					if($match->getScore() == $vote->getScore()){
     						$votePoints = 3;
-    						$account->setStatScores($account->getStatScores()+1);
+    						$dayScores = $dayScores+1;
     					}
     					if($match->getResult() == $vote->getResult()){
     						$votePoints += 1;
-    						$account->setStatResults($account->getStatResults()+1);
+    						$dayResults = $dayResults+1;
     					}
     					if($match->getBonus()){
     						if($votePoints == 4){
     							$account->setStatBonuses($account->getStatBonuses()+1);
+    							$dayBonus = true;
     						}    						
     						$votePoints *= 3;
     					}
@@ -325,6 +329,9 @@ class LeagueService
     			$this->rewardService->reward500($account->getId());
     		}
     		
+    		$account->setStatResults($account->getStatResults()+$dayResults);
+    		$account->setStatScores($account->getStatScores()+$dayScores);
+    		
     		$account->setPoints($account->getPoints()+$points);
     		
     		$history = new LeagueHistory();
@@ -332,6 +339,9 @@ class LeagueService
     		$history->setLeagueDayId($leagueDay->getId());
     		$history->setPoints($points);
     		$history->setTotalPoints($account->getPoints());
+    		$history->setHasBonus($dayBonus);
+    		$history->setScores($dayScores);
+    		$history->setResults($dayResults);
     		
     		if(count($votes) > 0){
     			$history->setVoted(true);

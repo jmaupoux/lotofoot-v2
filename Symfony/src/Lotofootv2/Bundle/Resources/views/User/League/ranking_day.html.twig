@@ -36,12 +36,18 @@
 		<tr>
 			<th>Classement<br/> du jour</th>
 			<th>Joueur</th>
+			<th>Bonus</th>
+			<th>Scores trouvés</th>
+			<th>Resultats trouvés</th>
 			<th>Points</th>
 		</tr>
 		{% for history in histories %}
 		<tr {% if history.accountId == app.user.id %} class="my-rank" {% endif %}>
 			<td>{{loop.index}}</td>
 			<td>{{app.request.get('acc_'~history.accountId)}} ({{history.rank}}e)</td>
+			<td>{% if history.hasBonus %} Oui {% else %} Non {% endif %}</td>
+			<td>{{history.scores}}</td>
+			<td>{{history.results}}</td>
 			<td>{{history.points}}</td>
 		</tr>
 		{% endfor %}

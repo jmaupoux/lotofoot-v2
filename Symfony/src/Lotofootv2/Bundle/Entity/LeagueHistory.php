@@ -43,6 +43,27 @@ class LeagueHistory
     private $points;
     
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="has_bonus", type="boolean")
+     */
+    private $has_bonus;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="scores", type="integer")
+     */
+    private $scores;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="results", type="integer")
+     */
+    private $results;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="total_points", type="integer")
@@ -163,6 +184,72 @@ class LeagueHistory
     public function getTotalPoints()
     {
         return $this->totalPoints;
+    }
+    
+	/**
+     * Set totalPoints
+     *
+     * @param integer $totalPoints
+     */
+    public function setHasBonus($hasBonus)
+    {
+        $this->has_bonus = $hasBonus;
+    
+        return $this;
+    }
+
+    /**
+     * Get totalPoints
+     *
+     * @return totalPoints 
+     */
+    public function getHasBonus()
+    {
+        return $this->has_bonus;
+    }
+    
+	/**
+     * Set totalPoints
+     *
+     * @param integer $totalPoints
+     */
+    public function setScores($scores)
+    {
+        $this->scores = $scores;
+    
+        return $this;
+    }
+
+    /**
+     * Get totalPoints
+     *
+     * @return totalPoints 
+     */
+    public function getScores()
+    {
+        return $this->scores;
+    }
+    
+	/**
+     * Set totalPoints
+     *
+     * @param integer $totalPoints
+     */
+    public function setResults($results)
+    {
+        $this->results = $results;
+    
+        return $this;
+    }
+
+    /**
+     * Get totalPoints
+     *
+     * @return totalPoints 
+     */
+    public function getResults()
+    {
+        return $this->results;
     }
     
     /**
