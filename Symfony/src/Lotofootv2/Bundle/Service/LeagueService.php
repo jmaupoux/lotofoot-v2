@@ -424,7 +424,7 @@ class LeagueService
 	    	
 	    	$accHistories = array_map($extractPoints, $accHistories);
 	    	
-	    	array_push($fullHistory, array('name'=>$acc->getUsername(), 'data'=>$accHistories));
+	    	array_push($fullHistory, array('name'=>$acc->getUsername(), 'data'=>$accHistories, 'visible'=>false));
     	}
 		 
 		 return $fullHistory;
@@ -455,7 +455,7 @@ class LeagueService
 	    	
 	    	$accHistories = array_map($extractPoints, $accHistories);
 	    	
-	    	array_push($fullHistory, array('name'=>$acc->getUsername(), 'data'=>$accHistories));
+	    	array_push($fullHistory, array('name'=>$acc->getUsername(), 'data'=>$accHistories, 'visible'=>false));
     	}
 		 
 		 return $fullHistory;

@@ -80,6 +80,20 @@
 		        {% endautoescape %}
 		    });
 		});
+
+		$(function () { 
+			var s1 = $('#dayPointsHistory').highcharts().series;
+			var s2 = $('#rankingHistory').highcharts().series;
+	
+			for(var i=0;i<s1.length;i++){
+			    if(s1[i].name == '{{app.user.username}}'){
+			       s1[i].show();
+			    }
+			    if(s2[i].name == '{{app.user.username}}'){
+			       s2[i].show();
+			    }
+			}
+		});
 		</script>
 	</div>
 {% endblock %}
