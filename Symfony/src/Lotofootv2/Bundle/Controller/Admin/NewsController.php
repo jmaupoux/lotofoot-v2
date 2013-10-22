@@ -48,7 +48,7 @@ class NewsController extends Controller
     	}
     	
     	$news->setTitle(stripslashes($request->request->get('title')));
-    	$news->setText($request->request->get('text'));
+    	$news->setText(stripslashes($request->request->get('text')));
     	
     	$this->get('news_service')->createUpdateNews($news);
 
