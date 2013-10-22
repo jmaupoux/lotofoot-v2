@@ -73,7 +73,7 @@ class RegisterController extends Controller
     	$from = $this->container->getParameter('mailer_from');
     	
     	$message = \Swift_Message::newInstance()
-	        ->setSubject('Inscription Lotofoot')
+	        ->setSubject('[Lotofoot] Inscription')
 	        ->setFrom($from)
 	        ->setTo($account->getEmail())
 	        ->setBody($this->renderView('Lotofootv2Bundle:mails:registration.txt.twig', array('account' => $account)));
@@ -81,7 +81,7 @@ class RegisterController extends Controller
 	    $this->get('mailer')->send($message);
 	    
 	    $message2 = \Swift_Message::newInstance()
-	        ->setSubject('Inscription Lotofoot')
+	        ->setSubject('[Lotofoot] Inscription à valider')
 	        ->setFrom($from)
 	        ->setTo($from)
 	        ->setBody('Compte à valider ! Account='.$account->getUsername().' (Identification fournie :'.$whoru.')');

@@ -26,12 +26,16 @@ class AccountService
     }
     
     public function usernameExists($username){
+    	return $this->findByUsername($username)!=null;
+    }
+    
+	public function findByUsername($username){
     	$query = $this->em->createQuery(
 		    'SELECT a
 		    FROM Lotofootv2Bundle:Account a
 		    WHERE lower(a.username) = :username'
 		)->setParameter('username', strtolower($username));
     	
-    	return $query->getOneOrNullResult()!=null;
+    	return $query->getOneOrNullResult();
     }
 }

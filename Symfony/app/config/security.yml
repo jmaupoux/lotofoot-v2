@@ -22,6 +22,10 @@ security:
             pattern:    ^/register
             security: false
 
+        password_lost_firewall:
+            pattern:    ^/passwordlost
+            security: false
+            
         login_firewall:
             pattern:    ^/login$
             anonymous:  true

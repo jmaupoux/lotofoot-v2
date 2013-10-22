@@ -18,6 +18,10 @@
 		        <div>Votre inscription a bien été prise en compte et votre compte est en cours d'activation par les administrateurs</div>
 		        <br/>
 		    {% endif %}
+		    {% if recovered %}
+		        <div>Votre mot de passe vient de vous être envoyé par email</div>
+		        <br/>
+		    {% endif %}
 			
 			<form action="{{ path('_login_check') }}" method="post" class="form-login" style="height:149px">
 				<div class="control-group">
@@ -49,7 +53,7 @@
 					</div>
 					<br/>
 					<div class="login-controls">
-						<a class="lien-login"  href="{{path('_register')}}">Créer un compte</a>	<a class="lien-login"  style="display:none"  href="{{path('_register')}}">Password oublié</a>	
+						<a class="lien-login"  href="{{path('_register')}}">Créer un compte</a>	<a class="lien-login" href="{{path('_password_lost')}}">Mot de passe oublié</a>	
 					</div>
 				</div>
 				<div style="clear:both"></div>

@@ -26,7 +26,8 @@ class LoginController extends Controller
     			// last username entered by the user
     			'last_username' => $session->get(SecurityContext::LAST_USERNAME),
     			'error'         => $error,
-    			'registered'	=> $request->query->has('r')
+    			'registered'	=> $request->query->has('r'),
+    			'recovered'		=> $request->query->has('pl')
     	));
     }
 }

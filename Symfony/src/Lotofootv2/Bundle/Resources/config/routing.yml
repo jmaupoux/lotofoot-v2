@@ -10,6 +10,10 @@ _register:
     resource: "@Lotofootv2Bundle/Controller/RegisterController.php"
     type:     annotation
 
+_password_lost:
+    resource: "@Lotofootv2Bundle/Controller/PasswordLostController.php"
+    type:     annotation    
+
 _login_check:
     pattern:  /login_check
 
