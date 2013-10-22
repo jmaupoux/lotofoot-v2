@@ -122,7 +122,7 @@ class LeagueDayController extends Controller
 		$arr = array_map($email, $accounts);
     	
     	$message = \Swift_Message::newInstance()
-	        ->setSubject('Nouvelle journée Lotofoot')
+	        ->setSubject('[Lotofoot] Nouvelle journée')
 	        ->setFrom($from)
 	        ->setTo($arr)
 	        ->setBody($this->renderView('Lotofootv2Bundle:mails:new_league_day.txt.twig', 
