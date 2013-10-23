@@ -43,7 +43,15 @@
 			<td>{{account.statBonuses}}</td>
 			<td>{{account.statResults}}</td>
 			<td>{{account.statScores}}</td>
-			<td>{{account.progression}}</td>
+			<td>
+				{% if account.progression > 0 %}
+					<img src="{{ asset('bundles/lotofootv2/img/rank_up.png') }}" style="width:16px;float:left"/>
+					+{{account.progression}}
+				{% elseif account.progression < 0 %}
+					<img src="{{ asset('bundles/lotofootv2/img/rank_down.png') }}" style="width:16px;float:left"/>
+					{{account.progression}}
+				{% endif %}
+			</td>
 		</tr>
 		{% endfor %}
 	</table>
