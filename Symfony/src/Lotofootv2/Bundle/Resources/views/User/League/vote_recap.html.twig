@@ -61,6 +61,16 @@
 			<b>La journée est en attente de correction</b><br/><br/>
 		</div>
 	{% endif %}
+	
+	{% if leagueDay.word is not null and leagueDay.word != '' %}
+					
+		<fieldset class="king-punchline">
+			<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
+			"{{leagueDay.word}}"<br/>
+			<span class="king-punchline-sign">- {{leagueDay.kingTag}} -</span>
+		</fieldset>
+		<br/><br/>
+	{% endif %}
 
 	<table class="table table-striped {% if leagueDay.corrected == false %} notcorrected {% endif %}">
 		<tr>
