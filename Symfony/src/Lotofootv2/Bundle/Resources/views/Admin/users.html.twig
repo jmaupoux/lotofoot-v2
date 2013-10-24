@@ -1,0 +1,47 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block body %}	
+	
+	<table>
+		<tr>
+			<th>Utilisateur</th>
+			<th>Activation</th>
+			<th>Adminitrateur</th>
+		</tr>
+		{% for u in users %}
+		<tr>
+			<td>
+				{{u.username}}
+			</td>
+			<td>
+				<a href="{{ path('_admin_users_activation') }}?id={{u.id}}">
+					{% if u.enabled %}
+					Passer inactif
+					{% else %}
+					Passer actif
+					{% endif %}				
+				</a>
+			</td>
+			<td>
+				{% if u.admin %}
+					<img src="{{ asset('bundles/lotofootv2/img/found.png') }}" style="width:16px;height:16px"/>
+				{% endif %}				
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

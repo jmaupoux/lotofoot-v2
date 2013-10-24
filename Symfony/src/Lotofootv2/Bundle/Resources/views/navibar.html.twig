@@ -4,7 +4,12 @@
 
 <div class="navibar">
 	<div class="container-navbar">
-		<span class="navibar-element">{{'navibar.hello' | trans}} {{ app.user.username }}</span>
+		<span class="navibar-element">
+			{{'navibar.hello' | trans}} {{ app.user.username }}
+			<a href="{{ path('_profile') }}">
+				<img src="{{ asset('bundles/lotofootv2/img/profile-icon.png') }}" style="width:20px; height:20px"/>
+			</a>
+		</span>
 		<span class="navibar-element">{{'navibar.ranking' | trans}} : 
 			{% if app.user.rank == 99 %}
 				-

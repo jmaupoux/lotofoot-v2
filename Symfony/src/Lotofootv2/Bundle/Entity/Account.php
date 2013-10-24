@@ -347,4 +347,14 @@ class Account implements AdvancedUserInterface, \Serializable
     {
         return $this->isActive;
     }
+    
+    public function isAdmin()
+    {
+        return $this->isAdmin;
+    }
+    
+    public function setActive($active)
+    {
+    	$this->isActive = $active;
+    }
 }
