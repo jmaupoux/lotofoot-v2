@@ -23,6 +23,10 @@ _logout:
 _home:
     resource: "@Lotofootv2Bundle/Controller/User/HomeController.php"
     type:     annotation
+
+_profile:
+    resource: "@Lotofootv2Bundle/Controller/User/ProfileController.php"
+    type:     annotation
     
 _league_ranking:
     resource: "@Lotofootv2Bundle/Controller/User/League/RankingController.php"
@@ -62,6 +66,10 @@ _admin_league_day:
 
 _admin_news:
     resource: "@Lotofootv2Bundle/Controller/Admin/NewsController.php"
+    type:     annotation
+
+_admin_users:
+    resource: "@Lotofootv2Bundle/Controller/Admin/UsersController.php"
     type:     annotation
 
 _rules:

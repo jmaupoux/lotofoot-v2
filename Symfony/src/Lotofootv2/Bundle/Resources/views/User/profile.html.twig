@@ -1,0 +1,54 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Profil &nbsp;&nbsp;
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
+{% endblock %}
+
+{% block body %}
+
+	{% if error is defined %}
+        <div class="error">{{ error.message }}</div>
+    {% endif %}
+    {% if u %}
+        <div>Modification enregistrée</div>
+        <br/>
+    {% endif %}
+	
+	<form action="{{ path('_profile_mail') }}" method="post" style="width:800px;margin:auto">
+
+		<label class="control-label" for="_mail">
+			 Nouvel email : 
+		</label>
+		<div class="login-controls">
+			<div class="input-prepend">
+				 <input type="text" id="_mail" name="mail" value="{{app.user.email}}" placeholder="Nouvel email"/>
+			 </div>
+		</div>
+		
+		<div class="control-group">
+			<div class="controls">
+				 <input type="submit" class="btn-admin" style="float:left" value="Mettre à jour"/>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</form>
+		
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}
