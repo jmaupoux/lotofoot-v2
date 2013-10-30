@@ -362,7 +362,7 @@ class LeagueService
     	$queryAccounts =  $this->em->createQuery(
 		    'SELECT a FROM Lotofootv2Bundle:Account a
 		    WHERE a.isActive = true
-		    ORDER BY a.points DESC, a.statBonuses DESC, a.id ASC');
+		    ORDER BY a.points DESC, a.statBonuses DESC, a.statScores DESC, a.statResults DESC, a.id ASC');
 
     	$accounts = $queryAccounts->getResult();
     	
