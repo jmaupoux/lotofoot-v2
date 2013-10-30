@@ -29,7 +29,7 @@
 			<th>Evolution</th>
 		</tr>
 		{% for account in accounts %}
-		<tr {% if account.id == app.user.id %} class="my-rank" {% endif %}>
+		<tr class="{% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index == 16 %} cl-limit {% endif %}" >
 			<td>
 			{% if account.rank == 99 %}
 				-

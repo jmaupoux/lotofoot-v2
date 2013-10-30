@@ -614,6 +614,9 @@ tr.calendar-cl{
 tr.my-rank{
 	background-color:#DABE67
 }
+tr.cl-limit{
+	border-bottom:4px solid black;
+}
 
 td.calendar-termine{
 	color:red;
