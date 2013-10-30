@@ -24,12 +24,25 @@
 	Nombre de votants : {{ hasVoted | length }} / {{ (hasVoted | length) + (hasNotVoted | length) }}
 	
 	<br/><hr/>
-	Les joueurs suivants n'ont pas voté (ou pas totalement) :
-	<ul>
-		{% for a in hasNotVoted %}
-			<li>{{a.username}}</li>
-		{% endfor %}
-	</ul>
+	<div>
+		<div style="float:left">
+			Les joueurs suivants n'ont pas voté (ou pas totalement) :
+			<ul>
+				{% for a in hasNotVoted %}
+					<li>{{a.username}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div style="float:right">
+			Les joueurs suivants ont voté pour tout :
+			<ul>
+				{% for a in hasVoted %}
+					<li>{{a.username}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div style="clear:both"> </div>
+	</div>
 	<br/><hr/>
 	Mail à envoyer à : <br/>
 	{% for a in hasNotVoted %}
