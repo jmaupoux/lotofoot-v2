@@ -29,7 +29,10 @@ rewards:
     r10:
         title: LA CAGNOUTE
         desc: Vous avez payé le droit de conquérir à la cagnoute suprême
-        
+    r11:
+        title: CHAMPION'S LEAGUE
+        desc: Vous faîtes pour le moment partie des 16 qualifiés pour la compétition Reine ! La Champion's League 2013 - 2014.
+                
 navibar:
     hello: Bienvenue
     ranking: Classement

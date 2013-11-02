@@ -65,6 +65,7 @@ class RewardService
     	$this->rewardEclair($accounts);
     	$this->rewardBourseMolle($accounts);
     	$this->rewardSmoking($accounts);
+    	$this->rewardChampionsLeague($accounts);
     }
     
 	public function rewardKing($accounts){
@@ -234,5 +235,18 @@ class RewardService
     	$reward->setType('s');
     	
     	$this->em->persist($reward);
+    } 
+
+    public function rewardChampionsLeague($accounts){
+    	for ($i=1; $i<=16; $i++){
+    		$reward = new Reward();
+    	
+    		$reward->setRewardId(11);
+    		$reward->setType('d');
+    		$accountId=$accounts[$i]->getId();
+    		$reward->setAccountId($accountId);
+    		$this->em->persist($reward);
+    	}
     }
+    
 }

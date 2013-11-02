@@ -27,13 +27,13 @@
 		 	background-color:rgb(55,46,50);
 		 }
 		 .result{
-		 	background-color:gray;
+		 	
 		 }
 		 .vote.result{
-		 	background-color:green;
+		 	background-color:rgb(64,200,83);
 		 }
 		 .vote.noresult{
-		 	background-color:red;
+		 	background-color:gray;
 		 }
 		 
 		 .notcorrected .vote.result, .notcorrected .vote.noresult, .notcorrected .scoreok{
@@ -47,11 +47,12 @@
 		 	border-bottom:none
 		 }
 		 .total{
-		 	color:red;
+		 	color:white;
+		 	background-color:rgb(201,18,22);
 		 	font-weight:bold
 		 }
 		 .scoreok{
-		 	background-color:green;
+		 	background-color:rgb(64,200,83);
 		 	color:white;
 		 }
 	</style>
@@ -123,8 +124,8 @@
 			<td class="invisible"></td>
 			<td class="invisible"></td>
 			<td class="invisible"></td>
-			<td><span class="total">Total</span></td>
-			<td><span class="total">{{total}}</span></td>
+			<td class="total">Total</td>
+			<td class="total">{{total}}</td>
 		</tr>
 	</table>
 	<br/>

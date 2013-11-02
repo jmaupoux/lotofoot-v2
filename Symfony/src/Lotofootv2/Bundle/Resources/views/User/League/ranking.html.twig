@@ -45,10 +45,10 @@
 			<td>{{account.statScores}}</td>
 			<td>
 				{% if account.progression > 0 %}
-					<img src="{{ asset('bundles/lotofootv2/img/rank_up.png') }}" style="width:16px;float:left"/>
+					<img src="{{ asset('bundles/lotofootv2/img/rank_up.png') }}" style="padding-top:5px;width:16px;float:left"/>
 					+{{account.progression}}
 				{% elseif account.progression < 0 %}
-					<img src="{{ asset('bundles/lotofootv2/img/rank_down.png') }}" style="width:16px;float:left"/>
+					<img src="{{ asset('bundles/lotofootv2/img/rank_down.png') }}" style="padding-bottom:5px;width:16px;float:left"/>
 					{{account.progression}}
 				{% endif %}
 			</td>
