@@ -238,7 +238,7 @@ class RewardService
     } 
 
     public function rewardChampionsLeague($accounts){
-    	for ($i=1; $i<=16; $i++){
+    	for ($i=0; $i<=15; $i++){
     		$reward = new Reward();
     	
     		$reward->setRewardId(11);
