@@ -317,6 +317,18 @@ class LeagueService
     			$vote->setPoints($votePoints);
     			$points += $votePoints;		
     		}
+    		    		
+    		//rewards for results found
+    		if($dayResults == 10){
+    			$points += 1;
+    		}else if($dayResults == 11){
+    			$points += 2;
+    		}else if($dayResults == 12){
+    			$points += 3;
+    		}else if($dayResults == 13){
+    			$points += 5;
+    		}
+    		
     		$this->logger->debug('Points : '.$points.' for : '.$account->getUsername().'');
     		
     		if($account->getPoints() < 50 && ($account->getPoints()+$points) >=50){
