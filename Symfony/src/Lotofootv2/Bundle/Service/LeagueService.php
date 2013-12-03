@@ -479,7 +479,7 @@ class LeagueService
 		    'SELECT l
 		    FROM Lotofootv2Bundle:LeagueHistory l 
 		    WHERE l.league_day_id = :league_day_id
-		    ORDER BY l.points DESC, l.account_id ASC'
+		    ORDER BY l.points DESC, l.has_bonus DESC, l.scores DESC, l.results DESC, l.account_id ASC'
 		)->setParameter('league_day_id', $leagueDayId);
 		
 		return $query->getResult();

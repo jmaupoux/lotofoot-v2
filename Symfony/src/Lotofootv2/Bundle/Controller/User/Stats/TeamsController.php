@@ -110,7 +110,7 @@ class TeamsController extends Controller
 		$registry = $this->register($registry,'Real Sociedad','102');
 		$registry = $this->register($registry,'Real Valladolid','105');
 		$registry = $this->register($registry, 'Reims', '211');
-    	$registry = $this->register($registry, 'Rennes', '15');
+    	$registry = $this->register($registry, 'Rennes', '14');
 
     	$registry = $this->register($registry, 'Saint-Etienne', '38');
     	$registry = $this->register($registry,'Sampdoria Gênes','134');
