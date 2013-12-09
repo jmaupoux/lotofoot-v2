@@ -30,6 +30,9 @@ class CalendarController extends Controller
     	array_push($days, new CalendarDay(8, 'l', new DateTime('2013-12-07 13:00')));
     	array_push($days, new CalendarDay(9, 'l', new DateTime('2013-12-14 13:00')));
     	array_push($days, new CalendarDay(10, 'l', new DateTime('2013-12-21 13:00')));
+    	array_push($days, new CalendarDay(11, 'l', new DateTime('2013-12-25 13:00')));
+    	array_push($days, new CalendarDay(12, 'l', new DateTime('2014-01-11 13:00')));
+    	array_push($days, new CalendarDay(13, 'l', new DateTime('2014-01-18 13:00')));
     	array_push($days, new CalendarDay(1, 'cl', new DateTime('2014-02-18 13:00')));
     	
     	for($i=0;$i<count($days);$i++){
