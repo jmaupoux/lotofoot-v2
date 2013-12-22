@@ -44,6 +44,10 @@ _league_vote:
     resource: "@Lotofootv2Bundle/Controller/User/League/VoteController.php"
     type:     annotation
 
+_cl_admin:
+    resource: "@Lotofootv2Bundle/Controller/Admin/CLController.php"
+    type:     annotation
+
 _cl_coming:
     resource: "@Lotofootv2Bundle/Controller/User/CL/ComingController.php"
     type:     annotation

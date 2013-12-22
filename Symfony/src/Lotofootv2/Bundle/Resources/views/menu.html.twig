@@ -29,8 +29,7 @@
 		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_rules') }}" title="Règlement">Règlement</a></li>
 		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_prizes') }}" title="Cadeaux">Cadeaux</a></li>
 		      {% if is_granted('ROLE_ADMIN') %}
-		      <li class="submenu"><a href="#" title="Administrer une Champion's League"></a>Admin Ligue</li>
-		      <li class="submenu"><a href="#" title="Administrer une journée de Champion's League"></a>Admin Journée</li>
+		      <li class="submenu"><a class="menu-lien" href="{{ path('_admin_cl') }}" title="Administrer une Champion's League">Admin CL</a></li>
 		      {% endif %}
 	      </ul>
 	    </li>

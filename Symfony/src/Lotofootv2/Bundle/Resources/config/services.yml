@@ -11,6 +11,9 @@ services:
     account_service:
         class:        "Lotofootv2\Bundle\Service\\AccountService"
         arguments:    [@doctrine.orm.entity_manager, @logger]
+    tournament_service:
+        class:        "Lotofootv2\Bundle\Service\\TournamentService"
+        arguments:    [@doctrine.orm.entity_manager, @logger, @league_service]
     lotofootv2.twig.extension.rewards:
         class: "Lotofootv2\Bundle\Twig\Extension\\Lotofootv2Extensions"
         arguments: [@reward_service]

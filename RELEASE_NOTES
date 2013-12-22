@@ -3,3 +3,6 @@ Eclipse :
 		Exclude cache & logs
 		Exclude parameter.yml
 	Delete Symfony folder and up all subfolders
+	
+
+INSERT INTO lfv2_reward (id,account_id,reward_id,type) values ((select max(r.id)+1 from lfv2_reward r), JUSTGETIT, 10, 's')

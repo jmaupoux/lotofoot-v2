@@ -1,0 +1,36 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	
+	{% if err is not null %}
+		<div>ERREUR : ${err}</div>
+	{% endif %}
+	
+	{% if step is null %}
+		<b>Aucune ligue des champions trouvée !</b>
+		
+		{% include 'Lotofootv2Bundle:Admin/_chunks_cl:create.html.twig' %}
+		
+	{% elseif step.state == "W" %}				
+			
+		{% include 'Lotofootv2Bundle:Admin/_chunks_cl:create_matchs.html.twig' %}	
+		
+	{% else %}
+		
+		{% include 'Lotofootv2Bundle:Admin/_chunks_cl:running_step.html.twig' %}
+		
+	{% endif %}	
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}
