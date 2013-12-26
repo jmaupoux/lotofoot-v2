@@ -24,8 +24,8 @@
 	    </li>
 	    <li class="menu-3-championsleague">
 	      <ul class="submenu-3-championsleague" style="display:none">
-		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_coming') }}" title="Parier sur la prochaine journée de Champion's League">Parier</a></li>
-		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_coming') }}" title="Classement">Classement</a></li>
+		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_vote') }}" title="Parier sur la prochaine journée de Champion's League">Parier</a></li>
+		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_coming') }}" title="Classement">Tableau</a></li>
 		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_rules') }}" title="Règlement">Règlement</a></li>
 		      <li class="submenu"><a class="menu-lien" href="{{ path('_cl_prizes') }}" title="Cadeaux">Cadeaux</a></li>
 		      {% if is_granted('ROLE_ADMIN') %}

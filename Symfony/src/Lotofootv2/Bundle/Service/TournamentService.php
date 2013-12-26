@@ -73,6 +73,17 @@ class TournamentService
     	return $query->getOneOrNullResult();
     }
     
+    public function getOpenCLTourStep(){
+        $query = $this->em->createQuery(
+            'SELECT t
+            FROM Lotofootv2Bundle:TournamentStep t, Lotofootv2Bundle:Tournament tour 
+            WHERE t.opened = true
+            AND t.tour_id = tour.id 
+            AND tour.type = :type')->setParameter('type', 'CL');
+        
+        return $query->getOneOrNullResult();
+    }
+    
 	public function getTourStep($tour_id){
     	$query = $this->em->createQuery(
 		    'SELECT t
@@ -82,6 +93,20 @@ class TournamentService
 		)->setParameter('tour_id', $tour_id);
     	
     	return $query->getOneOrNullResult();
+    }
+    
+    public function isAllowed($account_id, $tour_id){
+    	$query = $this->em->createQuery(
+		    'SELECT t
+		    FROM Lotofootv2Bundle:TournamentStep t, Lotofootv2Bundle:TournamentPlayer p
+		    WHERE t.opened = true 
+		    AND t.tour_id = :tour_id
+		    AND p.tour_step_id = t.id
+		    AND p.account_id = :account_id'
+		)->setParameter('tour_id', $tour_id)
+		->setParameter('account_id', $account_id);
+    	
+    	return ($query->getOneOrNullResult() != null);
     }
     
     public function createMatches($matches, $deadline){
@@ -97,5 +122,48 @@ class TournamentService
     	}
     	
     	$this->em->flush();
+    }
+    
+    public function getTourStepMatches($step_id){
+    	$query = $this->em->createQuery(
+            'SELECT m
+            FROM Lotofootv2Bundle:TournamentMatch m 
+            WHERE m.tour_step_id = :step_id
+            ORDER BY m.number'
+        )->setParameter('step_id', $step_id);
+        
+        return $query->getResult();
+    }
+    
+    public function getTourStepVotes($step_id, $account_id){
+    	$query = $this->em->createQuery(
+            'SELECT v
+            FROM Lotofootv2Bundle:TournamentVote v, Lotofootv2Bundle:TournamentMatch m 
+            WHERE m.tour_step_id = :step_id
+            AND m.id = v.tour_match_id
+            AND v.account_id = :account_id
+            ORDER BY m.number'
+        )->setParameter('step_id', $step_id)
+        ->setParameter('account_id', $account_id);
+        
+        return $query->getResult();
+    }
+    
+    public function voteStep($votes){
+        foreach($votes as $vote){
+            
+            $queryDel = $this->em->createQuery(
+            'DELETE FROM Lotofootv2Bundle:TournamentVote v 
+            WHERE v.account_id = :accountId 
+            AND v.tour_match_id = :tmid'
+            )->setParameter('accountId', $vote->getAccountId())
+            ->setParameter('tmid', $vote->getTourMatchId());
+            
+            $queryDel->getResult();
+            
+            $this->em->persist($vote);
+        }
+        
+        $this->em->flush();
     }
 }

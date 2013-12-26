@@ -83,7 +83,15 @@ _rules:
 _prizes:
     resource: "@Lotofootv2Bundle/Controller/User/League/PrizesController.php"
     type:     annotation
+
+_cl_vote:
+    resource: "@Lotofootv2Bundle/Controller/User/CL/VoteController.php"
+    type:     annotation
     
+_cl_board:
+    resource: "@Lotofootv2Bundle/Controller/User/CL/BoardController.php"
+    type:     annotation
+
 _cl_rules:
     resource: "@Lotofootv2Bundle/Controller/User/CL/RulesController.php"
     type:     annotation

@@ -1,0 +1,26 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	
+{% endblock %}
+	
+{% block body %}
+	
+	Board
+	
+	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" autoplay loop></audio>
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

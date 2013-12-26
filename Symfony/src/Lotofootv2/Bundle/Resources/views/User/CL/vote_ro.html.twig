@@ -1,0 +1,63 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	
+{% endblock %}
+	
+{% block body %}
+	
+	{% if step.state == "W" %}
+	   
+	   La liste des matchs va être administrée très prochainement.
+	   
+	{% else %}
+	
+		Voici la liste des matchs pour lesquels vous n'aurez <b>pas</b> la chance de pouvoir voter =) :<br/>
+		
+	        <table>
+	            <tr>
+	                <th>N°</th>
+	                <th>Domicile</th>
+	                <th>Extérieur</th>
+	                <th>Score parié</th>
+	            </tr>
+	            {% for match in matches %}
+	            <tr>
+	                <td>
+	                    {{match.number}}
+	                </td>
+	                <td>
+	                    {% if step.state == "A" %}
+	                        {{match.teamHome}}
+	                    {% else %}
+	                        {{match.teamVisitor}}
+	                    {% endif %}
+	                </td>
+	                <td>
+	                    {% if step.state == "A" %}
+	                        {{match.teamVisitor}}
+	                    {% else %}
+	                        {{match.teamHome}}
+	                    {% endif %}
+	                </td>
+	            </tr>
+	            {% endfor %}
+	        </table> 
+	{% endif %}
+	
+	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" autoplay loop></audio>
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

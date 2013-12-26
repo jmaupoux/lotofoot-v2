@@ -2,12 +2,12 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: 3306
-    database_name: lotofoot_v2
+    database_name: lotofootv2
     database_user: root
     database_password: 
     mailer_transport: gmail
     mailer_user: lotofoot.mail
-    mailer_password: A METTRE
+    mailer_password: lotop@ss
     mailer_from: lotofoot.mail@gmail.com
     url: http://localhost/lotofoot-v2/app_dev.php/
     locale: fr
