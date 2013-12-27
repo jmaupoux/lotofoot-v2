@@ -37,18 +37,10 @@
 	                    {{match.number}}
 	                </td>
 	                <td>
-	                    {% if step.state == "A" %}
-	                        {{match.teamHome}}
-	                    {% else %}
-	                        {{match.teamVisitor}}
-	                    {% endif %}
+                        {{match.teamHome}}
 	                </td>
 	                <td>
-	                    {% if step.state == "A" %}
-	                        {{match.teamVisitor}}
-	                    {% else %}
-	                        {{match.teamHome}}
-	                    {% endif %}
+	                    {{match.teamVisitor}}
 	                </td>
 	            </tr>
 	            {% endfor %}

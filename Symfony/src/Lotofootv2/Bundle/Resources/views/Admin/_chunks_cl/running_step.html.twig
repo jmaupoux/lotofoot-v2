@@ -35,21 +35,13 @@ Journée en cours
                     {{match.number}}
                 </td>
                 <td>
-                   {% if step.state == "A" %}
-                       {{match.teamHome}}
-                   {% else %}
-                       {{match.teamVisitor}}
-                   {% endif %}
+                   {{match.teamHome}}
                 </td>
                 <td>
                     <input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px" value="{{app.request.get('score_'~match.id)}}"/>                                                           
                 </td>
                 <td>
-                    {% if step.state == "A" %}
-                        {{match.teamVisitor}}
-                    {% else %}
-                        {{match.teamHome}}
-                    {% endif %}
+                    {{match.teamVisitor}}
                 </td>
             </tr>
             {% endfor %}

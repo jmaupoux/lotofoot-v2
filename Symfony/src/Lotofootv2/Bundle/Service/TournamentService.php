@@ -182,7 +182,7 @@ class TournamentService
         $this->em->flush();
     }
     
-    public function processCLStep($matches){
+    public function processCLStep($matches, $deadline){
     	$step = $this->getOpenCLTourStep();
         
         $accounts = $this->getTourStepPlayers($step->getId());
@@ -240,10 +240,10 @@ class TournamentService
         }
         
         if($step->getState() == "A"){
-        	$step->setState("R");
+        	$step->setOpened(false);
         	$this->em->persist($step);
         	$this->em->flush();
-        	
+        	$this->doReturnStep($step, $deadline);
         }else{
         	$this->em->flush();
         	
@@ -262,6 +262,35 @@ class TournamentService
                 ->setParameter('account_id', $account_id);
                 
                return $query->getOneOrNullResult();
+    }
+    
+    private function doReturnStep($step, $deadline){
+   	    $players = $this->getTourStepPlayers($step->getId());
+   	    
+   	    $nextStep = new TournamentStep();
+   	    $nextStep->setNumber($step->getNumber());
+   	    $nextStep->setOpened(true);
+   	    $nextStep->setState("R");
+   	    $nextStep->setName($step->getName()." Retour");
+   	    $nextStep->setTourId($step->getTourId());
+   	    $nextStep->setDeadline($deadline);
+   	    
+   	    $this->em->persist($nextStep);
+        $this->em->flush(); 
+   	    
+   	    $matches = $this->getTourStepMatches($step->getId());
+   	    
+   	    foreach ($matches as $match){
+   	    	$m = new TournamentMatch();
+   	    	$m->setNumber($match->getNumber());
+   	    	$m->setTeamHome($match->getTeamVisitor());
+   	    	$m->setTeamVisitor($match->getTeamHome());
+   	    	$m->setTourStepId($match->getTourStepId());
+   	    	
+   	    	$this->em->persist($m);
+   	    }
+   	    
+   	    $this->em->flush(); 
     }
     
     private function closeStep(){

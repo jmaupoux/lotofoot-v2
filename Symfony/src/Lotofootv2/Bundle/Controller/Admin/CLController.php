@@ -123,6 +123,8 @@ class CLController extends Controller
     {
     	$step = $this->get('tournament_service')->getOpenCLTourStep();
         
+    	$deadline = DateTime::createFromFormat("d/m/Y H:i", $request->request->get('deadline').' '.$request->request->get('deadlineh'));    	
+    	
         if($step == null){
             return $this->redirect($this->generateUrl('_admin_cl'));
         }
@@ -149,7 +151,7 @@ class CLController extends Controller
             $matches[$i-1]->setResult($result);
         }
 
-        $this->get('tournament_service')->processCLStep($matches);
+        $this->get('tournament_service')->processCLStep($matches, $deadline);
         
         return $this->redirect($this->generateUrl('_admin_cl'));
     }

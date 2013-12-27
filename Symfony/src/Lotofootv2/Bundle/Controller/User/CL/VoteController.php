@@ -21,6 +21,11 @@ class VoteController extends Controller
     {
         $tour_s = $this->get('tournament_service');
         $step = $tour_s->getOpenCLTourStep();
+        
+        if($step == null){
+        	return $this->render('Lotofootv2Bundle:User/CL:vote.html.twig', array('step' => null, 'matches' => null));
+        }
+        
 		$allowed = $tour_s->isAllowed($this->getUser()->getId(), $step->getTourId());
 		$matches = $tour_s->getTourStepMatches($step->getId());
 		

@@ -75,21 +75,13 @@
                 {{match.number}}
             </td>
             <td>
-                {% if step.state == "A" %}
-                    {{match.teamHome}}
-                {% else %}
-                    {{match.teamVisitor}}
-                {% endif %}
+                {{match.teamHome}}
             </td>
             <td class="{% if app.request.get('result_'~match.id) == '1'%} vote {%endif%} {% if step.opened == false %}{%if match.result == '1'%} result {%else %} noresult {%endif%}{%endif%}"></td>
             <td class="{% if app.request.get('result_'~match.id) == 'N'%} vote {%endif%} {% if step.opened == false %}{%if match.result == 'N'%} result {%else %} noresult {%endif%}{%endif%}"></td>
             <td class="{% if app.request.get('result_'~match.id) == '2'%} vote {%endif%} {% if step.opened == false %}{%if match.result == '2'%} result {%else %} noresult {%endif%}{%endif%}"></td>
             <td>
-                {% if step.state == "A" %}
-                    {{match.teamVisitor}}
-                {% else %}
-                    {{match.teamHome}}
-                {% endif %}
+                {{match.teamVisitor}}
             </td>
             <td class="{% if app.request.get('score_'~match.id) == match.score%} scoreok {% endif %}">
                 {{app.request.get('score_'~match.id)}}
