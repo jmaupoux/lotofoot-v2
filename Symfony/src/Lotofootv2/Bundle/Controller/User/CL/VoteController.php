@@ -22,9 +22,9 @@ class VoteController extends Controller
         $tour_s = $this->get('tournament_service');
         $step = $tour_s->getOpenCLTourStep();
 		$allowed = $tour_s->isAllowed($this->getUser()->getId(), $step->getTourId());
+		$matches = $tour_s->getTourStepMatches($step->getId());
 		
 		if(!$allowed){
-			$matches = $tour_s->getTourStepMatches($step->getId());
 			return $this->render('Lotofootv2Bundle:User/CL:vote_ro.html.twig', array('step' => $step, 'matches' => $matches));
 		}
         
@@ -70,7 +70,8 @@ class VoteController extends Controller
      */
     public function voteAction(Request $request)
     {
-        $step = $this->get('tournament_service')->getOpenCLTourStep();
+    	$tour_s = $this->get('tournament_service');
+        $step = $tour_s->getOpenCLTourStep();
     
         $allowed = $tour_s->isAllowed($this->getUser()->getId(), $step->getTourId());
         if(!$allowed){

@@ -10,7 +10,7 @@
 
 {% block body %}
 	
-	{% if err is not null %}
+	{% if err is defined and err is not null %}
 		<div>ERREUR : ${err}</div>
 	{% endif %}
 	

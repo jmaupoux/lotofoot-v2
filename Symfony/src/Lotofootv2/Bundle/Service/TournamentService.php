@@ -2,6 +2,10 @@
 
 namespace Lotofootv2\Bundle\Service;
 
+use Lotofootv2\Bundle\Entity\TournamentStepHistory;
+
+use Lotofootv2\Bundle\Entity\TournamentHistory;
+
 use Lotofootv2\Bundle\Entity\TournamentMatch;
 
 use Lotofootv2\Bundle\Entity\Tournament;
@@ -95,6 +99,17 @@ class TournamentService
     	return $query->getOneOrNullResult();
     }
     
+    public function getTourStepPlayers($step_id){
+        $query = $this->em->createQuery(
+            'SELECT p
+            FROM Lotofootv2Bundle:TournamentPlayer p
+            WHERE p.tour_step_id = :step_id 
+            ORDER BY p.group_number'
+        )->setParameter('step_id', $step_id);
+        
+        return $query->getResult();
+    }
+    
     public function isAllowed($account_id, $tour_id){
     	$query = $this->em->createQuery(
 		    'SELECT t
@@ -162,6 +177,145 @@ class TournamentService
             $queryDel->getResult();
             
             $this->em->persist($vote);
+        }
+        
+        $this->em->flush();
+    }
+    
+    public function processCLStep($matches){
+    	$step = $this->getOpenCLTourStep();
+        
+        $accounts = $this->getTourStepPlayers($step->getId());
+        
+        $histories = array();
+        
+        for($i=0;$i<count($accounts);$i++){
+            $account_id = $accounts[$i]->getAccountId();
+            $points = 0;
+            
+            if(!$this->isAllowed($account_id, $step->getTourId())){
+            	continue;
+            }
+            
+            $votes = $this->getTourStepVotes($step->getId(), $account_id);
+            
+            for($v=0;$v<count($votes);$v++){
+                $vote = $votes[$v];
+                
+                $votePoints = 0;
+                
+                for($m=0;$m<count($matches);$m++){
+                    $match = $matches[$m];
+                    
+                    if($match->getId() == $vote->getTourMatchId()){
+                        if($match->getScore() == $vote->getScore()){
+                            $votePoints = 3;
+                        }
+                        if($match->getResult() == $vote->getResult()){
+                            $votePoints += 1;
+                        }
+                        break;
+                    }
+                }
+                
+                $vote->setPoints($votePoints);
+                $points += $votePoints;     
+            }
+            
+            $history = null;
+         
+            if($step->getState() == "A"){
+            	$history = new TournamentStepHistory();
+                $history->setTourStepId($step->getId());
+                $history->setAccountId($account_id);
+                $history->setPointsA($points);
+            }else{
+                $history = $this->getTourStepHistory($step->getId(), $account_id);
+            	
+                $history->setPointsR($points);
+                $history->setTotalPoints($history->getPointsA()+$history->getPointsR());
+            }
+            
+            $this->em->persist($history);
+        }
+        
+        if($step->getState() == "A"){
+        	$step->setState("R");
+        	$this->em->persist($step);
+        	$this->em->flush();
+        	
+        }else{
+        	$this->em->flush();
+        	
+        	$this->closeStep();
+        }
+
+    }
+    
+    public function getTourStepHistory($step_id, $account_id){
+    	$query = $this->em->createQuery(
+                    'SELECT h
+                    FROM Lotofootv2Bundle:TournamentStepHistory h 
+                    WHERE h.tour_step_id = :step_id
+                    AND h.account_id = :account_id'
+                )->setParameter('step_id', $step_id)
+                ->setParameter('account_id', $account_id);
+                
+               return $query->getOneOrNullResult();
+    }
+    
+    private function closeStep(){
+    	$step = $this->getOpenCLTourStep();    	
+    	$step->setOpened(false);
+    	$this->em->persist($step);
+    	
+    	$accounts = $this->getTourStepPlayers($step->getId());
+    	
+    	if(count($accounts) == 2){
+    		return;
+    	}
+    	
+    	$nextStep = new TournamentStep();
+        $nextStep->setOpened(true);
+        $nextStep->setState("W");
+        $nextStep->setTourId($step->getTourId());
+        $nextStep->setNumber($step->getNumber()+1);
+        $nextStep->setName("step ".$nextStep->getNumber());
+        $this->em->persist($nextStep);
+        $this->em->flush();
+    	
+        $groupNumber = 1;
+        $groupAdded = 0;
+        
+        for($i=0;$i<count($accounts);$i++){
+            $account1 = $accounts[$i];
+            $account2 = $accounts[$i+1];
+            
+            $h1 = $this->getTourStepHistory($step->getId(), $account1->getAccountId());
+            $h2 = $this->getTourStepHistory($step->getId(), $account2->getAccountId());
+            
+            $tp = new TournamentPlayer();
+            $tp->setTourStepId($nextStep->getId());
+            $tp->setGroupNumber($groupNumber);
+            
+            $groupAdded++;
+            if($groupAdded == 2){
+            	$groupNumber++;
+            	$groupAdded = 0;
+            }
+            
+            if($h1->getTotalPoints() > $h2->getTotalPoints()){
+            	$tp->setAccountId($h1->getAccountId());
+            }elseif($h1->getTotalPoints() < $h2->getTotalPoints()){
+                $tp->setAccountId($h2->getAccountId());
+            }else{
+            	// TODO BUT VAINQUEUR
+            	$tp->setAccountId($h1->getAccountId());
+            }            
+
+            $this->em->persist($tp);
+            
+            $i++;
         }
         
         $this->em->flush();

@@ -7,6 +7,7 @@ use Lotofootv2\Bundle\Entity\TournamentMatch;
 use Lotofootv2\Bundle\Entity\Tournament;
 
 use Lotofootv2\Bundle\Service\LeagueService;
+use Lotofootv2\Bundle\LotofootUtil;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -33,12 +34,12 @@ class CLController extends Controller
     	}
     	
     	$step = $tour_s->getTourStep($cl->getId());
+        $closed = ($step->getDeadline() < new DateTime());
     	
-    	$this->get('logger')->info('>>'.$step);
-    	
+        $matches = $tour_s->getTourStepMatches($step->getId());
     	
     	return $this->render('Lotofootv2Bundle:Admin:cl.html.twig', 
-			array('step' => $step, 'err' => $request->query->get('err'))
+			array('step' => $step, 'err' => $request->query->get('err'), 'closed' => $closed, 'matches' => $matches)
 		);
 //		
 //		$this->get('logger')->info('This will be written in logs'.$tour);
@@ -113,5 +114,43 @@ class CLController extends Controller
 //		$this->mailNewDay($deadline);
 		
     	return $this->redirect($this->generateUrl('_admin_cl'));
+    }
+    
+    /**
+     * @Route("/admin/cl/mark", name="_admin_cl_mark")
+     */
+    public function markAction(Request $request)
+    {
+    	$step = $this->get('tournament_service')->getOpenCLTourStep();
+        
+        if($step == null){
+            return $this->redirect($this->generateUrl('_admin_cl'));
+        }
+        
+        $matches = $this->get('tournament_service')->getTourStepMatches($step->getId());
+        
+        for($i=1;$i<=count($matches);$i++){
+            $error = null;
+            if(! LotofootUtil::validScore($request->request->get('score_'.$matches[$i-1]->getId()))){
+                return $this->render('Lotofootv2Bundle:Admin:cl.html.twig', 
+                array('step' => $step, 'closed' => true, 'matches' => $matches, 'err' => 'Score incorrect pour le match : '.$i));
+            }
+        }
+        
+        for($i=1;$i<=count($matches);$i++){  
+            $score = LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i-1]->getId()));
+            $matches[$i-1]->setScore($score);
+            
+            $score = preg_split("/-/", $score);
+            
+            $result = (intval($score[0]) > intval($score[1]))? '1' :
+                    (intval($score[0]) < intval($score[1]) ? '2' : 'N');    
+            
+            $matches[$i-1]->setResult($result);
+        }
+
+        $this->get('tournament_service')->processCLStep($matches);
+        
+        return $this->redirect($this->generateUrl('_admin_cl'));
     }
 }
