@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <title>Lotofoot !</title>
+          <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/jquery-1.8.1.min.js')}}"></script>
+		  <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/bootstrap.min.js')}}"></script>
+		
+		<link rel="shortcut icon" type="image/ico" href="{{ asset('bundles/lotofootv2/favicon.ico') }}"/>
+	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/lotofoot.css') }}" />
+    </head>
+    <body>
+    
+        {% block navibar %}
+		{% endblock %}
+		<div class="body-cl">
+		    <div class="container">
+				<div class="bg-transparent">
+			    	{% block menu %}
+					{% endblock %}
+			    
+			        <div id="content">
+						{% block title_body %}
+						{% endblock %}
+						{% block body %}
+						{% endblock %}
+					</div>
+				</div>
+		
+			</div>
+	
+		{% block footer %}
+		{% endblock %}
+		</div>
+	</body>
+</html>

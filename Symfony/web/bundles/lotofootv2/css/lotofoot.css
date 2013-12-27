@@ -25,7 +25,7 @@
 
 body{
 	background: rgb(55,46,50);
-	background-image: url(../img/bg2.jpg);
+	background-image: url(../img/bg3.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover; /* pour Chrome et Safari */
  	-moz-background-size: cover; /* pour Firefox */
@@ -37,6 +37,21 @@ body{
 	margin: 0;
 	background-attachment: fixed;
 }
+
+.body-cl{
+	background-image: url(../img/bg-cl.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover; /* pour Chrome et Safari */
+ 	-moz-background-size: cover; /* pour Firefox */
+    -o-background-size: cover; /* pour Opera */
+    background-size: cover; /* version standardisée */
+	background-position: center 0;
+	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	background-attachment: fixed;
+}
+
 .bg-transparent{
 	opacity:0.85;
     filter:alpha(opacity=85); 
@@ -661,6 +676,189 @@ td.calendar-avenir{
 	float : right;
 	font-weight: bold;
 	font-style: normal;
+}
+/*CL*/
+/*********************************************/
+.tabfinal{
+	margin-top:80px;
+	height:700px;
+}
+.tour{
+	float:left;
+}
+.link-next{
+	float:left;
+	width:30px;
+}
+.title-tour{
+	
+	width:200px;
+	height: 25px;
+	text-align:center;
+	font-size:14px;
+	opacity: 1;
+	z-index: 99;
+	margin-top:10px;
+	padding-left:5px;
+	padding-top: 5px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #163657) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #163657 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#163657');
+	background-color:#79bbff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-indent:0;
+	border:1px solid #469df5;
+	color:#ffffff;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #287ace;
+	margin-bottom:20px;
+}
+
+.coll-joueurs{
+	float:left;
+}
+
+.coll-scores{
+	float:left;
+}
+
+.link-tour2{
+	width:20px;
+	height:78px;
+	background-image: url(../img/link-tour2.png);
+	background-repeat: no-repeat;
+	margin-left: 8px;
+	margin-top:60px;
+}
+
+.link-tour3{
+	width:20px;
+	height:136px;
+	background-image: url(../img/link-tour3.png);
+	background-repeat: no-repeat;
+	margin-left: 8px;
+	margin-top:145px;
+}
+
+.link-tour4{
+	width:20px;
+	height:277px;
+	background-image: url(../img/link-tour4.png);
+	background-repeat: no-repeat;
+	margin-left: 8px;
+	margin-top:230px;
+}
+
+.cell-confrontation{
+	clear:both;
+	opacity: 1;
+	z-index: 99;
+	width: 110px;
+	margin-top:10px;
+	padding-left:5px;
+	padding-top: 5px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #163657) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #163657 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#163657');
+	background-color:#79bbff;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	text-indent:0;
+	border:1px solid #469df5;
+	color:#ffffff;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #287ace;
+}
+
+.cell-joueur{
+	clear:both;
+	margin-top: 3px;
+	height:25px;
+	padding-left:23px;
+	background-image: url(../img/logo-ballon-small.png);
+	background-repeat: no-repeat;
+}
+
+.cell-score{
+	margin-left:5px;
+	height:56px;
+	opacity: 1;
+	z-index: 99;
+	width: 85px;
+	margin-top:10px;
+	padding-top: 5px;
+	border: 1px solid #e0e0e0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.cell-score-manche{
+	padding:0;
+	margin:0;
+	height:51px;
+	width:25px;
+	float: left;
+}
+
+.cell-score-tot{
+	padding-left:-3px;
+	margin-left:5px;
+	height:51px;
+	width:24px;
+	float: left;
+	border-left: 1px solid rgb(118,108,113);
+	color:black;
+	font-weight:bold;
+}
+
+
+.cell-score-joueur{
+	margin-top: 3px;
+	margin-left:10px;
+	height:25px;
+}
+
+.cell-space1{
+	height:40px;
+	margin-bottom:20px;
+	padding-bottom:10px;
+}
+
+.coupe-cl1{
+	width:150px;
+	height:231px;
+	background-image: url(../img/coupe.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	margin-left: 750px;
+	margin-top:90px;
+}
+
+.coupe-cl2{
+	width:150px;
+	height:231px;
+	background-image: url(../img/coupe.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	margin-left: 750px;
+	margin-top:420px;
 }
 
 /*Footer*/

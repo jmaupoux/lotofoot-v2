@@ -1,5 +1,5 @@
 {# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
-{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+{% extends 'Lotofootv2Bundle::layout_cl.html.twig' %}
 
 
 {% block navibar %}
@@ -11,12 +11,361 @@
 {% endblock %}
 
 {% block title_body %}
-	
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Champion's League 2014 : Tableau Final &nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
 {% endblock %}
 	
-{% block body %}
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('bundles/lotofootv2/img/cl-coming-soon.png') }}"/>
+{% block body %}	
 	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" autoplay loop></audio>
+	<div class="tabfinal">
+		
+		<div class="tour">
+			<div class="title-tour">Huitièmes de finales</div>
+			<div class="coll-joueurs">
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 1</div>
+					<div class="cell-joueur">JOUEUR 16</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 5</div>
+					<div class="cell-joueur">JOUEUR 12</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 7</div>
+					<div class="cell-joueur">JOUEUR 10</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 3</div>
+					<div class="cell-joueur">JOUEUR 14</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 4</div>
+					<div class="cell-joueur">JOUEUR 13</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 8</div>
+					<div class="cell-joueur">JOUEUR 9</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 6</div>
+					<div class="cell-joueur">JOUEUR 11</div> 
+				</div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 2</div>
+					<div class="cell-joueur">JOUEUR 15</div> 
+				</div>
+			</div>
+			<div class="coll-scores">
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">-</div>
+					<div class="cell-score-joueur">-</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">-</div>
+					<div class="cell-score-joueur">-</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="link-next">
+			<div class="link-tour2" style="margin-top:100px;"></div>
+			<div class="link-tour2"></div>
+			<div class="link-tour2"></div>
+			<div class="link-tour2"></div>
+		</div>
+		<div class="tour">
+			<div class="title-tour">Quarts de finales</div>
+			<div class="coll-joueurs">
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 1</div>
+					<div class="cell-joueur">JOUEUR 16</div> 
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 5</div>
+					<div class="cell-joueur">JOUEUR 12</div> 
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 7</div>
+					<div class="cell-joueur">JOUEUR 10</div> 
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 3</div>
+					<div class="cell-joueur">JOUEUR 14</div> 
+				</div>
+				
+			</div>
+			<div class="coll-scores">
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="link-next">
+			<div class="link-tour3"></div>
+			<div class="link-tour3"></div>
+		</div>
+		<div class="tour">
+			<div class="title-tour">Demi-finales</div>
+			<div class="coll-joueurs">
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 1</div>
+					<div class="cell-joueur">JOUEUR 16</div> 
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 5</div>
+					<div class="cell-joueur">JOUEUR 12</div> 
+				</div>				
+			</div>
+			<div class="coll-scores">
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<div class="link-next">
+			<div class="link-tour4"></div>
+		</div>
+		<div class="tour">
+			<div class="title-tour">Finale</div>
+			<div class="coll-joueurs">
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-confrontation">
+					<div class="cell-joueur">JOUEUR 1</div>
+					<div class="cell-joueur">JOUEUR 16</div> 
+				</div>			
+			</div>
+			<div class="coll-scores">
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-space1"></div>
+				<div class="cell-score">
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">12</div>
+					<div class="cell-score-joueur">9</div>
+					</div>
+					<div class="cell-score-manche">
+					<div class="cell-score-joueur">13</div>
+					<div class="cell-score-joueur">14</div>
+					</div>
+					<div class="cell-score-tot"> 
+					<div class="cell-score-joueur">25</div>
+					<div class="cell-score-joueur">23</div>
+					</div>
+				</div>			
+			</div>
+		</div>
+		<div class="coupe-cl1"></div>
+		<div class="coupe-cl2"></div>
+	</div>
+
 {% endblock %}
 
 {% block footer %}
