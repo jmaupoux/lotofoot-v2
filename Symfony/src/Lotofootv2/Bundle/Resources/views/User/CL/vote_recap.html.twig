@@ -1,0 +1,123 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	
+{% endblock %}
+	
+{% block body %}
+	
+	<style type="text/css">    
+         .vote{
+            background-color:rgb(55,46,50);
+         }
+         .result{
+            
+         }
+         .vote.result{
+            background-color:rgb(64,200,83);
+         }
+         .vote.noresult{
+            background-color:gray;
+         }
+         
+         .notcorrected .vote.result, .notcorrected .vote.noresult, .notcorrected .scoreok{
+            background-color:inherit;
+            color:inherit;
+         }
+         
+         td.invisible{
+            border-left:none;
+            border-right:none;
+            border-bottom:none
+         }
+         .total{
+            color:white;
+            background-color:rgb(201,18,22);
+            font-weight:bold
+         }
+         .scoreok{
+            background-color:rgb(64,200,83);
+            color:white;
+         }
+    </style>
+	
+	{% if step.opened == true %}
+        <div style="text-align:center;color:red">
+            <b>La journée est en attente de correction</b><br/><br/>
+        </div>
+    {% endif %}
+	
+    <table class="table table-striped {% if step.opened == true %} notcorrected {% endif %}">
+        <tr>
+            <th>N°</th>
+            <th>Domicile</th>
+            <th>1</th>
+            <th>N</th>
+            <th>2</th>
+            <th>Extérieur</th>
+            <th>Score parié</th>
+            <th>Score effectif</th>
+            <th>Points</th>
+        </tr>
+        {% for match in matches %}
+        <tr>
+            <td>
+                {{match.number}}
+            </td>
+            <td>
+                {% if step.state == "A" %}
+                    {{match.teamHome}}
+                {% else %}
+                    {{match.teamVisitor}}
+                {% endif %}
+            </td>
+            <td class="{% if app.request.get('result_'~match.id) == '1'%} vote {%endif%} {% if step.opened == false %}{%if match.result == '1'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+            <td class="{% if app.request.get('result_'~match.id) == 'N'%} vote {%endif%} {% if step.opened == false %}{%if match.result == 'N'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+            <td class="{% if app.request.get('result_'~match.id) == '2'%} vote {%endif%} {% if step.opened == false %}{%if match.result == '2'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+            <td>
+                {% if step.state == "A" %}
+                    {{match.teamVisitor}}
+                {% else %}
+                    {{match.teamHome}}
+                {% endif %}
+            </td>
+            <td class="{% if app.request.get('score_'~match.id) == match.score%} scoreok {% endif %}">
+                {{app.request.get('score_'~match.id)}}
+            </td>
+            <td>
+                {{match.score}}
+            </td>
+            <td>
+                {{app.request.get('points_'~match.id)}}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+            <td class="total">Total</td>
+            <td class="total">{{total}}</td>
+        </tr>
+    </table>
+	
+	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" autoplay loop></audio>
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

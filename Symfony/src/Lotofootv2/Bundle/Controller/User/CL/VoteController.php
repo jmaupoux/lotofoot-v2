@@ -30,9 +30,29 @@ class VoteController extends Controller
         
 		if($step->getDeadline() > new DateTime()){
             return $this->voteOpenAction($request, $step);
+        }else{
+        	return $this->recapAction($request, $step);
         }
     	
-       return $this->render('Lotofootv2Bundle:User/CL:vote.html.twig', array('step' => $step, 'matches' => $matches));
+    }
+    
+    public function recapAction($request, $step){
+    	$tour_s = $this->get('tournament_service');
+    	$matches = $tour_s->getTourStepMatches($step->getId());
+        
+        $accountId = $this->getUser()->getId();
+        $votes = $tour_s->getTourStepVotes($step->getId(), $accountId);
+        
+        $points = 0;
+        
+        for($i=0;$i<count($votes);$i++){
+            $request->request->set('score_'.$votes[$i]->getTourMatchId(), $votes[$i]->getScore());
+            $request->request->set('result_'.$votes[$i]->getTourMatchId(), $votes[$i]->getResult());
+            $request->request->set('points_'.$votes[$i]->getTourMatchId(), $votes[$i]->getPoints());
+            $points+=$votes[$i]->getPoints();
+        }
+    	
+        return $this->render('Lotofootv2Bundle:User/CL:vote_recap.html.twig', array('step' => $step, 'matches' => $matches, 'total' => $points));    	
     }
     
     public function voteOpenAction($request, $step){
