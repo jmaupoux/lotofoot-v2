@@ -65,7 +65,7 @@ class RewardService
     	$this->rewardEclair($accounts);
     	$this->rewardBourseMolle($accounts);
     	$this->rewardSmoking($accounts);
-    	$this->rewardChampionsLeague($accounts);
+    	//$this->rewardChampionsLeague($accounts);
     }
     
 	public function rewardKing($accounts){
