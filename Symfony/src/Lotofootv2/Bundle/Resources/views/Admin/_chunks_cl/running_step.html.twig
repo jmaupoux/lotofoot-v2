@@ -28,6 +28,9 @@ Journée en cours
                 <th>
                     Extérieur
                 </th>
+                <th>
+                    Minute du 1er but ?
+                </th>
             </tr>
             {% for match in matches %}
             <tr>
@@ -42,6 +45,11 @@ Journée en cours
                 </td>
                 <td>
                     {{match.teamVisitor}}
+                </td>
+                <td>
+                   {% if match.isFirstGoal == true %}
+                       <input id="first_goal_min" type="text" autocomplete="off" name="first_goal_min" value="{{ app.request.get('first_goal_min') }}" size="3" maxlength="3" style="width:50px"/>
+                   {% endif %}
                 </td>
             </tr>
             {% endfor %}

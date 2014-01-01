@@ -36,6 +36,7 @@
                     <th>2</th>
                     <th>Extérieur</th>
                     <th>Score parié</th>
+                    <th>Minute du 1er but ?</th>
                 </tr>
                 {% for match in matches %}
                 <tr>
@@ -57,6 +58,11 @@
                     </td>
                     <td>    
                         <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+                    </td>
+                    <td>
+                        {% if match.isFirstGoal == true %}
+                            <input id="first_goal_min" type="text" autocomplete="off" name="first_goal_min" value="{{ app.request.get('first_goal_min') }}" size="3" maxlength="3" style="width:50px"/>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

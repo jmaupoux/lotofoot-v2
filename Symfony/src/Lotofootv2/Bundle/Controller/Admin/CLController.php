@@ -104,6 +104,12 @@ class CLController extends Controller
 			$match->setTeamVisitor($visitor);
 			$match->setNumber($i);
 			
+			if($request->request->has('is_first_goal') && $request->request->get('is_first_goal') == $i){
+				$match->setIsFirstGoal(true);
+			}else{
+				$match->setIsFirstGoal(false);
+			}
+			
 			array_push($matches, $match);
 			
 			$i++;
@@ -149,6 +155,10 @@ class CLController extends Controller
                     (intval($score[0]) < intval($score[1]) ? '2' : 'N');    
             
             $matches[$i-1]->setResult($result);
+            
+            if($matches[$i-1]->getIsFirstGoal()){
+            	$matches[$i-1]->setFirstGoalMin($request->request->get('first_goal_min'));
+            }
         }
 
         $this->get('tournament_service')->processCLStep($matches, $deadline);

@@ -54,6 +54,9 @@ class VoteController extends Controller
             $request->request->set('score_'.$votes[$i]->getTourMatchId(), $votes[$i]->getScore());
             $request->request->set('result_'.$votes[$i]->getTourMatchId(), $votes[$i]->getResult());
             $request->request->set('points_'.$votes[$i]->getTourMatchId(), $votes[$i]->getPoints());
+            if($votes[$i]->getFirstGoalMin() != null){
+                $request->request->set('first_goal_min', $votes[$i]->getFirstGoalMin());
+            }
             $points+=$votes[$i]->getPoints();
         }
     	
@@ -69,6 +72,9 @@ class VoteController extends Controller
         for($i=0;$i<count($votes);$i++){
             $request->request->set('score_'.$votes[$i]->getTourMatchId(), $votes[$i]->getScore());
             $request->request->set('result_'.$votes[$i]->getTourMatchId(), $votes[$i]->getResult());
+            if($votes[$i]->getFirstGoalMin() != null){
+                $request->request->set('first_goal_min', $votes[$i]->getFirstGoalMin());
+            }
         }
         
         $info = null;
@@ -144,6 +150,10 @@ class VoteController extends Controller
             $vote->setScore(
                 LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()))
             );
+            
+            if($matches[$i]->getIsFirstGoal() == true){
+            	$vote->setFirstGoalMin($request->request->get('first_goal_min'));
+            }
             
             if($vote->getResult() == '' || $vote->getResult() == null ||
                 $vote->getScore() == '' || $vote->getScore() == null ){

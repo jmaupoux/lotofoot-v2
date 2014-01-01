@@ -45,11 +45,11 @@ class TournamentService
     	$this->em->persist($tour_step);
     	$this->em->flush();
     	
-    	$accs = array_slice($this->league_service->getRunningLeagueAccounts(), 0, 16); 	
+    	$accs = $this->getCLQualified();
     	
     	foreach ($accs as $acc){
     		$tourp = new TournamentPlayer();
-    		$tourp->setAccountId($acc->getId());
+    		$tourp->setAccountId($acc->getAccountId());
     		$tourp->setTourStepId($tour_step->getId());
     		$tourp->setTourStepNumber($tour_step->getNumber());
     		//on attribue un group : 1er vs 16 etc
@@ -59,6 +59,18 @@ class TournamentService
     	}
     	
     	$this->em->flush();
+    }
+    
+    public function getCLQualified(){
+    	$query = $this->em->createQuery(
+            'SELECT h
+            FROM Lotofootv2Bundle:LeagueHistory h, Lotofootv2Bundle:LeagueDay d 
+            WHERE d.number = :number
+            and h.league_day_id = d.id
+            ORDER BY h.rank'
+        )->setParameter('number', 12);
+        
+        return array_slice($query->getResult(), 0, 16);
     }
     
     public function getRunningTour(){
@@ -203,6 +215,9 @@ class TournamentService
             
             $votes = $this->getTourStepVotes($step->getId(), $tp->getAccountId());
             
+            $has_first_goal = false;
+            $first_goal_min = 240;//max. only 1
+            
             for($v=0;$v<count($votes);$v++){
                 $vote = $votes[$v];
                 
@@ -218,6 +233,10 @@ class TournamentService
                         if($match->getResult() == $vote->getResult()){
                             $votePoints += 1;
                         }
+                        if($match->getIsFirstGoal()){
+                        	$has_first_goal = true;
+                        	$first_goal_min = abs($match->getFirstGoalMin() - $vote->getFirstGoalMin());
+                        }
                         break;
                     }
                 }
@@ -226,6 +245,10 @@ class TournamentService
                 $points += $votePoints;     
             }
          
+            if($has_first_goal){
+                $tp->setFirstGoalMin($first_goal_min);	
+            }
+            
             if($step->getState() == "A"){
                 $tp->setPointsA($points);
             }else{
@@ -357,10 +380,11 @@ class TournamentService
             	$tp->setAccountId($h1->getAccountId());
             }elseif($h1->getTotalPoints() < $h2->getTotalPoints()){
                 $tp->setAccountId($h2->getAccountId());
+            }elseif($h2->getFirstGoalMin() < $h1->getFirstGoalMin()){
+            	$tp->setAccountId($h2->getAccountId());
             }else{
-            	// TODO BUT VAINQUEUR
             	$tp->setAccountId($h1->getAccountId());
-            }            
+            }
 
             $this->em->persist($tp);
             

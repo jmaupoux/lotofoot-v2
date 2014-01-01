@@ -62,8 +62,26 @@ class TournamentMatch
      * @ORM\Column(name="result", type="string", length=1, nullable=true)
      */
     private $result;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_first_goal", type="boolean")
+     */
+    private $is_first_goal;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_goal_min", type="integer", nullable=true)
+     */
+    private $first_goal_min;
 
+    public function __construct()
+    {
+        $this->is_first_goal = false;
+    }
+    
     /**
      * Get id
      *
@@ -211,5 +229,51 @@ class TournamentMatch
     public function getResult()
     {
         return $this->result;
+    }
+    
+    /**
+     * Set result
+     *
+     * @param string $result
+     * @return Results
+     */
+    public function setIsFirstGoal($is)
+    {
+        $this->is_first_goal = $is;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getIsFirstGoal()
+    {
+        return $this->is_first_goal;
+    }
+    
+    /**
+     * Set result
+     *
+     * @param string $result
+     * @return Results
+     */
+    public function setFirstGoalMin($min)
+    {
+        $this->first_goal_min = $min;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getFirstGoalMin()
+    {
+        return $this->first_goal_min;
     }
 }

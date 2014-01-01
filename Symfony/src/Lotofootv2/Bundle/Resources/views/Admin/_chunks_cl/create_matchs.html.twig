@@ -11,6 +11,9 @@
 			<th>
 				Extérieur
 			</th>
+			<th>
+			     Minute du 1er but ?
+			</th>
 		</tr>
 		{% for i in 1..8 %}
 		<tr class="match">
@@ -23,6 +26,9 @@
 			<td>
 				<input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}" style="border:0px"/>
 			</td>
+			<td>
+                <input type="radio" name="is_first_goal" value="{{i}}" style="border:0px" {% if app.request.get('is_first_goal') == i %}checked{% endif %}/>
+            </td>
 		</tr>
 		{% endfor %}
 	</table>

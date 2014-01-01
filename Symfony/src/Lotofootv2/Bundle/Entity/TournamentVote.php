@@ -63,7 +63,18 @@ class TournamentVote
      */
     private $points;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_goal_min", type="integer", nullable=true)
+     */
+    private $first_goal_min;
 
+//    public function __construct()
+//    {
+//        $this->first_goal_min = -1;
+//    }
+    
     /**
      * Get id
      *
@@ -207,5 +218,28 @@ class TournamentVote
     public function getPoints()
     {
         return $this->points;
+    }
+    
+    /**
+     * Set result
+     *
+     * @param string $result
+     * @return Results
+     */
+    public function setFirstGoalMin($min)
+    {
+        $this->first_goal_min = $min;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getFirstGoalMin()
+    {
+        return $this->first_goal_min;
     }
 }
