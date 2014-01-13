@@ -47,6 +47,26 @@ class NewsService
     	return $query->getOneOrNullResult();
     }
     
+    public function postNewsComm($comm)
+    {
+    	$comm->setNewsId($this->getLastNews()->getId());
+    	
+        $this->em->persist($comm);
+        $this->em->flush();
+    }
+    
+    public function getNewsComms($news)
+    {
+        $query = $this->em->createQuery(
+            'SELECT n
+            FROM Lotofootv2Bundle:NewsComm n
+            WHERE n.news_id = :news_id
+            ORDER BY n.date DESC')
+        ->setParameter('news_id', $news->getId());
+
+        return $query->getResult();
+    }
+    
 	public function getNextNews($number)
     {
     	$query = $this->em->createQuery(

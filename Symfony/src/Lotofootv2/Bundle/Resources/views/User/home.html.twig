@@ -43,6 +43,23 @@
 		 {{ 'home.nonews' | trans }}
 	{% endif %}
 	
+	<br/>
+	Commenter :<br/>
+	<form action="{{ path('_home_news_postcomm') }}" method="POST">
+       <textarea rows="2" cols="100" name="text"></textarea>
+       <input type="submit" value="Ajouter mon commentaire"></input>
+    </form>
+	
+	{% if comms is defined and comms is not null %}
+	   {% for comm in comms %}
+		   <div style="border:1px solid gray">
+		      {{comm.author}}, le {{comm.date | date("d/m/Y à H:i")}} : <br/>
+		      {{comm.text}}
+		   </div>
+	   {% endfor %}
+	{% endif %}
+	
+	
 {% endblock %}
 
 {% block footer %}
