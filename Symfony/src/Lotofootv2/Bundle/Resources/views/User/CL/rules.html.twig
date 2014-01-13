@@ -18,11 +18,72 @@
 	</div>	
 {% endblock %}
 	
+
 {% block body %}
-	<h2>1. La ligue des champions 2013-2014</h2>
+	<h2>1. Champion's League 2013-2014</h2>
+	<ul>
+		<li>La Champion's League débutera en même temps que les 8ème de finale de la Champion's League; soit le 18/02/2014. </li>
+		<li>Seuls les 16 premiers du général au 31/12/2013 seront qualifiés pour l'épreuve reine.</li>
+		<li>En 8ème on aura donc le 1er vs 16ème, 2ème vs 15ème etc... (classements au 31/12/2013)</li>
+		<li>Ensuite ce sont des duels aller/retour jusqu'en finale.</li>
+	</ul>
+		<h2>2. Les joueurs qualifiés</h2>
+	<ul>
+		<li>1. Guillaume</li>
+		<li>2. Ad</li>
+		<li>3. Vince_76ers</li>
+		<li>4. Tta93</li>
+		<li>5. Sthou</li>
+		<li>6. Yopich</li>
+		<li>7. Julie5</li>
+		<li>8. Jbarnabe</li>
+		<li>9. Tlouis</li>
+		<li>10. Bast</li>
+		<li>11. Laurent</li>
+		<li>12. Angele</li>
+		<li>13. Dchocu</li>
+		<li>14. Juventino</li>
+		<li>15. BrunoC</li>
+		<li>16. Phoenix1975</li>
+	</ul>
+	<h2>3. Les paris</h2>
+	<ul>
+		<li>En général, les paris seront à effectuer avant le mardi avant 18h. </li>
+		<li>Aucun recours ne sera accepté. </li>
+		<li>Vous pouvez changer vos paris autant de fois que vous le souhaitez tant que la date limite n'est pas révolue.</li>
+	</ul>
+	<h2>4. Les points</h2>
+	<ul>
+		<li>Si vous trouvez le vainqueur d'un match (ou s'il y a match nul), cela vous rapporte 1 point.</li>
+		<li>Si vous trouvez le résultat exact d'un match, cela vous rapporte 2 points.</li>
+		<li>Vous pouvez multiplier vos chances en dissociant vos paris : ex: en pariant sur PSG et en pariant sur le score 1-1.</li>
+		<li>Si vous pariez sur Paris avec un score de 1-0 et que c'est le résultat, cela vous rapporte donc 3 points (1+2).</li>
+	</ul>
+	<h3>Le Golden Match</h3>
+	Si le match est cerné de deux <img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>, c'est un Golden Match. Ce match servira à départager les 2 joueurs en cas d'égalité. Le but est ici de pronostiquer la minute de jeu où le premier but du match sera marqué.
+	<br/>Donc, en plus du pronostic normal, il faut poisitionner le curseur sur la minute de jeu de 0 à 90. En cas d'égalité entre les deux joueurs au terme du tour de Champion's League, c'est le joueur qui sera le plus proche de la minute effective du premier but qui sera désigné vainqueur.
+	<br/>Quelques règles concernant le Golden Match :
+	<ul>
+		<li>Il n'y a qu'un Golden Match par tour, soit lors des matchs allers, soit lors des match retours.</li>
+		<li>C'est la minute inscrite sur le site de l'Équipe qui fait foi : <a href="http://www.lequipe.fr/Football/Directs">http://www.lequipe.fr/Football/Directs</a>.</li>
+		<li>Si le premier but du Golden Match est marqué pendant les arrêts de jeu de la 1ère période, c'est la 45ème minute qui sera enterinée.</li>
+		<li>Si le premier but du Golden Match est marqué pendant les arrêts de jeu de la 2ème période, c'est la 90ème minute qui sera enterinée.</li>
+		<li>Si le premier but du Golden Match est marqué pendant les prolongations, c'est la 90ème minute qui sera enterinée.</li>
+		<li>S'il n'y a pas de but dans le Golden Match, c'est la 90ème minute qui sera enterinée.</li>
+	</ul>
 	
-	TODO Topich
-{% endblock %}
+	<h3>Matchs reportés</h3>
+	<ul>
+		<li>La journée ne sera pas corrigée tant que le match n'aura pas été rejoué.</li>
+	</ul>
+
+	<h2>5. Les cadeaux distribués pour la Champion's League</h2>
+	<ul>
+		<li>Le <strong>gagnant</strong> gagne des chèques cadeaux d'une valeur de <strong>60€</strong>.</li>
+		<li>Le <strong>finaliste</strong> gagne des chèques cadeaux d'une valeur de <strong>20€</strong>.</li>
+		<li>Les <strong>deux demi-finalistes perdants</strong> gagnent des chèques cadeaux d'une valeur de <strong>10€</strong>.</li>
+	</ul>
+
 
 {% block footer %}
 	{% include 'Lotofootv2Bundle::footer.html.twig' %}

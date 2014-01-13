@@ -1,7 +1,6 @@
 {# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
 {% extends 'Lotofootv2Bundle::layout.html.twig' %}
 
-
 {% block navibar %}
 	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
 {% endblock %}
@@ -11,23 +10,39 @@
 {% endblock %}
 
 {% block title_body %}
-	
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Vos Paris Champion's League	
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
 {% endblock %}
 	
 {% block body %}
-	
+	<br/>
 	{% if step is null or step.state == "W" %}
        
        Un peu de patience jeune fougueux, la liste des matchs arrive très bientôt.
        
     {% else %}
     
-	   Vous êtes en lice pour la compétition "League des Champions" !<br/>
-	   Date limite : <span style="font-weight: bold">{{ step.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
-	
+	   
+	   <div class="date-limite">Date limite : 
+	   		Vous êtes en lice pour la reine des compétitions : La Champion's League 2013 - 2014 !<br/><br/>
+			<span style="font-weight: bold">{{ step.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
+			{% if error is defined %}
+		    <div style="color:red">{{ error }}</div>
+			{% endif %}
+			{% if info is defined and info is not null %}
+		    <div style="color:green">{{ info }}</div>
+			{% endif %}
+			{% if warn is defined and warn is not null %}
+		    <div style="color:orange">{{ warn }}</div>
+			{% endif %}
+		</div>
+	<br/><br/>
 	   <form action="{{ path('_cl_vote_post') }}" method="post" style="width:800px;margin:auto">
 
-            <table>
+            <table  class="calendar">
                 <tr>
                     <th>N°</th>
                     <th>Domicile</th>
@@ -39,7 +54,7 @@
                     <th>Minute du 1er but ?</th>
                 </tr>
                 {% for match in matches %}
-                <tr>
+                <tr class="vote-cl">
                     <td>
                         {{match.number}}
                     </td>
@@ -61,7 +76,13 @@
                     </td>
                     <td>
                         {% if match.isFirstGoal == true %}
-                            <input id="first_goal_min" type="text" autocomplete="off" name="first_goal_min" value="{{ app.request.get('first_goal_min') }}" size="3" maxlength="3" style="width:50px"/>
+                        	<script>function printValue(sliderID, textbox) {       
+                        		var x = document.getElementById(textbox);                   	
+                                var y = document.getElementById(sliderID);
+                                x.value = y.value;
+                            }</script>
+                            <input type="range" id="first_goal" value="45" max="90" min="0" step="1" onchange="printValue('first_goal','first_goal_txt')"/>
+                        	<input type="text" id="first_goal_txt" size="2" value="{{ app.request.get('first_goal_min') }}" maxlength="3" style="width:25px">
                         {% endif %}
                     </td>
                 </tr>
@@ -78,7 +99,7 @@
 	
 	{% endif %}
 	
-	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" autoplay loop></audio>
+	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" autoplay></audio>
 {% endblock %}
 
 {% block footer %}
