@@ -1,4 +1,4 @@
-{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+{% extends 'Lotofootv2Bundle::layout_cl.html.twig' %}
 
 {% block navibar %}
 	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
@@ -6,6 +6,15 @@
 
 {% block menu %}
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Admin Champion's League	&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
 {% endblock %}
 
 {% block body %}

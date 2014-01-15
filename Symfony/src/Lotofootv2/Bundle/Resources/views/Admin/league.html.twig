@@ -8,7 +8,16 @@
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
 {% endblock %}
 
+{% block title_body %}
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Admin Saison			
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+{% endblock %}
+
 {% block body %}
+	<div class="stop-float"></div>
 	
 	{% if league is null %}
 		<b>Aucune saison trouvée !</b>

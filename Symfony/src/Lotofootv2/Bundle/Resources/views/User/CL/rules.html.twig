@@ -1,5 +1,5 @@
 {# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
-{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+{% extends 'Lotofootv2Bundle::layout_cl.html.twig' %}
 
 
 {% block navibar %}
@@ -13,7 +13,8 @@
 {% block title_body %}
 	<div class="title-body">
 		<div class="ligne-body-left">&nbsp;</div>
-			Règlement de la Champion's League 2013 - 2014 
+			Règlement Champion's League&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
 		<div class="ligne-body-right">&nbsp;</div>
 	</div>	
 {% endblock %}
@@ -55,7 +56,7 @@
 	<h2>4. Les points</h2>
 	<ul>
 		<li>Si vous trouvez le vainqueur d'un match (ou s'il y a match nul), cela vous rapporte 1 point.</li>
-		<li>Si vous trouvez le résultat exact d'un match, cela vous rapporte 2 points.</li>
+		<li>Si vous trouvez le résultat exact d'un match, cela vous rapporte <strong>2 points</strong> .</li>
 		<li>Vous pouvez multiplier vos chances en dissociant vos paris : ex: en pariant sur PSG et en pariant sur le score 1-1.</li>
 		<li>Si vous pariez sur Paris avec un score de 1-0 et que c'est le résultat, cela vous rapporte donc 3 points (1+2).</li>
 	</ul>
@@ -83,7 +84,7 @@
 		<li>Le <strong>finaliste</strong> gagne des chèques cadeaux d'une valeur de <strong>20€</strong>.</li>
 		<li>Les <strong>deux demi-finalistes perdants</strong> gagnent des chèques cadeaux d'une valeur de <strong>10€</strong>.</li>
 	</ul>
-
+{% endblock %}
 
 {% block footer %}
 	{% include 'Lotofootv2Bundle::footer.html.twig' %}

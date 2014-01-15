@@ -1,4 +1,4 @@
-Journée en cours
+Journée en cours<br/>
 
 {% if closed == false %}
     
@@ -9,7 +9,7 @@ Journée en cours
 {% else %}
     
    <div class="alert alert-info">
-       <span class="center">Les votes sont clos ! La journée peut être corrigée</span>
+       <span class="center">Les votes sont clos !<br/><br/> La journée peut être corrigée</span><br/>
    </div> 
    
    <form action="{{ path('_admin_cl_mark') }}" method="post" style="width:800px;margin:auto">
@@ -33,7 +33,7 @@ Journée en cours
                 </th>
             </tr>
             {% for match in matches %}
-            <tr>
+            <tr class="vote-cl">
                 <td>
                     {{match.number}}
                 </td>

@@ -1,5 +1,5 @@
 {# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
-{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+{% extends 'Lotofootv2Bundle::layout_cl.html.twig' %}
 
 
 {% block navibar %}
@@ -11,7 +11,12 @@
 {% endblock %}
 
 {% block title_body %}
-	
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Vos Paris Champion's League	&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
 {% endblock %}
 	
 {% block body %}
@@ -23,7 +28,7 @@
 	{% else %}
 	
 		Voici la liste des matchs pour lesquels vous n'aurez <b>pas</b> la chance de pouvoir voter =) :<br/>
-		
+		<br/><br/>
 	        <table>
 	            <tr>
 	                <th>N°</th>
@@ -31,7 +36,7 @@
 	                <th>Extérieur</th>
 	            </tr>
 	            {% for match in matches %}
-	            <tr>
+	            <tr  class="vote-cl">
 	                <td>
 	                    {{match.number}}
 	                </td>

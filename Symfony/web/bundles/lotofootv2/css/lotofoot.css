@@ -115,6 +115,7 @@ body{
 
 input{
 	background-color: white;
+	text-align: center;
 }
 
 /*Menu*/
@@ -592,6 +593,7 @@ table{
 	margin-right: auto;
 	opacity:1;
 	filter:alpha(opacity=100); 
+	clear:both;
 }
 
 td{

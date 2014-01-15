@@ -228,7 +228,7 @@ class TournamentService
                     
                     if($match->getId() == $vote->getTourMatchId()){
                         if($match->getScore() == $vote->getScore()){
-                            $votePoints = 3;
+                            $votePoints = 2;
                         }
                         if($match->getResult() == $vote->getResult()){
                             $votePoints += 1;
