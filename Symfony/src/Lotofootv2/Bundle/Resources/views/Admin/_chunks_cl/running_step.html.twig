@@ -56,10 +56,10 @@ Journée en cours<br/>
         </table>
         
         {% if step.state == "A" %}              
-            
+        <br/> <br/>   
         Date limite pour les matchs retours :    
-            
-        <div class="control-group-admin">
+        <br/><br/>     
+        <div>
 	        <label class="control-label" for="_deadline">
 	             Dernier délai le <span style="color:red"> * </span> 
 	        </label>
@@ -67,7 +67,8 @@ Journée en cours<br/>
 	             <input type="text" id="_deadline" name="deadline" value="{{ app.request.get('deadline') }}" placeholder="jj/mm/aaaa"/>
 	        </div>
 	    </div>
-	    <div class="control-group">
+	    
+	    <div class="control-group2">
 	        <label class="control-label" for="_deadlineh">
 	             à <span style="color:red"> * </span> 
 	        </label>

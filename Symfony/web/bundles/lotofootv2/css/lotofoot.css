@@ -95,6 +95,10 @@ body{
 
 }
 
+.control-group2{
+	float: left;
+}
+
 .login-controls{
 	padding-left: 20px;
 }
@@ -115,7 +119,6 @@ body{
 
 input{
 	background-color: white;
-	text-align: center;
 }
 
 /*Menu*/
@@ -509,6 +512,61 @@ a.menu-lien:hover{
 	float: left;
 }
 
+.btn-comment{
+	float: left;
+	height: 55px;
+	width: 109px;
+	margin-top:1px;
+	margin-left:5px;
+	background-color:#372e32;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;*/
+	border:1px solid #ffffff;
+	display:inline-block;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+	text-align:center;
+}
+.btn-comment:hover{
+	background-color:white;
+	border:1px solid #372e32;
+	color: #372e32;
+	}
+
+.comment1{
+	border:1px solid #372e32;
+	background-color: #D4D8E1;
+	
+	padding: 10px;
+	margin-bottom:2px;
+}
+
+.comment2{
+	border:1px solid #372e32;
+	background-color: #E1D6D6;
+	padding: 10px;
+	margin-bottom:2px;
+}
+
+.date-comment{
+	font-style:italic;
+	font-size: 12px;
+}
+
 /* Stats */
 /*********************************************/
 a.letter{	
@@ -839,6 +897,11 @@ input[type="range"]:after {
 	-webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+.cell-score:hover{
+	background-color: rgb(52,87,164);
+	color: white;
+}
+
 .cell-score-manche{
 	padding:0;
 	margin:0;
@@ -854,7 +917,6 @@ input[type="range"]:after {
 	width:24px;
 	float: left;
 	border-left: 1px solid rgb(118,108,113);
-	color:black;
 	font-weight:bold;
 }
 

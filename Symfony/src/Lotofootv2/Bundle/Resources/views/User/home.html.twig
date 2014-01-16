@@ -44,18 +44,21 @@
 	{% endif %}
 	
 	<br/>
-	Commenter :<br/>
-	<form action="{{ path('_home_news_postcomm') }}" method="POST">
-       <textarea rows="2" cols="100" name="text"></textarea>
-       <input type="submit" value="Ajouter mon commentaire"></input>
-    </form>
+	<img src="{{ asset('bundles/lotofootv2/img/titre-comment.png') }}"/>
 	
+	<form action="{{ path('_home_news_postcomm') }}" method="POST">
+       <textarea style="float:left;" rows="3" cols="100" name="text"></textarea>
+       <input class="btn-comment" type="submit" value="Ajouter"></input>
+    </form>
+	<div class="stop-float"><br/></div>
 	{% if comms is defined and comms is not null %}
 	   {% for comm in comms %}
-		   <div style="border:1px solid gray">
-		      {{comm.author}}, le {{comm.date | date("d/m/Y à H:i")}} : <br/>
+		   
+		   <div class="comment{{(loop.index%2+1)}}">
+		      <strong>{{comm.author}}</strong> {% if app.user.rank == 99 %}(-){% else %}({{app.user.rank}}){% endif %} - <span class="date-comment">le {{comm.date | date("d/m/Y à H:i")}}</span><br/>
 		      {{comm.text}}
 		   </div>
+
 	   {% endfor %}
 	{% endif %}
 	
