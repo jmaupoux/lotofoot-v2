@@ -382,8 +382,12 @@ class TournamentService
                 $tp->setAccountId($h2->getAccountId());
             }elseif($h2->getFirstGoalMin() < $h1->getFirstGoalMin()){
             	$tp->setAccountId($h2->getAccountId());
-            }else{
+            }elseif($h1->getFirstGoalMin() < $h2->getFirstGoalMin()){
             	$tp->setAccountId($h1->getAccountId());
+            }elseif($h1->getAccountId() < $h2->getAccountId()){
+            	$tp->setAccountId($h1->getAccountId());
+            }else{
+            	$tp->setAccountId($h2->getAccountId());
             }
 
             $this->em->persist($tp);
