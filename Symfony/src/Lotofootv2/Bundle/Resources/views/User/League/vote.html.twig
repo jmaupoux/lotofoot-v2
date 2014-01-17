@@ -28,7 +28,7 @@
 		
 		
 			{% if leagueDay.word == "" %}
-				{% if leagueHistory.rankingHistory == 1 %}
+				{% if app.user.rank == 1 %}
 					<form action="{{ path('_league_vote_word') }}" method="post" style="width:800px;margin:auto;text-align:center;">
 						Vous êtes le KING, vous pouvez adresser une punchline qui sera affichée à tous les autres parieurs (max 150 caractères):<br/><br/>
 						

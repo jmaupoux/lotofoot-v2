@@ -93,6 +93,11 @@ class Account implements AdvancedUserInterface, \Serializable
      */
     private $statScores;
     
+     /**
+     * @ORM\Column(name="cagnoute", type="boolean")
+     */
+    private $cagnoute;
+    
     public function __construct()
     {
     	$this->isActive = false;
@@ -356,5 +361,17 @@ class Account implements AdvancedUserInterface, \Serializable
     public function setActive($active)
     {
     	$this->isActive = $active;
+    }
+
+	public function setCagnoute($cagnoute)
+    {
+    	$this->cagnoute = $cagnoute;
+    
+    	return $this;
+    }
+
+    public function getCagnoute()
+    {
+    	return $this->cagnoute;
     }
 }

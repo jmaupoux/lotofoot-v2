@@ -82,8 +82,8 @@
                                 var y = document.getElementById(sliderID);
                                 x.value = y.value;
                             }</script>
-                            <input type="range" id="first_goal_min" name="first_goal_min" value="{{ app.request.get('first_goal_min') }}" max="90" min="0" step="1" onchange="printValue('first_goal_min','first_goal_txt')"/>
-                        	<input type="text" id="first_goal_txt" name="first_goal_txt" size="2" value="{{ app.request.get('first_goal_min') }}" maxlength="3" style="width:25px">
+                            <input type="range" id="first_goal" value="{{ app.request.get('first_goal_min') }}" max="90" min="0" step="1" onchange="printValue('first_goal','first_goal_txt')"/>
+                        	<input type="text" id="first_goal_txt" size="2" value="{{ app.request.get('first_goal_min') }}" maxlength="3" style="width:25px">
                         {% endif %}
                     </td>
                 </tr>

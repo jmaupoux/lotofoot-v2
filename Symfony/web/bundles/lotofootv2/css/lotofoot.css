@@ -549,15 +549,14 @@ a.menu-lien:hover{
 
 .comment1{
 	border:1px solid #372e32;
-	background-color: #D4D8E1;
-	
+	background-color: #E1D6D6;
 	padding: 10px;
 	margin-bottom:2px;
 }
 
 .comment2{
 	border:1px solid #372e32;
-	background-color: #E1D6D6;
+	background-color: #D4D8E1;
 	padding: 10px;
 	margin-bottom:2px;
 }

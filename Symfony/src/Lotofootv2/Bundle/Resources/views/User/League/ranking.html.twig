@@ -22,6 +22,7 @@
 			<th>Rang</th>
 			<th>Joueur</th>
 			<th>Points</th>
+			<th>Cagnoute</th>
 			<th>Journées jouées</th>
 			<th>Bonus trouvés</th>
 			<th>Resultats trouvés</th>
@@ -39,6 +40,7 @@
 			</td>
 			<td>{{account.username}}</td>
 			<td>{{account.points}}</td>
+			<td>{% if account.cagnoute == 1 %}<img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute.png') }}" style="margin-top:2px;"/>{% endif %}</td>
 			<td>{{account.statDays}}</td>
 			<td>{{account.statBonuses}}</td>
 			<td>{{account.statResults}}</td>
