@@ -27,9 +27,9 @@
     {% else %}
     
 	   
-	   <div class="date-limite">Date limite : 
+	   <div class="date-limite">
 	   		Vous êtes en lice pour la reine des compétitions : La Champion's League 2013 - 2014 !<br/><br/>
-			<span style="font-weight: bold">{{ step.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
+			Date limite :  <span style="font-weight: bold">{{ step.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
 			{% if error is defined %}
 		    <div style="color:red">{{ error }}</div>
 			{% endif %}

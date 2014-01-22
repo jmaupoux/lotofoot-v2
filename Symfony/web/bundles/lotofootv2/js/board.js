@@ -4,97 +4,139 @@ $(document).ready( function () {
   /*document.getElementById('step_1_1').style.visibility='hidden';*/
 
 	$('#step_1_1').click ( function () {
-		$("#confrontation-step_1_1").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_1").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_1").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_2').click ( function () {
-		$("#confrontation-step_1_2").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_2").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_2").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_3').click ( function () {	
-		$("#confrontation-step_1_3").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_3").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_3").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_4').click ( function () {	
-		$("#confrontation-step_1_4").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_4").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_4").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_5').click ( function () {	
-		$("#confrontation-step_1_5").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_5").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_5").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_6').click ( function () {	
-		$("#confrontation-step_1_6").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_6").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_6").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_7').click ( function () {	
-		$("#confrontation-step_1_7").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_7").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_7").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_1_8').click ( function () {	
-		$("#confrontation-step_1_8").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_1_8").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_1_8").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_2_1').click ( function () {	
-		$("#confrontation-step_2_1").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_2_1").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_2_1").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_2_2').click ( function () {	
-		$("#confrontation-step_2_2").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_2_2").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_2_2").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_2_3').click ( function () {	
-		$("#confrontation-step_2_3").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_2_3").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_2_3").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_2_4').click ( function () {	
-		$("#confrontation-step_2_4").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_2_4").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_2_4").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_3_1').click ( function () {	
-		$("#confrontation-step_3_1").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_3_1").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_3_1").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_3_2').click ( function () {	
-		$("#confrontation-step_3_2").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_3_2").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_3_2").fadeIn("slow");
+			tab=1;
+		}
 	});
 	$('#step_4_1').click ( function () {	
-		$("#confrontation-step_4_1").fadeIn("fast");
+		if (tab>0){
+			$("#confrontation-step_4_1").fadeOut("slow");
+			tab=0;}
+		else{
+			$("#confrontation-step_4_1").fadeIn("slow");
+			tab=1;
+		}
 	});
-
-$("#confrontation-step_1_1").click( function () {
-		$("#confrontation-step_1_1").fadeOut("slow");
-	});	
-$("#confrontation-step_1_2").click( function () {
-	$("#confrontation-step_1_2").fadeOut("slow");
-});	
-$("#confrontation-step_1_3").click( function () {
-	$("#confrontation-step_1_3").fadeOut("slow");
-});	
-$("#confrontation-step_1_4").click( function () {
-	$("#confrontation-step_1_4").fadeOut("slow");
-});	
-$("#confrontation-step_1_5").click( function () {
-	$("#confrontation-step_1_5").fadeOut("slow");
-});	
-$("#confrontation-step_1_6").click( function () {
-	$("#confrontation-step_1_6").fadeOut("slow");
-});	
-$("#confrontation-step_1_7").click( function () {
-	$("#confrontation-step_1_7").fadeOut("slow");
-});	
-$("#confrontation-step_1_8").click( function () {
-	$("#confrontation-step_1_8").fadeOut("slow");
-});	
-$("#confrontation-step_2_1").click( function () {
-	$("#confrontation-step_2_1").fadeOut("slow");
-});	
-$("#confrontation-step_2_2").click( function () {
-	$("#confrontation-step_2_2").fadeOut("slow");
-});	
-$("#confrontation-step_2_3").click( function () {
-	$("#confrontation-step_2_3").fadeOut("slow");
-});	
-$("#confrontation-step_2_4").click( function () {
-	$("#confrontation-step_2_4").fadeOut("slow");
-});	
-$("#confrontation-step_3_1").click( function () {
-	$("#confrontation-step_3_1").fadeOut("slow");
-});	
-$("#confrontation-step_3_2").click( function () {
-	$("#confrontation-step_3_2").fadeOut("slow");
-});	
-$("#confrontation-step_4_1").click( function () {
-	$("#confrontation-step_4_1").fadeOut("slow");
-});	
-
-
 
 } ) ;

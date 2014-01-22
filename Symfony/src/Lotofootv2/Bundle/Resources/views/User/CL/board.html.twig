@@ -95,7 +95,216 @@
 			</div>
 			<div class="coll-scores">
 				<div class="cell-score" id="step_1_1">
-					<div id="confrontation-step_1_1">test1</div> 
+					<div id="confrontation-step_1_1">
+						
+						<table  class="board">
+			                <tr class="board">
+			                	<th>N°</th>
+			                    <th>Domicile</th>
+			                    <th>Extérieur</th>
+			                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+			                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+			                    <th>Score</th>
+			                </tr>
+			                <tr class="vote-board">
+			                    <td>1</td>
+			                    <td>Bayer Lerverkusen</td>
+			                    <td>PSG</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>2</td>
+			                    <td>Manchester City</td>
+			                    <td>FC Barcelone</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>3</td>
+			                    <td>Arsenal</td>
+			                    <td>Bayern</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>4</td>
+			                    <td>AC Milan</td>
+			                    <td>Atletico Madrid</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>5</td>
+			                    <td>Zénith St Ptrbg</td>
+			                    <td>Borussia Dortmund</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>6</td>
+			                    <td>Olympiakos</td>
+			                    <td>Manchester United</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>7</td>
+			                    <td>Galatasaray</td>
+			                    <td>Chelsea</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>8</td>
+			                    <td>Schalke 04</td>
+			                    <td>Real Madrid</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="total">
+			                 	<td colspan=3>Total Matchs Allers</td>
+			                 	<td colspan=2>12</td>
+			                 	<td colspan=2>15</td>
+			                 	<td></td>
+			                 </tr>
+			            </table>
+			            <br/>
+			            <table  class="board">
+			                <tr>
+			                	<th>N°</th>
+			                    <th>Domicile</th>
+			                    <th>Extérieur</th>
+			                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+			                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+			                    <th>Score</th>
+			                </tr>
+			                <tr class="vote-board">
+			                    <td>9</td>
+			                    <td>PSG</td>
+			                    <td>Bayer Lerverkusen</td>
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>10</td>
+			                    <td>FC Barcelone</td>
+			                    <td>Manchester City</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>11</td>
+			                    <td>Bayern</td>
+			                    <td>Arsenal</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>12</td>
+			                    <td>Atletico Madrid</td>
+			                    <td>AC Milan</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>13</td>
+			                    <td>Borussia Dortmund</td>
+			                    <td>Zénith St Ptrbg</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>14</td>
+			                    <td>Manchester United</td>
+			                    <td>Olympiakos</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>15</td>
+			                    <td>Chelsea</td>
+			                    <td>Galatasaray</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="vote-board">
+			                    <td>16</td>
+			                    <td>Real Madrid</td>
+			                    <td>Schalke 04</td>			                    
+			                    <td>N</td>
+			                    <td>2-0</td>
+			                    <td>2</td>
+			                    <td>2-3</td>
+			                    <td>2-3</td>
+			                 </tr>
+			                 <tr class="total">
+			                 	<td colspan=3>Total Matchs Retours</td>
+			                 	<td colspan=2>12</td>
+			                 	<td colspan=2>15</td>
+			                 	<td></td>
+			                 </tr>
+			            </table><br/>
+			            <table  class="board">
+			            	<tr>
+			                	<th>Golden Match</th>			                    
+			                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+			                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+			                    <th>Minute du 1er But</th>
+			                </tr>
+			                <tr class="vote-board">
+			                	<td>PSG - Leverkusen</td>
+			                	<td>23</td>
+			                	<td>29</td>
+			                	<td>37</td>
+			                </tr>
+			            </table>
+					</div> 
 					<div class="cell-score-manche">
 					<div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_1_1_pa', '-') }}</div>
 					<div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_1_2_pa', '-') }}</div>
@@ -110,7 +319,216 @@
 					</div>
 				</div>
 				<div class="cell-score" id="step_1_2">
-				<div id="confrontation-step_1_2">test2</div> 
+				<div id="confrontation-step_1_2">
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+			            </div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_2_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_2_2_pa', '-') }}</div>
@@ -125,7 +543,215 @@
                     </div>
                 </div>
 				<div class="cell-score" id="step_1_3">
-					<div id="confrontation-step_1_3">test3</div> 
+					<div id="confrontation-step_1_3">
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_3_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_3_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_3_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_3_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_3_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_3_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table></div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_3_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_3_2_pa', '-') }}</div>
@@ -140,7 +766,215 @@
                     </div>
                 </div>
 				<div class="cell-score" id="step_1_4">
-				<div id="confrontation-step_1_4">test2</div> 
+				<div id="confrontation-step_1_4">
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_4_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_4_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_4_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_4_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_4_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_4_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table></div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_4_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_4_2_pa', '-') }}</div>
@@ -155,7 +989,216 @@
                     </div>
                 </div>
 				<div class="cell-score" id="step_1_5">
-					<div id="confrontation-step_1_5">test2</div> 
+					<div id="confrontation-step_1_5">
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_5_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_5_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_5_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_5_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_5_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_5_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+				            </div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_5_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_5_2_pa', '-') }}</div>
@@ -170,7 +1213,216 @@
                     </div>
                 </div>
 				<div class="cell-score" id="step_1_6">
-                    <div id="confrontation-step_1_6">test2</div> 
+                    <div id="confrontation-step_1_6">
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_6_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_6_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_6_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_6_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_6_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_6_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+				            </div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_6_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_6_2_pa', '-') }}</div>
@@ -185,7 +1437,216 @@
                     </div>
                 </div>
 				<div class="cell-score" id="step_1_7">
-                    <div id="confrontation-step_1_7">test2</div> 
+                    <div id="confrontation-step_1_7">
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_7_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_7_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_7_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_7_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_7_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_7_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+				            </div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_7_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_7_2_pa', '-') }}</div>
@@ -200,7 +1661,217 @@
                     </div>
                 </div>
 				<div class="cell-score" id="step_1_8">
-                    <div id="confrontation-step_1_8">test2</div> 
+                    <div id="confrontation-step_1_8">
+                    
+						
+							<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_8_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_8_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>Zénith St Ptrbg</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>Olympiakos</td>
+				                    <td>Manchester United</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Galatasaray</td>
+				                    <td>Chelsea</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Schalke 04</td>
+				                    <td>Real Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_8_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_8_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>9</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>10</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>11</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>12</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>13</td>
+				                    <td>Borussia Dortmund</td>
+				                    <td>Zénith St Ptrbg</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>14</td>
+				                    <td>Manchester United</td>
+				                    <td>Olympiakos</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>15</td>
+				                    <td>Chelsea</td>
+				                    <td>Galatasaray</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>16</td>
+				                    <td>Real Madrid</td>
+				                    <td>Schalke 04</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_8_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_8_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+				            </div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_8_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_1_8_2_pa', '-') }}</div>
@@ -250,7 +1921,136 @@
 			<div class="coll-scores">
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_2_1">
-					<div id="confrontation-step_2_1">test2</div> 
+					<div id="confrontation-step_2_1">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div> 
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_1_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_1_2_pa', '-') }}</div>
@@ -266,7 +2066,136 @@
                 </div>
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_2_2">
-					<div id="confrontation-step_2_2">test2</div>
+					<div id="confrontation-step_2_2">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div>
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_2_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_2_2_pa', '-') }}</div>
@@ -282,7 +2211,136 @@
                 </div>
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_2_3">
-					<div id="confrontation-step_2_3">test2</div>
+					<div id="confrontation-step_2_3">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_3_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_3_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_3_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_3_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_3_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_3_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div>
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_3_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_3_2_pa', '-') }}</div>
@@ -298,7 +2356,136 @@
                 </div>
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_2_4">
-					<div id="confrontation-step_2_4">test2</div>
+					<div id="confrontation-step_2_4">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_4_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_4_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>Arsenal</td>
+				                    <td>Bayern</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>AC Milan</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_4_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_4_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>5</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>6</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>7</td>
+				                    <td>Bayern</td>
+				                    <td>Arsenal</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>8</td>
+				                    <td>Atletico Madrid</td>
+				                    <td>AC Milan</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_4_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_2_4_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div>
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_4_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_2_4_2_pa', '-') }}</div>
@@ -340,7 +2527,95 @@
 				<div class="cell-space1"></div>
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_3_1">
-					<div id="confrontation-step_3_1">test2</div>
+					<div id="confrontation-step_3_1">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 			                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div>
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_3_1_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_3_1_2_pa', '-') }}</div>
@@ -358,7 +2633,95 @@
 				<div class="cell-space1"></div>
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_3_2">
-					<div id="confrontation-step_3_2">test2</div>
+					<div id="confrontation-step_3_2">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>Manchester City</td>
+				                    <td>FC Barcelone</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 			                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>3</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>
+				                 <tr class="vote-board">
+				                    <td>4</td>
+				                    <td>FC Barcelone</td>
+				                    <td>Manchester City</td>			                    
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_2_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_3_2_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div>
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_3_2_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_3_2_2_pa', '-') }}</div>
@@ -395,7 +2758,75 @@
 				<div class="cell-space1"></div>
 				<div class="cell-space1"></div>
 				<div class="cell-score" id="step_4_1">
-					<div id="confrontation-step_4_1">test2</div>
+					<div id="confrontation-step_4_1">
+						<table  class="board">
+				                <tr class="board">
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_4_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_4_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>1</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>PSG</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>				                 			                 			                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Allers</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table>
+				            <br/>
+				            <table  class="board">
+				                <tr>
+				                	<th>N°</th>
+				                    <th>Domicile</th>
+				                    <th>Extérieur</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_4_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_4_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Score</th>
+				                </tr>
+				                <tr class="vote-board">
+				                    <td>2</td>
+				                    <td>PSG</td>
+				                    <td>Bayer Lerverkusen</td>
+				                    <td>N</td>
+				                    <td>2-0</td>
+				                    <td>2</td>
+				                    <td>2-3</td>
+				                    <td>2-3</td>
+				                 </tr>			                 
+				                 <tr class="total">
+				                 	<td colspan=3>Total Matchs Retours</td>
+				                 	<td colspan=2>12</td>
+				                 	<td colspan=2>15</td>
+				                 	<td></td>
+				                 </tr>
+				            </table><br/>
+				            <table  class="board">
+				            	<tr>
+				                	<th>Golden Match</th>			                    
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_4_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_4_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+				                    <th>Minute du 1er But</th>
+				                </tr>
+				                <tr class="vote-board">
+				                	<td>PSG - Leverkusen</td>
+				                	<td>23</td>
+				                	<td>29</td>
+				                	<td>37</td>
+				                </tr>
+				            </table>
+					</div>
                     <div class="cell-score-manche">
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_4_1_1_pa', '-') }}</div>
                     <div class="cell-score-joueur">{{ reqKeyOrDefault(app.request, 'step_4_1_2_pa', '-') }}</div>
