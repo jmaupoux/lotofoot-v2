@@ -73,9 +73,21 @@ class VoteController extends Controller
 			'leagueDay' => $day,
 			'matches' => $matches,
 			'info' => $info,
-			'warn' => $warn
+			'warn' => $warn,
+			'is_king' => $this->isPunchliner($request, $day)
 			)
 		);
+    }
+    
+    private function isPunchliner($request, $leagueDay){
+    	$leagueDayPast = $this->get('league_service')->getPreviousLeagueDay($leagueDay->getNumber());
+    	if($leagueDayPast == null){
+    		return false;
+    	}
+    	
+    	$histories = $this->get('league_service')->getLeagueDayHistories($leagueDayPast->getId());
+    	
+    	return $histories[0]->getAccountId() == $this->getUser()->getId();
     }
     
     /**
@@ -110,7 +122,8 @@ class VoteController extends Controller
 			array(
 			'leagueDay' => $day,
 			'matches' => $matches,
-			'total' => $points
+			'total' => $points,
+			'is_king' => $this->isPunchliner($request, $day)
 			)
 		);
     }
@@ -123,7 +136,7 @@ class VoteController extends Controller
     {	
     	$day = $this->get('league_service')->getOpenedLeagueDay();
     	
-    	if($day == null || $this->getUser()->getRank() != 1){
+    	if($day == null || !$this->isPunchliner($request, $day)){
     		return $this->redirect($this->generateUrl('_league_vote'));
     	}
     	
