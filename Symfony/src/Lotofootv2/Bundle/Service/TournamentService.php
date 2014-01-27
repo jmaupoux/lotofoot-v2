@@ -105,6 +105,17 @@ class TournamentService
     	return $query->getOneOrNullResult();
     }
     
+    public function getTourStepsByNumber($number){
+        $query = $this->em->createQuery(
+            'SELECT t
+            FROM Lotofootv2Bundle:TournamentStep t
+            WHERE t.number = :number
+            ORDER BY t.id ASC'
+        )->setParameter('number', $number);
+        
+        return $query->getResult();
+    }
+    
     public function getTourStepById($tour_step_id){
         $query = $this->em->createQuery(
             'SELECT t
@@ -122,6 +133,18 @@ class TournamentService
             WHERE p.tour_step_id = :step_id 
             ORDER BY p.group_number'
         )->setParameter('step_id', $step_id);
+        
+        return $query->getResult();
+    }
+    
+    public function getTourStepPlayersByGroup($step_id, $group_number){
+        $query = $this->em->createQuery(
+            'SELECT p
+            FROM Lotofootv2Bundle:TournamentPlayer p
+            WHERE p.tour_step_id = :step_id 
+            AND p.group_number = :group_number'
+        )->setParameter('step_id', $step_id)
+        ->setParameter('group_number', $group_number);
         
         return $query->getResult();
     }

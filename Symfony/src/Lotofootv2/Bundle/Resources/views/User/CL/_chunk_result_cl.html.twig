@@ -1,0 +1,71 @@
+<div>
+     <table  class="board">
+         <tr class="board">
+             <th>N°</th>
+             <th>Domicile</th>
+             <th>Extérieur</th>
+             <th colspan=2>{{ app.request.get(app.request.get('_acc_1')) }}</th>
+             <th colspan=2>{{ app.request.get(app.request.get('_acc_2')) }}</th>
+             <th>Score</th>
+         </tr>
+         {% for match in matchesA %}
+         <tr class="vote-board">
+             <td>{{match.number}}</td>
+             <td>{{match.teamHome}}</td>
+             <td>{{match.teamVisitor}}</td>
+             <td>{{ app.request.get(match.id~'_result_1') }}</td>
+             <td>{{ app.request.get(match.id~'_score_1') }}</td>
+             <td>{{ app.request.get(match.id~'_result_2') }}</td>
+             <td>{{ app.request.get(match.id~'_score_2') }}</td>
+             <td>{{match.score}}</td>
+          </tr>            
+         {% endfor %}
+     </table>
+     <br/>
+     
+     {% if matchesB is defined and matchesB is not null %}
+     
+     <table  class="board">
+         <tr>
+             <th>N°</th>
+             <th>Domicile</th>
+             <th>Extérieur</th>
+             <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
+             <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+             <th>Score</th>
+         </tr>
+        {% for match in matchesB %}
+         <tr class="vote-board">
+             <td>{{match.number}}</td>
+             <td>{{match.teamHome}}</td>
+             <td>{{match.teamVisitor}}</td>
+             <td>{{ app.request.get(match.id~'_result_1') }}</td>
+             <td>{{ app.request.get(match.id~'_score_1') }}</td>
+             <td>{{ app.request.get(match.id~'_result_2') }}</td>
+             <td>{{ app.request.get(match.id~'_score_2') }}</td>
+             <td>{{match.score}}</td>
+          </tr>            
+         {% endfor %}
+     </table><br/>
+     
+     {% endif %}
+     
+     {% for match in matchesA %}
+     {% if match.isFirstGoal %}
+     <table  class="board">
+         <tr>
+             <th>Golden Match</th>                               
+             <th>{{ app.request.get(app.request.get('_acc_1')) }}</th>
+             <th>{{ app.request.get(app.request.get('_acc_2')) }}</th>
+             <th>Minute du 1er But</th>
+         </tr>
+         <tr class="vote-board">
+             <td>{{match.teamHome}} - {{match.teamVisitor}}</td>
+             <td>{{ app.request.get(match.id~app.request.get('_fgmin_1')) }}</td>
+             <td>{{ app.request.get(match.id~app.request.get('_fgmin_2')) }}</td>
+             <td>{{match.firstGoalMin}}</td>
+         </tr>
+     </table>
+     {% endif %}
+     {% endfor %}
+ </div> 

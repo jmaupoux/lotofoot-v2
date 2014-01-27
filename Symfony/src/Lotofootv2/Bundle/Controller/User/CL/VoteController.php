@@ -140,6 +140,12 @@ class VoteController extends Controller
                 );
             }
             
+            if($matches[$i]->getIsFirstGoal()){
+            	if($request->request->get('first_goal_min') == null || $request->request->get('first_goal_min') == ""){
+            		$full = 0;
+            	}
+            }
+            
             $vote = new TournamentVote();   
             $vote->setDate(new DateTime());
             $vote->setAccountId($this->getUser()->getId());
