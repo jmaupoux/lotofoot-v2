@@ -59,7 +59,7 @@
 	   {% for comm in comms %}
 		   
 		   <div class="comment{{(loop.index%2+1)}}">
-		      <span class="auteur-comment">{{comm.author}} {% if app.user.rank == 99 %}(-){% else %}({{app.user.rank}}){% endif %}</span> - <span class="date-comment">le {{comm.date | date("d/m/Y à H:i")}}</span><br/>
+		      <span class="auteur-comment">{{comm.author}}({{app.request.get('acc_'~comm.author)}})</span> - <span class="date-comment">le {{comm.date | date("d/m/Y à H:i")}}</span><br/>
 		      {{comm.text|replace({"\\'" : "'"})}}
 		   </div>
 

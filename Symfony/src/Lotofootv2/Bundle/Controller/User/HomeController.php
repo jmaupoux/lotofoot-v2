@@ -17,7 +17,7 @@ class HomeController extends Controller
 	/**
      * @Route("/home", name="_home")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
     	$news = $this->get('news_service')->getLastNews();
     	$comms = null;
@@ -25,6 +25,13 @@ class HomeController extends Controller
     	if($news != null){
     	   $comms = $this->get('news_service')->getNewsComms($news);
     	}
+    	
+         $accs = $this->get('account_service')->all();
+            
+         foreach($accs as $a){
+                //acc_accountid
+             $request->request->set('acc_'.$a->getUsername(), $a->getRank());
+         }
     	
     	return $this->render('Lotofootv2Bundle:User:home.html.twig', array('news' => $news, 'last' => true, 'comms'=>$comms));
     }
