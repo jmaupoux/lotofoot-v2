@@ -38,18 +38,8 @@ body{
 	background-attachment: fixed;
 }
 
-.body-cl{
+body.body-cl{
 	background-image: url(../img/bg-cl.jpg);
-	background-repeat: no-repeat;
-	-webkit-background-size: cover; /* pour Chrome et Safari */
- 	-moz-background-size: cover; /* pour Firefox */
-    -o-background-size: cover; /* pour Opera */
-    background-size: cover; /* version standardisée */
-	background-position: center 0;
-	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
-	font-size: 14px;
-	margin: 0;
-	background-attachment: fixed;
 }
 
 .bg-transparent{

@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" type="image/ico" href="{{ asset('bundles/lotofootv2/favicon.ico') }}"/>
 	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/lotofoot.css') }}" />
     </head>
-    <body>
+    <body {%if bg_cl is defined and bg_cl == true %} class="body-cl" {% endif %}>
         {% block navibar %}
 		{% endblock %}
     <div class="container">
