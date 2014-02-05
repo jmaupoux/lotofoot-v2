@@ -23,18 +23,18 @@
      </table>
      <br/>
      
-     {% if matchesB is defined and matchesB is not null %}
+     {% if matchesR is defined and matchesR is not null %}
      
      <table  class="board">
          <tr>
              <th>N°</th>
              <th>Domicile</th>
              <th>Extérieur</th>
-             <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_1_a', 'xxxxxx'), 'xxxxxx') }}</th>
-             <th colspan=2>{{ reqKeyOrDefault(app.request, 'acc_'~reqKeyOrDefault(app.request, 'step_1_1_2_a', 'xxxxxx'), 'xxxxxx') }}</th>
+             <th colspan=2>{{ app.request.get(app.request.get('_acc_1')) }}</th>
+             <th colspan=2>{{ app.request.get(app.request.get('_acc_2')) }}</th>
              <th>Score</th>
          </tr>
-        {% for match in matchesB %}
+        {% for match in matchesR %}
          <tr class="vote-board">
              <td>{{match.number}}</td>
              <td>{{match.teamHome}}</td>
@@ -47,6 +47,25 @@
           </tr>            
          {% endfor %}
      </table><br/>
+
+     {% for match in matchesR %}
+     {% if match.isFirstGoal %}
+     <table  class="board">
+         <tr>
+             <th>Golden Match</th>                               
+             <th>{{ app.request.get(app.request.get('_acc_1')) }}</th>
+             <th>{{ app.request.get(app.request.get('_acc_2')) }}</th>
+             <th>Minute du 1er But</th>
+         </tr>
+         <tr class="vote-board">
+             <td>{{match.teamHome}} - {{match.teamVisitor}}</td>
+             <td>{{ app.request.get(match.id~'_fgmin_1') }}</td>
+             <td>{{ app.request.get(match.id~'_fgmin_2') }}</td>
+             <td>{{match.firstGoalMin}}</td>
+         </tr>
+     </table>
+     {% endif %}
+     {% endfor %}
      
      {% endif %}
      
@@ -61,8 +80,8 @@
          </tr>
          <tr class="vote-board">
              <td>{{match.teamHome}} - {{match.teamVisitor}}</td>
-             <td>{{ app.request.get(match.id~app.request.get('_fgmin_1')) }}</td>
-             <td>{{ app.request.get(match.id~app.request.get('_fgmin_2')) }}</td>
+             <td>{{ app.request.get(match.id~'_fgmin_1') }}</td>
+             <td>{{ app.request.get(match.id~'_fgmin_2') }}</td>
              <td>{{match.firstGoalMin}}</td>
          </tr>
      </table>

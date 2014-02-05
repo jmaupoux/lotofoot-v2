@@ -64,7 +64,13 @@ class BoardController extends Controller
         	return new Response("Aucune donnée");
         }
         
-        $players = $tour_s->getTourStepPlayersByGroup($tour_steps[0]->getId(), $group_number);
+        $players = null;
+        
+        if(count($tour_steps) == 1){
+        	$players = $tour_s->getTourStepPlayersByGroup($tour_steps[0]->getId(), $group_number);
+        }else{//on a passé les players sur l'id du step n°2 (step retour)
+        	$players = $tour_s->getTourStepPlayersByGroup($tour_steps[1]->getId(), $group_number);
+        }
         
         $request->request->set('_acc_1', 'acc_'.$players[0]->getAccountId());
         $request->request->set('_acc_2', 'acc_'.$players[1]->getAccountId());
