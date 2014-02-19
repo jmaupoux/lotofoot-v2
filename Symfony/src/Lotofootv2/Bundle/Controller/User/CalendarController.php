@@ -43,22 +43,19 @@ class CalendarController extends Controller
     	array_push($days, new CalendarDay(20, 'l', new DateTime('2014-02-22 13:00')));
     	array_push($days, new CalendarDay(21, 'l', new DateTime('2014-03-01 13:00')));
     	array_push($days, new CalendarDay(22, 'l', new DateTime('2014-03-08 13:00')));
-    	array_push($days, new CalendarDay(2, 'cl', new DateTime('2014-03-11 18:00')));
     	array_push($days, new CalendarDay(23, 'l', new DateTime('2014-03-15 13:00')));
     	array_push($days, new CalendarDay(24, 'l', new DateTime('2014-03-22 13:00')));
     	array_push($days, new CalendarDay(25, 'l', new DateTime('2014-03-29 13:00')));
-    	array_push($days, new CalendarDay(3, 'cl', new DateTime('2014-04-01 18:00')));
+    	array_push($days, new CalendarDay(2, 'cl', new DateTime('2014-04-01 18:00')));
     	array_push($days, new CalendarDay(26, 'l', new DateTime('2014-04-05 13:00')));
-    	array_push($days, new CalendarDay(4, 'cl', new DateTime('2014-04-08 18:00')));
     	array_push($days, new CalendarDay(27, 'l', new DateTime('2014-04-12 13:00')));
     	array_push($days, new CalendarDay(28, 'l', new DateTime('2014-04-19 13:00')));
-    	array_push($days, new CalendarDay(5, 'cl', new DateTime('2014-04-22 18:00')));
+    	array_push($days, new CalendarDay(3, 'cl', new DateTime('2014-04-22 18:00')));
     	array_push($days, new CalendarDay(29, 'l', new DateTime('2014-04-26 13:00')));
-    	array_push($days, new CalendarDay(6, 'cl', new DateTime('2014-04-29 18:00')));
     	array_push($days, new CalendarDay(30, 'l', new DateTime('2014-05-03 13:00')));
     	array_push($days, new CalendarDay(31, 'l', new DateTime('2014-05-10 13:00')));
     	array_push($days, new CalendarDay(32, 'l', new DateTime('2014-05-17 13:00')));
-    	array_push($days, new CalendarDay(7, 'cl', new DateTime('2014-05-24 20:00')));
+    	array_push($days, new CalendarDay(4, 'cl', new DateTime('2014-05-24 20:00')));
     	
     	for($i=0;$i<count($days);$i++){
     		if($days[$i]->getBefore() < new DateTime()){
