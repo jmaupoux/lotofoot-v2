@@ -1,0 +1,99 @@
+<div>
+     <table  class="board">
+         <tr class="board">
+             <th>N°</th>
+             <th>Domicile</th>
+             <th>Extérieur</th>
+             <th>Effectif</th>
+             {% for p in players %}
+                <th class="vert {% if loop.index % 2 == 1 %} cl-res-group-separator {% endif %}">{{ app.request.get('acc_'~p.accountId) }}</th>
+             {% endfor %}
+         </tr>
+         {% for match in matchesA %}
+         <tr class="vote-board">
+             <td>{{match.number}}</td>
+             <td>{{match.teamHome}}</td>
+             <td>{{match.teamVisitor}}</td>
+             <td>
+	             {{match.result}}<br/>
+	             {{match.score}}
+	             {% if match.isFirstGoal %}
+	             <br/>
+	             ({{match.firstGoalMin}}')
+	             {% endif %}
+             </td>
+             {% for p in players %}
+             <td class="cl-not-ok 
+                {% if match.result and match.result == app.request.get(match.id~'_result_'~p.accountId) %}
+                    cl-result-ok 
+                {% endif %}
+                {% if match.score and match.score == app.request.get(match.id~'_score_'~p.accountId) %}
+                    cl-score-ok 
+                {% endif %}
+                "
+              >
+                 {{ app.request.get(match.id~'_result_'~p.accountId) }}<br/>
+                 {{ app.request.get(match.id~'_score_'~p.accountId) }}
+                 
+                 {% if match.isFirstGoal %}
+                 <br/>
+                 ({{ app.request.get(match.id~'_fgmin_'~p.accountId) }}')
+                 {% endif %}
+             </td>
+             {% endfor %}
+          </tr>
+         {% endfor %}
+     </table>
+     <br/>
+     
+     {% if matchesR is defined and matchesR is not null %}
+     
+         <table  class="board">
+         <tr class="board">
+             <th>N°</th>
+             <th>Domicile</th>
+             <th>Extérieur</th>
+             <th>Effectif</th>
+             {% for p in players %}
+                <th {% if loop.index % 2 == 0 %} class="cl-res-group-separator" {% endif %}>{{ app.request.get('acc_'~p.accountId) }}</th>
+             {% endfor %}
+         </tr>
+         {% for match in matchesR %}
+         <tr class="vote-board">
+             <td>{{match.number}}</td>
+             <td>{{match.teamHome}}</td>
+             <td>{{match.teamVisitor}}</td>
+             <td>
+                 {{match.result}}<br/>
+                 {{match.score}}
+                 {% if match.isFirstGoal %}
+                 <br/>
+                 ({{match.firstGoalMin}}')
+                 {% endif %}
+             </td>
+             {% for p in players %}
+             <td class="cl-not-ok 
+                {% if match.result == app.request.get(match.id~'_result_'~p.accountId) %}
+                    cl-result-ok 
+                {% endif %}
+                {% if match.score == app.request.get(match.id~'_score_'~p.accountId) %}
+                    cl-score-ok 
+                {% endif %}
+                "
+              >
+                 {{ app.request.get(match.id~'_result_'~p.accountId) }}<br/>
+                 {{ app.request.get(match.id~'_score_'~p.accountId) }}
+                 
+                 {% if match.isFirstGoal %}
+                 <br/>
+                 ({{ app.request.get(match.id~'_fgmin_'~p.accountId) }}')
+                 {% endif %}
+             </td>
+             {% endfor %}
+          </tr>
+         {% endfor %}
+     </table>
+     
+     {% endif %}
+
+ </div> 

@@ -24,6 +24,7 @@
 {% block body %}	
     <script type="text/javascript">
 	   var URL_BOARD_RESULTS = "{{ path('_cl_board_results') }}";
+	   var URL_BOARD_RESULTS_ALL = "{{ path('_cl_board_results_all') }}";
     </script>
 
 	<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/board.js')}}"></script> 
@@ -32,7 +33,9 @@
 	<div class="tabfinal">
 		
 		<div class="tour">
-			<div class="title-tour">Huitièmes de finales</div>
+			<div id="8final" class="title-tour">Huitièmes de finales</div>
+			<div id="all_1" class="cl-all-res">
+			</div>
 			<div class="coll-joueurs">
 				<div class="cell-confrontation" id="step_1_1_1_a">
 					<div class="cell-joueur">
@@ -252,7 +255,9 @@
 			<div class="link-tour2"></div>
 		</div>
 		<div class="tour">
-			<div class="title-tour">Quarts de finales</div>
+			<div id="4final" class="title-tour">Quarts de finales</div>
+			<div id="all_2" class="cl-all-res">
+            </div>
 			<div class="coll-joueurs">
 				<div class="cell-space1"></div>
 				<div class="cell-confrontation">
@@ -357,7 +362,9 @@
 			<div class="link-tour3"></div>
 		</div>
 		<div class="tour">
-			<div class="title-tour">Demi-finales</div>
+			<div id="2final" class="title-tour">Demi-finales</div>
+			<div id="all_3" class="cl-all-res">
+            </div>
 			<div class="coll-joueurs">
 				<div class="cell-space1"></div>
 				<div class="cell-space1"></div>

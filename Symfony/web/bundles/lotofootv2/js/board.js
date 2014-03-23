@@ -9,6 +9,15 @@ function getIt(tour_number, group_number){
 	});
 }
 
+function getItAll(tour_number){
+	$.ajax({
+		url : URL_BOARD_RESULTS_ALL,
+		data : {"tour_number":tour_number}
+	}).success(function(data){
+		$("#all_"+tour_number).html(data);
+	});
+}
+
 function getGroupNumber(stepId){
 	return stepId.substr(stepId.lastIndexOf('_')+1);
 }
@@ -73,4 +82,37 @@ $(document).ready( function () {
 		}
 	});
 
+	$('#8final').click ( function () {	
+		if (tab>0){
+			$("#all_1").fadeOut("slow");
+			tab=0;}
+		else{
+			getItAll(1);
+			$("#all_1").fadeIn("slow");
+			tab=1;
+		}
+	});
+	
+	$('#4final').click ( function () {	
+		if (tab>0){
+			$("#all_2").fadeOut("slow");
+			tab=0;}
+		else{
+			getItAll(2);
+			$("#all_2").fadeIn("slow");
+			tab=1;
+		}
+	});
+	
+	$('#2final').click ( function () {	
+		if (tab>0){
+			$("#all_3").fadeOut("slow");
+			tab=0;}
+		else{
+			getItAll(3);
+			$("#all_3").fadeIn("slow");
+			tab=1;
+		}
+	});
+	
 } ) ;
