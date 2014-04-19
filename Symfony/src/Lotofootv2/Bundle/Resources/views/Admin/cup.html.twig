@@ -1,0 +1,133 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Administration de la Cup			
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+{% endblock %}
+
+{% block body %}
+	<div class="stop-float"></div>
+	
+	Correction des matchs
+	
+	
+	
+	   <form class="form form-horizontal" action="{{ path('_admin_cup_correct') }}" method="post">
+	       <table class="table table-striped">
+            <tr>
+                <th>
+                    N°
+                </th>
+                <th>
+                    Domicile
+                </th>
+                <th>
+                    Score
+                </th>
+                <th>
+                    Extérieur
+                </th>
+            </tr>
+	       {% for match in open_matchs %}
+	       <tr>
+                <td>
+                    {{match.id}}
+                </td>
+                <td>
+                    {{match.teamHome}}
+                </td>
+                {% if match.deadline|date('U') < "now"|date('U') %}
+                <td>
+                    <input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px" value="{{app.request.get('score_'~match.id)}}"/>                                                           
+                </td>
+                {% else %}
+                <td style="background-color:#DDDDDD">
+                    Pari en cours<br/>
+                    {{match.deadline|date('d/m/Y H:i')}}                                                
+                </td>                
+                {% endif %}
+                <td>
+                    {{match.teamVisitor}}
+                </td>
+            </tr>
+            
+	       
+	       {% endfor %}
+	       </table>
+	       
+	       <input type="submit" name="Valider" class="btn-admin center"/>  
+	       
+	   </form>
+	
+	
+	<br/>
+	Nouveaux matchs
+	</br>
+	
+	<form action="{{ path('_admin_cup_matchs_create') }}" method="post" style="width:800px;margin:auto">
+	
+	    <table class="table table-striped" id="match-table">
+	        <tr>
+	            <th>
+	                N°
+	            </th>
+	            <th>
+	                Domicile
+	            </th>
+	            <th>
+	                Extérieur
+	            </th>
+	            <th>
+	                 Facteur
+	            </th>
+	            <th>
+                     Deadline j
+                </th>
+                <th>
+                     Deadline h
+                </th>
+	        </tr>
+	        {% for i in 1..8 %}
+	        <tr class="vote-cl">
+	            <td>
+	                {{i}}
+	            </td>
+	            <td>
+	                <input type="text" name="home_{{i}}" value="{{ app.request.get('home_'~i) }}" style="border:0px"/>
+	            </td>
+	            <td>
+	                <input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}" style="border:0px"/>
+	            </td>
+	            <td>
+	                <input type="text" name="factor_{{i}}" value="{{ app.request.get('factor_'~i) }}" style="border:0px"/>
+	            </td>
+	            <td>
+                    <input type="text" name="deadline_{{i}}" value="{{ app.request.get('deadline_'~i) }}" placeholder="jj/mm/aaaa" style="border:0px"/>
+                </td>
+                <td>
+                    <input type="text" name="deadlineh_{{i}}" value="{{ app.request.get('deadlineh_'~i) }}" placeholder="HH:mm" style="border:0px"/>
+                </td>
+	        </tr>
+	        {% endfor %}
+	    </table>
+	    
+	    <input type="submit" class="btn-admin" value="Lancer !"/>
+    
+    </form>
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

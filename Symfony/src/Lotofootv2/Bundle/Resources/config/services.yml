@@ -5,6 +5,9 @@ services:
     league_service:
         class:        "Lotofootv2\Bundle\Service\\LeagueService"
         arguments:    [@doctrine.orm.entity_manager, @logger, @reward_service]
+    cup_service:
+        class:        "Lotofootv2\Bundle\Service\\CupService"
+        arguments:    [@doctrine.orm.entity_manager, @logger]
     news_service:
         class:        "Lotofootv2\Bundle\Service\\NewsService"
         arguments:    [@doctrine.orm.entity_manager, @logger]
