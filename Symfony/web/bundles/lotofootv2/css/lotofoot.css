@@ -250,29 +250,29 @@ input{
 	cursor: pointer;
 }
 
-.menu-4-calendar{
-	background-image: url(../img/menu-4-calendrier.png);
+.menu-4-coupedumonde{
+	background-image: url(../img/menu-4-coupedumonde.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 131px;
+	width: 156px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
 }
 
-.menu-4-calendar:hover{
-	background-image: url(../img/menu-4-calendrier-hoover.png);
+.menu-4-coupedumonde:hover{
+	background-image: url(../img/menu-4-coupedumonde-hoover.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 131px;
+	width: 156px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
 	cursor: pointer;
 }
 
-.menu-5-forum{
-	background-image: url(../img/menu-5-forum.png);
+.menu-5-calendar{
+	background-image: url(../img/menu-5-calendrier.png);
 	background-repeat: no-repeat;
 	float:left;
 	width: 132px;
@@ -281,8 +281,8 @@ input{
 	list-style: none;
 }
 
-.menu-5-forum:hover{
-	background-image: url(../img/menu-5-forum-hoover.png);
+.menu-5-calendar:hover{
+	background-image: url(../img/menu-5-calendrier-hoover.png);
 	background-repeat: no-repeat;
 	float:left;
 	width: 132px;
@@ -291,12 +291,13 @@ input{
 	list-style: none;
 	cursor: pointer;
 }
+
 
 .menu-6-stats{
 	background-image: url(../img/menu-6-stats.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 177px;
+	width: 153px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
@@ -306,7 +307,7 @@ input{
 	background-image: url(../img/menu-6-stats-hoover.png);
 	background-repeat: no-repeat;
 	float:left;
-	width: 177px;
+	width: 153px;
 	height: 38px;
 	margin-top: 2px;
 	list-style: none;
@@ -322,6 +323,13 @@ input{
 
 
 .submenu-3-championsleague{
+	margin-top: 38px;
+	margin-left: 20px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu-4-coupedumonde{
 	margin-top: 38px;
 	margin-left: 20px;
 	text-align: center;
