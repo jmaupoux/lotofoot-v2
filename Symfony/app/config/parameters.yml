@@ -7,7 +7,7 @@ parameters:
     database_password: 
     mailer_transport: gmail
     mailer_user: lotofoot.mail
-    mailer_password: lotop@ss
+    mailer_password: 
     mailer_from: lotofoot.mail@gmail.com
     url: http://localhost/lotofoot-v2/app_dev.php/
     locale: fr
