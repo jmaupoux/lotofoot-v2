@@ -9,6 +9,7 @@ use Lotofootv2\Bundle\Entity\LeagueDay;
 use Monolog\Logger;
 
 use Doctrine\ORM\EntityManager;
+use \Datetime;
 
 class CupService
 {
@@ -38,14 +39,37 @@ class CupService
         return $query->getOneOrNullResult();     
     }
     
+    public function getClosedMatchs()
+    {
+        $query = $this->em->createQuery(
+            'SELECT m
+            FROM Lotofootv2Bundle:CupMatch m
+            WHERE m.deadline < :deadline 
+            ORDER BY m.deadline DESC'
+        )->setParameter('deadline', new DateTime());
+        
+        return $query->getResult();     
+    }
+    
     public function getOpenMatchs()
     {
         $query = $this->em->createQuery(
             'SELECT m
             FROM Lotofootv2Bundle:CupMatch m
-            WHERE m.corrected = :corrected 
+            WHERE m.deadline > :deadline
             ORDER BY m.deadline'
-        )->setParameter('corrected', false);
+        )->setParameter('deadline', new DateTime());
+        
+        return $query->getResult();     
+    }
+    
+    public function getAccountVotes($account_id)
+    {
+        $query = $this->em->createQuery(
+            'SELECT v
+            FROM Lotofootv2Bundle:CupVote v
+            WHERE v.account_id = :account_id'
+        )->setParameter('account_id', $account_id);
         
         return $query->getResult();     
     }
@@ -59,5 +83,23 @@ class CupService
 	        $this->em->persist($m);
 	        $this->em->flush();
     	}
+    }
+    
+    public function vote($votes){
+    	foreach($votes as $vote){
+            
+            $queryDel = $this->em->createQuery(
+            'DELETE FROM Lotofootv2Bundle:CupVote c 
+            WHERE c.account_id = :accountId 
+            AND c.cup_match_id = :cmid'
+            )->setParameter('accountId', $vote->getAccountId())
+            ->setParameter('cmid', $vote->getCupMatchId());
+            
+            $queryDel->getResult();
+            
+            $this->em->persist($vote);
+        }
+        
+        $this->em->flush();
     }
 }

@@ -1,0 +1,127 @@
+{% set bg_cl = true %}
+
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Vos Paris Coupe du monde	&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+{% endblock %}
+	
+{% block body %}
+
+    {% if err is defined and err is not null %}
+    <div style="color:red">
+        {% autoescape false %}
+        {{err}}
+        {% endautoescape %}
+    </div>
+    {% endif %}
+
+    <table>
+        <tr><td>
+            Vote en cours
+                
+            <form action="{{ path('_cup_post') }}" method="post">
+
+	            <table  class="calendar">
+	                <tr>
+	                    <th>N°</th>
+	                    <th>Match</th>
+	                    <th>Date</th>
+	                    <th>1</th>
+	                    <th>N</th>
+	                    <th>2</th>
+	                    <th>Score parié</th>
+	                </tr>
+	                {% for match in opens %}
+	                <tr class="vote-cl">
+	                    <td>
+	                        {{match.id+1}}
+	                    </td>
+	                    <td>
+	                        {{match.teamHome}} - 
+                           {{match.teamVisitor}} (x{{match.factor}})
+                        </td>
+                        <td>
+                           {{match.deadline|date("d/m/Y H:i")}}
+                        </td>
+	                    <td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
+	                        {% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
+	                    <td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
+	                        {% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
+	                    <td><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
+	                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
+	                    <td>    
+	                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+	                    </td>
+	                </tr>
+	                {% endfor %}
+	            </table>
+	            
+	            <div class="control-group">
+	                <div class="controls">
+	                     <input type="submit" class="btn-vote" value="Valider vos paris !"/>
+	                </div>
+	            </div>
+	            <div style="clear:both"></div>
+	        </form>
+        
+        </td><td>
+         
+         Vote terminés
+         
+         <table  class="calendar">
+                    <tr>
+                        <th>N°</th>
+                        <th>Match</th>
+                        <th>Date</th>
+                        <th>Résultat</th>
+                        <th>Score</th>
+                        <th>Score effectif</th>
+                    </tr>
+                    {% for match in closed %}
+                    <tr class="vote-cl">
+                        <td>
+                            {{match.id+1}}
+                        </td>
+                        <td style="text-align:center">
+                            {{match.teamHome}} - 
+                            {{match.teamVisitor}} (x{{match.factor}})
+                        </td>
+                        <td>
+                           {{match.deadline|date("d/m/Y H:i")}}
+                        </td>
+                        <td>
+                            {{app.request.get('result_'~match.id)}}
+                        </td>
+                        <td>
+                            {{app.request.get('score_'~match.id)}}
+                        </td>
+                        <td>
+                            {{match.score}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        
+        </td></tr>
+    </table>
+
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}
