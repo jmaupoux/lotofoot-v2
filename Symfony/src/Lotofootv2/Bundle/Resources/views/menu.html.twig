@@ -38,8 +38,8 @@
 	    <ul class="submenu-4-coupedumonde" style="display:none">
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_cup_vote') }}" title="Parier sur la prochaine journée de coupe du monde">Parier</a></li>
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_cup_ranking') }}" title="Classement">Tableau CdM</a></li>
-	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_rules') }}" title="Règlement du championnat">Règlement</a></li>
-	      <li class="submenu"><a class="menu-lien" href="{{ path('_league_prizes') }}" title="Cadeaux Championnat 2013-2014">Cadeaux</a></li>
+	      <li class="submenu"><a class="menu-lien" href="{{ path('_cup_rules') }}" title="Règlement du championnat">Règlement</a></li>
+	      <li class="submenu"><a class="menu-lien" href="{{ path('_cup_prizes') }}" title="Cadeaux Championnat 2013-2014">Cadeaux</a></li>
 	      {% if is_granted('ROLE_ADMIN') %}
 	      <li class="submenu"><a class="menu-lien" href="{{ path('_admin_cup') }}" title="Administrer un championnat">Admin CdM</a></li>
 	      {% endif %}

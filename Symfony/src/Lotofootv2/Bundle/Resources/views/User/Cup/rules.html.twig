@@ -1,0 +1,32 @@
+{% set bg_cl = true %}
+
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Règlement Coupe du Monde&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>	
+{% endblock %}
+	
+
+{% block body %}
+	TODO
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

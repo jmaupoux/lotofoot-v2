@@ -1,0 +1,34 @@
+{% set bg_cl = true %}
+
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<div class="title-body">
+		<div class="ligne-body-left">&nbsp;</div>
+			Cadeaux Coupe du Monde &nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/title-prizes.png') }}"/>
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
+{% endblock %}
+	
+{% block body %}
+	<ul><strong>ATTENTION : </strong> <br/><br/>
+		<li>Les cadeaux cités ci-dessous sont accessibles uniquement si vous avez participé à la cagnoute. </li>
+		<li>Pour rappel, c'est 10€ par participant pour pouvoir convoiter le gros lot. </li>
+	</ul><br/><br/>
+    TODO
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

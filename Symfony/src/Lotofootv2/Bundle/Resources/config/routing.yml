@@ -114,6 +114,16 @@ _cup_ranking:
     resource: "@Lotofootv2Bundle/Controller/User/Cup/RankingController.php"
     type:     annotation
 
+
+_cup_rules:
+    resource: "@Lotofootv2Bundle/Controller/User/Cup/RulesController.php"
+    type:     annotation
+
+_cup_prizes:
+    resource: "@Lotofootv2Bundle/Controller/User/Cup/PrizesController.php"
+    type:     annotation
+
+
 _calendar:
     resource: "@Lotofootv2Bundle/Controller/User/CalendarController.php"
     type:     annotation
