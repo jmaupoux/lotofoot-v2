@@ -62,10 +62,12 @@ class VoteController extends Controller
             if(LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId())) != '' 
                 && ! LotofootUtil::validScore($request->request->get('score_'.$matches[$i]->getId()))){
                 $err .='<br/>Score incorrect pour le match : '.($i+1);
+                continue;
             }
             if(LotofootUtil::clearSpaces($request->request->get('result_'.$matches[$i]->getId())) != '' 
                 && ! LotofootUtil::validResult($request->request->get('result_'.$matches[$i]->getId()))){
                 $err .='<br/>Résultat incorrect pour le match : '.($i+1);
+                continue;
             }
             
             $vote = new CupVote();   
@@ -79,12 +81,12 @@ class VoteController extends Controller
                 LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()))
             );
             
-            if($vote->getResult() == '' || $vote->getResult() == null ||
-                $vote->getScore() == '' || $vote->getScore() == null ){
+            if(($vote->getResult() == '' || $vote->getResult() == null) &&
+                ($vote->getScore() == '' || $vote->getScore() == null) ){
                 $err .= "<br/>Match ".($i+1)." non rempli";
+            }else{
+                array_push($votes, $vote);
             }
-            
-            array_push($votes, $vote);
         }
         
         $cs->vote($votes);

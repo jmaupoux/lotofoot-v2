@@ -13,6 +13,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 use Lotofootv2\Bundle\Entity\League;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Lotofootv2\Bundle\LotofootUtil;
 
 use \DateTime;
 
@@ -30,10 +31,10 @@ class CupController extends Controller
     		return $this->render('Lotofootv2Bundle:Admin:new_cup.html.twig' );      
     	}
     	
-    	$open_matchs = $cs->getOpenMatchs();
+    	$nc_matchs = $cs->getNotCorrectedMatchs();
     	
 		return $this->render('Lotofootv2Bundle:Admin:cup.html.twig', 
-			array('open_matchs' => $open_matchs)
+			array('nc_matchs' => $nc_matchs)
 		);    	
     }
     
@@ -118,6 +119,42 @@ class CupController extends Controller
      */
     public function correctMatchsAction(Request $request)
     {
+    	$cs = $this->get('cup_service');
+        $matches = $cs->getClosedMatchs();
+        
+        $corrected = array();
+        
+        $err = "";
+        
+        for($i=0;$i<count($matches);$i++){
+            
+            if(LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId())) != '' 
+                && ! LotofootUtil::validScore($request->request->get('score_'.$matches[$i]->getId()))){
+                $err .='<br/>Score incorrect pour le match : '.($i+1);
+            }
+            
+            $m = $matches[$i];
+            $score = LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()));
+            
+            if($score != '' && $score != null){
+                $m->setCorrected(true);
+                $m->setScore($score);
+                  
+                $res = preg_split("/-/", $score);
+            
+	            $result = (intval($res[0]) > intval($res[1]))? '1' :
+	                    (intval($res[0]) < intval($res[1]) ? '2' : 'N');    
+	            
+	            $m->setResult($result);    
+	            
+	            array_push($corrected, $m);
+            }
+        }
+        
+        $this->get('logger')->info("GO".count($corrected));
+        
+        $cs->processCorrection($corrected);
+        
         return $this->redirect($this->generateUrl('_admin_cup'));
     }
 }
