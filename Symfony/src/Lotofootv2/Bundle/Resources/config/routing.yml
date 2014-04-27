@@ -105,7 +105,10 @@ _cl_prizes:
     resource: "@Lotofootv2Bundle/Controller/User/CL/PrizesController.php"
     type:     annotation
 
- 
+_wc_rules:
+    resource: "@Lotofootv2Bundle/Controller/User/WC/RulesController.php"
+    type:     annotation
+
 _calendar:
     resource: "@Lotofootv2Bundle/Controller/User/CalendarController.php"
     type:     annotation
