@@ -62,6 +62,20 @@ class CupVote
      * @ORM\Column(name="points", type="integer", nullable=true)
      */
     private $points;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultOk", type="boolean", nullable=true)
+     */
+    private $resultOk;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="scoreOk", type="boolean", nullable=true)
+     */
+    private $scoreOk;
 
 
     /**
@@ -207,5 +221,45 @@ class CupVote
     public function getPoints()
     {
         return $this->points;
+    }
+    
+    /**
+     * @return Vote
+     */
+    public function setResultOk($b)
+    {
+        $this->resultOk = $b;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getResultOk()
+    {
+        return $this->resultOk;
+    }
+    
+/**
+     * @return Vote
+     */
+    public function setScoreOk($b)
+    {
+        $this->scoreOk = $b;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getScoreOk()
+    {
+        return $this->scoreOk;
     }
 }

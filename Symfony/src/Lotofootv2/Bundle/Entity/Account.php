@@ -98,6 +98,37 @@ class Account implements AdvancedUserInterface, \Serializable
      */
     private $cagnoute;
     
+        /**
+     * @ORM\Column(name="cup_points", type="integer")
+     */
+    private $cupPoints;
+    
+    /**
+     * @ORM\Column(name="cup_rank", type="integer")
+     */
+    private $cupRank;
+    
+    /**
+     * @ORM\Column(name="stat_cup_matchs", type="integer")
+     */
+    private $statCupMatchs;
+    
+    /**
+     * @ORM\Column(name="stat_cup_results", type="integer")
+     */
+    private $statCupResults;
+    
+    /**
+     * @ORM\Column(name="stat_cup_scores", type="integer")
+     */
+    private $statCupScores;
+    
+     /**
+     * @ORM\Column(name="cup_cagnoute", type="boolean")
+     */
+    private $cupCagnoute;
+        
+    
     public function __construct()
     {
     	$this->isActive = false;
@@ -110,6 +141,13 @@ class Account implements AdvancedUserInterface, \Serializable
     	$this->statResults = 0;
     	$this->statScores = 0;
     	$this->salt = '';
+    	//cup
+    	$this->cupCagnoute = false;
+    	$this->cupPoints = 0;
+    	$this->cupRank = 99;
+    	$this->statCupMatchs = 0;
+    	$this->statCupResults = 0;
+    	$this->statCupScores = 0;
     }
     
     /**
@@ -373,5 +411,77 @@ class Account implements AdvancedUserInterface, \Serializable
     public function getCagnoute()
     {
     	return $this->cagnoute;
+    }
+    
+    public function setCupCagnoute($cupCagnoute)
+    {
+        $this->cupCagnoute = $cupCagnoute;
+    
+        return $this;
+    }
+
+    public function getCupCagnoute()
+    {
+        return $this->cupCagnoute;
+    }
+    
+    public function setCupPoints($cupPoints)
+    {
+        $this->cupPoints = $cupPoints;
+    
+        return $this;
+    }
+
+    public function getCupPoints()
+    {
+        return $this->cupPoints;
+    }
+    
+    public function setCupRank($rank)
+    {
+        $this->cupRank = $rank;
+    
+        return $this;
+    }
+
+    public function getCupRank()
+    {
+        return $this->cupRank;
+    }
+    
+    public function getStatCupMatchs()
+    {
+        return $this->statCupMatchs;
+    }
+    
+    public function setStatCupMatchs($statCup)
+    {
+        $this->statCupMatchs = $statCup;
+        
+        return $this;
+    }
+    
+    public function getStatCupScores()
+    {
+        return $this->statCupScores;
+    }
+    
+    public function setStatCupScores($statCup)
+    {
+        $this->statCupScores = $statCup;
+        
+        return $this;
+    }
+    
+    public function getStatCupResults()
+    {
+        return $this->statCupResults;
+    }
+
+    public function setStatCupResults($statCup)
+    {
+        $this->statCupResults = $statCup;
+        
+        return $this;
     }
 }

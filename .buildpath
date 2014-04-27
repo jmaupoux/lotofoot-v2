@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-	<buildpathentry kind="src" path=""/>
+	<buildpathentry excluding="Symfony/src/Lotofootv2/Bundle/Resources/views/User/" kind="src" path=""/>
+	<buildpathentry kind="src" path="Symfony/src/Lotofootv2/Bundle/Resources/views/User"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 </buildpath>
