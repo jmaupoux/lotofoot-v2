@@ -729,6 +729,14 @@ tr.vote-cl{
 	border-spacing:0;
 }
 
+tr.vote-cup{
+	height: 40px;
+	color: rgb(55,46,50);
+	background-image: url(../img/tab-bg-yellow.jpg);
+	background-repeat: no-repeat-x;
+	border-spacing:0;
+}
+
 tr.vote-board{
 	height: 22px;
 	color: rgb(55,46,50);
@@ -1536,7 +1544,7 @@ input[type="range"]:after {
 	height: 109px;
 	background: rgb(51,42,46);
 	box-shadow: 6px 0px 15px black;
-	padding: 10px 0 10px 130px;
+	padding: 10px 0 10px 10px;
 	color: white;
 }
 

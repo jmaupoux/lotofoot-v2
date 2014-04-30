@@ -13,6 +13,6 @@ class RankingController extends Controller
      */
     public function indexAction()
     {
-    	
+    	return $this->render('Lotofootv2Bundle:User\Cup:ranking.html.twig');
     }
 }

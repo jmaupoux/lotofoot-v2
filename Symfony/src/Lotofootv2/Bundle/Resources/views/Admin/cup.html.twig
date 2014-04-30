@@ -11,7 +11,8 @@
 {% block title_body %}
 		<div class="title-body">
 			<div class="ligne-body-left">&nbsp;</div>
-			Administration de la Cup			
+			Administration de la Cup			&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/rewards/r12.png') }}"/>
 			<div class="ligne-body-right">&nbsp;</div>
 		</div>
 {% endblock %}
@@ -30,17 +31,17 @@
                     N°
                 </th>
                 <th>
-                    Domicile
+                    Équipe A
                 </th>
                 <th>
                     Score
                 </th>
                 <th>
-                    Extérieur
+                    Équipe B
                 </th>
             </tr>
 	       {% for match in nc_matchs %}
-	       <tr>
+	       <tr  class="vote-cup">
                 <td>
                     {{match.id}}
                 </td>
@@ -52,7 +53,7 @@
                     <input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px" value="{{app.request.get('score_'~match.id)}}"/>                                                           
                 </td>
                 {% else %}
-                <td style="background-color:#DDDDDD">
+                <td style="background-color:#65ad61; color:white">
                     Pari en cours<br/>
                     {{match.deadline|date('d/m/Y H:i')}}                                                
                 </td>                
@@ -83,23 +84,23 @@
 	                N°
 	            </th>
 	            <th>
-	                Domicile
+	                Équipe A
 	            </th>
 	            <th>
-	                Extérieur
+	                Équipe B
 	            </th>
 	            <th>
 	                 Facteur
 	            </th>
 	            <th>
-                     Deadline j
+                     Deadline J
                 </th>
                 <th>
-                     Deadline h
+                     Deadline H
                 </th>
 	        </tr>
 	        {% for i in 1..8 %}
-	        <tr class="vote-cl">
+	        <tr class="vote-cup">
 	            <td>
 	                {{i}}
 	            </td>
@@ -110,19 +111,19 @@
 	                <input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}" style="border:0px"/>
 	            </td>
 	            <td>
-	                <input type="text" name="factor_{{i}}" value="{{ app.request.get('factor_'~i) }}" style="border:0px"/>
+	                <input type="text" name="factor_{{i}}" value="{{ app.request.get('factor_'~i) }}" style="border:0px; width:50px;"/>
 	            </td>
 	            <td>
-                    <input type="text" name="deadline_{{i}}" value="{{ app.request.get('deadline_'~i) }}" placeholder="jj/mm/aaaa" style="border:0px"/>
+                    <input type="text" name="deadline_{{i}}" value="{{ app.request.get('deadline_'~i) }}" placeholder="jj/mm/aaaa" style="border:0px; width:70px;"/>
                 </td>
                 <td>
-                    <input type="text" name="deadlineh_{{i}}" value="{{ app.request.get('deadlineh_'~i) }}" placeholder="HH:mm" style="border:0px"/>
+                    <input type="text" name="deadlineh_{{i}}" value="{{ app.request.get('deadlineh_'~i) }}" placeholder="HH:mm" style="border:0px; width:50px;"/>
                 </td>
 	        </tr>
 	        {% endfor %}
 	    </table>
 	    
-	    <input type="submit" class="btn-admin" value="Lancer !"/>
+	    <input type="submit" class="btn-admin center" value="Lancer !"/>
     
     </form>
 	
