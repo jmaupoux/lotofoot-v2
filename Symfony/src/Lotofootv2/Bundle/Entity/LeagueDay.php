@@ -52,13 +52,13 @@ class LeagueDay
     /**
      * @var boolean
      *
-     * @ORM\Column(name="word", type="string", length=1024)
+     * @ORM\Column(name="word", type="string", length=1024, nullable=true)
      */
     private $word;
     /**
      * @var boolean
      *
-     * @ORM\Column(name="king_tag", type="string", length=255)
+     * @ORM\Column(name="king_tag", type="string", length=255, nullable=true)
      */
     private $king_tag;
 
