@@ -2,6 +2,8 @@
 
 namespace Lotofootv2\Bundle\Controller\Admin;
 
+use Sabre\VObject\Component\VCalendar;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
@@ -119,7 +121,8 @@ class LeagueDayController extends Controller
 		    return $a->getEmail();
 		};
 		
-		$arr = array_map($email, $accounts);
+		//$arr = array('attonnnn@gmail.com', 'tom.lann10@gmail.com');//test purpose
+		array_map($email, $accounts);
     	
     	$message = \Swift_Message::newInstance()
 	        ->setSubject('[Lotofoot] Nouvelle journée')
@@ -128,6 +131,33 @@ class LeagueDayController extends Controller
 	        ->setBody($this->renderView('Lotofootv2Bundle:mails:new_league_day.txt.twig', 
 	        	array('deadline' => $deadline)));
     	
+	    //Create calendar invite with Sabre VOject lib
+        $cal = new VCalendar();
+         
+        //Create a meeting invite that lasts 2 hours on the same day
+        $vevent = $cal->add ( 'VEVENT', array(
+        'summary' => 'Journée Lotofoot',
+        'location' => 'http://www.topich.fr/lotofoot/',
+        'dtstart' => $deadline,
+        'dtend' => $deadline,
+        'method' => 'PUBLISH'//,
+        //'organizer' => 'CN=LotoFoot Team:mailto:'.$from//ne marche pas
+        ) );
+         
+        //Make ical
+        $data = $cal->serialize ();
+         
+        $filename = "lotofoot.ics";
+         
+        //Attach the calendar invite to the mail
+        $attachment = \Swift_Attachment::newInstance ()
+        ->setFilename ( $filename )
+        ->setContentType ( 'text/calendar' )
+        ->setBody ( $data );
+        
+        $message->attach ( $attachment );
+        
+	        	
 	    $this->get('mailer')->send($message);
     }
     
