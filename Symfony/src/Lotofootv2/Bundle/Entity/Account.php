@@ -140,6 +140,7 @@ class Account implements AdvancedUserInterface, \Serializable
     	$this->statDays = 0;
     	$this->statResults = 0;
     	$this->statScores = 0;
+    	$this->cagnoute = false;
     	$this->salt = '';
     	//cup
     	$this->cupCagnoute = false;
