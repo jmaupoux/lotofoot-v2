@@ -118,10 +118,7 @@ class CupService
     }
     
     
-    public function processCorrection($matches){
-    	
-    	$this->logger->info("CORRECTION::"+count($matches));
-    	
+    public function processCorrection($matches){    	
         $this->compute($matches);
         $this->em->flush();
         $this->updateAccounts();
