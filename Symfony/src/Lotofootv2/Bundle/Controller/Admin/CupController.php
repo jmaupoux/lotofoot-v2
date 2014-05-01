@@ -131,6 +131,7 @@ class CupController extends Controller
             if(LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId())) != '' 
                 && ! LotofootUtil::validScore($request->request->get('score_'.$matches[$i]->getId()))){
                 $err .='<br/>Score incorrect pour le match : '.($i+1);
+                continue;
             }
             
             $m = $matches[$i];
@@ -151,9 +152,8 @@ class CupController extends Controller
             }
         }
         
-        $this->get('logger')->info("GO".count($corrected));
-        
-        $cs->processCorrection($corrected);
+        //TODO afficher l'erreur quelque part s'il y en a
+        $cs->processCorrection($corrected);        
         
         return $this->redirect($this->generateUrl('_admin_cup'));
     }
