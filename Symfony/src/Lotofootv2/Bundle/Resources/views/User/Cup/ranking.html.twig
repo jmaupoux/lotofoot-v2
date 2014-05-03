@@ -19,6 +19,32 @@
 
 {% block body %}
 	
+	<table>
+        <tr>
+            <th>Rang</th>
+            <th>Joueur</th>
+            <th>Points</th>
+            <th>Matchs pariés</th>
+            <th>Scores trouvés</th>
+            <th>Resultats trouvés</th>
+        </tr>
+        {% for account in accounts %}
+        <tr class="{% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index % 10 == 0 %} cl-limit {% endif %}" >
+            <td>
+            {% if account.cupRank == 99 or account.cupRank == 0 %}
+                -
+            {% else %}
+                {{account.cupRank}}
+            {% endif %}
+            </td>
+            <td>{{account.username}} {% if account.cupCagnoute == 1 %} TODO Topich<img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute.png') }}" style="margin-top:2px;"/>{% endif %}</td>
+            <td>{{account.cupPoints}}</td>
+            <td>{{account.statCupMatchs}}</td>
+            <td>{{account.statCupScores}}</td>
+            <td>{{account.statCupResults}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 	
 {% endblock %}
 

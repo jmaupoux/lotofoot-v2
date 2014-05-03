@@ -176,4 +176,14 @@ class CupService
         
         return $query->getResult();   
     }
+    
+    public function getRankingAccounts(){
+    	$query = $this->em->createQuery(
+            'SELECT a
+            FROM Lotofootv2Bundle:Account a 
+            ORDER BY a.cupPoints DESC, a.statCupScores DESC, a.statCupResults DESC, a.id ASC'
+        );
+        
+        return $query->getResult();
+    }
 }
