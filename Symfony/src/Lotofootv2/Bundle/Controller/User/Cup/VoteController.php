@@ -91,6 +91,6 @@ class VoteController extends Controller
         
         $cs->vote($votes);
         
-        return $this->forward('Lotofootv2Bundle:User\Cup\Vote:index',array('request' => $request, 'err' => $err));
+        return $this->forward('Lotofootv2Bundle:User\Cup\Vote:index',array('err' => $err));
     }
 }
