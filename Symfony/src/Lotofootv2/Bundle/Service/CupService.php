@@ -153,6 +153,7 @@ class CupService
     }
     
     public function updateAccounts(){
+    	//stats
     	$conn = $this->db_conn;
 		$sql = '
 		UPDATE lfv2_account a SET
@@ -164,6 +165,20 @@ class CupService
                 FROM lfv2_cup_vote v WHERE v.resultOk = true AND v.account_id = a.id)
            ';
 		$rows = $conn->query($sql);
+		
+		//rank
+        $queryAccounts =  $this->em->createQuery(
+            'SELECT a FROM Lotofootv2Bundle:Account a
+            WHERE a.isActive = true
+            ORDER BY a.cupPoints DESC, a.statCupScores DESC, a.statCupResults DESC, a.id ASC');
+
+        $accounts = $queryAccounts->getResult();
+        
+        $i = 1;
+        foreach($accounts as $account){         
+            $account->setCupRank($i);
+            $i++;
+        }
     }
 
     
@@ -181,6 +196,7 @@ class CupService
     	$query = $this->em->createQuery(
             'SELECT a
             FROM Lotofootv2Bundle:Account a 
+            WHERE a.isActive = true 
             ORDER BY a.cupPoints DESC, a.statCupScores DESC, a.statCupResults DESC, a.id ASC'
         );
         
