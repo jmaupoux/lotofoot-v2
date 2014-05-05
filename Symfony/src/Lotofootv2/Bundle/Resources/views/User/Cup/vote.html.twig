@@ -52,9 +52,9 @@
 	                    <td>
 	                        {{match.id+1}}
 	                    </td>
-	                    <td>
-	                        {{match.teamHome}} - 
-                           {{match.teamVisitor}}
+	                    <td class="match">
+	                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
+                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}</div>
                         </td>
                         <td>
                            {{match.deadline|date("d/m/Y H:i")}}
@@ -86,7 +86,7 @@
          
          <table  class="calendar">
          			<tr>
-	        			<th colspan="7" style="border-bottom: 1px white solid">Vote terminés</th>
+	        			<th colspan="7" style="border-bottom: 1px white solid">Votes terminés</th>
 	      			</tr>
                     <tr>
                         <th>#</th>
@@ -102,8 +102,8 @@
                             {{match.id+1}}
                         </td>
                         <td style="text-align:center; width:170px;">
-                            {{match.teamHome}} - 
-                            {{match.teamVisitor}}<!--  (x{{match.factor}})--> 
+                            <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
+                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}</div>
                         </td>
                         <td>
                             x {{match.factor}}

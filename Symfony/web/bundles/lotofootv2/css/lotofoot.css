@@ -771,6 +771,10 @@ td.calendar-avenir{
 	background-color:white;
 }
 
+td.match { 
+width:170px;
+} 
+
 input[type="range"] {
     position: relative;
     margin-left: 1em;
@@ -1590,7 +1594,7 @@ input[type="range"]:after {
 }
 
 .footer-title{
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 1.7em;
 }
 
@@ -1605,6 +1609,10 @@ input[type="range"]:after {
 
 .stop-float{
 	clear:both;
+}
+
+.left{
+	float:left;
 }
 
 /*a{	
@@ -1630,4 +1638,230 @@ h2{
 h3{
 	color: rgb(55,46,50);
 	text-decoration: underline;
+}
+
+
+/*********************************************************/
+/* Drapeaux nationaux */
+
+.ALB, .ALL, .RFA, .AND, .ANG, .ARM, .AUT, .AZE, .BEL, .BOS, .BLR, .BUL, .CEI, .CHY, .CYP, .CRO, .DAN, .ECO, .ESP, .EST, .EUR, .EUR, .C1, .C3, .SC, .HCUP, .CHAL, .FER, .IFE, .FIN, .FRA, .PROD2, .D1, .D2, .NAT, .ELIT1, .ELIT2, .CF, .CL, .TC, .NCD, .REU, .GAL, .GBR, .GEO, .GIB, .GRE, .HOL, .PBS, .HON, .IDN, .ILN, .IRL, .EIR, .ISL, .ISR, .ITA, .KAZ, .LET, .LIE, .LIT, .LUX, .MAC, .MCD, .MNE, .MCG, .MCO, .MLT, .MOL, .NOR, .POL, .POR, .RDA, .ROU, .RTC, .CZE, .TCH, .RUS, .SAN, .SEM, .YOU, .SER, .SRB, .SLN, .SLV, .SLQ, .SUE, .SUI, .TUR, .UKR, .URS, .CALL, .CUP, .LCUP, .CITA, .CESP, .CPOR, .CHOL, .ELIM_EURO, .ELIM_EUR, .ELIM_CM_EUR, .drapeau.EURO {
+    background: url("http://static.lequipe.fr/v6/img/icon_pays_EUR.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.AFS, .RSA, .AGO, .ALG, .BEN, .DAH, .BOT, .BUF, .BUR, .CAM, .CMR, .CAV, .CPV, .CIV, .COM, .CON, .DJI, .EGY, .ERI, .ERY, .ETH, .GAB, .GAM, .GEC, .GEQ, .GHA, .GUB, .GUI, .KEN, .LBY, .LES, .LBR, .MAD, .MAR, .MAU, .MLI, .MOZ, .MUS, .MRI, .MWI, .NAM, .NGA, .NIG, .NGR, .UGA, .OUG, .RCE, .RCA, .CAF, .RDC, .ZAI, .RWA, .SEN, .SEY, .SIE, .SOM, .SOU, .STP, .SWA, .TAN, .TCA, .TOG, .TUN, .ZAM, .ZAI, .ZAN, .ZIM, .RHO {
+    background: url("http://static.lequipe.fr/v6/img/icon_pays_AFR.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.AFG, .ARS, .AUS, .BAN, .BRN, .BHR, .BHU, .BUM, .MYA, .BIR, .BRU, .CAB, .COR, .CDS, .CHN, .CDN, .EAU, .HKG, .IND, .INE, .INO, .INA, .BOH, .IRN, .IRA, .IRQ, .JAP, .JOR, .KIR, .KOW, .LIB, .LAO, .MAL, .MAO, .MDI, .MGL, .NEP, .OMA, .OMN, .OUZ, .PAK, .PAL, .PLE, .PHI, .PNG, .QAT, .SIN, .SRI, .SYR, .TAD, .TJK, .TAI, .THA, .TIM, .TUK, .VIE, .YMS, .YEM, .NZE, .NZL, .SLM {
+    background: url("http://static.lequipe.fr/v6/img/icon_pays_ASI.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.ANE, .AHO, .ANT, .ARG, .ARU, .ASA, .BAH, .BAR, .BER, .BIZ, .BLZ, .BOL, .BRE, .CAI, .CAN, .CHL, .CHI, .COL, .COS, .CRI, .CUB, .CUR, .DOM, .EQU, .GRD, .GUA, .GUM, .GUY, .HAI, .HND, .ISV, .IVA, .IVB, .JAM, .MEX, .Nic, .NIC, .PAN, .PAR, .PER, .PRT, .PRI, .RDO, .SUR, .SVG, .TRI, .URU, .USA, .HAW, .VEN, .drapeau.JO, .CIO {
+    background: url("http://static.lequipe.fr/v6/img/icon_pays_AMC.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.AGL, .COO, .GRO, .FID, .KIB, .MTN, .MIC, .MNT, .MSR, .NAU, .NFI, .PLW, .SAL, .SAM, .SKN, .SLU, .TAH, .TEC, .TCN, .TON, .TUV, .MHL, .VAN {
+    background: url("http://static.lequipe.fr/v6/img/icon_pays_OCE.png") no-repeat scroll -50px -50px rgba(0, 0, 0, 0);
+}
+.drapeau {
+    background-position: 0 20px;
+    float: left;
+    height: 12px;
+    margin-top: 1px;
+    overflow: hidden;
+    padding: 0 !important;
+    width: 20px;
+}
+
+.match-cup{
+	float:left;
+	margin-right: 4px;
+	margin-left: 4px;
+}
+.drapeau img {
+    height: 20px;
+    margin-top: -13px;
+    width: 20px;
+}
+.SLN, .SLV {
+    background-position: 0 -1200px;
+}
+.SLQ {
+    background-position: 0 -1222px;
+}
+.SUE {
+    background-position: 0 -1244px;
+}
+.SUI {
+    background-position: 0 -1266px;
+}
+.TUR {
+    background-position: 0 -1288px;
+}
+.UKR {
+    background-position: 0 -1310px;
+}
+.URS {
+    background-position: 0 -1332px;
+}
+.ALB, .AFS, .RSA, .AFG, .ANE, .AHO, .AGL {
+    background-position: 0 -12px;
+}
+.ALL, .RFA, .CALL, .AGO, .ARS, .ANT, .COO {
+    background-position: 0 -34px;
+}
+.AND, .ALG, .AUS, .ARG, .GRO {
+    background-position: 0 -56px;
+}
+.ANG, .CUP, .LCUP, .BEN, .DAH, .BAN, .ARU, .FID {
+    background-position: 0 -78px;
+}
+.ARM, .BOT, .BRN, .BHR, .ASA, .KIB {
+    background-position: 0 -100px;
+}
+.AUT, .BUF, .BHU, .BAH, .MTN {
+    background-position: 0 -122px;
+}
+.AZE, .BUR, .BUM, .MYA, .BIR, .TAI, .BER, .MIC {
+    background-position: 0 -144px;
+}
+.BEL, .CAM, .CMR, .BRU, .BAR, .MNT, .MSR {
+    background-position: 0 -166px;
+}
+.BOS, .CAV, .CPV, .CAB, .BIZ, .BLZ, .NAU {
+    background-position: 0 -188px;
+}
+.BLR, .CIV, .COR, .CDS, .BOL, .NFI {
+    background-position: 0 -210px;
+}
+.BUL, .COM, .CHN, .BRE, .PLW {
+    background-position: 0 -232px;
+}
+.CEI, .CON, .CDN, .CAI, .SAL {
+    background-position: 0 -254px;
+}
+.CHY, .CYP, .DJI, .EAU, .CAN, .SAM {
+    background-position: 0 -276px;
+}
+.CRO, .EGY, .HKG, .CHL, .CHI, .SKN {
+    background-position: 0 -298px;
+}
+.DAN, .ERI, .ERY, .IND, .INE, .COL, .SLU {
+    background-position: 0 -320px;
+}
+.ECO, .ETH, .INO, .INA, .BOH, .COS, .CRI, .TAH {
+    background-position: 0 -342px;
+}
+.ESP, .CESP, .GAB, .IRN, .CUB, .TEC {
+    background-position: 0 -364px;
+}
+.EST, .GAM, .IRA, .IRQ, .CUR, .TCN, .TON {
+    background-position: 0 -386px;
+}
+.EUR, .ELIM_EURO, .ELIM_EUR, .ELIM_CM_EUR, .EURO, .C1, .C3, .SC, .HCUP, .CHAL, .GEC, .GEQ, .JAP, .DOM, .TUV {
+    background-position: 0 -408px;
+}
+.FER, .IFE, .GHA, .JOR, .EQU, .VAN {
+    background-position: 0 -430px;
+}
+.FIN, .GUB, .KIR, .GRD {
+    background-position: 0 -452px;
+}
+.FRA, .NCD, .REU, .GUI, .KOW, .GUA, .D1, .D2, .NAT, .ELIT1, .ELIT2, .CF, .CL, .TC, .PROD2, .MHL {
+    background-position: 0 -474px;
+}
+.GAL, .KEN, .LIB, .GUM {
+    background-position: 0 -496px;
+}
+.GBR, .LBY, .LAO, .GUY {
+    background-position: 0 -518px;
+}
+.GEO, .LES, .MAL, .HAI {
+    background-position: 0 -540px;
+}
+.GIB, .LBR, .MAO, .HND {
+    background-position: 0 -562px;
+}
+.GRE, .MAD, .MDI, .ISV, .IVA {
+    background-position: 0 -584px;
+}
+.HOL, .CHOL, .MAR, .MGL, .IVB {
+    background-position: 0 -606px;
+}
+.HON, .MAU, .NEP, .JAM {
+    background-position: 0 -628px;
+}
+.IDN, .ILN, .MLI, .OMA, .OMN, .MEX {
+    background-position: 0 -650px;
+}
+.IRL, .EIR, .MOZ, .OUZ, .Nic, .NIC {
+    background-position: 0 -672px;
+}
+.ISL, .MUS, .MRI, .PAK, .PAN {
+    background-position: 0 -694px;
+}
+.ISR, .MWI, .PHI, .PAR {
+    background-position: 0 -716px;
+}
+.ITA, .CITA, .NAM, .PAL, .PLE, .PER {
+    background-position: 0 -738px;
+}
+.KAZ, .NGA, .PNG, .PRT, .PRI {
+    background-position: 0 -760px;
+}
+.LET, .NIG, .NGR, .QAT, .RDO {
+    background-position: 0 -782px;
+}
+.LIE, .UGA, .OUG, .SIN, .SUR {
+    background-position: 0 -804px;
+}
+.LIT, .RCE, .RCA, .CAF, .SRI, .SVG {
+    background-position: 0 -826px;
+}
+.LUX, .RDC, .ZAI, .SYR, .TRI {
+    background-position: 0 -848px;
+}
+.MAC, .MCD, .RWA, .TAD, .TJK, .URU {
+    background-position: 0 -870px;
+}
+.MNE, .MCG, .SEN, .USA, .HAW {
+    background-position: 0 -892px;
+}
+.MCO, .SEY, .THA, .VEN {
+    background-position: 0 -914px;
+}
+.MLT, .SIE, .TIM {
+    background-position: 0 -936px;
+}
+.MOL, .SOM, .TUK {
+    background-position: 0 -958px;
+}
+.NOR, .SOU, .VIE, .drapeau.JO, .CIO {
+    background-position: 0 -980px;
+}
+.POL, .STP, .YMS, .YEM {
+    background-position: 0 -1002px;
+}
+.POR, .CPOR, .SWA, .NZE, .NZL {
+    background-position: 0 -1024px;
+}
+.RDA, .TAN {
+    background-position: 0 -1046px;
+}
+.ROU, .TCA {
+    background-position: 0 -1068px;
+}
+.RTC, .CZE, .TCH, .TOG {
+    background-position: 0 -1090px;
+}
+.RUS, .TUN {
+    background-position: 0 -1112px;
+}
+.SAN, .ZAM {
+    background-position: 0 -1134px;
+}
+.SEM, .YOU, .ZAN {
+    background-position: 0 -1156px;
+}
+.SER, .SRB, .RHO, .ZIM {
+    background-position: 0 -1178px;
+}
+.SLM {
+    background-position: 0 -1068px;
 }
