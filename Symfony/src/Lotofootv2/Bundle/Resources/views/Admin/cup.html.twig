@@ -46,7 +46,7 @@
                     {{match.id}}
                 </td>
                 <td>
-                    {{match.teamHome}}
+                    <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}
                 </td>
                 {% if match.deadline|date('U') < "now"|date('U') %}
                 <td>
@@ -59,7 +59,7 @@
                 </td>                
                 {% endif %}
                 <td>
-                    {{match.teamVisitor}}
+                    <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}
                 </td>
             </tr>
             

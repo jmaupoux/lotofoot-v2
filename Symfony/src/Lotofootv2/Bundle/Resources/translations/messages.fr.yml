@@ -41,3 +41,38 @@ navibar:
 home:
     welcome:  Bienvenue sur Lotofoot !
     nonews:  Aucune news à afficher
+
+nationalteams:
+    BRE: Brésil
+    CRO: Croatie
+    MEX: Mexique
+    CAM: Cameroun
+    ESP: Espagne
+    HOL: Pays-Bas
+    CHL: Chili
+    AUS: Australie
+    COL: Colombie
+    GRE: Grèce
+    CIV: Côte d'Ivoire
+    JAP: Japon
+    URU: Uruguay
+    CRI: Costa Rica
+    ANG: Angleterre
+    ITA: Italie
+    SUI: Suisse
+    EQU: Equateur
+    FRA: France
+    HND: Honduras
+    ARG: Argentine
+    BOS: Bosnie
+    IRN: Iran
+    NIG: Nigeria
+    ALL: Allemagne
+    POR: Portugal
+    GHA: Ghana
+    USA: Etats-Unis
+    BEL: Belgique
+    ALG: Algérie
+    RUS: Russie
+    CDS: Coree du Sud
+    
