@@ -53,8 +53,8 @@
 	                        {{match.id+1}}
 	                    </td>
 	                    <td class="match">
-	                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
-                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}</div>
+	                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}} (1)</div><br/>
+                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}} (2)</div>
                         </td>
                         <td>
                            {{match.deadline|date("d/m/Y H:i")}}
@@ -78,11 +78,11 @@
 	                </div>
 	            </div>
 	            <div style="clear:both"></div>
-	        </form>
-        
+	        </form><br/>
+        <a href="http://www.lequipe.fr/Football/Coupe-du-monde/Saison-2014/calendrier-resultats.html" target="_blank" alt ="Résultats Coupe du Monde 2014">Accéder aux résultats officiels de la Coupe du Monde 2014</a>
         </td><td style="border:none">
          
-         
+        
          
          <table  class="calendar">
          			<tr>
@@ -106,7 +106,7 @@
                             <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}</div>
                         </td>
                         <td>
-                            x {{match.factor}}
+                            <img style="padding-top:5px;" src="{{ asset('bundles/lotofootv2/img/coeff'~match.factor~'.png') }}"/>
                         </td>
                         <td>
                             {{app.request.get('result_'~match.id)}}
