@@ -1645,19 +1645,19 @@ h3{
 /* Drapeaux nationaux */
 
 .ALB, .ALL, .RFA, .AND, .ANG, .ARM, .AUT, .AZE, .BEL, .BOS, .BLR, .BUL, .CEI, .CHY, .CYP, .CRO, .DAN, .ECO, .ESP, .EST, .EUR, .EUR, .C1, .C3, .SC, .HCUP, .CHAL, .FER, .IFE, .FIN, .FRA, .PROD2, .D1, .D2, .NAT, .ELIT1, .ELIT2, .CF, .CL, .TC, .NCD, .REU, .GAL, .GBR, .GEO, .GIB, .GRE, .HOL, .PBS, .HON, .IDN, .ILN, .IRL, .EIR, .ISL, .ISR, .ITA, .KAZ, .LET, .LIE, .LIT, .LUX, .MAC, .MCD, .MNE, .MCG, .MCO, .MLT, .MOL, .NOR, .POL, .POR, .RDA, .ROU, .RTC, .CZE, .TCH, .RUS, .SAN, .SEM, .YOU, .SER, .SRB, .SLN, .SLV, .SLQ, .SUE, .SUI, .TUR, .UKR, .URS, .CALL, .CUP, .LCUP, .CITA, .CESP, .CPOR, .CHOL, .ELIM_EURO, .ELIM_EUR, .ELIM_CM_EUR, .drapeau.EURO {
-    background: url("http://static.lequipe.fr/v6/img/icon_pays_EUR.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../img/nationalteams/icon_pays_EUR.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 .AFS, .RSA, .AGO, .ALG, .BEN, .DAH, .BOT, .BUF, .BUR, .CAM, .CMR, .CAV, .CPV, .CIV, .COM, .CON, .DJI, .EGY, .ERI, .ERY, .ETH, .GAB, .GAM, .GEC, .GEQ, .GHA, .GUB, .GUI, .KEN, .LBY, .LES, .LBR, .MAD, .MAR, .MAU, .MLI, .MOZ, .MUS, .MRI, .MWI, .NAM, .NGA, .NIG, .NGR, .UGA, .OUG, .RCE, .RCA, .CAF, .RDC, .ZAI, .RWA, .SEN, .SEY, .SIE, .SOM, .SOU, .STP, .SWA, .TAN, .TCA, .TOG, .TUN, .ZAM, .ZAI, .ZAN, .ZIM, .RHO {
-    background: url("http://static.lequipe.fr/v6/img/icon_pays_AFR.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../img/nationalteams/icon_pays_AFR.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 .AFG, .ARS, .AUS, .BAN, .BRN, .BHR, .BHU, .BUM, .MYA, .BIR, .BRU, .CAB, .COR, .CDS, .CHN, .CDN, .EAU, .HKG, .IND, .INE, .INO, .INA, .BOH, .IRN, .IRA, .IRQ, .JAP, .JOR, .KIR, .KOW, .LIB, .LAO, .MAL, .MAO, .MDI, .MGL, .NEP, .OMA, .OMN, .OUZ, .PAK, .PAL, .PLE, .PHI, .PNG, .QAT, .SIN, .SRI, .SYR, .TAD, .TJK, .TAI, .THA, .TIM, .TUK, .VIE, .YMS, .YEM, .NZE, .NZL, .SLM {
-    background: url("http://static.lequipe.fr/v6/img/icon_pays_ASI.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../img/nationalteams/icon_pays_ASI.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 .ANE, .AHO, .ANT, .ARG, .ARU, .ASA, .BAH, .BAR, .BER, .BIZ, .BLZ, .BOL, .BRE, .CAI, .CAN, .CHL, .CHI, .COL, .COS, .CRI, .CUB, .CUR, .DOM, .EQU, .GRD, .GUA, .GUM, .GUY, .HAI, .HND, .ISV, .IVA, .IVB, .JAM, .MEX, .Nic, .NIC, .PAN, .PAR, .PER, .PRT, .PRI, .RDO, .SUR, .SVG, .TRI, .URU, .USA, .HAW, .VEN, .drapeau.JO, .CIO {
-    background: url("http://static.lequipe.fr/v6/img/icon_pays_AMC.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../img/nationalteams/icon_pays_AMC.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 .AGL, .COO, .GRO, .FID, .KIB, .MTN, .MIC, .MNT, .MSR, .NAU, .NFI, .PLW, .SAL, .SAM, .SKN, .SLU, .TAH, .TEC, .TCN, .TON, .TUV, .MHL, .VAN {
-    background: url("http://static.lequipe.fr/v6/img/icon_pays_OCE.png") no-repeat scroll -50px -50px rgba(0, 0, 0, 0);
+    background: url("../img/nationalteams/icon_pays_OCE.png") no-repeat scroll -50px -50px rgba(0, 0, 0, 0);
 }
 .drapeau {
     background-position: 0 20px;
