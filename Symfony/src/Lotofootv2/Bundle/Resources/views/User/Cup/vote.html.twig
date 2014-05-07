@@ -21,12 +21,20 @@
 {% block body %}
 
     {% if err is defined and err is not null %}
-    <div style="color:red">
+    <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
+    <span style="color:red">
         {% autoescape false %}
         {{err}}
         {% endautoescape %}
-    </div>
+    </span>
+    
     {% endif %}
+    	<style type="text/css">	
+		 .scoreok{
+		 	background-color:rgb(64,200,83);
+		 	color:white;
+		 }
+	</style>
 
     <table>
         <tr><td  style="border:none">
@@ -61,8 +69,12 @@
                         </td>
 	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
 	                        {% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
+	                    {% if match.factor == 1 %}
 	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
 	                        {% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
+	                    {% else %}
+	                    <td></td>
+	                    {% endif %}
 	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
 	                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
 	                    <td>    
@@ -108,10 +120,10 @@
                         <td>
                             <img style="padding-top:5px;" src="{{ asset('bundles/lotofootv2/img/coeff'~match.factor~'.png') }}"/>
                         </td>
-                        <td>
+                        <td class="{% if app.request.get('result_'~match.id) == match.result and match.result is not null %} scoreok {% endif %}">
                             {{app.request.get('result_'~match.id)}}
                         </td>
-                        <td>
+                        <td class="{% if app.request.get('score_'~match.id) == match.score and match.score is not null %} scoreok {% endif %}">
                             {{app.request.get('score_'~match.id)}}
                         </td>
                         <td>

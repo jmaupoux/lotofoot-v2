@@ -81,12 +81,18 @@ class VoteController extends Controller
                 LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()))
             );
             
-            if(($vote->getResult() == '' || $vote->getResult() == null) &&
-                ($vote->getScore() == '' || $vote->getScore() == null) ){
-                $err .= "<br/>Match ".($i+1)." non rempli";
-            }else{
+            
+            
+            if((($vote->getResult() == '' || $vote->getResult() == null)&& 
+            	!($vote->getScore() == '' || $vote->getScore() == null))||
+            	(!($vote->getResult() == '' || $vote->getResult() == null)&& 
+            	($vote->getScore() == '' || $vote->getScore() == null))){
+            	$err .= "<br/> Match ".($matches[$i]->getId())." incomplet";
+            }
+            else{
                 array_push($votes, $vote);
             }
+            
         }
         
         $cs->vote($votes);
