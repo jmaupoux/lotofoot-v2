@@ -202,4 +202,80 @@ class CupService
         
         return $query->getResult();
     }
+    
+    public function getStatsCorrectedMatchs(){
+        $conn = $this->db_conn;
+        $sql = '
+        SELECT m.id, m.deadline, m.team_home, m.team_visitor, avg(v.points) as moyenne, count(v.id) as votants, count(v2.id) as nbresult, count(v3.id) as nbscore
+        FROM lfv2_cup_match m 
+        LEFT OUTER JOIN lfv2_cup_vote v ON v.league_match_id = m.id 
+        LEFT OUTER JOIN lfv2_cup_vote v2 ON v2.league_match_id = m.id AND v2.resultOk = true
+        LEFT OUTER JOIN lfv2_cup_vote v3 ON v3.league_match_id = m.id AND v3.scoreOk = true
+        WHERE m.corrected = true
+        GROUP BY m.id
+        ORDER BY m.deadline DESC
+        ';
+        $rows = $conn->query($sql);
+        
+        return $rows;
+    }
+    
+    public function getNextMatchToVote(){
+    	$query = $this->em->createQuery(
+        'SELECT m 
+        FROM Lotofootv2Bundle:CupMatch m 
+        WHERE m.deadline > :now
+        ORDER BY m.deadline ASC')->setParameter('now', new DateTime());
+    	
+    	$res = $query->getResult();
+    	
+    	if(count($res) > 0){
+    		return $res[0];
+    	}
+    	
+    	return null;
+    }
+    
+    public function getHasNotVoted()
+    {
+    	$m = $this->getNextMatchToVote();
+    	
+        if($m == null){
+            return null;
+        }
+    	
+        $query = $this->em->createQuery(
+            'SELECT a
+            FROM Lotofootv2Bundle:Account a
+            WHERE a.isActive = true
+            AND not exists(SELECT v FROM Lotofootv2Bundle:CupVote v
+                WHERE v.account_id = a.id
+                AND v.cup_match_id = :matchid
+                AND v.score != \'\' AND v.result != \'\')
+            '
+        )->setParameter('matchid', $m->getId());
+        
+        return $query->getResult();
+    }
+    
+    public function getHasVoted()
+    {
+        $m = $this->getNextMatchToVote();
+        
+        if($m == null){
+        	return null;
+        }
+        
+        $query = $this->em->createQuery(
+            'SELECT a
+            FROM Lotofootv2Bundle:Account a
+            WHERE a.isActive = true
+            AND exists(SELECT v FROM Lotofootv2Bundle:CupVote v
+                WHERE v.account_id = a.id
+                AND v.cup_match_id = :matchid
+                AND v.score != \'\' AND v.result != \'\')
+            '
+        )->setParameter('matchid', $m->getId());
+        
+    }
 }

@@ -1,0 +1,113 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+		<div class="title-body">
+			<div class="ligne-body-left">&nbsp;</div>
+			Administration de la Cup			&nbsp;
+			<img src="{{ asset('bundles/lotofootv2/img/rewards/r12.png') }}"/>
+			<div class="ligne-body-right">&nbsp;</div>
+		</div>
+{% endblock %}
+
+{% block body %}
+	<div class="stop-float"></div>
+	
+    <br/>
+    <h3>Matchs terminés</h3>
+    <br/>
+     
+      <table class="table table-striped" id="match-table">
+          <tr>
+              <th>
+                  N°
+              </th>
+              <th>
+                  Équipe A
+              </th>
+              <th>
+                  Équipe B
+              </th>
+              <th>
+                   Deadline
+              </th>
+              <th>
+                   Nb Votants
+              </th>
+              <th>
+                   Moyenne
+              </th>
+              <th>
+                   Nb Resultats
+              </th>
+              <th>
+                   Nb Scores
+              </th>
+          </tr>
+          {% for s in stats %}
+          <tr class="vote-cup">
+              <td>
+                  {{s.id}}
+              </td>
+              <td>
+                  {{s.team_home}}
+              </td>
+              <td>
+                  {{s.team_visitor}}
+              </td>
+              <td>
+                  {{s.deadline|date('d/m/Y H:i')}}
+              </td>
+              <td>
+                  {{s.votants}}
+              </td>
+              <td>
+                  {{s.moyenne|number_format(2, '.', ',')}}
+              </td>
+              <td>
+                  {{s.nbresult}}
+              </td>
+              <td>
+                  {{s.nbscore}}
+              </td>
+          </tr>
+          {% endfor %}
+      </table>
+      
+      
+    <br/>
+    <h3>Votes du prochain match : {{'nationalteams.'~next.teamHome|trans}} - {{'nationalteams.'~next.teamVisitor|trans}} ({{next.deadline|date('d/m/Y H:i')}})</h3>
+    <br/>
+    
+    <u><b>N'a pas voté ({{not_voted|length}}):</b></u> <br/>
+    {% for v in not_voted %}
+        {{v.username}}, 
+    {% endfor %}
+    <br/><br/>
+    {% for v in not_voted %}
+        {{v.email}}; 
+    {% endfor %}
+    
+    <br/><br/>
+        <u><b>A voté ({{voted|length}}):</b></u> <br/>
+    {% for v in voted %}
+        {{v.username}}, 
+    {% endfor %}
+    <br/>
+    {% for v in voted %}
+        {{v.email}};
+    {% endfor %}
+      
+      
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

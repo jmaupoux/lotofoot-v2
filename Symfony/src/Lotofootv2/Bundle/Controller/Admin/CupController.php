@@ -39,6 +39,30 @@ class CupController extends Controller
     }
     
     /**
+     * @Route("/admin/cup/stats", name="_admin_cup_stats")
+     */
+    public function statsAction()
+    {
+        $cs = $this->get('cup_service');
+        $cup = $cs->getRunningCup();
+        
+        if($cup == null){
+            return $this->render('Lotofootv2Bundle:Admin:new_cup.html.twig' );      
+        }
+
+        $stats = $cs->getStatsCorrectedMatchs();
+        
+        $next = $cs->getNextMatchToVote();
+        $voted = $cs->getHasVoted();
+        $not_voted = $cs->getHasNotVoted();
+        
+        return $this->render('Lotofootv2Bundle:Admin:cup_stats.html.twig', 
+            array('stats' => $stats,
+            'voted' => $voted, 'not_voted' => $not_voted, 'next' => $next)
+        );      
+    }
+    
+    /**
      * @Route("/admin/cup/create", name="_admin_cup_create")
      */
     public function createAction(Request $request)

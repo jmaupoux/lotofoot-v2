@@ -20,6 +20,8 @@
 {% block body %}
 	<div class="stop-float"></div>
 	
+	<a href="{{ path('_admin_cup_stats') }}">Statistiques et votes</a>
+	
 	<h3>Correction des matchs</h3>
 	
 	
@@ -74,7 +76,7 @@
 	
 	<br/>
 	<h3>Nouveaux matchs</h3>
-	</br>
+	<br/>
 	
 	<form action="{{ path('_admin_cup_matchs_create') }}" method="post" style="width:800px;margin:auto">
 	
@@ -126,6 +128,9 @@
 	    <input type="submit" class="btn-admin center" value="Lancer !"/>
     
     </form>
+    
+
+    
 <h3>Abbréviations des équipes nationales</h3>	
 <ul>
 	<li>ALG:Algérie</li>
