@@ -20,7 +20,13 @@
 	
 {% block body %}
 
-    {% if err is defined and err is not null %}
+
+    <strong>Attention : </strong> 
+    <ul>
+    	<li>Chaque match a une date limite et une heure limite qui lui est propre vous n'êtes pas obligé de parier sur tous les matchs proposés. Vous pouvez parier au fur et mesure que les matchs arrivent.</li>
+    	<li>De même, tant que la date limite n'est pas atteinte, vous pouvez parier autant de fois que vous le souhaitez sur un match.</li>
+    </ul><br/>
+        {% if err is defined and err is not null %}
     <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
     <span style="color:red">
         {% autoescape false %}
@@ -29,11 +35,6 @@
     </span>
     
     {% endif %}
-    <strong>Attention : </strong> 
-    <ul>
-    	<li>Chaque match a une date limite et une heure limite qui lui est propre vous n'êtes pas obligé de parier sur tous les matchs proposés. Vous pouvez parier au fur et mesure que les matchs arrivent.</li>
-    	<li>De même, tant que la date limite n'est pas atteinte, vous pouvez parier autant de fois que vous le souhaitez sur un match.</li>
-    </ul><br/>
     	<style type="text/css">	
 		 .scoreok{
 		 	background-color:rgb(64,200,83);
