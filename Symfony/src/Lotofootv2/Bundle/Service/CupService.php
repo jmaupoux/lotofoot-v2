@@ -277,5 +277,6 @@ class CupService
             '
         )->setParameter('matchid', $m->getId());
         
+        return $query->getResult();
     }
 }

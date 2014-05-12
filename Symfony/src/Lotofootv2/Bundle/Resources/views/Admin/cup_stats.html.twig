@@ -11,7 +11,7 @@
 {% block title_body %}
 		<div class="title-body">
 			<div class="ligne-body-left">&nbsp;</div>
-			Administration de la Cup			&nbsp;
+			Stats de la Cup			&nbsp;
 			<img src="{{ asset('bundles/lotofootv2/img/rewards/r12.png') }}"/>
 			<div class="ligne-body-right">&nbsp;</div>
 		</div>
@@ -23,17 +23,14 @@
     <br/>
     <h3>Matchs terminés</h3>
     <br/>
-     
+     {% if stats is not null %}
       <table class="table table-striped" id="match-table">
           <tr>
               <th>
                   N°
               </th>
               <th>
-                  Équipe A
-              </th>
-              <th>
-                  Équipe B
+                  Match
               </th>
               <th>
                    Deadline
@@ -57,10 +54,8 @@
                   {{s.id}}
               </td>
               <td>
-                  {{s.team_home}}
-              </td>
-              <td>
-                  {{s.team_visitor}}
+              	<div class="drapeau {{s.team_home}}"></div><div class="match-cup">{{('nationalteams.'~s.team_home) | trans}} </div>                 
+              	<div class="match-cup">{{('nationalteams.'~s.team_visitor) | trans}} </div> <div class="drapeau {{s.team_visitor}}" style="margin-left:5px;"></div>
               </td>
               <td>
                   {{s.deadline|date('d/m/Y H:i')}}
@@ -80,12 +75,13 @@
           </tr>
           {% endfor %}
       </table>
-      
+      {% endif %}
       
     <br/>
-    <h3>Votes du prochain match : {{'nationalteams.'~next.teamHome|trans}} - {{'nationalteams.'~next.teamVisitor|trans}} ({{next.deadline|date('d/m/Y H:i')}})</h3>
+    <h3>Prochain match le {{next.deadline|date('d/m/Y H:i')}}</h3>
+    <div class="drapeau {{next.teamHome}}"></div> <h4>{{('nationalteams.'~next.teamHome)|trans}} </h4>
+    <div class="drapeau {{next.teamVisitor}}"></div> <h4>{{('nationalteams.'~next.teamVisitor)|trans}} </h4>
     <br/>
-    
     <u><b>N'a pas voté ({{not_voted|length}}):</b></u> <br/>
     {% for v in not_voted %}
         {{v.username}}, 
@@ -100,7 +96,7 @@
     {% for v in voted %}
         {{v.username}}, 
     {% endfor %}
-    <br/>
+    <br/><br/>
     {% for v in voted %}
         {{v.email}};
     {% endfor %}
