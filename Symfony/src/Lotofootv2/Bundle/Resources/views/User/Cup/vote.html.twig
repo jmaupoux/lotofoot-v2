@@ -29,6 +29,11 @@
     </span>
     
     {% endif %}
+    <strong>Attention : </strong> 
+    <ul>
+    	<li>Chaque match a une date limite et une heure limite qui lui est propre vous n'êtes pas obligé de parier sur tous les matchs proposés. Vous pouvez parier au fur et mesure que les matchs arrivent.</li>
+    	<li>De même, tant que la date limite n'est pas atteinte, vous pouvez parier autant de fois que vous le souhaitez sur un match.</li>
+    </ul><br/>
     	<style type="text/css">	
 		 .scoreok{
 		 	background-color:rgb(64,200,83);
@@ -58,7 +63,7 @@
 	                {% for match in opens %}
 	                <tr class="vote-cup">
 	                    <td>
-	                        {{match.id+1}}
+	                        {{match.id}}
 	                    </td>
 	                    <td class="match">
 	                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}} (1)</div><br/>
@@ -91,7 +96,7 @@
 	            </div>
 	            <div style="clear:both"></div>
 	        </form><br/>
-        <a href="http://www.lequipe.fr/Football/Coupe-du-monde/Saison-2014/calendrier-resultats.html" target="_blank" alt ="Résultats Coupe du Monde 2014">Accéder aux résultats officiels de la Coupe du Monde 2014</a>
+        <a href="http://www.lequipe.fr/Football/Coupe-du-monde/Saison-2014/calendrier-resultats.html" target="_blank" alt ="Résultats Coupe du Monde 2014" >Accéder aux résultats officiels de la Coupe du Monde 2014</a>
         </td><td style="border:none">
          
         
