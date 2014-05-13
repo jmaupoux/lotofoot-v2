@@ -56,7 +56,7 @@
 	</style>
 
     <table>
-        <tr><td  style="border:none">
+        <tr><td  style="border:none; vertical-align:top;">
            
                 
             <form action="{{ path('_cup_post') }}" method="post">
@@ -111,7 +111,7 @@
 	            <div style="clear:both"></div>
 	        </form><br/>
         <a href="http://www.lequipe.fr/Football/Coupe-du-monde/Saison-2014/calendrier-resultats.html" target="_blank" alt ="Résultats Coupe du Monde 2014" ><img src="{{ asset('bundles/lotofootv2/img/logo-lequipe.png') }}"/></a>
-        </td><td style="border:none">
+        </td><td style="border:none; vertical-align:top;">
          
         
          
@@ -131,7 +131,7 @@
                     {% for match in closed %}
                     <tr class="vote-cup">
                         <td>
-                            {{match.id+1}}
+                            {{match.id}}
                         </td>
                         <td style="text-align:center; width:170px;">
                             <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
