@@ -158,7 +158,7 @@ class CupService
 		$sql = '
 		UPDATE lfv2_account a SET
 		    a.cup_points = (SELECT sum(v.points) FROM lfv2_cup_vote v  WHERE v.account_id = a.id group by v.account_id),
-            a.stat_cup_matchs = (SELECT count(v.id) FROM lfv2_cup_vote v  WHERE v.account_id = a.id group by v.account_id),
+            a.stat_cup_matchs = (SELECT count(v.id) FROM lfv2_cup_vote v  WHERE v.account_id = a.id and v.score != \'\' and v.result != \'\' group by v.account_id),
             a.stat_cup_scores = (SELECT count(v.id)
                 FROM lfv2_cup_vote v WHERE v.scoreOk = true AND v.account_id = a.id),
             a.stat_cup_results = (SELECT count(v.id)
