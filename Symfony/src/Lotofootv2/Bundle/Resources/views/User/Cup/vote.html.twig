@@ -26,8 +26,21 @@
     	<li>Chaque match a une date limite et une heure limite qui lui est propre vous n'êtes pas obligé de parier sur tous les matchs proposés. Vous pouvez parier au fur et mesure que les matchs arrivent.</li>
     	<li>De même, tant que la date limite n'est pas atteinte, vous pouvez parier autant de fois que vous le souhaitez sur un match.</li>
     </ul><br/>
+    
+    {% if hasvoted and zero==false %}
+        <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
+    {% endif %}
+   
+     {% if warn is defined and warn is not null %}
+        <span style="color:orange">{{warn}}</span><br/>
+    {% endif %}
+    
+    {% if hasvoted and zero==true %}
+        <span style="color:red">Aucun pari renseigné</span><br/>
+    {% endif %}
+    
         {% if err is defined and err is not null %}
-    <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
+    
     <span style="color:red">
         {% autoescape false %}
         {{err}}

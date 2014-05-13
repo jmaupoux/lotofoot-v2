@@ -22,7 +22,7 @@ class VoteController extends Controller
 	/**
      * @Route("/cup/vote", name="_cup_vote")
      */ 
-    public function indexAction(Request $request, $err = null)
+    public function indexAction(Request $request, $err = null, $warn = null, $zero = false, $hasvoted = false)
     {
     	$cs = $this->get('cup_service');
     	
@@ -39,7 +39,7 @@ class VoteController extends Controller
             $points+=$votes[$i]->getPoints();
         }
     	
-    	return $this->render('Lotofootv2Bundle:User/Cup:vote.html.twig', array('opens' => $open, 'closed' => $closed, 'err'=>$err));
+    	return $this->render('Lotofootv2Bundle:User/Cup:vote.html.twig', array('opens' => $open, 'closed' => $closed, 'err'=>$err, 'warn'=>$warn, 'zero'=>$zero, 'hasvoted' => $hasvoted));
     }
 
     /**
@@ -55,7 +55,10 @@ class VoteController extends Controller
         $votes = array();
         
         $err = "";
-        $full = 1;
+        $warn = null;
+        $incomplete = false;
+        $zero = true;
+        
         
         for($i=0;$i<count($matches);$i++){
             
@@ -81,18 +84,27 @@ class VoteController extends Controller
                 LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()))
             );
             
+            if((($vote->getResult() == '' || $vote->getResult() == null) &&
+                ($vote->getScore() != '' && $vote->getScore() != null)) ||
+                (($vote->getResult() != '' && $vote->getResult() != null) &&
+                ($vote->getScore() == '' || $vote->getScore() == null))){
+                $incomplete = true;
+            }
             if(($vote->getResult() == '' || $vote->getResult() == null) &&
-                ($vote->getScore() == '' || $vote->getScore() == null) ){
-                //match not filled, do not save
+                ($vote->getScore() == '' || $vote->getScore() == null)){
                 ;
             }else{
-                array_push($votes, $vote);
+            	$zero = false;
             }
             
+            array_push($votes, $vote);            
         }
         
-        $cs->vote($votes);
+        if($incomplete == true){
+        	$warn ='Attention certains paris sont incomplets';
+            $cs->vote($votes);
+        }       
         
-        return $this->forward('Lotofootv2Bundle:User\Cup\Vote:index',array('err' => $err));
+        return $this->forward('Lotofootv2Bundle:User\Cup\Vote:index',array('err' => $err, 'warn' => $warn, 'zero'=> $zero, 'hasvoted' => true));
     }
 }
