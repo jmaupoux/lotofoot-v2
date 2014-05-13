@@ -113,6 +113,7 @@
                         <th>1N2</th>
                         <th>Score parié</th>
                         <th>Score effectif</th>
+                        <th>Points</th>
                     </tr>
                     {% for match in closed %}
                     <tr class="vote-cup">
@@ -134,6 +135,9 @@
                         </td>
                         <td>
                             {{match.score}}
+                        </td>
+                        <td>
+                            {{app.request.get('points_'~match.id)}}
                         </td>
                     </tr>
                     {% endfor %}
