@@ -97,7 +97,7 @@
 	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
 	                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
 	                    <td>    
-	                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+	                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:30px" placeholder="x-x"/>
 	                    </td>
 	                </tr>
 	                {% endfor %}
@@ -105,7 +105,7 @@
 	            
 	            <div class="control-group">
 	                <div class="controls">
-	                     <input type="submit" class="btn-vote" value="Valider vos paris !"/>
+	                     <input type="submit" class="btn-vote" style="margin-left: 140px;" value="Valider vos paris !"/>
 	                </div>
 	            </div>
 	            <div style="clear:both"></div>
