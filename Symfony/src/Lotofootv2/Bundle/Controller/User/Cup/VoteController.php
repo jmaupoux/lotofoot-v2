@@ -102,8 +102,11 @@ class VoteController extends Controller
         
         if($incomplete == true){
         	$warn ='Attention certains paris sont incomplets';
-            $cs->vote($votes);
-        }       
+        }
+        
+        if($zero == false){
+        	$cs->vote($votes);
+        }
         
         return $this->forward('Lotofootv2Bundle:User\Cup\Vote:index',array('err' => $err, 'warn' => $warn, 'zero'=> $zero, 'hasvoted' => true));
     }
