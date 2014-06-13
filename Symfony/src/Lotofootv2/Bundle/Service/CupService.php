@@ -206,7 +206,7 @@ class CupService
     public function getStatsCorrectedMatchs(){
         $conn = $this->db_conn;
         $sql = '
-        SELECT m.id, m.deadline, m.team_home, m.team_visitor, avg(v.points) as moyenne, count(v.id) as votants, count(v2.id) as nbresult, count(v3.id) as nbscore
+        SELECT m.id, m.deadline, m.team_home, m.team_visitor, avg(v.points) as moyenne, count(distinct(v.id)) as votants, count(distinct(v2.id)) as nbresult, count(distinct(v3.id)) as nbscore
         FROM lfv2_cup_match m 
         LEFT OUTER JOIN lfv2_cup_vote v ON v.league_match_id = m.id 
         LEFT OUTER JOIN lfv2_cup_vote v2 ON v2.league_match_id = m.id AND v2.resultOk = true
