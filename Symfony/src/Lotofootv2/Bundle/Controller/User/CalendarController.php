@@ -43,7 +43,23 @@ class CalendarController extends Controller
     	array_push($days, new CalendarDay(13, 'vote-cup', new DateTime('2014-06-16 21:00')));
     	array_push($days, new CalendarDay(14, 'vote-cup', new DateTime('2014-06-16 23:59')));
     	array_push($days, new CalendarDay(15, 'vote-cup', new DateTime('2014-06-17 18:00')));
-    	array_push($days, new CalendarDay(16, 'vote-cup', new DateTime('2014-06-17 23:59')));
+    	array_push($days, new CalendarDay(16, 'vote-cup', new DateTime('2014-06-17 21:00')));
+    	array_push($days, new CalendarDay(17, 'vote-cup', new DateTime('2014-06-17 23:59')));
+    	array_push($days, new CalendarDay(18, 'vote-cup', new DateTime('2014-06-18 18:00')));
+    	array_push($days, new CalendarDay(19, 'vote-cup', new DateTime('2014-06-18 21:00')));
+    	array_push($days, new CalendarDay(20, 'vote-cup', new DateTime('2014-06-18 23:59')));
+    	array_push($days, new CalendarDay(21, 'vote-cup', new DateTime('2014-06-19 18:00')));
+    	array_push($days, new CalendarDay(22, 'vote-cup', new DateTime('2014-06-19 21:00')));
+    	array_push($days, new CalendarDay(23, 'vote-cup', new DateTime('2014-06-19 23:59')));
+    	array_push($days, new CalendarDay(24, 'vote-cup', new DateTime('2014-06-20 18:00')));
+    	array_push($days, new CalendarDay(25, 'vote-cup', new DateTime('2014-06-20 21:00')));
+    	array_push($days, new CalendarDay(26, 'vote-cup', new DateTime('2014-06-20 23:59')));
+    	array_push($days, new CalendarDay(27, 'vote-cup', new DateTime('2014-06-21 18:00')));
+    	array_push($days, new CalendarDay(28, 'vote-cup', new DateTime('2014-06-21 21:00')));
+    	array_push($days, new CalendarDay(29, 'vote-cup', new DateTime('2014-06-21 23:59')));
+    	array_push($days, new CalendarDay(30, 'vote-cup', new DateTime('2014-06-22 18:00')));
+    	array_push($days, new CalendarDay(31, 'vote-cup', new DateTime('2014-06-22 21:00')));
+    	array_push($days, new CalendarDay(32, 'vote-cup', new DateTime('2014-06-22 23:59')));
     	
     	for($i=0;$i<count($days);$i++){
     		if($days[$i]->getBefore() < new DateTime()){
