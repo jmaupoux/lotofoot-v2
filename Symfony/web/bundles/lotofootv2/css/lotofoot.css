@@ -729,6 +729,14 @@ tr.vote-cl{
 	border-spacing:0;
 }
 
+tr.calendar-vote-cup{
+	height: 40px;
+	color: rgb(55,46,50);
+	background-image: url(../img/tab-bg-yellow.jpg);
+	background-repeat: no-repeat-x;
+	border-spacing:0;
+}
+
 tr.vote-cup{
 	height: 40px;
 	color: rgb(55,46,50);

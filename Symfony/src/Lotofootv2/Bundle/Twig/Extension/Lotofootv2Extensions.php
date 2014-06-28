@@ -41,7 +41,7 @@ class Lotofootv2Extensions extends \Twig_Extension
     }
     
 	public function getPot(){
-    	return $this->rewardService->countRewardType(10);
+    	return $this->rewardService->countRewardType(15);
     }
 
     /**

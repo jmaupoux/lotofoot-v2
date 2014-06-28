@@ -11,14 +11,14 @@
 			</a>
 		</span>
 		<span class="navibar-element">{{'navibar.ranking' | trans}} : 
-			{% if app.user.rank == 99 %}
+			{% if app.user.cupRank == 99 %}
 				-
 			{% else %}
-				{{app.user.rank}}
+				{{app.user.cupRank}}
 			{% endif %}
 		</span>
-		<span class="navibar-element">{{'navibar.score' | trans}} : {{ app.user.points }}</span>
-		<span class="navibar-element">Cagnoute : {{pot()*10}} €</span>
+		<span class="navibar-element">{{'navibar.score' | trans}} : {{ app.user.cupPoints }}</span>
+		<span class="navibar-element">Cagnoute World Cup : {{pot()*10}} €</span>
 		<div class="logo-disconnect" style="width:auto">
 			{% for r in rewards(app.user.id)%}
 				<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~r.rewardId~'.png') }}" 
