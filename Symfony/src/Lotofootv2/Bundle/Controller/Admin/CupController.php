@@ -160,16 +160,22 @@ class CupController extends Controller
             
             $m = $matches[$i];
             $score = LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId()));
+            $resultReq = LotofootUtil::clearSpaces($request->request->get('result_'.$matches[$i]->getId()));
             
             if($score != '' && $score != null){
                 $m->setCorrected(true);
                 $m->setScore($score);
-                  
-                $res = preg_split("/-/", $score);
-            
-	            $result = (intval($res[0]) > intval($res[1]))? '1' :
-	                    (intval($res[0]) < intval($res[1]) ? '2' : 'N');    
-	            
+                
+                $result = null;
+                
+                if($resultReq != '' && $resultReq != null){
+                    $result = intval($resultReq);
+                }else{
+                	$res = preg_split("/-/", $score);
+                	$result = (intval($res[0]) > intval($res[1]))? '1' :
+                        (intval($res[0]) < intval($res[1]) ? '2' : 'N');    
+                }
+
 	            $m->setResult($result);    
 	            
 	            array_push($corrected, $m);

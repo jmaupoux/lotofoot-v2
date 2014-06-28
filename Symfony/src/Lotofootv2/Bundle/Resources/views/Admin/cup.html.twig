@@ -24,8 +24,6 @@
 	
 	<h3>Correction des matchs</h3>
 	
-	
-	
 	   <form class="form form-horizontal" action="{{ path('_admin_cup_correct') }}" method="post">
 	       <table class="table table-striped">
             <tr>
@@ -36,7 +34,10 @@
                     Équipe A
                 </th>
                 <th>
-                    Score
+                    Score 120'
+                </th>
+                <th>
+                    Résultat Final
                 </th>
                 <th>
                     Équipe B
@@ -54,11 +55,16 @@
                 <td>
                     <input type="text" name="score_{{match.id}}" size="3" autocomplete="off"  style="border:0px" value="{{app.request.get('score_'~match.id)}}"/>                                                           
                 </td>
+                <td>
+                    <input type="text" name="result_{{match.id}}" size="3" autocomplete="off"  style="border:0px" value="{{app.request.get('result_'~match.id)}}"/>                                                           
+                </td>
                 {% else %}
                 <td style="background-color:#65ad61; color:white">
                     Pari en cours<br/>
                     {{match.deadline|date('d/m/Y H:i')}}                                                
-                </td>                
+                </td>
+                <td>
+                </td>              
                 {% endif %}
                 <td>
                     <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}
