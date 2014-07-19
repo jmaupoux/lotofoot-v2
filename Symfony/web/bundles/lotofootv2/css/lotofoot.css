@@ -1873,3 +1873,11 @@ h3{
 .SLM {
     background-position: 0 -1068px;
 }
+
+.login_form_class .form-group{
+    padding-left:30px
+}
+
+.login_form_class .form-group input{
+   
+}
