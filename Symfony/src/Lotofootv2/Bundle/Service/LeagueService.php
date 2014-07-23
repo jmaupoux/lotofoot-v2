@@ -16,6 +16,8 @@ class LeagueService
 	private $logger;
 	private $rewardService;
 	
+	private $current_season = 2;
+	
 	public function __construct(EntityManager $em, Logger $logger, RewardService $rewardService)
     {
         $this->em = $em;
@@ -296,7 +298,7 @@ class LeagueService
     				
     				if($match->getId() == $vote->getLeagueMatchId()){
     					if($match->getScore() == $vote->getScore()){
-    						$votePoints = 3;
+    						$votePoints = 2;
     						$dayScores = $dayScores+1;
     					}
     					if($match->getResult() == $vote->getResult()){
@@ -304,7 +306,7 @@ class LeagueService
     						$dayResults = $dayResults+1;
     					}
     					if($match->getBonus()){
-    						if($votePoints == 4){
+    						if($votePoints == 3){
     							$account->setStatBonuses($account->getStatBonuses()+1);
     							$dayBonus = true;
     						}    						

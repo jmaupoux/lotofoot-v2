@@ -122,7 +122,7 @@ class LeagueDayController extends Controller
 		};
 		
 		//$arr = array('attonnnn@gmail.com', 'tom.lann10@gmail.com');//test purpose
-		array_map($email, $accounts);
+		$arr = array_map($email, $accounts);
     	
     	$message = \Swift_Message::newInstance()
 	        ->setSubject('[Lotofoot] Nouvelle journée')
@@ -175,6 +175,11 @@ class LeagueDayController extends Controller
     	$matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());
     	
     	for($i=1;$i<=13;$i++){
+    		
+    		if($request->request->get('score_'.$matches[$i-1]->getId()) == 'X-X'){
+    			continue;
+    		}
+    		
     		$error = null;
     		if(! LotofootUtil::validScore($request->request->get('score_'.$matches[$i-1]->getId()))){
     			return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', 
@@ -186,10 +191,15 @@ class LeagueDayController extends Controller
     		$score = LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i-1]->getId()));
     		$matches[$i-1]->setScore($score);
     		
-    		$score = preg_split("/-/", $score);
+    		$result = 'X';
     		
-    		$result = (intval($score[0]) > intval($score[1]))? '1' :
-    				(intval($score[0]) < intval($score[1]) ? '2' : 'N');	
+    		if($score == 'X-X'){
+    			$result = 'X';
+    		}else{
+    			$score = preg_split("/-/", $score);
+                $result = (intval($score[0]) > intval($score[1]))? '1' :
+                    (intval($score[0]) < intval($score[1]) ? '2' : 'N');    
+    		}
     		
     		$matches[$i-1]->setResult($result);
     	}
