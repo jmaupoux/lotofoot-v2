@@ -1,0 +1,55 @@
+
+/*********************************************/
+/*                   Layout                  */
+/*********************************************/
+
+html {
+    display: table;
+    height: 100%;
+    width: 100%;}
+
+body{
+	display: table-cell;
+    vertical-align: middle;
+    background: rgb(55,46,50);
+	background-image: url(../img/bg.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover; /* pour Chrome et Safari */
+ 	-moz-background-size: cover; /* pour Firefox */
+    -o-background-size: cover; /* pour Opera */
+    background-size: cover; /* version standardisée */
+	background-position: center 0;
+	font-family: "Open Sans", "Trebuchet MS", arial, verdana, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	background-attachment: fixed;}
+		
+
+/*********************************************/
+/*                  Login                    */
+/*********************************************/
+
+.login-box-bottom{
+	background: none repeat scroll 0 0 rgb(64, 55, 59);
+	box-shadow: 6px 6px 20px black;
+	color: rgb(255, 255, 255);
+	border:2px solid white;
+	border-top:0;}
+
+.login-field{
+	padding: 20px;}
+
+.login-connexion{
+	padding: 42px 20px 20px 20px;}
+
+.login-btn-connexion{
+	width: 100%;}
+
+.login-link{
+	padding: 35px 20px 20px 20px;}
+	
+.login-link a{
+	color:white;}
+}
+	
+	

@@ -7,10 +7,10 @@
 
 {% block body %}
     
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-offset-3 col-md-6">
-                <div>
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                <div>                
                 <!-- errors -->
 	                {% if error %}
 	                <div class="error">{{ error.message }}</div>
@@ -24,40 +24,47 @@
 		                <br/>
 		            {% endif %}
 	            </div>
+	            
 	            <!-- box -->
 	            <!-- top -->
-	            <div style="text-align: center">
+	            <div>
 	               <img src="{{ asset('bundles/lotofootv2/img/login-logo.jpg')}}" class="img-responsive" style="display:inline;width:100%"/>
 	            </div>
 	            <!-- bottom -->
-	            <div class="login_form_class" style="background: none repeat scroll 0 0 rgb(64, 55, 59);box-shadow: 6px 6px 20px black;color: rgb(255, 255, 255);border:2px solid white;border-top:0">
-	               <form action="{{ path('_login_check') }}" method="post" class="">
-	                   <div class="row" style="height: 100%;display: table-row;">
-	                       <div class="col-sm-6" style="display: table-cell;float: none;">
-				                <div class="form-group">
-								    <label class="control-label" for="_username">Pseudo</label>
-								    <input type="text" id="_username" name="_username" value="{{last_username}}" placeholder="Nom d'utilisateur" class="form-control input-sm"/>
-								</div>
-								<div class="form-group">
-		                            <label class="control-label" for="_pass">Mot de passe </label>
-		                            <input type="password" id="_password" name="_password" class="form-control input-sm" />
-		                        </div>
-			           
-			                    <input type="hidden" name="_target_path" value="/home" />
-			                </div>
-			                <div class="col-sm-6" style="display: table-cell;float: none;vertical-align: bottom;">
-			                    <button class="btn btn-default" type="submit" class="btn" value="">Connexion au LotoFoot</button>
-			                     <div class="row">
-                                   <div class="col-lg-6" style="padding:0">
-                                       <a class="lien-login"  href="{{path('_register')}}">Créer un compte</a>
-                                   </div>
-                                   <div class="col-lg-6" style="padding:0">
-                                       <a class="lien-login" href="{{path('_password_lost')}}">Mot de passe oublié</a>
-                                   </div>
-                                </div>
-			                </div>
-			            </div>
-		            </form>
+	           <div class="login-box-bottom">	           
+	          
+	               <form action="{{ path('_login_check') }}" method="post" >
+	               
+		               <div class="row"> 
+		               
+		               	<div class="col-sm-6">
+		               	
+		               		<div class="login-field">
+							    <label for="_username">Pseudo</label>
+							    <input type="text" id="_username" name="_username" value="{{last_username}}" placeholder="Nom d'utilisateur" class="form-control input-sm"/>
+							</div>
+							
+							<div class="login-field">
+	                            <label class="control-label" for="_pass">Mot de passe </label>
+	                            <input type="password" id="_password" name="_password" class="form-control input-sm" />
+	                        </div>
+		           
+		                    <input type="hidden" name="_target_path" value="/home" />
+		               	</div>
+		               	
+		               	<div class="col-sm-6">
+		               		<div class="login-connexion">
+		               			<button type="submit" class="btn btn-default login-btn-connexion" value="">Connexion au LotoFoot</button>
+							</div>
+		               		<div class="login-link">
+		               			<a href="{{path('_register')}}">Créer un compte</a><br/>
+		               			<a href="{{path('_password_lost')}}">Mot de passe oublié</a>
+		               		</div>
+		               	</div>
+		               	
+		               </div>
+	              	             
+		           </form>
 	            </div>
             </div>
         </div>

@@ -1,33 +1,25 @@
 <!DOCTYPE HTML>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-        <title>Lotofoot !</title>
-        <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/jquery-1.8.1.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/bootstrap.min.js')}}"></script>
-		<script type="text/javascript">
-			jQuery.noConflict();
-		</script>
+<html lang="fr">
+
+    <head>        
+        <title>Connexion au Lotofoot !</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<link rel="shortcut icon" type="image/ico" href="{{ asset('bundles/lotofootv2/favicon.ico') }}"/>
+		<link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/normalize.css') }}" />
 	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/bootstrap.min.css') }}" />
-	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/lotofoot.css') }}" />
+	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/lotofoot2.css') }}" />
     </head>
-    <body>
-        {% block navibar %}
-		{% endblock %}
-
-	    
-	        <div id="content">
-
-				{% block body %}
-				{% endblock %}
-
-	</div>
-	
-		{% block footer %}
-		{% endblock %}
+    
+    <body>    
+		{% block body %}
+		{% endblock %}	
 		
+	    <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/jquery-1.8.1.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/bootstrap.min.js')}}"></script>
+		<script type="text/javascript">jQuery.noConflict();</script>	
 	</body>
+	
 </html>
