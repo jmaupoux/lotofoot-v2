@@ -1,0 +1,74 @@
+{# src/Lotofootv2/Bundle/Resources/views/Hello/index.html.twig #}
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<img style="padding-bottom:15px" src="{{ asset('bundles/lotofootv2/img/anim3.gif') }}"/>
+	<div class="title-body">
+		{% if news is not null%}
+			<a class="prev" href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+		{% endif %}
+		
+		<div class="ligne-body-left">&nbsp;</div>
+		{% if news is not null%}
+			{{news.title}}
+		{% else %}
+			{{ 'home.welcome' | trans }}
+		{% endif %}
+		
+		{% if news is not null%}
+		<a class="next" href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+		{% endif %}
+		<div class="ligne-body-right">&nbsp;</div>
+	</div>
+	
+{% endblock %}
+	
+{% block body %}
+	
+	{% if news is not null%}
+		{{ news.date|date("d/m/Y") }}
+		{% autoescape false %}
+			{{news.text}}
+		{% endautoescape %}
+	{% else %}
+		 {{ 'home.nonews' | trans }}
+	{% endif %}
+	
+	<br/>
+	<div class="top-comment">
+		<div class="titre-comment">
+		<img src="{{ asset('bundles/lotofootv2/img/titre-comment.png') }}"/>
+		</div>
+	</div>
+	<form action="{{ path('_home_news_postcomm') }}" method="POST">
+       <textarea class="champs-comment" rows="3" name="text" maxlength="512"></textarea>
+       <input class="btn-comment" type="submit" value="Ajouter"></input>
+    </form>
+    
+	<div class="stop-float"><br/></div>
+	{% if comms is defined and comms is not null %}
+	   {% for comm in comms %}
+		   
+		   <div class="comment{{(loop.index%2+1)}}">
+		      <span class="auteur-comment">{{comm.author}}({{app.request.get('acc_'~comm.author)}})</span> - <span class="date-comment">le {{comm.date | date("d/m/Y à H:i")}}</span><br/>
+		      {{comm.text|replace({"\\'" : "'"})}}
+		   </div>
+
+	   {% endfor %}
+	{% endif %}
+	
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

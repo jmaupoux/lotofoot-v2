@@ -12,7 +12,7 @@ body{
 	display: table-cell;
     vertical-align: middle;
     background: rgb(55,46,50);
-	background-image: url(../img/bg.jpg);
+	/*background-image: url(../img/bg.jpg);*/
 	background-repeat: no-repeat;
 	-webkit-background-size: cover; /* pour Chrome et Safari */
  	-moz-background-size: cover; /* pour Firefox */
@@ -49,7 +49,82 @@ body{
 	padding: 35px 20px 20px 20px;}
 	
 .login-link a{
-	color:white;}
-}
+	color:white;}	
+
+
+/*********************************************/
+/*                  Navbar                   */
+/*********************************************/
+
+.navbar-profile{
+	height:18px;
+	width:18px;}
 	
+.navbar-element{
+	color:white;
+	padding: 15px 20px 15px 20px;}
+	
+.logo-disconnect{
+	float: right;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 19px;
+	height: 22px;
+	padding-top: 15px;}
+
+
+.tooltip{
+	position:absolute;
+	z-index:1030;
+	display:block;
+	font-size:11px;
+	line-height:1.4;
+	opacity:0;
+	filter:alpha(opacity=0);
+	visibility:visible;}
+
+.tooltip.in{
+	opacity:.8;
+	filter:alpha(opacity=80);}
+	
+.tooltip.top{
+	padding:5px 0;
+	margin-top:-3px;}
+
+.tooltip.right{
+	padding:0 5px;
+	margin-left:3px;}
+
+.tooltip.bottom{
+	padding:5px 0;
+	margin-top:3px}
+
+.tooltip.left{
+	padding:0 5px;
+	margin-left:-3px}
+
+.tooltip-inner{
+	max-width:200px;
+	padding:8px;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#000;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px}
+
+.tooltip-arrow{
+	position:absolute;width:0;height:0;border-color:transparent;border-style:solid}.tooltip.top .tooltip-arrow{bottom:0;left:50%;margin-left:-5px;border-top-color:#000;border-width:5px 5px 0}.tooltip.right .tooltip-arrow{top:50%;left:0;margin-top:-5px;border-right-color:#000;border-width:5px 5px 5px 0}.tooltip.left .tooltip-arrow{top:50%;right:0;margin-top:-5px;border-left-color:#000;border-width:5px 0 5px 5px}.tooltip.bottom .tooltip-arrow{top:0;left:50%;margin-left:-5px;border-bottom-color:#000;border-width:0 5px 5px}
+
+
+/*********************************************/
+/*               Couleurs                    */
+/*********************************************/
+
+.color-white{
+	color:white;}
+	
+.navbar-brand{
+	color:white;}
 	
