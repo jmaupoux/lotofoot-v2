@@ -12,7 +12,7 @@ body{
 	display: table-cell;
     vertical-align: middle;
     background: rgb(55,46,50);
-	/*background-image: url(../img/bg.jpg);*/
+	background-image: url(../img/bg.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover; /* pour Chrome et Safari */
  	-moz-background-size: cover; /* pour Firefox */
@@ -23,6 +23,13 @@ body{
 	font-size: 14px;
 	margin: 0;
 	background-attachment: fixed;}
+
+.bg-transparent{
+	opacity:0.85;
+    filter:alpha(opacity=85); 
+    background: rgb(255,255,255);
+    box-shadow: 6px 0px 15px black;  
+    min-height: 683px;}
 		
 
 /*********************************************/
@@ -61,17 +68,35 @@ body{
 	width:18px;}
 	
 .navbar-element{
-	color:white;
-	padding: 15px 20px 15px 20px;}
+	color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px 20px 5px 20px;
+	border-left: 1px solid white;
+	height: 35px;
+	float:left;}
 	
-.logo-disconnect{
+.navbar-brand{
+	color:white !important;}
+
+.icons{
 	float: right;
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 19px;
 	height: 22px;
-	padding-top: 15px;}
+	padding-top: 15px;
+	width:auto;}
 
+/* @media (max-width: 859px) { */
+/* .cache{ */
+/* 	diplay:none;}} */
+
+.icon-disconnect{
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;}
 
 .tooltip{
 	position:absolute;
@@ -117,14 +142,253 @@ body{
 .tooltip-arrow{
 	position:absolute;width:0;height:0;border-color:transparent;border-style:solid}.tooltip.top .tooltip-arrow{bottom:0;left:50%;margin-left:-5px;border-top-color:#000;border-width:5px 5px 0}.tooltip.right .tooltip-arrow{top:50%;left:0;margin-top:-5px;border-right-color:#000;border-width:5px 5px 5px 0}.tooltip.left .tooltip-arrow{top:50%;right:0;margin-top:-5px;border-left-color:#000;border-width:5px 0 5px 5px}.tooltip.bottom .tooltip-arrow{top:0;left:50%;margin-left:-5px;border-bottom-color:#000;border-width:0 5px 5px}
 
+/*********************************************/
+/*                  Menu                     */
+/*********************************************/
+.menu-content{
+	width: 868px;
+	height: 90px;
+	filter:alpha(opacity=100); 
+	display: inline-block;
+	vertical-align: top;
+	margin-top: -1px;
+	margin-right: 0;
+	margin-left: -5px;
+	list-style: none;
+	padding: 0;
+}
+
+.menu-navigation{
+	display: inline-block;
+	margin:0;
+	padding:0;
+}
+
+.logo-ballon{
+	background-image: url(../img/logo-ballon.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 0;
+	margin-top: 0;
+	width: 85px;
+	height: 90px;
+	-webkit-transition: All .8s ease;
+	-moz-transition: All .8s ease;
+	-o-transition: All .8s ease;
+	-webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
+	-moz-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
+	-o-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
+}
+
+.logo-ballon:hover{
+	-webkit-transform: rotate(180deg) scale(0.5) skew(0deg) translate(0px);
+	-moz-transform: rotate(180deg) scale(0.5) skew(0deg) translate(0px);
+	-o-transform: rotate(180deg) scale(0.5) skew(0deg) translate(0px);
+	}
+
+.logo-lotofoot{
+	background-image: url(../img/logo-lotofoot.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	vertical-align: top;
+	margin: 12px 0 9px 19px;
+	width: 868px;
+	height: 31px;	
+}
+
+.menu-1-accueil{
+	background-repeat: no-repeat;
+	float:left;
+	width: 120px;
+	height: 38px;
+	margin: 0;
+	list-style: none;
+}
+
+
+.menu-2-championnat{
+	background-image: url(../img/menu-2-championnat.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 133px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+}
+
+
+.menu-2-championnat:hover{
+	background-image: url(../img/menu-2-championnat-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 133px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.menu-3-championsleague{
+	background-image: url(../img/menu-3-championsleague.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 173px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-3-championsleague:hover{
+	background-image: url(../img/menu-3-championsleague-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 173px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.menu-4-coupedumonde{
+	background-image: url(../img/menu-4-coupedumonde.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 156px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-4-coupedumonde:hover{
+	background-image: url(../img/menu-4-coupedumonde-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 156px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.menu-5-calendar{
+	background-image: url(../img/menu-5-calendrier.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 132px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-5-calendar:hover{
+	background-image: url(../img/menu-5-calendrier-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 132px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+	cursor: pointer;
+}
+
+
+.menu-6-stats{
+	background-image: url(../img/menu-6-stats.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 153px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+}
+
+.menu-6-stats:hover{
+	background-image: url(../img/menu-6-stats-hoover.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 153px;
+	height: 38px;
+	margin-top: 2px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.submenu-2-championnat{
+	margin-top: 38px;
+	text-align: center;
+	padding: 0;
+}
+
+
+
+.submenu-3-championsleague{
+	margin-top: 38px;
+	margin-left: 20px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu-4-coupedumonde{
+	margin-top: 38px;
+	margin-left: 20px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu-6-stats{
+	margin-top: 40px;
+	margin-left: 700px;
+	text-align: center;
+	padding: 0;
+}
+
+.submenu{
+	width: 134px;
+	height: 24px;
+	background-image: url(../img/sub-menu-bg.jpg);
+	background-repeat: repeat-x;
+	position: relative;
+	z-index: 4;
+	list-style: none;
+	color: white;
+	border: 1px solid rgb(55,46,50);
+	display: block;
+}
+
+.submenu:hover{
+	width: 134px;
+	height: 24px;
+	background-color: white;
+	background-image: none;
+	list-style: none;
+	color: rgb(55,46,50);
+	border: 1px solid rgb(55,46,50);
+	cursor: pointer;
+}
+
+a.menu-lien{
+	width: 134px;
+	height: 24px;
+	text-decoration:none;
+	color:white;
+	display: block;
+	}
+
+a.menu-lien:hover{	
+	color: rgb(55,46,50);
+	cursor: pointer;
+}
+
 
 /*********************************************/
-/*               Couleurs                    */
+/*                 Divers                    */
 /*********************************************/
 
-.color-white{
-	color:white;}
-	
-.navbar-brand{
-	color:white;}
+.nofloat{
+	clear:both;}
+
+.margin-container{
+	margin-top:55px !important;
+	padding-top:10px !important;}
 	
