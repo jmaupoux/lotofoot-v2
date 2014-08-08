@@ -1,6 +1,7 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
+  <a href="{{ path('_logout') }}"><img class="icon-disconnect tooltip-on" data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}" title="Déconnexion"/></a>
     <div class="navbar-header">
 
 	   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,11 +9,13 @@
 	       <span class="icon-bar"></span>
 	       <span class="icon-bar"></span>
 	    </button>
-      <div class="navbar-brand">{{'navibar.hello' | trans}} {{ app.user.username }}&nbsp;&nbsp;
-      <a href="{{ path('_profile') }}"><img class="navbar-profile" src="{{ asset('bundles/lotofootv2/img/profile-icon.png') }}" title="Mon compte"/></a>&nbsp;&nbsp;
-      <a href="{{ path('_logout') }}"><img src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}" title="Déconnexion"/></a>
+      <div class="navbar-brand">
+	      <a href="{{ path('_home') }}"><img class="navbar-profile icon-home" src="{{ asset('bundles/lotofootv2/img/icon-home.png') }}" title="Accueil"/></a>&nbsp;
+	      {{'navibar.hello' | trans}} {{ app.user.username }}&nbsp;&nbsp;
+	      <a href="{{ path('_profile') }}"><img class="navbar-profile" src="{{ asset('bundles/lotofootv2/img/profile-icon.png') }}" title="Mon compte"/></a>
       </div>
     </div>
+    
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
 		<li><div class="navbar-element"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-podium.png') }}" title="Classement"/> : 
@@ -28,7 +31,7 @@
         </li>
         <li>
         	<div class="navbar-element">
-        	    Mes médailles :      	
+        	    <span class="visible-xs" style="float:left;">Mes médailles : </span>      	
 		        {% for r in rewards(app.user.id)%}
 					<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~r.rewardId~'.png') }}" 
 						class="tooltip-on"
