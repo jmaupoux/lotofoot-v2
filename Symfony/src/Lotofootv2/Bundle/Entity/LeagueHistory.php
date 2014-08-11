@@ -20,7 +20,8 @@ class LeagueHistory
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+    
     /**
      * @var integer
      *

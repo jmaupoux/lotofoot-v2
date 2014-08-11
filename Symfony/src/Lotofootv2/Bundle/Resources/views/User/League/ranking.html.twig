@@ -9,15 +9,22 @@
 {% endblock %}
 
 {% block title_body %}
-	<div class="title-body">
-		<a class="btn-admin" href="{{ path('_league_ranking')}}">Classement général</a>&nbsp;&nbsp;&nbsp;
-		<a class="btn-admin" href="{{ path('_league_ranking_day')}}">Classement par journée</a>
-	</div>
+	<div class="row">
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 title-body">
+				Classement Championnat 2014-2015
+			</div>
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+		</div>
 {% endblock %}
 
 {% block body %}
-	
-	<table>
+<div class="row">	
+	<table class="table-striped vote">
 		<tr>
 			<th>Rang</th>
 			<th>Joueur</th>
@@ -37,7 +44,7 @@
 				{{account.rank}}
 			{% endif %}
 			</td>
-			<td>{{account.username}} {% if account.cagnoute == 1 %}<img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute.png') }}" style="margin-top:2px;"/>{% endif %}</td>
+			<td style="text-align:left;">{{account.username}} {% if account.cagnoute == 1 %}<img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute.png') }}"/>{% endif %}</td>
 			<td>{{account.points}}</td>
 			<td>{{account.statDays}}</td>
 			<td>{{account.statBonuses}}</td>
@@ -50,12 +57,14 @@
 				{% elseif account.progression < 0 %}
 					<img src="{{ asset('bundles/lotofootv2/img/rank_down.png') }}" style="padding-bottom:5px;width:16px;float:left"/>
 					{{account.progression}}
+				{% else %}
+					=
 				{% endif %}
 			</td>
 		</tr>
 		{% endfor %}
 	</table>
-	
+</div>	
 {% endblock %}
 
 {% block footer %}

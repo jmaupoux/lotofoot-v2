@@ -19,13 +19,13 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
 		<li><div class="navbar-element"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-podium.png') }}" title="Classement"/> : 
-			{% if app.user.cupRank == 99 %}
+			{% if app.user.Rank == 99 %}
 				-
 			{% else %}
-				{{app.user.cupRank}}
+				{{app.user.Rank}}
 			{% endif %}			
         	&nbsp;&nbsp;-&nbsp;&nbsp;
-        	<img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-score.png') }}" title="Score"/>  : {{ app.user.cupPoints }}
+        	<img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-score.png') }}" title="Score"/>  : {{ app.user.Points }}
         	&nbsp;&nbsp;-&nbsp;&nbsp;
         	<img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-cagnoute.png') }}" title="Cagnoute"/> : {{pot()*10}} €</div>
         </li>

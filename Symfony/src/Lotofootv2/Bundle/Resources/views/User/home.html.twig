@@ -11,25 +11,35 @@
 {% endblock %}
 
 {% block title_body %}
-
-	<div class="title-body">
-		{% if news is not null%}
-			<a class="prev" href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
-		{% endif %}
-		
-		<div class="ligne-body-left">&nbsp;</div>
-		{% if news is not null%}
-			{{news.title}}
-		{% else %}
-			{{ 'home.welcome' | trans }}
-		{% endif %}
-		
-		{% if news is not null%}
-		<a class="next" href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
-		{% endif %}
-		<div class="ligne-body-right">&nbsp;</div>
+	<div class="row">
+		<img class="img-responsive" style="display:inline;width:100%; padding-bottom:25px" src="{{ asset('bundles/lotofootv2/img/anim1.gif') }}"/>
 	</div>
-	
+	<div class="row">
+		<div class="col-xs-1" style="padding:0">
+		{% if news is not null%}
+			<a href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
+		{% endif %}
+		</div>
+		<div class="col-sm-3 hidden-xs">
+			<div class="ligne-body">&nbsp;</div>
+		</div>
+		<div class="col-sm-4 col-xs-10 title-body">
+			{% if news is not null%}
+				{{news.title}}
+			{% else %}
+				{{ 'home.welcome' | trans }}
+			{% endif %}
+		</div>
+		<div class="col-sm-3 hidden-xs">
+			<div class="ligne-body">&nbsp;</div>
+		</div>
+		<div class="col-xs-1" style="padding:0">
+		{% if news is not null%}
+			<a href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
+		{% endif %}
+		</div>
+
+	</div>
 {% endblock %}
 	
 {% block body %}

@@ -44,27 +44,33 @@
 						
 						<img src="{{ asset('bundles/lotofootv2/img/rewards/r1.png') }}"/> &nbsp;&nbsp;&nbsp;<strong>Bravo!</strong><br/> Vous êtes le meilleur joueur de la dernière journée, vous pouvez adresser une punchline qui sera affichée à tous les autres parieurs (max 150 caractères):<br/><br/>
 						
-						<div class="row" style="margin:0!important; text-align:center;">
-							<textarea name="word" style="width:100%;height:50px;" maxlength="150">{{leagueDay.word}}</textarea>					
-							<input type="submit" class="btn-admin" value="Publier"/>
+						<div style="text-align: center">
+						<textarea name="word" style="width:600px;height:50px; float:left" maxlength="150">{{leagueDay.word}}</textarea><br/>
 						</div>
-
+						<div class="control-group">
+							<div class="controls">
+								 <input type="submit" class="btn-admin" style="clear:both;" value="Diffuser"/>
+							</div>
+						</div>
+						<div style="clear:both"></div>
 					</form>
 				{% endif %}
 			{% else %}
 			
 				{% if leagueDay.word is not null %}
-					<div class="row">
-						<fieldset class="form-punchline">
-							<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
-							<blockquote style="padding:0 20px; margin:0; font-style:italic;" >&ldquo; {{leagueDay.word}} &rdquo;</blockquote><br/>
-							<span class="king-punchline-sign">- {{leagueDay.kingTag}} -</span>
-						</fieldset>
-					</div>
+					
+					<fieldset class="king-punchline">
+						<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
+						"{{leagueDay.word}}"<br/>
+						<span class="king-punchline-sign">- {{leagueDay.kingTag}} -</span>
+					</fieldset>
+				
 				{% endif %}
-		{% endif %}	
+			
+			{% endif %}
+		
 		<br/>
-		<div class="row" style="text-align:center;">Date limite pour voter à cette journée : 
+		<div class="date-limite">Date limite pour voter à cette journée : 
 			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
 			<input type="button" class="btn-admin tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
 			
@@ -80,56 +86,57 @@
 		</div>
 		<br/><br/>
 		
-		<div class="row">
-			<form action="{{ path('_league_vote_post') }}" method="post">
-	
-				<table class="table-striped vote">
-					<tr>
-						<th>N°</th>
-						<th>Domicile</th>
-						<th>1</th>
-						<th>N</th>
-						<th>2</th>
-						<th>Extérieur</th>
-						<th>Score parié</th>
-					</tr>
-					{% for match in matches %}
-					<tr {{(match.bonus)?'class="bonus"':''}}>
-						<td>
-							{% if match.bonus == true %}
-							<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
-							{% endif %}
-							{{match.number}}
-							{% if match.bonus == true %}
-							<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
-							{% endif %}
-						</td>
-						<td>
-							{{match.teamHome}}
-						</td>
-						<td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
-							{% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
-						<td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
-							{% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
-						<td><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
-							{% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
-						
-						<td>
-							{{match.teamVisitor}}
-						</td>
-						<td>	
-							<input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px;color:#333;text-align:center;" placeholder="x-x"/>
-						</td>
-					</tr>
-					{% endfor %}
-				</table>
+		<form action="{{ path('_league_vote_post') }}" method="post" style="width:800px;margin:auto">
 
-				<div class="row"  style="text-align:center;">
-					<input type="submit" class="btn-admin" value="Valider vos votes pour la journée !"/>
+			<table>
+				<tr>
+					<th>N°</th>
+					<th>Domicile</th>
+					<th>1</th>
+					<th>N</th>
+					<th>2</th>
+					<th>Extérieur</th>
+					<th>Score parié</th>
+				</tr>
+				{% for match in matches %}
+				<tr {{(match.bonus)?'style="background-color:rgb(82,96,200);color:white;"':''}}>
+					<td>
+						{% if match.bonus == true %}
+						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+						{% endif %}
+						{{match.number}}
+						{% if match.bonus == true %}
+						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+						{% endif %}
+					</td>
+					<td>
+						{{match.teamHome}}
+					</td>
+					<td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
+						{% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
+					<td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
+						{% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
+					<td><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
+						{% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
+					
+					<td>
+						{{match.teamVisitor}}
+					</td>
+					<td>	
+						<input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px" placeholder="x-x"/>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+			
+			<div class="control-group">
+				<div class="controls">
+					 <input type="submit" class="btn-vote" value="Valider vos votes pour la journée !"/>
 				</div>
-				
-			</form>
-		</div>
+			</div>
+			<div style="clear:both"></div>
+		</form>
+	
 	{% endif %}
 	</div>	
 	<script type="text/javascript">
