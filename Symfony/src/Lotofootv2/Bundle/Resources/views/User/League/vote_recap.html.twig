@@ -33,38 +33,9 @@
 {% block body %}
 	
 	<style type="text/css">	
-		 .vote{
-		 	background-color:rgb(55,46,50);
-		 }
-		 .result{
-		 	
-		 }
-		 .vote.result{
-		 	background-color:rgb(64,200,83);
-		 }
-		 .vote.noresult{
-		 	background-color:gray;
-		 }
 		 
-		 .notcorrected .vote.result, .notcorrected .vote.noresult, .notcorrected .scoreok{
-		 	background-color:inherit;
-		 	color:inherit;
-		 }
-		 
-		 td.invisible{
-		 	border-left:none;
-		 	border-right:none;
-		 	border-bottom:none
-		 }
-		 .total{
-		 	color:white;
-		 	background-color:rgb(201,18,22);
-		 	font-weight:bold
-		 }
-		 .scoreok{
-		 	background-color:rgb(64,200,83);
-		 	color:white;
-		 }
+
+
 	</style>
 	
 	{% if leagueDay.corrected == false %}
@@ -75,15 +46,17 @@
 	
 	{% if leagueDay.word is not null and leagueDay.word != '' %}
 					
-		<fieldset class="king-punchline">
-			<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
-			"{{leagueDay.word}}"<br/>
-			<span class="king-punchline-sign">- {{leagueDay.kingTag}} -</span>
-		</fieldset>
-		<br/><br/>
+		<div class="row">
+			<fieldset class="form-punchline">
+				<legend class="king-punchline-legend">&nbsp;La PunchLine du KING&nbsp;</legend>
+				<blockquote style="padding:0 20px; margin:0; font-style:italic;" >&ldquo; {{leagueDay.word}} &rdquo;</blockquote><br/>
+				<span class="king-punchline-sign">- {{leagueDay.kingTag}} -</span>
+			</fieldset>
+		</div>
 	{% endif %}
-
-	<table class="table table-striped {% if leagueDay.corrected == false %} notcorrected {% endif %}">
+	<br/>
+	<div class="row">
+	<table class="table-striped vote {% if leagueDay.corrected == false %} notcorrected {% endif %}">
 		<tr>
 			<th>N°</th>
 			<th>Domicile</th>
@@ -96,7 +69,7 @@
 			<th>Points</th>
 		</tr>
 		{% for match in matches %}
-		<tr {{(match.bonus)?'style="background-color:rgb(82,96,200);color:white;"':''}}>
+		<tr {{(match.bonus)?'class="bonus"':''}}>
 					<td>
 						{% if match.bonus == true %}
 						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
@@ -138,7 +111,7 @@
 			<td class="total">{{total}}</td>
 		</tr>
 	</table>
-	<br/>
+	</div>
 {% endblock %}
 
 {% block footer %}
