@@ -118,7 +118,7 @@
 							{{match.teamHome}}
 						</td>
 						<!-- deadline past -->
-	                    {% if match.deadline < new Datetime() %}
+	                    {% if match.deadline < date() %}
 	                    <td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
 	                        {% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
 	                    <td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
@@ -134,12 +134,15 @@
 							{{match.teamVisitor}}
 						</td>
 						<td>
-						{% if match.deadline < new Datetime() %}
+						{% if match.deadline < date() %}
 						      <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px;color:#333;text-align:center;" placeholder="x-x"/>
 						{% else %}
 							{{ app.request.get('score_'~match.id) }}
 					     {% endif %}
 						</td>
+						<td>
+                            {{match.deadline|date("d/m/Y H:i")}}
+                        </td>
 					</tr>
 					{% endfor %}
 				</table>
