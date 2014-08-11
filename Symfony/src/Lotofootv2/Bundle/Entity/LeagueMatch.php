@@ -72,6 +72,13 @@ class LeagueMatch
 
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deadline", type="datetime")
+     */
+    private $deadline;
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -241,4 +248,28 @@ class LeagueMatch
     {
         return $this->result;
     }
+    
+    
+    /**
+     * Set deadline
+     *
+     * @param \DateTime $deadline
+     */
+    public function setDeadline($deadline)
+    {
+        $this->deadline = $deadline;
+    
+        return $this;
+    }
+
+    /**
+     * Get deadline
+     *
+     * @return \DateTime 
+     */
+    public function getDeadline()
+    {
+        return $this->deadline;
+    }
+    
 }

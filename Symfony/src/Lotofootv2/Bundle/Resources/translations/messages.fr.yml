@@ -44,6 +44,9 @@ rewards:
     r15:
         title: LA CAGNOUTE WORLD CUP
         desc: Vous avez payé le droit de conquérir à la cagnoute suprême pour la Coupe du Monde
+    r16:
+        title: ADDICT
+        desc: Le mec qui lâche pas le lotofoot !
                 
 navibar:
     hello: Bienvenue

@@ -44,6 +44,14 @@ class VoteController extends Controller
     	if($leagueDay->getDeadline() > new DateTime()){
     		return $this->voteOpenAction($request, $leagueDay);
     	}else{
+    		$matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());
+    		
+	    	for($i=0;$i<count($matches);$i++){
+	            if($matches[$i]->getDeadline() > new Datetime()){
+	            	return $this->voteOpenAction($request, $leagueDay);
+	            }
+	    	}
+    		
     		return $this->redirect($this->generateUrl('_league_vote_recap', array('d'=>$leagueDay->getNumber())));
     	}
     }
@@ -154,12 +162,6 @@ class VoteController extends Controller
     public function voteAction(Request $request)
     {	
     	$day = $this->get('league_service')->getOpenedLeagueDay();
-    
-		$closed = ($day->getDeadline() < new DateTime());
-
-		if($closed){
-			return $this->redirect($this->generateUrl('_league_vote'));
-		}
 		
 		$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
     
@@ -168,6 +170,9 @@ class VoteController extends Controller
 		$full = 1;
 		
 		for($i=0;$i<count($matches);$i++){
+			if($matches->getDeadline() < new DateTime()){
+				continue;
+			}
 			
 			if(LotofootUtil::clearSpaces($request->request->get('score_'.$matches[$i]->getId())) != '' 
 				&& ! LotofootUtil::validScore($request->request->get('score_'.$matches[$i]->getId()))){

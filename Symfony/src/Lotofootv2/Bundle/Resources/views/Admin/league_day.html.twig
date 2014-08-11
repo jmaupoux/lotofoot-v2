@@ -19,6 +19,8 @@
 {% block body %}
 	<div class="stop-float"></div>
 
+    <a href="{{ path('_admin_league_day_test') }}"> test</a>
+
 	{% if leagueDay is not defined or leagueDay is null %}
 		
 		{% include 'Lotofootv2Bundle:Admin/_chunks_league_day:new.html.twig' %}

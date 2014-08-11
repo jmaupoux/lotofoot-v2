@@ -486,4 +486,15 @@ class LeagueService
 		
 		return $query->getResult();
     }
+    
+    public function test(){
+        $query = $this->em->createQuery(
+            'SELECT a
+            FROM Lotofootv2Bundle:Account a
+            ORDER BY a.id');
+        
+        $accounts = $query->getResult();
+    	
+        $this->rewardService->rewardAddict($accounts);
+    }
 }
