@@ -52,23 +52,12 @@ class LeagueDayController extends Controller
      */
     public function newAction(Request $request)
     {	
-    	$deadline = DateTime::createFromFormat("d/m/Y H:i", $request->request->get('deadline').' '.$request->request->get('deadlineh'));
-	    $dl_errors = DateTime::getLastErrors();
-		if (!empty($dl_errors['warning_count'])) {
-		    return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date incorrecte'));
-		}
-    	
-    	if($deadline == null){
-    		return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date incorrecte'));
-    	}
-    	
-    	if($deadline < new DateTime()){
-    		return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date dans le passé !!'));
-    	}
     	
     	$matches = array();
     	
     	$isbonus = false;
+    	
+    	$firstdeadline = null;
     	
 		for($i=1;$i<=13;$i++){
 			$error = null;
@@ -76,6 +65,20 @@ class LeagueDayController extends Controller
 			$home = $request->request->get('home_'.$i);
 			$visitor = $request->request->get('visitor_'.$i);
 			$bonus = $request->request->get('bonus_'.$i);
+
+			$deadline = DateTime::createFromFormat("d/m/Y H:i", $request->request->get('deadline_'.$i).' '.$request->request->get('deadlineh_'.$i));
+	        $dl_errors = DateTime::getLastErrors();
+	        if (!empty($dl_errors['warning_count'])) {
+	            return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date incorrecte'));
+	        }
+	        
+	        if($deadline == null){
+	            return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date incorrecte'));
+	        }
+	        
+	        if($deadline < new DateTime()){
+	            return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date dans le passé !!'));
+	        }
 			
 			if($home == null || $home == ''){
 				$error = 'L\'équipe Domicile '.$i.' n\'est pas remplie';
@@ -99,13 +102,19 @@ class LeagueDayController extends Controller
 			$match->setTeamVisitor($visitor);
 			$match->setBonus($bonus == 'on');
 			$match->setNumber($i);
+			$match->setDeadline($deadline);
 			
 			array_push($matches, $match);
+			
+			//date du 1er match à parier
+			if($firstdeadline == null || $deadline < $firstdeadline){
+				$firstdeadline = $deadline;
+			}
 		}
     	
-		$this->get('league_service')->newLeagueDay($matches, $deadline);
+		$this->get('league_service')->newLeagueDay($matches, $firstdeadline);
 		
-		$this->mailNewDay($deadline);
+		$this->mailNewDay($firstdeadline);
 		
     	return $this->redirect($this->generateUrl('_admin_league_day'));
     }
@@ -206,6 +215,15 @@ class LeagueDayController extends Controller
 
     	$this->get('league_service')->processLeagueDay($matches);
 		
+    	return $this->redirect($this->generateUrl('_admin_league'));
+    }
+    
+    /**
+     * @Route("/admin/league/day/test", name="_admin_league_day_test")
+     */
+    public function testRewardAction(Request $request){
+    	$this->get('league_service')->test();
+    	
     	return $this->redirect($this->generateUrl('_admin_league'));
     }
 }
