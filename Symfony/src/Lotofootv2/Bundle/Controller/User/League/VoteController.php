@@ -47,7 +47,7 @@ class VoteController extends Controller
     		$matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());
     		
 	    	for($i=0;$i<count($matches);$i++){
-	            if($matches[$i]->getDeadline() > new Datetime()){
+	            if($matches[$i]->getDeadline() > new DateTime()){
 	            	return $this->voteOpenAction($request, $leagueDay);
 	            }
 	    	}
@@ -170,7 +170,7 @@ class VoteController extends Controller
 		$full = 1;
 		
 		for($i=0;$i<count($matches);$i++){
-			if($matches->getDeadline() < new DateTime()){
+			if($matches[$i]->getDeadline() < new DateTime()){
 				continue;
 			}
 			
