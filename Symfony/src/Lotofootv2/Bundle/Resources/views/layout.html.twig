@@ -12,7 +12,7 @@
 	    <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/jquery-1.8.1.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/bootstrap.min.js')}}"></script>
     </head>
-    <body {% if bg_cl is defined and bg_cl == true %} class="body-cl" {% endif %}>
+    <body {% if bg_cl is defined and bg_cl == true %} class="body-cl" {% elseif bg_wc is defined and bg_wc == true %} class="body-wc" {% endif %}>
         {% block navibar %}
 		{% endblock %}
     <div class="container">

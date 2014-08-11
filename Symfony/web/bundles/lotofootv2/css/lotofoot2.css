@@ -24,6 +24,12 @@ body{
 	margin: 0;
 	background-attachment: fixed;}
 
+body.body-cl{
+	background-image: url(../img/bg-cl.jpg);}
+	
+body.body-wc{
+	background-image: url(../img/bg6.jpg);}
+
 .bg-transparent{
 	opacity:0.85;
     filter:alpha(opacity=85); 
@@ -723,7 +729,8 @@ ul, ul ul {
  td.invisible{
  	border-left:none;
  	border-right:none;
- 	border-bottom:none }
+ 	border-bottom:none;
+ 	border-top: 1px solid rgb(55,46,50);}
  	
  .total{
  	color:white;
