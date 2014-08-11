@@ -5,6 +5,11 @@ update lfv2_account set points = 0, rank = 99, progression = 0, stat_days = 0, s
 ALTER TABLE `lfv2_league_history` ADD `season` INT NULL ;
 update lfv2_league_history set season = 1;
 
+--league match
+ALTER TABLE `lfv2_league_match` ADD `deadline` TIMESTAMP NOT NULL ;
+ALTER TABLE `lfv2_league_day` ADD `deadline` TIMESTAMP NOT NULL ;
+ALTER TABLE `lfv2_league_day` DROP `deadline`;
+
 --rewards
 delete from lfv2_reward
 

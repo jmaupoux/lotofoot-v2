@@ -65,6 +65,7 @@ class RewardService
     	$this->rewardEclair($accounts);
     	$this->rewardBourseMolle($accounts);
     	$this->rewardSmoking($accounts);
+    	$this->rewardAddict($accounts);
     	//$this->rewardChampionsLeague($accounts);
     }
     
@@ -208,6 +209,25 @@ class RewardService
     		
     		$this->em->persist($reward);
     	}
+    }
+    
+    public function rewardAddict($accounts){
+        $queryAddicts = $this->em->createQuery(
+            'SELECT max(d.number) as numb from Lotofootv2Bundle:LeagueDay d');
+
+        $max = $queryAddicts->getScalarResult();
+        
+        foreach ($accounts as $acc){
+        	if($acc->getStatDays() == $max[0]['numb']){
+	            $reward = new Reward();
+	            $reward->setAccountId($acc->getid());
+	            $reward->setRewardId(16);
+	            $reward->setType('d');
+	            $this->em->persist($reward);
+        	}
+        }
+        
+        $this->em->flush();
     }
     
     public function reward50($accountId){
