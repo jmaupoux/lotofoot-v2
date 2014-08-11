@@ -30,7 +30,11 @@ body{
     background: rgb(255,255,255);
     box-shadow: 6px 0px 15px black;  
     min-height: 683px;}
-		
+    
+#content{
+		padding: 20px;
+		text-align: justify;
+		background-position:fixed;}
 
 /*********************************************/
 /*                  Login                    */
@@ -206,6 +210,13 @@ padding: 0px 0 !important;}
 /*********************************************/
 /*                  Menu                     */
 /*********************************************/
+
+ .row-menu{
+ 	border-bottom: 2px solid rgb(55,46,50);
+	margin-right: 45px !important;	
+	margin-left: 15px !important;
+	margin-top:5px !important;}
+
 .menu-content{
 	width: 868px;
 	height: 90px;
@@ -219,21 +230,12 @@ padding: 0px 0 !important;}
 	padding: 0;
 }
 
-.menu-navigation{
-	display: inline-block;
-	margin:0;
-	padding:0;
-}
-
 .logo-ballon{
-	background-image: url(../img/logo-ballon.png);
 	background-repeat: no-repeat;
 	display: inline-block;
-	margin-left: 4px;
+	margin-left: 15px;
 	margin-right: 0;
 	margin-top: 0;
-	width: 85px;
-	height: 90px;
 	-webkit-transition: All .8s ease;
 	-moz-transition: All .8s ease;
 	-o-transition: All .8s ease;
@@ -254,209 +256,19 @@ padding: 0px 0 !important;}
 	display: inline-block;
 	vertical-align: top;
 	margin: 12px 0 9px 19px;
-	width: 868px;
+	width: 175px;
 	height: 31px;	
 }
 
-.menu-1-accueil{
-	background-repeat: no-repeat;
-	float:left;
-	width: 120px;
-	height: 38px;
-	margin: 0;
-	list-style: none;
-}
-
-
-.menu-2-championnat{
-	background-image: url(../img/menu-2-championnat.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 133px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-}
-
-
-.menu-2-championnat:hover{
-	background-image: url(../img/menu-2-championnat-hoover.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 133px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-	cursor: pointer;
-}
-
-.menu-3-championsleague{
-	background-image: url(../img/menu-3-championsleague.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 173px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-}
-
-.menu-3-championsleague:hover{
-	background-image: url(../img/menu-3-championsleague-hoover.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 173px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-	cursor: pointer;
-}
-
-.menu-4-coupedumonde{
-	background-image: url(../img/menu-4-coupedumonde.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 156px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-}
-
-.menu-4-coupedumonde:hover{
-	background-image: url(../img/menu-4-coupedumonde-hoover.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 156px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-	cursor: pointer;
-}
-
-.menu-5-calendar{
-	background-image: url(../img/menu-5-calendrier.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 132px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-}
-
-.menu-5-calendar:hover{
-	background-image: url(../img/menu-5-calendrier-hoover.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 132px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-	cursor: pointer;
-}
-
-
-.menu-6-stats{
-	background-image: url(../img/menu-6-stats.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 153px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-}
-
-.menu-6-stats:hover{
-	background-image: url(../img/menu-6-stats-hoover.png);
-	background-repeat: no-repeat;
-	float:left;
-	width: 153px;
-	height: 38px;
-	margin-top: 2px;
-	list-style: none;
-	cursor: pointer;
-}
-
-.submenu-2-championnat{
-	margin-top: 38px;
-	text-align: center;
-	padding: 0;
-}
-
-
-
-.submenu-3-championsleague{
-	margin-top: 38px;
-	margin-left: 20px;
-	text-align: center;
-	padding: 0;
-}
-
-.submenu-4-coupedumonde{
-	margin-top: 38px;
-	margin-left: 20px;
-	text-align: center;
-	padding: 0;
-}
-
-.submenu-6-stats{
-	margin-top: 40px;
-	margin-left: 700px;
-	text-align: center;
-	padding: 0;
-}
-
-.submenu{
-	width: 134px;
-	height: 24px;
-	background-image: url(../img/sub-menu-bg.jpg);
-	background-repeat: repeat-x;
-	position: relative;
-	z-index: 4;
-	list-style: none;
-	color: white;
-	border: 1px solid rgb(55,46,50);
-	display: block;
-}
-
-.submenu:hover{
-	width: 134px;
-	height: 24px;
-	background-color: white;
-	background-image: none;
-	list-style: none;
-	color: rgb(55,46,50);
-	border: 1px solid rgb(55,46,50);
-	cursor: pointer;
-}
-
-a.menu-lien{
-	width: 134px;
-	height: 24px;
-	text-decoration:none;
-	color:white;
-	display: block;
-	}
-
-a.menu-lien:hover{	
-	color: rgb(55,46,50);
-	cursor: pointer;
-}
-
-
-
-/**************************************/
-
 a {
-	text-decoration: none;
-}
+	text-decoration: none;}
+	
 ul, ul ul {
 	margin: 0;
 	padding: 0;
-	list-style: none;
-}
-#content2 {	
-/* 	width: 220px; */
+	list-style: none;	}
+	
 
-}
 .menu {
 	width: auto;
 	height: auto;
@@ -481,12 +293,6 @@ ul, ul ul {
 	-webkit-border-top-right-radius:10px;
 	-moz-border-radius-topright:10px;
 	border-top-right-radius:10px;
-/* 	-webkit-border-bottom-right-radius:6px; */
-/* 	-moz-border-radius-bottomright:6px; */
-/* 	border-bottom-right-radius:6px; */
-/* 	-webkit-border-bottom-left-radius:6px; */
-/* 	-moz-border-radius-bottomleft:6px; */
-/* 	border-bottom-left-radius:6px; */
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#727a86', EndColorStr='#505864');
 	border-bottom: 1px solid #33373d;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #878e98;
@@ -657,8 +463,182 @@ ul, ul ul {
 	text-shadow: 0px 0px 0px rgba(255,255,255,.01));
 }
 
+/*********************************************/
+/*                 Home                    */
+/*********************************************/
+
+.title-body{
+	height: 52px;
+	padding-bottom: 10px;
+	margin:0;	
+	color: rgb(55,46,50);
+	font-size: 22px;
+	text-align: center;
+}
+
+.ligne-body{
+	background: url(../img/bande_title.png) repeat-x;
+	margin: 0 10px 0 10px;
+}
+
+/*********************************************/
+/*              Commentaires                 */
+/*********************************************/
 
 
+.btn-comment{
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #a39ea3;
+	display:inline-block;
+	color: rgb(55,46,50);
+	font-size:13px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:28px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:0px 0px 0px #ffffff;
+	
+}
+
+.btn-comment:hover{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	cursor:pointer;
+}
+
+.top-comment{
+	height: 38px;
+	width:100%;
+}
+
+.titre-comment{
+	height: 38px;
+	width:191px;
+	padding-left:1px;
+}
+
+.champs-comment{
+	width:100%;
+	border:1px solid grey;
+	background-color: #e1e7ed;
+}
+
+.comment1{
+	background-color: #E9E9E9;
+	padding: 10px;
+	
+}
+
+.comment2{
+	background-color: #D4D8E1;
+	padding: 10px;
+}
+
+.auteur-comment{
+	color: #DB2150;
+	font-size:15px;
+}
+
+.date-comment{
+	font-style:italic;
+	font-size: 12px;
+}
+
+
+/*********************************************/
+/*                   Vote                    */
+/*********************************************/
+
+.form-punchline{
+	padding:10px;
+	margin:0 10%;
+	border:1px solid #b3b4b4;
+	background: -webkit-gradient(linear,left top, left bottom,from(#f3f3f3),to(#eaeaea));
+	background: -webkit-linear-gradient(top,#f3f3f3,#eaeaea);
+	background: -moz-linear-gradient(top,#f3f3f3,#eaeaea);
+	background: -o-linear-gradient(top,#f3f3f3,#eaeaea);
+	background: linear-gradient(top,#f3f3f3,#eaeaea);
+	font-family: 'Georgia', 'Times New Roman', Times, serif;}
+
+.king-punchline-legend{
+	color: #666666;
+	padding: 3px;
+	font-size: 15px;
+	width:inherit;
+	background-color:white;
+	font-weight: bold;
+	font-style: italic;
+	border: 1px solid rgb(55,46,50);
+	box-shadow: 3px 0px 3px rgb(55,46,50);  
+}
+
+.king-punchline-sign{
+	float : right;
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+	
+/*********************************************/
+/*                 Footer                    */
+/*********************************************/
+
+.content-footer{
+	background: rgb(51,42,46);
+	box-shadow: 6px 0px 15px black;
+	padding: 10px 0 10px 10px !important;
+	color: white;
+	margin: 0 !important;}
+	
+.col-footer{
+	border-right:1px solid white; 
+	text-align:center;}
+
+.content-footer ul{
+	list-style: initial !important;
+	text-align:left;
+	padding-left: 30%;}
+
+.content-footer a{
+	color:white;}
+
+.content-footer a:hover{
+	margin-left:5px;
+	color:white;}
+
+.content-footer h5{
+	font-weight:bold;}
+	
+.copyright{
+	background-color:#222;
+	color:white;
+	font-size:10px;
+	padding: 5px 0;}
 
 /*********************************************/
 /*                 Divers                    */
@@ -670,4 +650,56 @@ ul, ul ul {
 .margin-container{
 	margin-top:55px !important;
 	padding-top:10px !important;}
+	
+	.btn-admin{
+	padding: 5px;
+	color: black;
+	margin-top: 20px;
+	background: #eaeaea url("../img/btn-social-gradient.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	background: -webkit-gradient(linear,left top, left bottom,from(#f3f3f3),to(#eaeaea));
+	background: -webkit-linear-gradient(top,#f3f3f3,#eaeaea);
+	background: -moz-linear-gradient(top,#f3f3f3,#eaeaea);
+	background: -o-linear-gradient(top,#f3f3f3,#eaeaea);
+	background: linear-gradient(top,#f3f3f3,#eaeaea);
+	border-top: 1px solid #DCDCDC;
+	cursor: pointer;
+	border: 1px solid #c8c8c8;
+	-moz-box-shadow: 0px 1px 1px rgba(000,000,000,0.6),inset 0px 2px 1px rgba(255,255,255,1);
+	-webkit-box-shadow: 0px 1px 1px rgba(000,000,000,0.6),inset 0px 2px 1px rgba(255,255,255,1);
+	box-shadow: 0px 1px 1px rgba(000,000,000,0.6),inset 0px 2px 1px rgba(255,255,255,1);
+	text-shadow: 0px 1px 0px rgba(255,255,255,1),0px 1px 0px rgba(255,255,255,0.2);
+	font-size: 14px;
+}
+.btn-admin:hover{
+	border: 1px solid #e2e2e2;
+	background: #FFFFFF;
+	cursor: pointer;
+}
+
+.vote{
+	border-collapse: collapse; 
+	margin-left: auto;
+	margin-right: auto;	
+	text-align: center;    
+	border: 1px solid rgb(55,46,50);}
+
+.vote td{
+    padding: 0 10px 0 10px;}
+    
+.vote tr{
+    border-bottom: 1px solid #b3b4b4; }    
+
+.vote th{ 
+	background: rgb(55,46,50) !important;;
+	color: white;
+    padding: 10px !important;;}
+
+.bonus{
+	background-color:rgb(82,96,200);
+	color:white;
+	border-bottom: 1px solid rgb(55,46,50) !important;}
 	

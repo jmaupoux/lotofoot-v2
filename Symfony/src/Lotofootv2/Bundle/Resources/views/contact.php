@@ -23,7 +23,7 @@
 
 <?php  
 //Ecrivez votre adresse e-mail entre les guillemets  
-$destinataire='ltofoot.mail@gmail.com';  
+$destinataire='lotofoot.mail@gmail.com';  
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">  
 <html lang="fr">  
 <head>  
