@@ -32,6 +32,15 @@
 {% endblock %}
 
 {% block body %}
+
+<style type="text/css">
+    .resultVoted{
+        background-color : gray;
+    }
+</style>
+        
+
+
 	<div class="row">
 	{% if leagueDay is null %}
 		Aucune journée créée !		
@@ -92,6 +101,7 @@
 						<th>2</th>
 						<th>Extérieur</th>
 						<th>Score parié</th>
+                        <th>Clôture</th>
 					</tr>
 					{% for match in matches %}
 					<tr {{(match.bonus)?'class="bonus"':''}}>
@@ -107,18 +117,28 @@
 						<td>
 							{{match.teamHome}}
 						</td>
-						<td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
-							{% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
-						<td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
-							{% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
-						<td><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
-							{% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
-						
+						<!-- deadline past -->
+	                    {% if match.deadline < new Datetime() %}
+	                    <td><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
+	                        {% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
+	                    <td><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
+	                        {% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
+	                    <td><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
+	                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
+	                    {% else %}
+	                        <td {% if app.request.get('result_'~match.id) == '1' %} class="resultVoted" {%endif%}>&nbsp;</td>
+	                        <td {% if app.request.get('result_'~match.id) == 'N' %} class="resultVoted" {%endif%}>&nbsp;</td>
+	                        <td {% if app.request.get('result_'~match.id) == '2' %} class="resultVoted" {%endif%}>&nbsp;</td>
+	                    {% endif %}
 						<td>
 							{{match.teamVisitor}}
 						</td>
-						<td>	
-							<input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px;color:#333;text-align:center;" placeholder="x-x"/>
+						<td>
+						{% if match.deadline < new Datetime() %}
+						      <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:50px;color:#333;text-align:center;" placeholder="x-x"/>
+						{% else %}
+							{{ app.request.get('score_'~match.id) }}
+					     {% endif %}
 						</td>
 					</tr>
 					{% endfor %}
