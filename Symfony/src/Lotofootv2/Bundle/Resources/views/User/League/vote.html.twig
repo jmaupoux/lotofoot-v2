@@ -10,6 +10,7 @@
 
 {% block title_body %}
 	{% if leagueDay is defined and leagueDay is not null %}
+	<br/><br/>
 	<div class="row">
 		<div class="col-xs-1" style="padding:0">
 			<a href="{{ path('_league_vote')~'?prev='~leagueDay.number}}" title="Paris précédents"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>

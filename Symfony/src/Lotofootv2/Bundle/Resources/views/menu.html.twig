@@ -10,32 +10,33 @@
 	<div class="row hidden-xs row-menu">
 				<ul class="menu">
 					<li class="item1"><a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a></li>
-					<li class="item2 indent-icon"><a href="#">Championnat</a>
-						<ul>
+					<li class="item2"><a href="#">Championnat</a>
+						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
-							<li class="subitem2"><a href="{{ path('_league_ranking') }}" title="Classement">Classement</a></li>
-							<li class="subitem3"><a href="{{ path('_league_rules') }}" title="Règlement du championnat">Règlement</a></li>
-							<li class="subitem4"><a href="{{ path('_league_prizes') }}" title="Cadeaux Championnat 2014-2015">Cadeaux</a></li>
+							<li class="subitem2"><a href="{{ path('_league_ranking') }}" title="Classement">Classement Journée</a></li>
+							<li class="subitem3"><a href="{{ path('_league_ranking_day') }}" title="Classement">Classement Général</a></li>
+							<li class="subitem4"><a href="{{ path('_league_rules') }}" title="Règlement du championnat">Règlement</a></li>
+							<li class="subitem5"><a href="{{ path('_league_prizes') }}" title="Cadeaux Championnat 2014-2015">Cadeaux</a></li>
 						</ul>
 					</li>
-					<li class="item3 indent-icon"><a href="#">Champion's League</a>
-						<ul>
+					<li class="item3"><a href="#">Champion's League</a>
+						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_cl_vote') }}" title="Parier sur la prochaine journée de Champion's League">Parier</a></li>
 							<li class="subitem2"><a href="{{ path('_cl_board') }}" title="Tableau">Tableau Final</a></li>
 							<li class="subitem3"><a href="{{ path('_cl_rules') }}" title="Règlement">Règlement</a></li>
 							<li class="subitem4"><a href="{{ path('_cl_prizes') }}" title="Cadeaux">Cadeaux</a></li>
 						</ul>
 					</li>
-					<li class="item4 indent-icon"><a href="#">Coupe du Monde</a>
-						<ul>
+					<li class="item4"><a href="#">Coupe du Monde</a>
+						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_cup_vote') }}" title="Parier sur la prochaine journée de coupe du monde">Parier</a></li>
 							<li class="subitem2"><a href="{{ path('_cup_ranking') }}" title="Classement">Classement CdM</a></li>
 							<li class="subitem3"><a href="{{ path('_cup_rules') }}" title="Règlement du championnat">Règlement</a></li>
 						</ul>
 					</li>
-					<li class="item5 indent-icon"><a href="#">Calendrier</a></li>
-					<li class="item6 indent-icon"><a href="#">Stats & Médailles</a>
-						<ul>
+					<li class="item5"><a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir">Calendrier</a></li>
+					<li class="item6"><a href="#">Stats & Médailles</a>
+						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_stats_rewards') }}" title="Liste des médailles">Les médailles</a></li>
 							<li class="subitem2"><a href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Tes stats</a></li>
 							<li class="subitem3"><a href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes & Stats</a></li>
@@ -43,7 +44,7 @@
 					</li>
 					{% if is_granted('ROLE_ADMIN') %}
 					<li class="item7"><a href="#">Administration</a>
-						<ul>
+						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_admin_league') }}" title="Administrer un championnat">Admin League</a></li>
 							<li class="subitem2"><a href="{{ path('_admin_league_day') }}" title="Administrer une journée de championnat">League Day</a></li>
 							<li class="subitem3"><a href="{{ path('_admin_cl') }}" title="Administrer une Champion's League">Admin CL</a></li>

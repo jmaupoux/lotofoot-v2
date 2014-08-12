@@ -34,10 +34,10 @@
 	   La liste des matchs va être administrée très prochainement.
 	   
 	{% else %}
-	
-		Voici la liste des matchs pour lesquels vous n'aurez <b>pas</b> la chance de pouvoir voter =) :<br/>
+	<br/>
+		Voici la liste des matchs pour lesquels vous n'aurez <b>pas</b> la chance de pouvoir voter =) :<br/><br/><br/><br/>
 		
-	        <table>
+	        <table class="vote">
 	            <tr>
 	                <th>N°</th>
 	                <th>Domicile</th>
@@ -58,8 +58,10 @@
 	            {% endfor %}
 	        </table> 
 	{% endif %}
-	
-	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" controls></audio>
+	<br/><br/><br/><br/>
+	<div class="row" style="text-align:center;">
+		<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" controls></audio>
+	</div>
 {% endblock %}
 
 {% block footer %}

@@ -28,49 +28,14 @@
 {% endblock %}
 	
 {% block body %}
-	
-	<style type="text/css">    
-         .vote{
-            background-color:rgb(55,46,50);
-         }
-         .result{
-            
-         }
-         .vote.result{
-            background-color:rgb(64,200,83);
-         }
-         .vote.noresult{
-            background-color:gray;
-         }
-         
-         .notcorrected .vote.result, .notcorrected .vote.noresult, .notcorrected .scoreok{
-            background-color:inherit;
-            color:inherit;
-         }
-         
-         td.invisible{
-            border-left:none;
-            border-right:none;
-            border-bottom:none
-         }
-         .total{
-            color:white;
-            background-color:rgb(201,18,22);
-            font-weight:bold
-         }
-         .scoreok{
-            background-color:rgb(64,200,83);
-            color:white;
-         }
-    </style>
-	
+		
 	{% if step.opened == true %}
         <div style="text-align:center;color:red">
-            <b>La journée est en attente de correction</b><br/><br/>
+            <b>La journée est en attente de correction.</b><br/><br/>
         </div>
     {% endif %}
-	
-    <table class="table table-striped {% if step.opened == true %} notcorrected {% endif %}">
+	<div class="row" style="text-align:center;">
+    <table class="table-striped vote {% if step.opened == true %} notcorrected {% endif %}">
         <tr>
             <th>N°</th>
             <th>Domicile</th>
@@ -83,16 +48,16 @@
             <th>Points</th>
         </tr>
         {% for match in matches %}
-        <tr  class="vote-cl">
+        <tr class="vote-cl">
             <td>
                 {{match.number}}
             </td>
             <td>
                 {{match.teamHome}}
             </td>
-            <td class="{% if app.request.get('result_'~match.id) == '1'%} vote {%endif%} {% if step.opened == false %}{%if match.result == '1'%} result {%else %} noresult {%endif%}{%endif%}"></td>
-            <td class="{% if app.request.get('result_'~match.id) == 'N'%} vote {%endif%} {% if step.opened == false %}{%if match.result == 'N'%} result {%else %} noresult {%endif%}{%endif%}"></td>
-            <td class="{% if app.request.get('result_'~match.id) == '2'%} vote {%endif%} {% if step.opened == false %}{%if match.result == '2'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+            <td class="{% if app.request.get('result_'~match.id) == '1'%} voted {%endif%} {% if step.opened == false %}{%if match.result == '1'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+            <td class="{% if app.request.get('result_'~match.id) == 'N'%} voted {%endif%} {% if step.opened == false %}{%if match.result == 'N'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+            <td class="{% if app.request.get('result_'~match.id) == '2'%} voted {%endif%} {% if step.opened == false %}{%if match.result == '2'%} result {%else %} noresult {%endif%}{%endif%}"></td>
             <td>
                 {{match.teamVisitor}}
             </td>
@@ -119,8 +84,12 @@
             <td class="total">{{total}}</td>
         </tr>
     </table>
-	
+	</div>
+	<br/><br/>
+	<div class="row" style="text-align:center;">
 	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" controls ></audio>
+	</div>
+	
 {% endblock %}
 
 {% block footer %}

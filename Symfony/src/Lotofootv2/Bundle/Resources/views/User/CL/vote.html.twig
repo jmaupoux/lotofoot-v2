@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block title_body %}
-
+	<br/><br/>
 	<div class="row">
 			<div class="col-sm-3 hidden-xs">
 				<div class="ligne-body">&nbsp;</div>
@@ -35,24 +35,26 @@
        
     {% else %}
     
-	   
-	   <div class="date-limite">
-	   		Vous êtes en lice pour la reine des compétitions : La Champion's League 2013 - 2014 !<br/><br/>
-			Date limite :  <span style="font-weight: bold">{{ step.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
-			{% if error is defined %}
-		    <div style="color:red">{{ error }}</div>
-			{% endif %}
-			{% if info is defined and info is not null %}
-		    <div style="color:green">{{ info }}</div>
-			{% endif %}
-			{% if warn is defined and warn is not null %}
-		    <div style="color:orange">{{ warn }}</div>
-			{% endif %}
+	   <div class="row" style="text-align:center;">
+		   <div class="date-limite">
+		   		Vous êtes en lice pour la reine des compétitions : La Champion's League 2013 - 2014 !<br/><br/>
+				Date limite :  <span style="font-weight: bold">{{ step.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
+				{% if error is defined %}
+			    <div style="color:red">{{ error }}</div>
+				{% endif %}
+				{% if info is defined and info is not null %}
+			    <div style="color:green">{{ info }}</div>
+				{% endif %}
+				{% if warn is defined and warn is not null %}
+			    <div style="color:orange">{{ warn }}</div>
+				{% endif %}
+			</div>
 		</div>
 	<br/><br/>
-	   <form action="{{ path('_cl_vote_post') }}" method="post" style="width:800px;margin:auto">
+	<div class="row" style="text-align:center;">
+	   <form action="{{ path('_cl_vote_post') }}" method="post">
 
-            <table  class="calendar">
+            <table  class="vote">
                 <tr>
                     <th>N°</th>
                     <th>Domicile</th>
@@ -106,10 +108,13 @@
             </div>
             <div style="clear:both"></div>
         </form>
-	
+	</div>
 	{% endif %}
 	
-	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" controls></audio>
+	<br/><br/>
+	<div class="row" style="text-align:center;">
+	<audio src="{{ asset('bundles/lotofootv2/img/cl-soundtrack.mp3') }}" controls ></audio>
+	</div>
 {% endblock %}
 
 {% block footer %}

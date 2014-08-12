@@ -13,6 +13,7 @@
 {% endblock %}
 
 {% block title_body %}
+	<br/><br/>
 	<div class="row">
 			<div class="col-sm-3 hidden-xs">
 				<div class="ligne-body">&nbsp;</div>
@@ -28,24 +29,25 @@
 {% endblock %}
 	
 {% block body %}
-	<ul><strong>ATTENTION : </strong> <br/><br/>
+	<strong>ATTENTION : </strong>
+	<ul>
 		<li>Les cadeaux cités ci-dessous sont accessibles uniquement si vous avez participé à la cagnoute. </li>
 		<li>Pour rappel, c'est 10€ par participant pour pouvoir convoiter le gros lot. </li>
 	</ul><br/><br/>
-	<div class="bloc-letter">
-				<div class="title-prizes">Gagnant de la Champion's League</div><br/>
+	<div class="row" style="padding:0 50px;">
+				<div class="row underlined-title">Gagnant de la Champion's League</div><br/>
 				Un Chèque cadeau d'une valeur de 50€ ! <i>(Photo non contractuelle)</i><br/><br/>
-				<img src="{{ asset('bundles/lotofootv2/img/prize-1.png') }}"/>
+				<img src="{{ asset('bundles/lotofootv2/img/prize-1.png') }}"/><br/><br/>
 	</div>
-	<div class="bloc-letter">
-				<div class="title-prizes">Finaliste de la Champion's League</div><br/>
+	<div class="row" style="padding:0 50px;">
+				<div class="row underlined-title">Finaliste de la Champion's League</div><br/>
 				Un Chèque cadeau d'une valeur de 20€ ! <i>(Photo non contractuelle)</i><br/><br/>
-				<img src="{{ asset('bundles/lotofootv2/img/prize-1.png') }}"/>
+				<img src="{{ asset('bundles/lotofootv2/img/prize-1.png') }}"/><br/><br/>
 	</div>
-	<div class="bloc-letter">
-				<div class="title-prizes">Demi-Finalistes de la Champion's League</div><br/>
+	<div class="row" style="padding:0 50px;">
+				<div class="row underlined-title">Demi-Finalistes de la Champion's League</div><br/>
 				Un Chèque cadeau d'une valeur de 10€ ! <i>(Photo non contractuelle)</i><br/><br/>
-				<img src="{{ asset('bundles/lotofootv2/img/prize-1.png') }}"/>
+				<img src="{{ asset('bundles/lotofootv2/img/prize-1.png') }}"/><br/><br/>
 	</div>	
 {% endblock %}
 
