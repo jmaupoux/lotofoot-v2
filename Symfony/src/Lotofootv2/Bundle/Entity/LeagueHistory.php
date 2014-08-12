@@ -85,6 +85,13 @@ class LeagueHistory
      */
     private $voted;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="season", type="integer")
+     */
+    private $season;
+    
 
     /**
      * Get id
@@ -296,4 +303,28 @@ class LeagueHistory
     {
         return $this->voted;
     }
+
+    /**
+     * Set rank
+     *
+     * @param integer $rank
+     */
+    public function setSeason($season)
+    {
+        $this->season = $season;
+    
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return integer 
+     */
+    public function getSeason()
+    {
+        return $this->season;
+    }
+    
+
 }

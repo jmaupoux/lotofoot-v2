@@ -94,8 +94,12 @@ class VoteController extends Controller
     	}
     	
     	$histories = $this->get('league_service')->getLeagueDayHistories($leagueDayPast->getId());
+
+    	if($histories != null && count($histories)>0){
+    	   return $histories[0]->getAccountId() == $this->getUser()->getId();	
+    	}
     	
-    	return $histories[0]->getAccountId() == $this->getUser()->getId();
+    	return false;
     }
     
     /**

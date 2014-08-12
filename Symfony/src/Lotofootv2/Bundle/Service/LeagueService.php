@@ -356,6 +356,7 @@ class LeagueService
     		$history->setHasBonus($dayBonus);
     		$history->setScores($dayScores);
     		$history->setResults($dayResults);
+    		$history->setSeason($this->current_season);
     		
     		if(count($votes) > 0){
     			$history->setVoted(true);
@@ -424,8 +425,10 @@ class LeagueService
 			    'SELECT h.points,d.number FROM Lotofootv2Bundle:LeagueHistory h,Lotofootv2Bundle:LeagueDay d
 			    WHERE h.account_id = :accountId
 			    AND d.id = h.league_day_id
+			    AND h.season = :season 
 			    ORDER BY h.league_day_id ASC')
-	    		->setParameter('accountId', $acc->getId());
+	    		->setParameter('accountId', $acc->getId())
+	    		->setParameter('season', $this->current_season);
 
 	    	$accHistories = $queryHistories->getScalarResult();
 	    	
@@ -455,8 +458,10 @@ class LeagueService
 			    'SELECT h.rank,d.number FROM Lotofootv2Bundle:LeagueHistory h,Lotofootv2Bundle:LeagueDay d
 			    WHERE h.account_id = :accountId
 			    AND d.id = h.league_day_id
+			    AND h.season = :season
 			    ORDER BY h.league_day_id ASC')
-	    		->setParameter('accountId', $acc->getId());
+	    		->setParameter('accountId', $acc->getId())
+	    		->setParameter('season', $this->current_season);
 
 	    	$accHistories = $queryHistories->getScalarResult();
 	    	
@@ -481,8 +486,10 @@ class LeagueService
 		    'SELECT l
 		    FROM Lotofootv2Bundle:LeagueHistory l 
 		    WHERE l.league_day_id = :league_day_id
+		    and l.season = :season
 		    ORDER BY l.points DESC, l.has_bonus DESC, l.scores DESC, l.results DESC, l.account_id ASC'
-		)->setParameter('league_day_id', $leagueDayId);
+		)->setParameter('league_day_id', $leagueDayId)
+		->setParameter('season', $this->current_season);
 		
 		return $query->getResult();
     }

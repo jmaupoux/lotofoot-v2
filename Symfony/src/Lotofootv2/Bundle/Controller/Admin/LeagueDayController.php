@@ -58,6 +58,7 @@ class LeagueDayController extends Controller
     	$isbonus = false;
     	
     	$firstdeadline = null;
+    	$lastdeadline = null;
     	
 		for($i=1;$i<=13;$i++){
 			$error = null;
@@ -110,9 +111,13 @@ class LeagueDayController extends Controller
 			if($firstdeadline == null || $deadline < $firstdeadline){
 				$firstdeadline = $deadline;
 			}
+		//date du 1er match à parier
+            if($lastdeadline == null || $deadline > $lastdeadline){
+                $lastdeadline = $deadline;
+            }
 		}
     	
-		$this->get('league_service')->newLeagueDay($matches, $firstdeadline);
+		$this->get('league_service')->newLeagueDay($matches, $lastdeadline);
 		
 		$this->mailNewDay($firstdeadline);
 		
