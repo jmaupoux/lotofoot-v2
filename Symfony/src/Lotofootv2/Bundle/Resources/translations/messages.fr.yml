@@ -24,8 +24,8 @@ rewards:
         title: TOP 100
         desc: Vous avez dépassé la barre des 100 points
     r9:
-        title: TOP 500
-        desc: Vous avez dépassé la barre mythique des 500 points        
+        title: TOP 200
+        desc: Vous avez dépassé la barre des 200 points        
     r10:
         title: LA CAGNOUTE
         desc: Vous avez payé le droit de conquérir à la cagnoute suprême
@@ -47,7 +47,10 @@ rewards:
     r16:
         title: ADDICT
         desc: Le mec qui lâche pas le lotofoot !
-                
+    r17:
+        title: TOP 400
+        desc: Vous avez dépassé la barre mythique des 400 points !
+		
 navibar:
     hello: Bienvenue
     ranking: Classement

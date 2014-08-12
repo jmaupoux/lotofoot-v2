@@ -248,7 +248,7 @@ class RewardService
     	$this->em->persist($reward);
     }
     
-	public function reward500($accountId){
+	public function reward200($accountId){
  	   	$reward = new Reward();
     	$reward->setAccountId($accountId);
     	$reward->setRewardId(9);
@@ -257,6 +257,15 @@ class RewardService
     	$this->em->persist($reward);
     } 
 
+    public function reward400($accountId){
+        $reward = new Reward();
+        $reward->setAccountId($accountId);
+        $reward->setRewardId(17);
+        $reward->setType('s');
+        
+        $this->em->persist($reward);
+    } 
+    
     public function rewardChampionsLeague($accounts){
     	for ($i=0; $i<=15; $i++){
     		$reward = new Reward();

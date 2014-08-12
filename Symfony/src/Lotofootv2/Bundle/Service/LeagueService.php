@@ -339,9 +339,12 @@ class LeagueService
     		if($account->getPoints() < 100 && ($account->getPoints()+$points) >=100){
     			$this->rewardService->reward100($account->getId());
     		}
-    		if($account->getPoints() < 500 && ($account->getPoints()+$points) >=500){
-    			$this->rewardService->reward500($account->getId());
+    		if($account->getPoints() < 200 && ($account->getPoints()+$points) >=200){
+    			$this->rewardService->reward200($account->getId());
     		}
+    	    if($account->getPoints() < 400 && ($account->getPoints()+$points) >=400){
+                $this->rewardService->reward400($account->getId());
+            }
     		
     		$account->setStatResults($account->getStatResults()+$dayResults);
     		$account->setStatScores($account->getStatScores()+$dayScores);
