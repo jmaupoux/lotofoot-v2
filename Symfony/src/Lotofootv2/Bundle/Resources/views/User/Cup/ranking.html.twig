@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block title_body %}
+	<br/><br/>
 	<div class="row">
 			<div class="col-sm-3 hidden-xs">
 				<div class="ligne-body">&nbsp;</div>
@@ -26,8 +27,9 @@
 {% endblock %}
 
 {% block body %}
-	
-	<table>
+	<br/>
+	<div class="row" style="text-align:center;">
+	<table class="table-striped vote">
         <tr>
             <th>Rang</th>
             <th>Joueur</th>
@@ -45,7 +47,7 @@
                 {{account.cupRank}}
             {% endif %}
             </td>
-            <td>{{account.username}} {% if account.cupCagnoute == 1 %} &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}" style="margin-top:2px;"/>{% endif %}</td>
+            <td style="text-align:left;">{{account.username}} {% if account.cupCagnoute == 1 %} &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}"/>{% endif %}</td>
             <td>{{account.cupPoints}}</td>
             <td>{{account.statCupMatchs}}</td>
             <td>{{account.statCupScores}}</td>
@@ -53,7 +55,7 @@
         </tr>
         {% endfor %}
     </table>
-	
+	</div>
 {% endblock %}
 
 {% block footer %}

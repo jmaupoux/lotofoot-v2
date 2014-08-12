@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block title_body %}
+	<br/><br/>
 	<div class="row">
 			<div class="col-sm-3 hidden-xs">
 				<div class="ligne-body">&nbsp;</div>
@@ -55,116 +56,114 @@
     </span>
     
     {% endif %}
-    	<style type="text/css">	
-		 .scoreok{
-		 	background-color:rgb(64,200,83);
-		 	color:white;
-		 }
-	</style>
+    
+	<div class="row" style="text-align:center;">
 
-    <table>
-        <tr><td  style="border:none; vertical-align:top;">
-           <input type="button" class="btn-admin tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
-                
-            <form action="{{ path('_cup_post') }}" method="post">
-
-	            <table  class="calendar">
-	            	<tr>
-	        			<th colspan="7" style="border-bottom: 1px white solid">Votes en cours</th>
-	      			</tr>
-	                <tr>
-	                    <th>#</th>
-	                    <th>Match</th>
-	                    <th>Date</th>
-	                    <th>1</th>
-	                    <th>N</th>
-	                    <th>2</th>
-	                    <th>Score parié</th>
-	                </tr>
-	                {% for match in opens %}
-	                <tr class="vote-cup">
-	                    <td>
-	                        {{match.id}}
-	                    </td>
-	                    <td class="match">
-	                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}} (1)</div><br/>
-                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}} (2)</div>
-                        </td>
-                        <td>
-                           {{match.deadline|date("d/m/Y H:i")}}
-                        </td>
-	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
-	                        {% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
-	                    {% if match.factor == 1 %}
-	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
-	                        {% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
-	                    {% else %}
-	                    <td></td>
-	                    {% endif %}
-	                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
-	                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
-	                    <td>    
-	                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:30px" placeholder="x-x"/>
-	                    </td>
-	                </tr>
-	                {% endfor %}
-	            </table>
-	            
-	            <div class="control-group">
-	                <div class="controls">
-	                     <input type="submit" class="btn-vote" style="margin-left: 140px;" value="Valider vos paris !"/>
-	                </div>
-	            </div>
-	            <div style="clear:both"></div>
-	        </form><br/>
-        <a href="http://www.lequipe.fr/Football/Coupe-du-monde/Saison-2014/calendrier-resultats.html" target="_blank" alt ="Résultats Coupe du Monde 2014" ><img src="{{ asset('bundles/lotofootv2/img/logo-lequipe.png') }}"/></a>
-        </td><td style="border:none; vertical-align:top;">
-         
-        
-         
-         <table  class="calendar">
-         			<tr>
-	        			<th colspan="7" style="border-bottom: 1px white solid">Votes terminés</th>
-	      			</tr>
-                    <tr>
-                        <th>#</th>
-                        <th>Match</th>
-                        <th>Coeff</th>
-                        <th>1N2</th>
-                        <th>Score parié</th>
-                        <th>Score effectif</th>
-                        <th>Pts</th>
-                    </tr>
-                    {% for match in closed %}
-                    <tr class="vote-cup">
-                        <td>
-                            {{match.id}}
-                        </td>
-                        <td style="text-align:center; width:170px;">
-                            <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
-                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}</div>
-                        </td>
-                        <td>
-                            <img style="padding-top:5px;" src="{{ asset('bundles/lotofootv2/img/coeff'~match.factor~'.png') }}"/>
-                        </td>
-                        <td class="{% if app.request.get('result_'~match.id) == match.result and match.result is not null %} scoreok {% endif %}">
-                            {{app.request.get('result_'~match.id)}}
-                        </td>
-                        <td class="{% if app.request.get('score_'~match.id) == match.score and match.score is not null %} scoreok {% endif %}">
-                            {{app.request.get('score_'~match.id)}}
-                        </td>
-                        <td>
-                            {{match.score}}
-                        </td>
-                        <td>
-                            {{app.request.get('points_'~match.id)}}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-        
-        </td></tr>
-    </table>
+	    <table>
+	        <tr><td  style="border:none; vertical-align:top;">
+	           <input type="button" class="btn-admin tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/><br/><br/>
+	                
+	            <form action="{{ path('_cup_post') }}" method="post">
+	
+		            <table  class="vote">
+		            	<tr>
+		        			<th colspan="7" style="border-bottom: 1px white solid">Votes en cours</th>
+		      			</tr>
+		                <tr>
+		                    <th>#</th>
+		                    <th>Match</th>
+		                    <th>Date</th>
+		                    <th>1</th>
+		                    <th>N</th>
+		                    <th>2</th>
+		                    <th>Score parié</th>
+		                </tr>
+		                {% for match in opens %}
+		                <tr class="vote-cup">
+		                    <td>
+		                        {{match.id}}
+		                    </td>
+		                    <td class="match">
+		                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}} (1)</div><br/>
+	                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}} (2)</div>
+	                        </td>
+	                        <td>
+	                           {{match.deadline|date("d/m/Y H:i")}}
+	                        </td>
+		                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_1" type="radio" name="result_{{match.id}}" value="1"
+		                        {% if app.request.get('result_'~match.id) == '1' %}checked{% endif %}/> </td>
+		                    {% if match.factor == 1 %}
+		                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_N" type="radio" name="result_{{match.id}}" value="N"
+		                        {% if app.request.get('result_'~match.id) == 'N' %}checked{% endif %}/> </td>
+		                    {% else %}
+		                    <td></td>
+		                    {% endif %}
+		                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
+		                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
+		                    <td>    
+		                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:30px" placeholder="x-x"/>
+		                    </td>
+		                </tr>
+		                {% endfor %}
+		            </table>
+		            
+		            <div class="control-group">
+		                <div class="controls">
+		                     <input type="submit" class="btn-vote" style="margin-left: 140px;" value="Valider vos paris !"/>
+		                </div>
+		            </div>
+		            <div style="clear:both"></div>
+		        </form><br/>
+	        <a href="http://www.lequipe.fr/Football/Coupe-du-monde/Saison-2014/calendrier-resultats.html" target="_blank" alt ="Résultats Coupe du Monde 2014" ><img src="{{ asset('bundles/lotofootv2/img/logo-lequipe.png') }}"/></a>
+	        </td><td style="border:none; vertical-align:top;">
+	         
+	        
+	         
+	         <table  class="vote">
+	         			<tr>
+		        			<th colspan="7" style="border-bottom: 1px white solid">Votes terminés</th>
+		      			</tr>
+	                    <tr>
+	                        <th>#</th>
+	                        <th>Match</th>
+	                        <th>Coeff</th>
+	                        <th>1N2</th>
+	                        <th>Score parié</th>
+	                        <th>Score effectif</th>
+	                        <th>Pts</th>
+	                    </tr>
+	                    {% for match in closed %}
+	                    <tr class="vote-cup">
+	                        <td>
+	                            {{match.id}}
+	                        </td>
+	                        <td style="text-align:center; width:170px;">
+	                            <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
+	                            <div class="drapeau {{match.teamVisitor}}"></div><div class="match-cup">{{('nationalteams.'~match.teamVisitor) | trans}}</div>
+	                        </td>
+	                        <td>
+	                            <img style="padding-top:5px;" src="{{ asset('bundles/lotofootv2/img/coeff'~match.factor~'.png') }}"/>
+	                        </td>
+	                        <td class="{% if app.request.get('result_'~match.id) == match.result and match.result is not null %} scoreok {% endif %}">
+	                            {{app.request.get('result_'~match.id)}}
+	                        </td>
+	                        <td class="{% if app.request.get('score_'~match.id) == match.score and match.score is not null %} scoreok {% endif %}">
+	                            {{app.request.get('score_'~match.id)}}
+	                        </td>
+	                        <td>
+	                            {{match.score}}
+	                        </td>
+	                        <td>
+	                            {{app.request.get('points_'~match.id)}}
+	                        </td>
+	                    </tr>
+	                    {% endfor %}
+	                </table>
+	        
+	        </td></tr>
+	    </table>
+    
+    </div>
     
     <script type="text/javascript">
     
