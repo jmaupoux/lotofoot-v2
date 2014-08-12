@@ -1,0 +1,15 @@
+<span>
+{{account.username}} 
+{% if account.cupCagnoute == 1 %} 
+    &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}" style="margin-top:2px;"/>
+{% endif %}
+{% for i in 1..account.winsCL if account.winsCL > 0 %} 
+   TODO &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-winner-cl.png') }}" style="margin-top:2px;"/>
+{% endfor %}
+{% for i in 1..account.winsLeague if account.winsLeague > 0 %} 
+    &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-winner-league.png') }}" style="margin-top:2px;"/>
+{% endfor %}
+{% for i in 1..account.winsCup if account.winsCup > 0 %} 
+    &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-winner-cup.png') }}" style="margin-top:2px;"/>
+{% endfor %}
+</span>

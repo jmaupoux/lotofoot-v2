@@ -127,6 +127,21 @@ class Account implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="cup_cagnoute", type="boolean")
      */
     private $cupCagnoute;
+    
+    /**
+     * @ORM\Column(name="wins_league", type="integer")
+     */
+    private $winsLeague = 0;
+    
+    /**
+     * @ORM\Column(name="wins_cup", type="integer")
+     */
+    private $winsCup = 0;
+    
+    /**
+     * @ORM\Column(name="wins_cl", type="integer")
+     */
+    private $winsCL = 0;
         
     
     public function __construct()
@@ -149,6 +164,10 @@ class Account implements AdvancedUserInterface, \Serializable
     	$this->statCupMatchs = 0;
     	$this->statCupResults = 0;
     	$this->statCupScores = 0;
+    	
+    	$this->winsCL = 0;
+    	$this->winsLeague = 0;
+    	$this->winsCup = 0;
     }
     
     /**
@@ -484,5 +503,18 @@ class Account implements AdvancedUserInterface, \Serializable
         $this->statCupResults = $statCup;
         
         return $this;
+    }
+    
+    public function getWinsCL()
+    {
+        return $this->winsCL;
+    }
+    public function getWinsLeague()
+    {
+        return $this->winsLeague;
+    }
+    public function getWinsCup()
+    {
+        return $this->winsCup;
     }
 }

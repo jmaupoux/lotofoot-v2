@@ -24,7 +24,8 @@
 
 {% block body %}
 <div class="row">	
-	<table class="table-striped vote">
+	<table id="ranking_table" class="table-striped vote">
+	   <thead>
 		<tr>
 			<th>Rang</th>
 			<th>Joueur</th>
@@ -35,7 +36,10 @@
 			<th>Scores trouvés</th>
 			<th>Evolution</th>
 		</tr>
+		</thead>
+		<tbody>
 		{% for account in accounts %}
+
 		<tr class="{% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index == 16 %} cl-limit {% endif %}" >
 			<td>
 			{% if account.rank == 99 %}
@@ -44,7 +48,9 @@
 				{{account.rank}}
 			{% endif %}
 			</td>
-			<td style="text-align:left;">{{account.username}} {% if account.cagnoute == 1 %}<img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute.png') }}"/>{% endif %}</td>
+			<td style="text-align:left;">
+			     {% include 'Lotofootv2Bundle::User/accountHonnors.html.twig' %} 
+			</td>
 			<td>{{account.points}}</td>
 			<td>{{account.statDays}}</td>
 			<td>{{account.statBonuses}}</td>
@@ -63,8 +69,16 @@
 			</td>
 		</tr>
 		{% endfor %}
+		</tbody>
 	</table>
 </div>	
+
+<script type="text/javascript">
+$(document).ready(function() { 
+    $("#ranking_table").tablesorter(); 
+}); 
+</script>
+
 {% endblock %}
 
 {% block footer %}
