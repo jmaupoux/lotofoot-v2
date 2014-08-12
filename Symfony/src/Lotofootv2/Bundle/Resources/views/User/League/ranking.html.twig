@@ -42,6 +42,9 @@
 
 		<tr class="{% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index == 16 %} cl-limit {% endif %}" >
 			<td>
+			     <span class="sort" style="display:none">
+			         {{loop.index}}
+			     </span>
 			{% if account.rank == 99 %}
 				-
 			{% else %}
@@ -66,6 +69,9 @@
 				{% else %}
 					=
 				{% endif %}
+				<span class="sort" style="display:none">
+                     {{account.progression}}
+                </span>
 			</td>
 		</tr>
 		{% endfor %}
@@ -75,7 +81,12 @@
 
 <script type="text/javascript">
 $(document).ready(function() { 
-    $("#ranking_table").tablesorter(); 
+    $("#ranking_table").tablesorter( {textExtraction: function(node){
+        if($(node).children(".sort").length > 0){
+        	   return $(node).children(".sort").text();
+        }
+        return node.innerHTML;
+    }}); 
 }); 
 </script>
 
