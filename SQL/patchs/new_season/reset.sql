@@ -3,6 +3,7 @@ update lfv2_account set points = 0, rank = 99, progression = 0, stat_days = 0, s
 
 --history
 ALTER TABLE `lfv2_league_history` ADD `season` INT NULL ;
+ALTER TABLE `lfv2_league_history` ADD `detail` VARCHAR(32) ;
 update lfv2_league_history set season = 1;
 
 --league match

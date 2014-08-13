@@ -70,6 +70,13 @@ class LeagueHistory
      * @ORM\Column(name="total_points", type="integer")
      */
     private $totalPoints;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="detail", type="string", length=32)
+     */
+    private $detailPoints;
     
     /**
      * @var integer
@@ -326,5 +333,25 @@ class LeagueHistory
         return $this->season;
     }
     
+    /**
+     * Set rank
+     *
+     * @param integer $rank
+     */
+    public function setDetailPoints($detailPoints)
+    {
+        $this->detailPoints = $detailPoints;
+    
+        return $this;
+    }
 
+    /**
+     * Get rank
+     *
+     * @return integer 
+     */
+    public function getDetailPoints()
+    {
+        return $this->detailPoints;
+    }
 }

@@ -46,6 +46,7 @@
 			<th>Bonus</th>
 			<th>Scores trouvés</th>
 			<th>Resultats trouvés</th>
+			<th>Détail</th>
 			<th>Points</th>
 		</tr>
 		{% for history in histories %}
@@ -58,6 +59,7 @@
 			</td>
 			<td>{{history.scores}}</td>
 			<td>{{history.results}}</td>
+			<td>{{history.detailPoints}}</td>
 			<td>{{history.points}}</td>
 		</tr>
 		{% endfor %}
