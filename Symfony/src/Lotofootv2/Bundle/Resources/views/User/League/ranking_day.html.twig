@@ -10,6 +10,7 @@
 
 {% block title_body %}
 	{% if  day is defined and day is not null %}
+		<br/><br/>
 		<div class="row">
 			<div class="col-xs-1" style="padding:0">
 				<a href="{{ path('_league_ranking_day')~'?prev='~day.number}}" title="Journée précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
@@ -28,15 +29,12 @@
 			</div>
 		</div>
 	{% endif %}
-	<div class="title-body">
-		<a class="btn-admin" href="{{ path('_league_ranking')}}">Classement général</a>&nbsp;&nbsp;&nbsp;
-		<a class="btn-admin" href="{{ path('_league_ranking_day')}}">Classement par journée</a>
-	</div>
 	
 {% endblock %}
 
 {% block body %}
-	
+	<br/><br/>
+<div class="row">	
 	{% if day is defined and day is not null %}
 	
 	<table>
@@ -68,7 +66,7 @@
 	Aucune journée à afficher.
 	
 	{% endif %}
-	
+</div>	
 {% endblock %}
 
 {% block footer %}

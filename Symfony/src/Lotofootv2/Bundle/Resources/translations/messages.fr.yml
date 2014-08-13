@@ -48,8 +48,8 @@ rewards:
         title: ADDICT
         desc: Le mec qui lâche pas le lotofoot !
     r17:
-        title: TOP 400
-        desc: Vous avez dépassé la barre mythique des 400 points !
+        title: NEWBIE
+        desc: Vous êtes inscrit depuis moins d'un an au LotoFoot
 
 navibar:
     hello: Bienvenue

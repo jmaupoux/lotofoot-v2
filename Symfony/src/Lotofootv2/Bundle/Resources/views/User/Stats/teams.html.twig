@@ -11,12 +11,25 @@
 {% endblock %}
 
 {% block title_body %}
-	<div class="title-body">
-		<div class="ligne-body-left">&nbsp;</div>
-			Stats Équipes &nbsp;
+	<br/><br/>
+	<div class="row">
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 title-body">
+				Stats Équipes &nbsp;
 			<img src="{{ asset('bundles/lotofootv2/img/title-stats.png') }}"/>
-		<div class="ligne-body-right">&nbsp;</div>
-	</div>
+			</div>
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+		</div>	
+
+{% endblock %}
+
+{% block body %}
+<br/><br/>
+<div class="row" style="text-align:center;">
 	<div class="title-body">
 		<a class="letter" href="#A">A</a> 
 		<a class="letter" href="#B">B</a> 
@@ -45,18 +58,21 @@
 		<a class="letter" href="#Y">Y</a> 
 		<a class="letter" href="#Z">Z</a>
 	</div>
-{% endblock %}
-
-{% block body %}
-		
+</div>	
 		{% for letter in registry %}
-			
-			<div class="bloc-letter" id="{{letter[0]}}">
-				<div class="title-letter">{{letter[0]}}</div>
-				{% for team in letter[1] %}
-					<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank"><img src="http://medias.lequipe.fr/logo-football/{{team[1]}}/30"/></a> 
-					<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank">{{team[0]}}</a><br/>
-				{% endfor %}
+			<div class="row" style="padding:0 10%;">
+				<div class="row underlined-title" style="margin:20px 0;">
+					<h3>{{letter[0]}}</h3>
+				</div>
+					<div id="{{letter[0]}}">
+						
+						{% for team in letter[1] %}
+							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank"><img src="http://medias.lequipe.fr/logo-football/{{team[1]}}/30"/></a> 
+							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank">{{team[0]}}</a><br/>
+						{% endfor %}
+					</div>
+					
+				
 			</div>
 			
 		{% endfor %}

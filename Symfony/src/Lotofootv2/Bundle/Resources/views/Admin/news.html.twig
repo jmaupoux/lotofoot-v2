@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block title_body %}
+<br/><br/>
 	<div class="row">
 			<div class="col-sm-3 hidden-xs">
 				<div class="ligne-body">&nbsp;</div>
@@ -25,33 +26,33 @@
 {% block body %}
 	<script src="{{asset('bundles/lotofootv2/lib/ckeditor/ckeditor.js')}}"></script>
 	<script src="{{asset('bundles/lotofootv2/lib/ckeditor/adapters/jquery.js')}}"></script>
+	<div class="row" style="padding:0 10%;">
 	
-	
-	<form action="{{ path('_admin_news_create') }}" method="post" style="width:800px;margin:auto">
-		
-		<input type="hidden" name="edit" value="{{ app.request.get('edit') }}"/>
-		
-		<div class="control-group">
-			<label class="control-label" for="_title">
-				 Titre <span style="color:red"> * </span> 
-			</label>
-			<div class="controls">
-				 <input type="text" id="_title" name="title" value="{{ app.request.get('title') }}" placeholder="Titre"/>
+		<form action="{{ path('_admin_news_create') }}" method="post">
+			
+			<input type="hidden" name="edit" value="{{ app.request.get('edit') }}"/>
+			
+			<div class="control-group">
+				<label class="control-label" for="_title">
+					 Titre <span style="color:red"> * </span> 
+				</label>
+				<div class="controls">
+					 <input type="text" id="_title" name="title" value="{{ app.request.get('title') }}" placeholder="Titre"/>
+				</div>
 			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="_news-editor">
-				 News <span style="color:red"> * </span> 
-			</label>
-			<div class="controls">
-				<textarea rows="10" cols="100" id="_news-editor" name="text">{{ app.request.get('text') }}</textarea>
+			<div class="control-group">
+				<label class="control-label" for="_news-editor">
+					 News <span style="color:red"> * </span> 
+				</label>
+				<div class="controls">
+					<textarea rows="10" cols="100" id="_news-editor" name="text">{{ app.request.get('text') }}</textarea>
+				</div>
 			</div>
-		</div>
-		
-		<input class="btn-admin" type="submit" value="Publier"></input> 	
-		<a href="{{ path('_admin_news_edit') }}" class="btn-admin" > Editer la news en cours </a>	
-	</form>
-	
+			
+			<input class="btn-admin" type="submit" value="Publier"></input> 	
+			<a href="{{ path('_admin_news_edit') }}" class="btn-admin" > Editer la news en cours </a>	
+		</form>
+	</div>
 		
 	
 	<script type="text/javascript">
