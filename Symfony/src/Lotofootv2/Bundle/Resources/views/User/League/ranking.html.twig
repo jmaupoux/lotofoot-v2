@@ -29,14 +29,15 @@
 	<table id="ranking_table" class="table-striped vote">
 	   <thead>
 		<tr>
-			<th>Rang</th>
-			<th>Joueur</th>
-			<th>Points</th>
-			<th>Journées jouées</th>
-			<th>Bonus trouvés</th>
-			<th>Resultats trouvés</th>
-			<th>Scores trouvés</th>
-			<th>Evolution</th>
+			<th>Rang <span class="caret"></span></th>
+			<th>Joueur <span class="caret"></span></th>
+			<th>Points <span class="caret"></span></th>
+			<th>Journées <span class="caret"></span></th>
+			<th>Bonus <span class="caret"></span></th>
+			<th>Resultats <span class="caret"></span></th>
+			<th>Scores <span class="caret"></span></th>
+			<th>Moyenne <span class="caret"></span></th>
+			<th>Evolution <span class="caret"></span></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -61,6 +62,10 @@
 			<td>{{account.statBonuses}}</td>
 			<td>{{account.statResults}}</td>
 			<td>{{account.statScores}}</td>
+			<td>{% if account.statDays==0 %}0
+			    {% else %}
+			    {{ (account.points / account.statDays)|number_format(2, '.', ',')  }}
+			    {% endif %}</td>
 			<td>
 				{% if account.progression > 0 %}
 					<img src="{{ asset('bundles/lotofootv2/img/rank_up.png') }}" style="padding-top:5px;width:16px;float:left"/>

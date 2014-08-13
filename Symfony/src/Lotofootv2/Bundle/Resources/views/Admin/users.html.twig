@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block title_body %}
+	<br/><br/>
 	<div class="row">
 			<div class="col-sm-3 hidden-xs">
 				<div class="ligne-body">&nbsp;</div>
@@ -23,17 +24,26 @@
 {% endblock %}
 
 {% block body %}
-	<div class="stop-float"></div>
-	<table>
+	<br/><br/>
+	<div class="row" style="text-align:center;">
+	<table  class="table-striped vote">
 		<tr>
+			<th>ID</th>
 			<th>Utilisateur</th>
+			<th>Email</th>
 			<th>Activation</th>
 			<th>Adminitrateur</th>
 		</tr>
 		{% for u in users %}
 		<tr>
 			<td>
+				{{u.ID}}
+			</td>
+			<td>
 				{{u.username}}
+			</td>
+			<td>
+				{{u.email}}
 			</td>
 			<td>
 				<a href="{{ path('_admin_users_activation') }}?id={{u.id}}">
@@ -52,7 +62,7 @@
 		</tr>
 		{% endfor %}
 	</table>
-	
+</div>
 	
 {% endblock %}
 

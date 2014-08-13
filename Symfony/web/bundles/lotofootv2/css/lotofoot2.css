@@ -485,14 +485,23 @@ ul, ul ul {
 	margin:0;	
 	color: rgb(55,46,50);
 	font-size: 22px;
-	text-align: center;
-}
+	text-align: center;}
+
+.title-body a{
+	color: rgb(55,46,50);}
+
+.title-body a:hover{
+	color: rgb(55,46,50);}
+
 
 .ligne-body{
 	background: url(../img/bande_title.png) repeat-x;
 	margin: 0 10px 0 10px;
 }
 
+.letter{
+	color: rgb(55,46,50);}
+	
 /*********************************************/
 /*              Commentaires                 */
 /*********************************************/

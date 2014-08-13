@@ -31,16 +31,18 @@
 	<div class="row" style="text-align:center;">
 	<table class="table-striped vote">
         <tr>
-            <th>Rang</th>
-            <th>Joueur</th>
-            <th>Points</th>
-            <th>Matchs pariés</th>
-            <th>Scores trouvés</th>
-            <th>Resultats trouvés</th>
+            <th>Rang <span class="caret"></th>
+            <th>Joueur <span class="caret"></th>
+            <th>Points <span class="caret"></th>
+            <th>Matchs <span class="caret"></th>
+            <th>Scores <span class="caret"></th>
+            <th>Resultats <span class="caret"></th>
+            <th>Moyenne <span class="caret"></span></th>
         </tr>
         {% for account in accounts %}
         <tr class="{% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index % 10 == 0 %} cl-limit {% endif %}" >
             <td>
+            <span class="sort" style="display:none"> {{loop.index}}</span>
             {% if account.cupRank == 99 or account.cupRank == 0 %}
                 -
             {% else %}
@@ -52,6 +54,10 @@
             <td>{{account.statCupMatchs}}</td>
             <td>{{account.statCupScores}}</td>
             <td>{{account.statCupResults}}</td>
+            <td>{% if account.statCupMatchs==0 %}0
+			    {% else %}
+			    {{ (account.cupPoints / account.statCupMatchs)|number_format(2, '.', ',')  }}
+			    {% endif %}</td>
         </tr>
         {% endfor %}
     </table>

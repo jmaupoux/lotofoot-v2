@@ -10,41 +10,95 @@
 {% endblock %}
 
 {% block title_body %}
-	
+		<br/><br/>
+	<div class="row">
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 title-body">
+				Les Médailles
+			</div>
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+		</div>
 {% endblock %}
 	
 {% block body %}
-	<div class="title-body">
-		<div class="ligne-body-left">&nbsp;</div>
-			Récompenses &nbsp;
-			<img src="{{ asset('bundles/lotofootv2/img/title-stats.png') }}"/>
-		<div class="ligne-body-right">&nbsp;</div>
-	</div>
+<br/><br/>
+<div class="row" >
+
+	<table class="table-striped vote">
 	
-	<div class="bloc-rewards">
-	
-		{% for index in 1..11 %}
-			
-			<div class="bloc-reward">
-				{{ ('rewards.r'~index~'.title')|trans}} <img src="{{ asset('bundles/lotofootv2/img/rewards/r'~index~'.png') }}" 
+		<tr>
+            <th>Médaille</th>
+            <th>Nom</th>
+            <th>Description</th>
+        </tr>
+
+		{% for index1 in 1..17 %}
+			<tr style="text-align:left;">
+				<td style="background-color:rgb(55,46,50);color:white;text-align:center;">				
+					<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~index1~'.png') }}" 
 					class="tooltip-on"			
-					title="{{('rewards.r'~index~'.desc') | trans}}"
-					data-placement="bottom"><br/>
-				<div class="lign-blue"></div>
-				<div class="txt-reward">
-					{% for r in rewards %}
-						{% if r.reward_id == index %}
-							{{ r.username }}<br/>
-						{% endif %}
-					{% endfor %}
-				</div>
-			</div>
-			
+					title="{{('rewards.r'~index1~'.desc') | trans}}"
+					data-placement="bottom">
+				</td>
+				<td style="background-color:rgb(55,46,50);color:white;">
+					{{('rewards.r'~index1~'.title') | trans}}
+				</td>
+				<td>
+					{{('rewards.r'~index1~'.desc') | trans}}
+				</td>
+			</tr>
 		{% endfor %}
+	</table>
+</div>
+	<br/><br/>
+	
+<div class="row">
+	<table id="ranking_table" class="vote">
+	<thead>
+		<tr>
+            <th>Joueurs <span class="caret"></span></th>
+            <th>Médailles</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in users %}
+        <tr style="text-align:left;">
+        	<td>
+        		<span class="sort">    
+			     {{u.username}}
+			     </span>
+        	</td>
+        	<td style="background-color:rgb(55,46,50);">
+        		{% for r in rewards(u.id)%}
+					<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~r.rewardId~'.png') }}" 
+						class="tooltip-on"
+						title="{{('rewards.r'~r.rewardId~'.desc') | trans}}"
+						data-placement="bottom"></img>&nbsp;
+				{% endfor %}
+        	</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+	</table>
+	
+	<br/><br/>
+	
+</div>
 
-	</div>
-	<div class="stop-float"></div>
-
+<script type="text/javascript">
+$(document).ready(function() { 
+    $("#ranking_table").tablesorter( {textExtraction: function(node){
+        if($(node).children(".sort").length > 0){
+        	   return $(node).children(".sort").text();
+        }
+        return node.innerHTML;
+    }}); 
+}); 
+</script>
 {% endblock %}
 
 {% block footer %}
