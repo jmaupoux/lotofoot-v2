@@ -27,6 +27,7 @@
 	<script src="{{asset('bundles/lotofootv2/lib/ckeditor/ckeditor.js')}}"></script>
 	<script src="{{asset('bundles/lotofootv2/lib/ckeditor/adapters/jquery.js')}}"></script>
 	<div class="row" style="padding:0 10%;">
+	   <a style="float:right" href="{{ path('_admin_news_edit') }}" class="btn-admin" > Editer la news en cours </a>
 	
 		<form action="{{ path('_admin_news_create') }}" method="post">
 			
@@ -49,8 +50,11 @@
 				</div>
 			</div>
 			
-			<input class="btn-admin" type="submit" value="Publier"></input> 	
-			<a href="{{ path('_admin_news_edit') }}" class="btn-admin" > Editer la news en cours </a>	
+			{% if app.request.get('edit') %}
+			     <input class="btn-admin" type="submit" value="Mettre à jour" onclick="sub=true"></input>
+			{% else %}
+			     <input class="btn-admin" type="submit" value="Publier" onclick="sub=true"></input>
+			{% endif %} 	
 		</form>
 	</div>
 		
@@ -59,6 +63,14 @@
 		$( document ).ready( function() {
 			$( 'textarea#_news-editor' ).ckeditor();
 		} );
+
+		var sub = false;
+	    
+	    window.onbeforeunload = function(){
+	        if(!sub){
+	            return "Attention, des modifications n'ont pas été enregistrées";
+	        }
+	    }; 
 	</script>
 {% endblock %}
 
