@@ -34,14 +34,14 @@
 				{{i}}
 			</td>
 			<td>
-				<input type="text" name="home_{{i}}" value="{{ app.request.get('home_'~i) }}" style="border:0px"/>
+				<input type="text" name="home_{{i}}" value="{{ app.request.get('home_'~i) }}" style="border:0px" autocomplete="off"/>
 			</td>
 			<td>
-				<input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}" style="border:0px"/>
+				<input type="text" name="visitor_{{i}}" value="{{ app.request.get('visitor_'~i) }}" style="border:0px" autocomplete="off"/>
 			</td>
             <td>
-                <input type="text" name="deadline_{{i}}" value="{{ app.request.get('deadline_'~i) }}" placeholder="jj/mm/aaaa" style="border:0px; width:70px;"/>
-                <input type="text" name="deadlineh_{{i}}" value="{{ app.request.get('deadlineh_'~i) }}" placeholder="HH:mm" style="border:0px; width:50px;"/>
+                <input type="text" name="deadline_{{i}}" value="{{ app.request.get('deadline_'~i) }}" placeholder="jj/mm/aaaa" style="border:0px; width:70px;" autocomplete="off"/>
+                <input type="text" name="deadlineh_{{i}}" value="{{ app.request.get('deadlineh_'~i) }}" placeholder="hh:mm" style="border:0px; width:50px;" autocomplete="off"/>
             </td>
 			<td>
 				<input type="checkbox" name="bonus_{{i}}" {{app.request.get('bonus_'~i) == 'on' ? 'checked' : ''}}/>
