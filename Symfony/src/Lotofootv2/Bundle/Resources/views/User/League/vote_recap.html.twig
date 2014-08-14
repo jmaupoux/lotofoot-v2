@@ -82,9 +82,9 @@
 			<td>
 				{{match.teamHome}}
 			</td>
-			<td class="{% if app.request.get('result_'~match.id) == '1'%} vote {%endif%} {% if leagueDay.corrected %}{%if match.result == '1'%} result {%else %} noresult {%endif%}{%endif%}"></td>
-			<td class="{% if app.request.get('result_'~match.id) == 'N'%} vote {%endif%} {% if leagueDay.corrected %}{%if match.result == 'N'%} result {%else %} noresult {%endif%}{%endif%}"></td>
-			<td class="{% if app.request.get('result_'~match.id) == '2'%} vote {%endif%} {% if leagueDay.corrected %}{%if match.result == '2'%} result {%else %} noresult {%endif%}{%endif%}"></td>
+			<td class="{% if app.request.get('result_'~match.id) == '1'%} voted {%endif%} {% if leagueDay.corrected %}{%if match.result == '1' and app.request.get('result_'~match.id) == '1'%} scoreok {%else %} noresult {%endif%}{%endif%}"></td>
+			<td class="{% if app.request.get('result_'~match.id) == 'N'%} voted {%endif%} {% if leagueDay.corrected %}{%if match.result == 'N' and app.request.get('result_'~match.id) == 'N'%} scoreok {%else %} noresult {%endif%}{%endif%}"></td>
+			<td class="{% if app.request.get('result_'~match.id) == '2'%} voted {%endif%} {% if leagueDay.corrected %}{%if match.result == '2' and app.request.get('result_'~match.id) == '2'%} scoreok {%else %} noresult {%endif%}{%endif%}"></td>
 			<td>
 				{{match.teamVisitor}}
 			</td>

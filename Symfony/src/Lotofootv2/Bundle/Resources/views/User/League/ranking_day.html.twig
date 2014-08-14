@@ -37,19 +37,22 @@
 <div class="row">	
 	{% if day is defined and day is not null %}
 	
-	<table>
+	<table id="ranking_table" class="table-striped vote">
+		<thead>
 		<tr>
-			<th>Classement<br/> du jour</th>
-			<th>Joueur</th>
-			<th>Bonus</th>
-			<th>Scores trouvés</th>
-			<th>Resultats trouvés</th>
+			<th>Classement<br/> du jour <span class="caret"></span></th>
+			<th>Joueur <span class="caret"></span></th>
+			<th>Bonus <span class="caret"></span></th>
+			<th>Scores <span class="caret"></span></th>
+			<th>Resultats <span class="caret"></span></th>			
+			<th>Points <span class="caret"></span></th>
 			<th>Détail</th>
-			<th>Points</th>
 		</tr>
+		</thead>
+		<tbody>
 		{% for history in histories %}
 		<tr {% if history.accountId == app.user.id %} class="my-rank" {% endif %}>
-			<td>{{loop.index}}</td>
+			<td><span class="sort">{{loop.index}}</span></td>
 			<td>{{app.request.get('acc_'~history.accountId)}} ({{history.rank}}e)</td>
 			<td>{% if history.hasBonus %}
 				<img src="{{ asset('bundles/lotofootv2/img/found.png') }}" style="width:16px;height:16px"/>
@@ -57,8 +60,8 @@
 			</td>
 			<td>{{history.scores}}</td>
 			<td>{{history.results}}</td>
-			<td>{{history.detailPoints}}</td>
 			<td>{{history.points}}</td>
+			<td><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-help.png') }}" title="{{history.detailPoints}}" /></td>
 		</tr>
 		{% endfor %}
 	</table>
@@ -69,6 +72,16 @@
 	
 	{% endif %}
 </div>	
+<script type="text/javascript">
+$(document).ready(function() { 
+    $("#ranking_table").tablesorter( {textExtraction: function(node){
+        if($(node).children(".sort").length > 0){
+        	   return $(node).children(".sort").text();
+        }
+        return node.innerHTML;
+    }}); 
+}); 
+</script>
 {% endblock %}
 
 {% block footer %}
