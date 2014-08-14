@@ -149,7 +149,7 @@
 				</table>
 
 				<div class="row"  style="text-align:center;">
-					<input type="submit" class="btn-admin" value="Valider vos votes pour la journée !"/>
+					<input type="submit" class="btn-admin" value="Valider vos votes pour la journée !" onclick="sub=true"/>
 				</div>
 				
 			</form>
@@ -175,7 +175,21 @@
 			});
 		}
 	}
-		
+
+	var sub = false;
+    var changed = false;
+	
+    $("table.vote td input").on('change', function(){
+        changed = true;
+    });
+
+    window.onbeforeunload = function(){
+        console.log(changed, sub)
+        if(changed && !sub){
+            return "Attention, des modifications n'ont pas été enregistrées";
+        }
+    }; 
+	
 	</script>
 	
 {% endblock %}
