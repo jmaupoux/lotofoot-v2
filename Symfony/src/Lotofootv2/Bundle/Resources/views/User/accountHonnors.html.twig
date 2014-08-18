@@ -1,5 +1,9 @@
 <span>
-{{account.username}} 
+{{account.username}}
+
+{% if account.team is defined and account.team is not null %}
+    &nbsp; <img src="http://medias.lequipe.fr/logo-football/{{account.team}}/30" style="height: 16px"/>
+{% endif %} 
 {% if account.cupCagnoute == 1 %} 
     &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}"/>
 {% endif %}

@@ -68,7 +68,13 @@
 						
 						{% for team in letter[1] %}
 							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank"><img src="http://medias.lequipe.fr/logo-football/{{team[1]}}/30"/></a> 
-							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank">{{team[0]}}</a><br/>
+							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank">{{team[0]}}</a>
+							{% if myteam != team[1] %}
+							<a class="lettre pull-right" href="{{ path('_profile_team_my')~'?t='~team[1] }}">Choisir comme blaz</a>
+							{% else %}
+							<span class="pull-right">(Mon blaz)</span>
+							{% endif %}
+							<br/>
 						{% endfor %}
 					</div>
 					

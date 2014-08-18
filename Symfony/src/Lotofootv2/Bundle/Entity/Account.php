@@ -44,6 +44,13 @@ class Account implements AdvancedUserInterface, \Serializable
     private $email;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="team", type="string", length=16, nullable=true)
+     */
+    private $team;       
+    
+    /**
      * @ORM\Column(type="string", length=32)
      */
     private $salt;
@@ -272,6 +279,30 @@ class Account implements AdvancedUserInterface, \Serializable
     {
         return $this->email;
     }
+
+        /**
+     * Set email
+     *
+     * @param string $email
+     * @return Account
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+    
     
     /**
      * Set progression

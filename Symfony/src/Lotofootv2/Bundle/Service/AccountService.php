@@ -67,6 +67,16 @@ class AccountService
     	$this->em->persist($a);
     	$this->em->flush();
     }
+
+    public function updateTeam($account, $team){
+        $a = $this->findById($account->getId());
+        
+        $a->setTeam($team);
+        
+        $this->em->persist($a);
+        $this->em->flush();
+    }
+    
     
 	public function switchActivation($id){
     	$a = $this->findById($id);

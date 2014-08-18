@@ -140,7 +140,7 @@ class TeamsController extends Controller
 		$registry = $this->register($registry, 'West Bromwich Albion', '750');
     	$registry = $this->register($registry, 'West Ham', '77');
     	
-       	return $this->render('Lotofootv2Bundle:User/Stats:teams.html.twig', array('registry' => $registry));
+       	return $this->render('Lotofootv2Bundle:User/Stats:teams.html.twig', array('registry' => $registry, 'myteam' => $this->getUser()->getTeam()));
     }
     
     private function register($registry, $name, $code){
