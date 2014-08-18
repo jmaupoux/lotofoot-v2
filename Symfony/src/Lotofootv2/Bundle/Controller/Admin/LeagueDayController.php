@@ -117,6 +117,17 @@ class LeagueDayController extends Controller
             }
 		}
     	
+	    $dateSort = function($a, $b) {
+		    return $a->getDeadline()->getTimestamp() - $b->getDeadline()->getTimestamp();
+		};
+		
+		usort($matches, $dateSort);
+		
+		//reorder matches
+		for($j=0;$j<count($matches);$j++){
+			$matches[$j]->setNumber($j+1);
+		}
+		
 		$this->get('league_service')->newLeagueDay($matches, $lastdeadline);
 		
 		$this->mailNewDay($firstdeadline);
