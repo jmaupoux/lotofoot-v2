@@ -1750,6 +1750,10 @@ tr.my-rank{
 	background-color:#DABE67 !important;
 }
 
+.table-striped > tbody > tr:nth-child(2n+1).my-rank > td {
+	background-color:#DABE67 !important;
+}
+
 tr.cl-limit{
 	border-bottom:4px solid black !important;
 }
