@@ -66,13 +66,13 @@
     </thead>
     <tbody>
         {% for u in users %}
-        <tr style="text-align:left;">
+        <tr style="text-align:left;" class="{% if u.username == app.user.username %}my-rank{% endif %}">
         	<td>
         		<span class="sort">    
 			     {{u.username}}
 			     </span>
         	</td>
-        	<td style="background-color:rgb(55,46,50);">
+        	<td class="{% if u.username == app.user.username %}my-rank{% else %}fond-reward{% endif %}">
         		{% for r in rewards(u.id)%}
 					<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~r.rewardId~'.png') }}" 
 						class="tooltip-on"

@@ -1753,6 +1753,8 @@ tr.my-rank{
 .table-striped > tbody > tr:nth-child(2n+1).my-rank > td {
 	background-color:#DABE67 !important;
 }
+.fond-reward{
+background-color: rgb(55,46,50);}
 
 tr.cl-limit{
 	border-bottom:4px solid black !important;
