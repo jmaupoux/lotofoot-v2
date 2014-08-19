@@ -38,7 +38,7 @@ class VoteController extends Controller
     	
     	//no day found
     	if($leagueDay == null){
-    		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', array('leagueDay' => $day));
+    		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', array('leagueDay' => $leagueDay));
     	}
     	
     	if($leagueDay->getDeadline() > new DateTime()){

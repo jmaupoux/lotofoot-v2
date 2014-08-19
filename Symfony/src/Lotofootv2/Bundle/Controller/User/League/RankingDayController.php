@@ -27,13 +27,13 @@ class RankingDayController extends Controller
     	}
     	
     	if($leagueDay == null){
-    		return ;//TODO
+    		return $this->render('Lotofootv2Bundle:User\League:ranking_day.html.twig', array('day' => $leagueDay));
     	}
     	
     	if(!$leagueDay->getCorrected()){
     		$leagueDay = $this->get('league_service')->getPreviousLeagueDay($leagueDay->getNumber());
 	    	if($leagueDay == null){
-	    		return ;//TODO
+	    		return $this->render('Lotofootv2Bundle:User\League:ranking_day.html.twig', array('day' => $leagueDay));
 	    	}
     	}
    		
