@@ -1751,8 +1751,12 @@ tr.my-rank{
 }
 
 .table-striped > tbody > tr:nth-child(2n+1).my-rank > td {
-	background-color:#DABE67 !important;
-}
+	background-color:#DABE67 !important;}
+
+.table-striped > tbody > tr:nth-child(2n+1).bonus > td {
+	background-color:rgb(82,96,200) !important;
+	color:white !important;}
+	
 .fond-reward{
 background-color: rgb(55,46,50);}
 
