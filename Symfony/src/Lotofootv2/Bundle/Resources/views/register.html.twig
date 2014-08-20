@@ -18,8 +18,6 @@
 	            </div>
 	            <!-- bottom -->
 	           <div class="login-box-bottom">	           
-	          
-	               <form action="{{ path('_login_check') }}" method="post" >
 	               
 		               <div class="row"> 
 		               
@@ -28,7 +26,7 @@
 	        				<div style="color:red">{{ error }}</div>
 	    				{% endif %}
 		
-						<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
+					<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
 						<div class="col-sm-6 col-xs-12" style="padding:20px 40px;">
 			
 							<div class="control-group">
@@ -37,7 +35,7 @@
 								</label>
 								<div class="controls">
 									<div class="input-prepend">
-										 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur" style="width:180px"/>
+										 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur" style="width:180px" class="form-control input-sm"/>
 									 </div>
 								</div>
 							</div><br/>
@@ -47,7 +45,7 @@
 								</label>
 								<div class="controls">
 									<div class="input-prepend">
-										 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}" style="width:180px"/>
+										 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}" style="width:180px"  class="form-control input-sm"/>
 									 </div>
 								</div>
 							</div><br/>
@@ -57,7 +55,7 @@
 								</label>
 								<div class="controls">
 									<div class="input-prepend">
-										 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}" style="width:180px"/>
+										 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}" style="width:180px"  class="form-control input-sm"/>
 									 </div>
 								</div>
 							</div>
@@ -71,17 +69,17 @@
 								</label>
 								<div class="controls">
 									<div class="input-prepend">
-										 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail" style="width:180px"/>
+										 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail" style="width:180px"  class="form-control input-sm"/>
 									 </div>
 								</div>
 							</div><br/>
 							<div class="control-group">
 								<label class="control-label" for="_whoru">
-									Qui êtes vous ? <br/>(inscription modérée) <span style="color:red"> * </span> 
+								Qui êtes vous ? <br/>(inscription modérée) <span style="color:red"> * </span> 
 								</label>
 								<div class="controls">
 									<div class="input-prepend">
-										 <textarea id="_whoru" name="whoru" rows="2">{{ app.request.get('whoru') }}</textarea>
+										 <textarea id="_whoru" name="whoru" rows="2"  class="form-control input-sm">{{ app.request.get('whoru') }}</textarea>
 									 </div>
 								</div>
 							</div>	
@@ -91,8 +89,6 @@
 								</div>
 							</div>
 		               	</div>
-		               	
-		               </div>
 	              	             
 		           </form>
 	            </div>
