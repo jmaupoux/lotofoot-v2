@@ -75,7 +75,13 @@
 		{% endif %}	
 		<br/>
 		<div class="row" style="text-align:center;">Date limite pour voter à cette journée : 
-			<span style="font-weight: bold">{{ leagueDay.deadline|date("d/m/Y H:i") }}&nbsp;&nbsp;&nbsp;</span>
+			<span style="font-weight: bold">
+				{% if nextDeadline is defined and nextDeadline is not null %}
+				     {{ nextDeadline|date("d/m/Y H:i") }}
+				{% else %}
+				     {{ leagueDay.deadline|date("d/m/Y H:i") }}
+				{% endif %}
+			&nbsp;&nbsp;&nbsp;</span>
 			<input type="button" class="btn-admin tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
 			
 			{% if error is defined %}

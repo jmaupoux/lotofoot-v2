@@ -76,12 +76,21 @@ class VoteController extends Controller
 			$warn = "Attention, vous n'avez pas parié sur l'ensemble de la journée !";
 		}
 		
+		$nextDeadline = null;
+		for($i=0;$i<count($matches);$i++){
+            if($matches[$i]->getDeadline() > new DateTime()){
+                $nextDeadline = $matches[$i]->getDeadline();
+                break;
+            }
+		}
+		
 		return $this->render('Lotofootv2Bundle:User\League:vote.html.twig', 
 			array(
 			'leagueDay' => $day,
 			'matches' => $matches,
 			'info' => $info,
 			'warn' => $warn,
+			'nextDeadline' => $nextDeadline,
 			'is_king' => $this->isPunchliner($request, $day)
 			)
 		);

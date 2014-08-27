@@ -27,7 +27,7 @@
 	    				{% endif %}
 		
 					<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
-						<div class="col-sm-6 col-xs-12" style="padding:20px 40px;">
+						<div class="col-sm-6 col-xs-12" style="padding:20px 40px;padding-bottom:0px">
 			
 							<div class="control-group">
 								<label class="control-label" for="_username">
@@ -38,7 +38,7 @@
 										 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur" style="width:180px" class="form-control input-sm"/>
 									 </div>
 								</div>
-							</div><br/>
+							</div>
 							<div class="control-group">
 								<label class="control-label" for="_password">
 									 Mot de passe <span style="color:red"> * </span> 
@@ -48,7 +48,7 @@
 										 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}" style="width:180px"  class="form-control input-sm"/>
 									 </div>
 								</div>
-							</div><br/>
+							</div>
 							<div class="control-group">
 								<label class="control-label" for="_password2">
 									 Mot de passe (vérification) <span style="color:red"> * </span> 
@@ -62,7 +62,7 @@
 													
 		               	</div>
 		               	
-		               	<div class="col-sm-6 col-xs-12" style="padding:20px 40px;">
+		               	<div class="col-sm-6 col-xs-12" style="padding:20px 40px;padding-bottom:0px">
 							<div class="control-group">
 								<label class="control-label" for="_mail">
 									 Email <span style="color:red"> * </span> 
@@ -72,9 +72,9 @@
 										 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail" style="width:180px"  class="form-control input-sm"/>
 									 </div>
 								</div>
-							</div><br/>
+							</div>
 							<div class="control-group">
-								<label class="control-label" for="_whoru">
+								<label class="control-label" for="_whoru" style="text-align:left">
 								Qui êtes vous ? <br/>(inscription modérée) <span style="color:red"> * </span> 
 								</label>
 								<div class="controls">
@@ -83,13 +83,10 @@
 									 </div>
 								</div>
 							</div>	
-							<div class="control-group" style="padding-top:20px">
-								<div class="controls">
-									<button type="submit" class="btn-admin" value="Créer login">Créer son identifiant LotoFoot</button>	
-								</div>
-							</div>
 		               	</div>
-	              	             
+	              	    <div class="col-xs-12" style="padding-bottom:20px;text-align: center">
+	              	        <button type="submit" class="btn-admin" value="Créer login">Créer son identifiant LotoFoot</button>
+	              	    </div>         
 		           </form>
 	            </div>
             </div>

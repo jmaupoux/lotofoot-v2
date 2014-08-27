@@ -54,7 +54,9 @@ body.body-wc{
 	border-top:0;}
 
 .login-field{
-	padding: 20px;}
+	padding: 20px;
+	padding-bottom:0px;
+}
 
 .login-connexion{
 	padding: 42px 20px 20px 20px;}
@@ -63,7 +65,8 @@ body.body-wc{
 	width: 100%;}
 
 .login-link{
-	padding: 35px 20px 20px 20px;}
+	padding: 20px 20px 10px 20px;
+}
 	
 .login-link a{
 	color:white;}	
