@@ -670,7 +670,7 @@ ul, ul ul {
 /*********************************************/
 
 .tabfinal{
-	margin-top:80px;
+	margin-top:30px;
 	height:700px;
 }
 .tour{
@@ -734,7 +734,7 @@ ul, ul ul {
 	background-image: url(../img/link-tour3.png);
 	background-repeat: no-repeat;
 	margin-left: 8px;
-	margin-top:145px;
+	margin-top:130px;
 }
 
 .link-tour4{
@@ -743,7 +743,7 @@ ul, ul ul {
 	background-image: url(../img/link-tour4.png);
 	background-repeat: no-repeat;
 	margin-left: 8px;
-	margin-top:230px;
+	margin-top:180px;
 }
 
 .cell-confrontation{
@@ -784,11 +784,12 @@ ul, ul ul {
 
 .cell-score{
 	margin-left:5px;
-	height:56px;
+	height:63px;
 	opacity: 1;
 	z-index: 99;
 	width: 85px;
 	margin-top:10px;
+	margin-bottom:10px;
 	padding-top: 5px;
 	border: 1px solid #e0e0e0;
 	border-radius: 5px;
@@ -849,9 +850,9 @@ ul, ul ul {
 }
 
 .cell-space1{
-	height:40px;
-	margin-bottom:20px;
-	padding-bottom:10px;
+	height:43px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 #confrontation-step_1_1{
@@ -1365,8 +1366,8 @@ ul, ul ul {
 	background-image: url(../img/coupe.png);
 	background-repeat: no-repeat;
 	position: absolute;
-	margin-left: 750px;
-	margin-top:90px;
+	margin-left: 920px;
+	margin-top:50px;
 	
 }
 
@@ -1376,8 +1377,8 @@ ul, ul ul {
 	background-image: url(../img/coupe.png);
 	background-repeat: no-repeat;
 	position: absolute;
-	margin-left: 750px;
-	margin-top:420px;
+	margin-left: 920px;
+	margin-top:400px;
 	
 }
 
