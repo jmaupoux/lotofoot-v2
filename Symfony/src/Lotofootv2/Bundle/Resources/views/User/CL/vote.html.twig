@@ -18,7 +18,7 @@
 				<div class="ligne-body">&nbsp;</div>
 			</div>
 			<div class="col-sm-6 col-xs-12 title-body">
-				Vos Paris Champion's League	&nbsp;
+				Vos Paris Champion's League &nbsp;
 			<img src="{{ asset('bundles/lotofootv2/img/title-cl.png') }}"/>
 			</div>
 			<div class="col-sm-3 hidden-xs">
@@ -94,13 +94,13 @@
                                 x.value = y.value;
                             }</script>
                             <input type="range" name="first_goal_min" id="first_goal" value="{{ app.request.get('first_goal_min') }}" max="90" min="0" step="1" onchange="printValue('first_goal','first_goal_txt')"/>
-                        	<input type="text" id="first_goal_txt" size="2" value="{{ app.request.get('first_goal_min') }}" maxlength="3" style="width:25px" disabled="disabled">
+                            <input type="text" id="first_goal_txt" size="2" value="{{ app.request.get('first_goal_min') }}" maxlength="3" style="width:25px;" disabled="disabled">
                         {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
             </table>
-            
+            <br/><br/>
             <div class="control-group">
                 <div class="controls">
                      <input type="submit" class="btn-vote" value="Valider vos votes pour la journée !"/>

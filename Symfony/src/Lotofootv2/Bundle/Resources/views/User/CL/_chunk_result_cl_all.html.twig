@@ -1,20 +1,20 @@
 <div>
      <table  class="board">
          <tr class="board">
-             <th>N°</th>
-             <th>Domicile</th>
-             <th>Extérieur</th>
-             <th>Effectif</th>
+             <th class="board">N°</th>
+             <th class="board">Domicile</th>
+             <th class="board">Extérieur</th>
+             <th class="board">Effectif</th>
              {% for p in players %}
                 <th class="vert {% if loop.index % 2 == 1 %} cl-res-group-separator {% endif %}">{{ app.request.get('acc_'~p.accountId) }}</th>
              {% endfor %}
          </tr>
          {% for match in matchesA %}
          <tr class="vote-board">
-             <td>{{match.number}}</td>
-             <td>{{match.teamHome}}</td>
-             <td>{{match.teamVisitor}}</td>
-             <td>
+             <td class="board">{{match.number}}</td>
+             <td class="board">{{match.teamHome}}</td>
+             <td class="board">{{match.teamVisitor}}</td>
+             <td class="board">
 	             {{match.result}}<br/>
 	             {{match.score}}
 	             {% if match.isFirstGoal %}
@@ -50,20 +50,20 @@
      
          <table  class="board">
          <tr class="board">
-             <th>N°</th>
-             <th>Domicile</th>
-             <th>Extérieur</th>
-             <th>Effectif</th>
+             <th class="board">N°</th>
+             <th class="board">Domicile</th>
+             <th class="board">Extérieur</th>
+             <th class="board">Effectif</th>
              {% for p in players %}
                 <th {% if loop.index % 2 == 0 %} class="cl-res-group-separator" {% endif %}>{{ app.request.get('acc_'~p.accountId) }}</th>
              {% endfor %}
          </tr>
          {% for match in matchesR %}
          <tr class="vote-board">
-             <td>{{match.number}}</td>
-             <td>{{match.teamHome}}</td>
-             <td>{{match.teamVisitor}}</td>
-             <td>
+             <td class="board">{{match.number}}</td>
+             <td class="board">{{match.teamHome}}</td>
+             <td class="board">{{match.teamVisitor}}</td>
+             <td class="board">
                  {{match.result}}<br/>
                  {{match.score}}
                  {% if match.isFirstGoal %}

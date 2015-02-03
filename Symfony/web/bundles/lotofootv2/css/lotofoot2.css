@@ -718,6 +718,28 @@ ul, ul ul {
 .coll-scores{
 	float:left;
 }
+table.board{
+	border:1px solid rgb(55,46,50);
+}
+
+th.board{
+	padding:5px;
+	}
+	
+tr.board{
+	height: 20px;
+	color: rgb(55,46,50);
+	background-image: url(../img/calendar-background-grey.jpg);
+	background-repeat: no-repeat-x;
+	border-spacing: 5px;
+}
+
+tr.vote-board{
+	height: 22px;
+	color: rgb(55,46,50);
+	background: url(../img/cl-vote-board.jpg) repeat-x bottom;
+	border-spacing: 5px;
+}
 
 .link-tour2{
 	width:20px;
