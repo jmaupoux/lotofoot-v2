@@ -46,6 +46,36 @@ class LeagueDayController extends Controller
     		array('leagueDay' => $leagueDay, 'closed' => $closed, 'matches' => $matches, 'hasNotVoted' => $hasNotVoted, 'hasVoted' => $hasVoted)
     	);
     }
+
+    /**
+     * @Route("/admin/league/day/update", name="_admin_league_day_update")
+     */
+    public function updateAction(Request $request)
+    {
+
+        $leagueDay = $this->get('league_service')->getNotCorrectedLeagueDay();
+        $matches = $this->get('league_service')->getLeagueDayMatches($leagueDay->getId());
+
+        for($i=0;$i<count($matches);$i++){
+            $match = $matches[$i];
+
+            $deadline = DateTime::createFromFormat("d/m/Y H:i", $request->request->get('deadline_'.$match->getId()).' '.$request->request->get('deadlineh_'.$match->getId()));
+            $dl_errors = DateTime::getLastErrors();
+            if (!empty($dl_errors['warning_count'])) {
+                return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date incorrecte'));
+            }
+
+            if($deadline == null){
+                return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => 'Date incorrecte'));
+            }
+
+            $match->setDeadline($deadline);
+        }
+
+        $this->get('league_service')->updateLeagueDay($matches);
+
+        return $this->redirect($this->generateUrl('_admin_league_day'));
+    }
     
 	/**
      * @Route("/admin/league/day/new", name="_admin_league_day_new")
@@ -91,8 +121,6 @@ class LeagueDayController extends Controller
 			if($bonus != null && $bonus == 'on'){
 				$isbonus = true;
 			}
-			
-			$this->get('logger')->info($bonus);
 			
 			if($error != null){
 				return $this->render('Lotofootv2Bundle:Admin:league_day.html.twig', array('error' => $error));

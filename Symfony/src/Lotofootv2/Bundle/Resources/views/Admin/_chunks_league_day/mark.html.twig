@@ -55,6 +55,58 @@
 	<strong>L'équipe Lotofoot !</strong>
 	<br/><br/>
 	</div>
+
+     <hr/>
+
+        Mise à jour des dates de fin de vote :<br/>
+
+        <form action="{{ path('_admin_league_day_update') }}" method="post">
+
+            <table class="table-striped vote">
+                <tr>
+                    <th>
+                        N°
+                    </th>
+                    <th>
+                        Domicile
+                    </th>
+                    <th>
+                        Extérieur
+                    </th>
+                    <th>
+                        Deadline
+                    </th>
+                </tr>
+                {% for match in matches %}
+                    <tr {{(match.bonus)?'class="bonus"':''}}>
+                        <td>
+                            {% if match.bonus == true %}
+                                <img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+                            {% endif %}
+                            {{match.number}}
+                            {% if match.bonus == true %}
+                                <img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{match.teamHome}}
+                        </td>
+                        <td>
+                            {{match.teamVisitor}}
+                        </td>
+                        <td>
+                            <input class="inputday" type="text" name="deadline_{{match.id}}" value="{{ match.deadline |date("d/m/Y") }}" placeholder="jj/mm/aaaa" style="border:0px; width:200px;color:black" autocomplete="off"/>
+                            <input class="inputhour" type="text" name="deadlineh_{{match.id}}" value="{{ match.deadline |date("H:i") }}" placeholder="hh:mm" style="border:0px; width:100px;color:black" autocomplete="off"/>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <input type="submit" name="Valider" class="btn-admin center"/>
+
+        </form>
+
+
 {% endif %}
 <br/><br/>
 {% if closed == true %}

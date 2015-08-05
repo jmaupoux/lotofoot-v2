@@ -186,7 +186,20 @@ class LeagueService
     	$this->em->flush();
     	
     }
-    
+
+    public function updateLeagueDay($matches){
+        foreach($matches as $match){
+            $query = $this->em->createQuery(
+                'UPDATE Lotofootv2Bundle:LeagueMatch m SET m.deadline = :deadline WHERE m.id = :lmid'
+                )->setParameter('deadline', $match->getDeadline())
+                ->setParameter('lmid', $match->getId());
+
+            $query->getResult();
+        }
+
+        $this->em->flush();
+    }
+
     public function newLeagueDay($matches, $deadline){
     	$leagueId = $this->getRunningLeague()->getId();
     	
