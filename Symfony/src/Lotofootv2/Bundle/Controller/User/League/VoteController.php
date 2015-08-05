@@ -58,13 +58,16 @@ class VoteController extends Controller
     
     private function voteOpenAction(Request $request, $day){
     	$accountId = $this->getUser()->getId();
-					
+		$selfBonusLocked = $this->get('league_service')->hasLockedSelfBonus($this->getUser()->getId(), $day->getId());
 		$matches = $this->get('league_service')->getLeagueDayMatches($day->getId());
 		$votes = $this->get('league_service')->getLeagueDayVotes($day->getId(), $accountId);
-		
+
 		for($i=0;$i<count($votes);$i++){
 			$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
 			$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
+            if($votes[$i]->getSelfBonus() == true){
+                $request->request->set('selfbonus', $votes[$i]->getLeagueMatchId());
+            }
 		}
 		
 		$info = null;
@@ -91,7 +94,8 @@ class VoteController extends Controller
 			'info' => $info,
 			'warn' => $warn,
 			'nextDeadline' => $nextDeadline,
-			'is_king' => $this->isPunchliner($request, $day)
+			'is_king' => $this->isPunchliner($request, $day),
+            'selfBonusLocked' => $selfBonusLocked
 			)
 		);
     }
@@ -136,6 +140,9 @@ class VoteController extends Controller
 			$request->request->set('score_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getScore());
 			$request->request->set('result_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getResult());
 			$request->request->set('points_'.$votes[$i]->getLeagueMatchId(), $votes[$i]->getPoints());
+            if($votes[$i]->getSelfBonus()){
+                $request->request->set('selfbonus', $votes[$i]->getLeagueMatchId());
+            }
 			$points+=$votes[$i]->getPoints();
 		}
 		
@@ -181,7 +188,9 @@ class VoteController extends Controller
 		$votes = array();
 		
 		$full = 1;
-		
+
+        $bonusLocked = $this->get('league_service')->hasLockedSelfBonus($this->getUser()->getId(), $day->getId());
+
 		for($i=0;$i<count($matches);$i++){
 			if($matches[$i]->getDeadline() < new DateTime()){
 				continue;
@@ -219,6 +228,11 @@ class VoteController extends Controller
 				$vote->getScore() == '' || $vote->getScore() == null ){
 				$full = 0;
 			}
+
+            if(!$bonusLocked && $request->request->get('selfbonus') ==  $matches[$i]->getId() && !$matches[$i]->getBonus()){
+                $vote->setSelfBonus(true);
+                $bonusLocked = true;
+            }
 			
 			array_push($votes, $vote);
 		}

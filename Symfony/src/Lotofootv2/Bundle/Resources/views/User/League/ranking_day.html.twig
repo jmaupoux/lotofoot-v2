@@ -57,6 +57,9 @@
 			<td>{% if history.hasBonus %}
 				<img src="{{ asset('bundles/lotofootv2/img/found.png') }}" style="width:16px;height:16px"/>
 				{% endif %}
+                {% if history.hasSelfBonus %}
+                    MBONUS //TODO TOPICH
+                {% endif %}
 			</td>
 			<td>{{history.scores}}</td>
 			<td>{{history.results}}</td>

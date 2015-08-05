@@ -63,6 +63,17 @@ class LeagueVote
      */
     private $points;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="self_bonus", type="boolean")
+     */
+    private $selfBonus;
+
+    public function __construct()
+    {
+        $this->selfBonus = false;
+    }
 
     /**
      * Get id
@@ -207,5 +218,25 @@ class LeagueVote
     public function getPoints()
     {
         return $this->points;
+    }
+
+    /**
+     * @return Vote
+     */
+    public function setSelfBonus($selfBonus)
+    {
+        $this->selfBonus = $selfBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get selfBonus
+     *
+     * @return boolean
+     */
+    public function getSelfBonus()
+    {
+        return $this->selfBonus;
     }
 }

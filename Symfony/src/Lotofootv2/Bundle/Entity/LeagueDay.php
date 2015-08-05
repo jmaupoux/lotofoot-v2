@@ -48,7 +48,7 @@ class LeagueDay
      * @ORM\Column(name="corrected", type="boolean")
      */
     private $corrected;
-    
+
     /**
      * @var boolean
      *

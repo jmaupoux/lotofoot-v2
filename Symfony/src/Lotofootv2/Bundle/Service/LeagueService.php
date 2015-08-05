@@ -16,7 +16,7 @@ class LeagueService
 	private $logger;
 	private $rewardService;
 	
-	private $current_season = 2;
+	private $current_season = 3;
 	
 	public function __construct(EntityManager $em, Logger $logger, RewardService $rewardService)
     {
@@ -240,7 +240,21 @@ class LeagueService
 		
 		return $query->getResult();
     }
-    
+
+    public function hasLockedSelfBonus($accountId, $leagueDayId){
+        $querySel = $this->em->createQuery(
+            'SELECT count(v) FROM Lotofootv2Bundle:LeagueVote v, Lotofootv2Bundle:LeagueMatch m
+            WHERE v.account_id = :accountId
+            AND v.selfBonus = true
+            AND v.league_match_id = m.id
+            AND m.deadline < CURRENT_TIMESTAMP()
+            AND m.league_day_id = :ldid'
+        )->setParameter('accountId', $accountId)
+         ->setParameter('ldid', $leagueDayId);
+
+        return $querySel->getSingleScalarResult() > 0;
+    }
+
     public function voteLeagueDay($votes){
     	foreach($votes as $vote){
     		
@@ -282,6 +296,8 @@ class LeagueService
     		$dayScores = 0;
     		$dayBonus = false;
     		$resultBonus = false;
+            $monBonus = false;
+            $monResultBonus = false;
     		$resultsPoints = 0;
     		
     		$votes = $this->getLeagueDayVotes($leagueDay->getId(), $account->getId());
@@ -311,11 +327,23 @@ class LeagueService
     						if($votePoints == 3){
     							$account->setStatBonuses($account->getStatBonuses()+1);
     							$dayBonus = true;
+                                $resultBonus = true;
     						}else if ($votePoints == 1){
     							$resultBonus = true;
     						}    						
     						$votePoints *= 3;
     					}
+                        //count *2
+                        else if($vote->getSelfBonus()){
+                            if($votePoints == 3){
+                                $account->setStatBonuses($account->getStatBonuses()+1);
+                                $monBonus = true;
+                                $monResultBonus = true;
+                            }else if ($votePoints == 1){
+                                $monResultBonus = true;
+                            }
+                            $votePoints *= 2;
+                        }
     					break;
     				}
     			}
@@ -363,15 +391,23 @@ class LeagueService
     		$history->setPoints($points);
     		$history->setTotalPoints($account->getPoints());
     		$history->setHasBonus($dayBonus);
+            $history->setHasSelfBonus($monBonus);
     		$history->setScores($dayScores);
     		$history->setResults($dayResults);
     		$history->setSeason($this->current_season);
-    		
+
+            //sub mybonus && bonus
+            $detailScores = $dayBonus?$dayScores-1:$dayScores;
+            $detailScores = $monBonus?$detailScores-1:$detailScores;
+            $detailResults = $resultBonus?$dayResults-1:$dayResults;
+            $detailResults = $monResultBonus?$detailResults-1:$detailResults;
+
     		$detail = "";
-    		$detail.= "r(".($resultBonus?$dayResults-1:$dayResults);
-    		$detail.= "*1)+s(".($dayBonus?$dayScores-1:$dayScores);
-    		$detail.= "*2)+b(".($dayBonus?"3*3":($resultBonus?"1*3":"0*3"));
-    		$detail.= ")+".$resultsPoints;
+    		$detail.= "r(".$detailResults."*1)";//resultats
+    		$detail.= "+s(".$detailScores."*2)";//scores
+    		$detail.= "+b(".($dayBonus?"3":($resultBonus?"1":"0"))."*3)";//bonus !
+            $detail.= "+m(".($monBonus?"3":($monResultBonus?"1":"0"))."*2)";// mon bonus !
+    		$detail.= "+".$resultsPoints;//bonus de resultats
     		$detail.= "=".$points;
     		
     		$history->setDetailPoints($detail);

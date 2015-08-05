@@ -49,7 +49,14 @@ class LeagueHistory
      * @ORM\Column(name="has_bonus", type="boolean")
      */
     private $has_bonus;
-    
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="has_self_bonus", type="boolean")
+     */
+    private $has_selfBonus;
+
     /**
      * @var integer
      *
@@ -221,6 +228,28 @@ class LeagueHistory
     public function getHasBonus()
     {
         return $this->has_bonus;
+    }
+
+    /**
+     * Set totalPoints
+     *
+     * @param integer $totalPoints
+     */
+    public function setHasSelfBonus($hasSelfBonus)
+    {
+        $this->has_selfBonus = $hasSelfBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPoints
+     *
+     * @return totalPoints
+     */
+    public function getHasSelfBonus()
+    {
+        return $this->has_selfBonus;
     }
     
 	/**

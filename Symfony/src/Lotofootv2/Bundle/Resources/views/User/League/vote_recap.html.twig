@@ -72,12 +72,18 @@
 		<tr {{(match.bonus)?'class="bonus"':''}}>
 					<td>
 						{% if match.bonus == true %}
-						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+						    <img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
 						{% endif %}
+                        {% if app.request.get('selfbonus') == match.id  %}
+                            <img src="{{ asset('bundles/lotofootv2/img/mstar.png') }}"/>
+                        {% endif %}
 						{{match.number}}
-						{% if match.bonus == true %}
-						<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
-						{% endif %}
+                        {% if match.bonus == true %}
+                            <img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
+                        {% endif %}
+                        {% if app.request.get('selfbonus') == match.id  %}
+                            <img src="{{ asset('bundles/lotofootv2/img/mstar.png') }}"/>
+                        {% endif %}
 					</td>
 			<td>
 				{{match.teamHome}}

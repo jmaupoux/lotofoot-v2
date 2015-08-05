@@ -108,6 +108,7 @@
 						<th>2</th>
 						<th>Extérieur</th>
 						<th>Score parié</th>
+                        <th>Mon Bonus</th>
                         <th>Clôture</th>
 					</tr>
 					{% for match in matches %}
@@ -147,6 +148,16 @@
 							{{ app.request.get('score_'~match.id) }}
 					     {% endif %}
 						</td>
+                        <td>
+                            {% if match.deadline < date() and app.request.get('selfbonus') == match.id %}
+                                <img src="{{ asset('bundles/lotofootv2/img/mstar.png') }}"/>
+                            {% else %}
+                                {# bonus selection is 'on' #}
+                                {% if match.bonus == false and selfBonusLocked == false %}
+                                    <input name="selfbonus" type="radio" value="{{match.id}}" {% if app.request.get('selfbonus') == match.id %}checked{% endif %}/>
+                                {% endif %}
+                            {% endif %}
+                        </td>
 						<td>
                             {{match.deadline|date("d/m/Y H:i")}}
                         </td>
