@@ -152,8 +152,8 @@
                             {% if match.deadline < date() and app.request.get('selfbonus') == match.id %}
                                 <img src="{{ asset('bundles/lotofootv2/img/mstar.png') }}"/>
                             {% else %}
-                                {# bonus selection is 'on' #}
-                                {% if match.bonus == false and selfBonusLocked == false %}
+                                {# bonus selection is 'on' and match can be selected #}
+                                {% if match.bonus == false and selfBonusLocked == false and match.deadline > date() %}
                                     <input name="selfbonus" type="radio" value="{{match.id}}" {% if app.request.get('selfbonus') == match.id %}checked{% endif %}/>
                                 {% endif %}
                             {% endif %}
