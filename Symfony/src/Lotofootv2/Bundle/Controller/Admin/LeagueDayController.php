@@ -258,10 +258,38 @@ class LeagueDayController extends Controller
     	}
 
     	$this->get('league_service')->processLeagueDay($matches);
-		
+
+        $this->mailPunchliner($leagueDay);
+
     	return $this->redirect($this->generateUrl('_admin_league'));
     }
-    
+
+
+    private function mailPunchliner($leagueDay)
+    {
+        if($leagueDay == null){
+            return ;
+        }
+
+        $histories = $this->get('league_service')->getLeagueDayHistories($leagueDay->getId());
+
+        if($histories == null || count($histories)==0){
+            return ;
+        }
+
+        $punchliner = $this->get('account_service')->findById($histories[0]->getAccountId());
+
+        $from = $this->container->getParameter('mailer_from');
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('[Lotofoot] MVP journée '.$leagueDay->getNumber().'!')
+            ->setFrom($from)
+            ->setTo($punchliner->getEmail())
+            ->setBody($this->renderView('Lotofootv2Bundle:mails:punchliner.txt.twig'));
+
+        $this->get('mailer')->send($message);
+    }
+
     /**
      * @Route("/admin/league/day/test", name="_admin_league_day_test")
      */
