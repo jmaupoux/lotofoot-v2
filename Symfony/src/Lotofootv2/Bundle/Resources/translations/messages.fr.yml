@@ -50,6 +50,9 @@ rewards:
     r17:
         title: NEWBIE
         desc: Vous êtes inscrit depuis moins d'un an au LotoFoot
+    r18:
+        title: FOURMI
+        desc: Vous enchainez les résultats ! Petit à petit on devient moins petit...
 
 navibar:
     hello: Bienvenue

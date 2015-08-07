@@ -66,6 +66,7 @@ class RewardService
     	$this->rewardBourseMolle($accounts);
     	$this->rewardSmoking($accounts);
     	$this->rewardAddict($accounts);
+        $this->rewardFourmi($accounts);
     	//$this->rewardChampionsLeague($accounts);
     }
     
@@ -228,6 +229,32 @@ class RewardService
         }
         
         $this->em->flush();
+    }
+
+    public function rewardFourmi($accounts){
+        $rewarded = array();
+
+        $max = 1;
+
+        foreach ($accounts as $acc) {
+            if($acc->getStatResults() == $max){
+                array_push($rewarded, $acc->getId());
+            }elseif ($acc->getStatResults() > $max){
+                $rewarded = array();
+                array_push($rewarded, $acc->getId());
+                $max = $acc->getStatResults();
+            }
+
+        }
+
+        foreach ($rewarded as $toreward){
+            $reward = new Reward();
+            $reward->setAccountId($toreward);
+            $reward->setRewardId(18);
+            $reward->setType('d');
+
+            $this->em->persist($reward);
+        }
     }
     
     public function reward50($accountId){
