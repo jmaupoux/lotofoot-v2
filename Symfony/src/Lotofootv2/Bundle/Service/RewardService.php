@@ -250,7 +250,7 @@ class RewardService
         foreach ($rewarded as $toreward){
             $reward = new Reward();
             $reward->setAccountId($toreward);
-            $reward->setRewardId(18);
+            $reward->setRewardId(19);
             $reward->setType('d');
 
             $this->em->persist($reward);

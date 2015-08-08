@@ -51,6 +51,9 @@ rewards:
         title: NEWBIE
         desc: Vous êtes inscrit depuis moins d'un an au LotoFoot
     r18:
+        title: TOP 400
+        desc: Vous avez dépassé la barre des 400 points !!! Amaaazing
+    r19:
         title: FOURMI
         desc: Vous enchainez les résultats ! Petit à petit on devient moins petit...
 
