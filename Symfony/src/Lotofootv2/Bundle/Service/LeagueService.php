@@ -187,7 +187,7 @@ class LeagueService
     	
     }
 
-    public function updateLeagueDay($matches){
+    public function updateLeagueDay($leagueDay, $matches){
         foreach($matches as $match){
             $query = $this->em->createQuery(
                 'UPDATE Lotofootv2Bundle:LeagueMatch m SET m.deadline = :deadline WHERE m.id = :lmid'
@@ -196,6 +196,20 @@ class LeagueService
 
             $query->getResult();
         }
+
+        $this->em->flush();
+
+        //invert sort
+        $dateSort = function($a, $b) {
+            return - ($a->getDeadline()->getTimestamp() - $b->getDeadline()->getTimestamp());
+        };
+
+        usort($matches, $dateSort);
+
+        $this->em->createQuery(
+            'UPDATE Lotofootv2Bundle:LeagueDay d SET d.deadline = :deadline WHERE d.id = :id'
+            )->setParameter('deadline', $matches[0]->getDeadline())
+            ->setParameter('id', $leagueDay->getId())->getResult();
 
         $this->em->flush();
     }

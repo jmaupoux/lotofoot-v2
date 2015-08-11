@@ -72,7 +72,7 @@ class LeagueDayController extends Controller
             $match->setDeadline($deadline);
         }
 
-        $this->get('league_service')->updateLeagueDay($matches);
+        $this->get('league_service')->updateLeagueDay($leagueDay, $matches);
 
         return $this->redirect($this->generateUrl('_admin_league_day'));
     }
