@@ -70,7 +70,9 @@
 		   
 		   <div class="comment{{(loop.index%2+1)}}">
 		      <span class="auteur-comment">{{comm.author}}({{app.request.get('acc_'~comm.author)}})</span> - <span class="date-comment">le {{comm.date | date("d/m/Y à H:i")}}</span><br/>
-		      {{comm.text|replace({"\\'" : "'"})}}
+		      <img src="http://www.gravatar.com/avatar/{{ app.request.get('avatar_'~comm.author) }}?s=36&d={{ (app.request.getSchemeAndHttpHost()~asset('bundles/lotofootv2/img/default_avatar.png', null, true)) | url_encode }}"/>
+
+               {{comm.text|replace({"\\'" : "'"})}}
 		   </div>
 
 	   {% endfor %}

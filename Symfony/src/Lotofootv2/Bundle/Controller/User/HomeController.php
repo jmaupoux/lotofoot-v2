@@ -31,6 +31,7 @@ class HomeController extends Controller
          foreach($accs as $a){
                 //acc_accountid
              $request->request->set('acc_'.$a->getUsername(), $a->getRank());
+             $request->request->set('avatar_'.$a->getUsername(), md5( strtolower( trim( $a->getEmail() ) ) ));
          }
     	
     	return $this->render('Lotofootv2Bundle:User:home.html.twig', array('news' => $news, 'last' => true, 'comms'=>$comms));
