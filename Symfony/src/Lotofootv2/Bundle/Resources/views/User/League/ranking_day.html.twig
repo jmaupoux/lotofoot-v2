@@ -55,10 +55,10 @@
 			<td><span class="sort">{{loop.index}}</span></td>
 			<td>{{app.request.get('acc_'~history.accountId)}} ({{history.rank}}e)</td>
 			<td>{% if history.hasBonus %}
-				<img src="{{ asset('bundles/lotofootv2/img/found.png') }}" style="width:16px;height:16px"/>
+					<img src="{{ asset('bundles/lotofootv2/img/star.png') }}"/>
 				{% endif %}
                 {% if history.hasSelfBonus %}
-                    MBONUS //TODO TOPICH
+                    <img src="{{ asset('bundles/lotofootv2/img/mstar.png') }}"/>
                 {% endif %}
 			</td>
 			<td>{{history.scores}}</td>
