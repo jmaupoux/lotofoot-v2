@@ -134,5 +134,9 @@ _calendar:
     
 _forum:
     resource: "@Lotofootv2Bundle/Controller/ForumController.php"
-    type:     annotation    
+    type:     annotation   
+    
+_account_honnors:
+    resource: "@Lotofootv2Bundle/Controller/User/Stats/AccountHonnorsController.php"
+    type:     annotation 
     

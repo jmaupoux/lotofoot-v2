@@ -38,19 +38,20 @@
 					<li class="item6"><a href="#">Stats & Médailles</a>
 						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_stats_rewards') }}" title="Liste des médailles">Les médailles</a></li>
-							<li class="subitem2"><a href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Tes stats</a></li>
-							<li class="subitem3"><a href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes & Stats</a></li>
+							<li class="subitem2"><a href="{{ path('_account_honnors') }}" title="Les glorieux anciens">Hall of Fame</a></li>
+							<li class="subitem3"><a href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Tes stats</a></li>
+							<li class="subitem4"><a href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes & Stats</a></li>
 						</ul>
 					</li>
 					{% if is_granted('ROLE_ADMIN') %}
 					<li class="item7"><a href="#">Administration</a>
 						<ul class="over">
-							<li class="subitem1"><a href="{{ path('_admin_league') }}" title="Administrer un championnat">Admin League</a></li>
+							<li class="subitem1"><a href="{{ path('_admin_users') }}" title="Administrer les utilisateurs">Admin utilisateurs</a></li>
 							<li class="subitem2"><a href="{{ path('_admin_league_day') }}" title="Administrer une journée de championnat">League Day</a></li>
 							<li class="subitem3"><a href="{{ path('_admin_cl') }}" title="Administrer une Champion's League">Admin CL</a></li>
 							<li class="subitem4"><a href="{{ path('_admin_cup') }}" title="Administrer World Cup">Admin World Cup</a></li>
-							<li class="subitem5"><a href="{{ path('_admin_news') }}" title="Administrer les news">Poster une News</a></li>
-							<li class="subitem6"><a href="{{ path('_admin_users') }}" title="Administrer les utilisateurs">Admin utilisateurs</a></li>
+							<li class="subitem5"><a href="{{ path('_admin_news') }}" title="Administrer les news">Poster une News</a></li>		
+							<li class="subitem6"><a href="{{ path('_admin_league') }}" title="Administrer un championnat">Admin League</a></li>
 						</ul>
 					</li>
 					{% endif %}
