@@ -1,0 +1,19 @@
+<span>
+{{account.username}}
+
+{% if account.team is defined and account.team is not null %}
+    &nbsp; <img src="http://medias.lequipe.fr/logo-football/{{account.team}}/30" style="height: 16px"/>
+{% endif %} 
+{% if account.cagnoute == 1 %} 
+    &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute.png') }}"/>
+{% endif %}
+{% for i in 1..account.winsCL if account.winsCL > 0 %} 
+   &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-winner-cl.png') }}"/>
+{% endfor %}
+{% for i in 1..account.winsLeague if account.winsLeague > 0 %} 
+    &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-winner-league.png') }}"/>
+{% endfor %}
+{% for i in 1..account.winsCup if account.winsCup > 0 %} 
+    &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-winner-cup.png') }}"/>
+{% endfor %}
+</span> 

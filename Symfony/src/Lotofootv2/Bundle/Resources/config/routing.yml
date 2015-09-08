@@ -140,3 +140,7 @@ _account_honnors:
     resource: "@Lotofootv2Bundle/Controller/User/Stats/AccountHonnorsController.php"
     type:     annotation 
     
+_account_honnors_rank:
+    resource: "@Lotofootv2Bundle/Controller/User/AccountHonnorsRankController.php"
+    type:     annotation 
+    
