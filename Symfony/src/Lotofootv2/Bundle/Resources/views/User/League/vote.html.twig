@@ -194,12 +194,10 @@
 	}
 
     $('.score_input').on('keyup', function(e){
-        if('0123456789'.indexOf(e.key) != -1){
-            if(this.value.length == 1){
-                this.value+='-'
-            }
-        }
-		if(e.key == '-' && this.value.indexOf('--') != -1){
+		if(this.value.length == 1 && '0123456789'.indexOf(this.value) != -1 && e.keyCode != 8){
+			this.value+='-'
+		}
+		if(this.value.indexOf('--') != -1){
 			this.value = this.value.substr(0, this.value.length-1)
 		}
     });
