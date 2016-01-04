@@ -54,7 +54,7 @@ class CLController extends Controller
      */
     public function createAction(Request $request)
     {    	
-    	$this->get('tournament_service')->createCL($request->request->get('name'), $request->request->get('step_name'));
+    	$this->get('tournament_service')->createCL($request->request->get('name'), $request->request->get('step_name'), intval($request->request->get('num_day')));
 
     	return $this->redirect($this->generateUrl('_admin_cl'));
     }

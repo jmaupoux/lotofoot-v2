@@ -27,7 +27,7 @@ class TournamentService
         $this->league_service = $league_service;
     }
 
-    public function createCL($name, $step_name){
+    public function createCL($name, $step_name, $num_day){
     	$tour = new Tournament();
     	$tour->setName($name);
     	$tour->setType("CL");
@@ -45,7 +45,7 @@ class TournamentService
     	$this->em->persist($tour_step);
     	$this->em->flush();
     	
-    	$accs = $this->getCLQualified();
+    	$accs = $this->getCLQualified($num_day);
     	
     	foreach ($accs as $acc){
     		$tourp = new TournamentPlayer();
@@ -61,14 +61,14 @@ class TournamentService
     	$this->em->flush();
     }
     
-    public function getCLQualified(){
+    public function getCLQualified($num_day){
     	$query = $this->em->createQuery(
             'SELECT h
             FROM Lotofootv2Bundle:LeagueHistory h, Lotofootv2Bundle:LeagueDay d 
             WHERE d.number = :number
             and h.league_day_id = d.id
             ORDER BY h.rank'
-        )->setParameter('number', 12);
+        )->setParameter('number', $num_day);
         
         return array_slice($query->getResult(), 0, 16);
     }
