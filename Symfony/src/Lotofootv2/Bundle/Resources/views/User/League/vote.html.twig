@@ -193,12 +193,10 @@
 		}
 	}
 
-    $('.score_input').on('keyup', function(e){
-		if(this.value.length == 1 && '0123456789'.indexOf(this.value) != -1 && e.keyCode != 8){
-			this.value+='-'
-		}
-		if(this.value.indexOf('--') != -1){
-			this.value = this.value.substr(0, this.value.length-1)
+    $('.score_input').on('blur', function(e){
+		if(this.value.length == 2 && new RegExp('^\\d{2}$').test(this.value)){
+			var spl = this.value.split("")
+			this.value=spl[0]+'-'+spl[1]
 		}
     });
 
