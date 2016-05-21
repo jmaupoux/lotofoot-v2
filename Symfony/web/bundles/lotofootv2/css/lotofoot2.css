@@ -12,7 +12,7 @@ body{
 	display: table-cell;
     vertical-align: middle;
     background: rgb(55,46,50);
-	background-image: url(../img/bg.jpg);
+	background-image: url(../img/bg1.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover; /* pour Chrome et Safari */
  	-moz-background-size: cover; /* pour Firefox */
@@ -28,7 +28,7 @@ body.body-cl{
 	background-image: url(../img/bg-cl.jpg);}
 	
 body.body-wc{
-	background-image: url(../img/bg6.jpg);}
+	background-image: url(../img/bg7.jpg);}
 
 .bg-transparent{
 	opacity:0.85;
@@ -396,7 +396,7 @@ ul, ul ul {
 	background-position: -38px 0;
 }
 .item4 > a:before {
-	background-position: -38px -38px;
+	background-position: -114px -38px;
 }
 .item5 > a:before {
 	background-position: -76px 0;
