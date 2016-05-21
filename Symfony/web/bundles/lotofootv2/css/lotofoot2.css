@@ -1750,9 +1750,10 @@ tr.calendar-vote-cup{
 tr.vote-cup{
 	height: 40px;
 	color: rgb(55,46,50);
-	background-image: url(../img/tab-bg-yellow.jpg) !important;
+	background-image: url(../img/tab-bg-euro.jpg) !important;
 	background-repeat: no-repeat-x;
 	border-spacing:0;
+	background-size: 100% 100%;
 }
 
 td.calendar-termine{
