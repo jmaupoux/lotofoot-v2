@@ -10,7 +10,7 @@ html {
 
 body{
     background: rgb(55,46,50);
-	background-image: url(../img/bg.jpg);
+	background-image: url(../img/bg-wc2018.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover; /* pour Chrome et Safari */
  	-moz-background-size: cover; /* pour Firefox */
@@ -29,8 +29,8 @@ body.body-wc{
 	background-image: url(../img/bg7.jpg);}
 
 .bg-transparent{
-	opacity:0.85;
-    filter:alpha(opacity=85); 
+	/*opacity:0.85;
+    filter:alpha(opacity=85); */
     background: rgb(255,255,255);
     box-shadow: 6px 0px 15px black;  
     min-height: 900px;}
@@ -82,8 +82,8 @@ body.body-wc{
 	height:18px;
 	width:18px;}
 	
-.navbar-nav{
-	margin:0 !important;}
+/*.navbar-nav{
+	margin:0 !important;}*/
 	
 .navbar-nav{
 	border-top:none !important}
@@ -100,13 +100,13 @@ body.body-wc{
 	border-top:1px solid white;
 	width:100%;
 	border-left: none;
-	background-color:#332e29;
+	background-color:#CB3229;
 	padding: 7px 20px 7px 20px;
 	margin:0;
 	clear: both;}
 
-.in .navbar-element:hover{
-	background-color:#7d7368 !important;}
+/*.in .navbar-element:hover{
+	background-color:#7d7368 !important;}*/
 	
 
 .nav>li>a {
@@ -124,9 +124,12 @@ padding: 0px 0 !important;}
 .in .dropdown-menu .navbar-element:hover{
 	background-color:#7d7368 !important;}
 
+.navbar-inverse{
+	background-color:#CB3229 !important ;
+}
 	
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-nav>li>a:focus{
-	background-color:#332e29 !important ;
+	background-color:#CB3229 !important ;
 	padding: 7px 20px 7px 20px !important;
 	color:white !important;
 }
@@ -631,9 +634,7 @@ ul, ul ul {
 /*********************************************/
 
 .content-footer{
-	background: rgb(51,42,46);
-	box-shadow: 6px 0px 15px black;
-	padding: 10px 0 10px 10px !important;
+	background: #CB3229;
 	color: white;
 	margin: 0 !important;}
 	
@@ -657,10 +658,11 @@ ul, ul ul {
 	font-weight:bold;}
 	
 .copyright{
-	background-color:#222;
+	background-color:#CB3229;
 	color:white;
 	font-size:10px;
-	padding: 5px 0;}
+	padding: 5px 0;
+	border-top:1px solid white;}
 	
 
 /*********************************************/

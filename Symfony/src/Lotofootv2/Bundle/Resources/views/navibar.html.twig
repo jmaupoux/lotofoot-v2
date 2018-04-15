@@ -41,37 +41,19 @@
 		    </div>
 		 </li>
 		 <li class="dropdown visible-xs">
-		 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/rewards/r14.png') }}"/>&nbsp;&nbsp;Championnat&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
-		 	<ul class="dropdown-menu" role="menu">
-		 		<li><a class="navbar-element" href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">-&nbsp;&nbsp; Parier</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_league_ranking_day') }}" title="Classement Journée">-&nbsp;&nbsp; Classement Journée</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_league_ranking') }}" title="Classement Général">-&nbsp;&nbsp; Classement Général</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_league_rules') }}" title="Règlement du championnat">-&nbsp;&nbsp; Règlement</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_league_prizes') }}" title="Cadeaux Championnat 2013-2014">-&nbsp;&nbsp; Cadeaux</a></li>
-		 	</ul>
+		 	<a href="{{ path('_cup_vote') }}" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/rewards/r14.png') }}"/>&nbsp;&nbsp;Parier</a>
 		 </li>
 		 <li class="dropdown visible-xs">
-		 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/rewards/r11.png') }}"/>&nbsp;&nbsp;Champion's&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
-		 	<ul class="dropdown-menu" role="menu">
-		 		<li><a class="navbar-element" href="{{ path('_cl_vote') }}" title="Parier sur la prochaine journée de Champion's League">-&nbsp;&nbsp; Parier</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_cl_board') }}" title="Tableau">-&nbsp;&nbsp; Tableau final</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_cl_rules') }}" title="Règlement Champion's League">-&nbsp;&nbsp; Règlement</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_cl_prizes') }}" title="Cadeaux Champion's League">-&nbsp;&nbsp; Cadeaux</a></li>
-		 	</ul>
+		 	<a href="{{ path('_cup_ranking') }}" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/rewards/r11.png') }}"/>&nbsp;&nbsp;Classement</a>
 		 </li>
 		 <li class="dropdown visible-xs">
-		 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/rewards/r20.png') }}"/>&nbsp;&nbsp;EURO 2016&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
-		 	<ul class="dropdown-menu" role="menu">
-		 		<li><a class="navbar-element" href="{{ path('_cup_vote') }}" title="Parier sur la prochaine journée de coupe du monde">-&nbsp;&nbsp; Parier</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_cup_ranking') }}" title="Classement">-&nbsp;&nbsp; Classement</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_cup_rules') }}" title="Règlement de l'EURO">-&nbsp;&nbsp; Règlement</a></li>
-		 	</ul>
+	 	 	<a href="{{ path('_cup_rules') }}" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/rewards/r20.png') }}"/>&nbsp;&nbsp;Règlement</a>
 		 </li>
 		 <li class="visible-xs">
-		 <a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir" class="navbar-element"><img class="tooltip-on" data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-calendar.png') }}"/>&nbsp;&nbsp;Calendrier</a>
+		 	<a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir" class="navbar-element"><img class="tooltip-on" data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-calendar.png') }}"/>&nbsp;&nbsp;Calendrier</a>
 		 </li>
 		 <li class="dropdown visible-xs">
-		 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-stats.png') }}"/>&nbsp;&nbsp;Stats & Médailles&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
+		 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-stats.png') }}"/>&nbsp;&nbsp;Les p'tits +&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
 		 	<ul class="dropdown-menu" role="menu">
 		 		<li><a class="navbar-element" href="{{ path('_stats_rewards') }}" title="Liste des médailles">-&nbsp;&nbsp; Les médailles</a></li>
 		 		<li><a class="navbar-element" href="{{ path('_account_honnors') }}" title="Le Panthéon">-&nbsp;&nbsp; Hall of Fame</a></li>
@@ -94,6 +76,6 @@
 		 {% endif %}
       </ul>
 	   
-    </div><!--/.nav-collapse -->
+    </div>
    </div>
 </div>

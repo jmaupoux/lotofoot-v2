@@ -67,51 +67,35 @@ home:
     nonews:  Aucune news à afficher
 
 nationalteams:
-    ALB: Albanie
-    AUT: Autriche
-    BOS: Bosnie
-    GAL: Pays-de-Galles
-    HON: Hongrie
-    ILN: Irlande du Nord
-    IRL: Irlande
-    ISL: Islande
-    POL: Pologne
-    RTC: République Tchèque
-    ROU: Roumanie
-    SLQ: Slovaquie
-    SUE: Suède
-    TUR: Turquie
-    UKR: Ukraine
-    BRE: Brésil
-    CRO: Croatie
-    MEX: Mexique
-    CAM: Cameroun
-    ESP: Espagne
-    HOL: Pays-Bas
-    CHL: Chili
-    AUS: Australie
-    COL: Colombie
-    GRE: Grèce
-    CIV: Côte d'Ivoire
-    JAP: Japon
-    URU: Uruguay
-    CRI: Costa Rica
-    ANG: Angleterre
-    ITA: Italie
-    SUI: Suisse
-    EQU: Equateur
-    FRA: France
-    HND: Honduras
-    ARG: Argentine
-    BOS: Bosnie
-    IRN: Iran
-    NGA: Nigeria
     ALL: Allemagne
-    POR: Portugal
-    GHA: Ghana
-    USA: Etats-Unis
+    ANG: Angleterre
+    ARS: Arabie Saoudite
+    ARG: Argentine
+    AUS: Australie
     BEL: Belgique
-    ALG: Algérie
+    BRE: Brésil
+    COL: Colombie
+    CDS: Corée du Sud
+    CRI: Costa Rica
+    CRO: Croatie
+    DAN: Danemark
+    EGY: Egypte
+    ESP: Espagne
+    FRA: France
+    IRN: Iran
+    ISL: Islande
+    JAP: Japon
+    MAR: Maroc
+    MEX: Mexique
+    NGA: Nigeria
+    PAN: Panama
+    PER: Pérou
+    POL: Pologne
+    POR: Portugal
     RUS: Russie
-    CDS: Coree du Sud
-    
+    SEN: Sénégal
+    SER: Serbie
+    SUE: Suède
+    SUI: Suisse
+    TUN: Tunisie
+    URU: Uruguay
