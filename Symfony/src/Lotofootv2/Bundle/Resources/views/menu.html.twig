@@ -10,6 +10,12 @@
 	<div class="row hidden-xs row-menu">
 				<ul class="menu">
 					<li class="item1"><a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a></li>
+					<li class="item2"><a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a></li>
+					<li class="item3"><a href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a></li>
+					<li class="item4"><a href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a></li>
+					<li class="item5"><a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir">Calendrier</a></li>
+					<li class="item6"><a href="{{ path('_stats_rewards') }}" title="Liste des médailles">Les p'tits +</a></li>
+					<!--  
 					<li class="item2"><a href="#">Championnat</a>
 						<ul class="over">
 							<li class="subitem1"><a href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
@@ -42,7 +48,7 @@
 							<li class="subitem3"><a href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Tes stats</a></li>
 							<li class="subitem4"><a href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes & Stats</a></li>
 						</ul>
-					</li>
+					</li>-->
 					{% if is_granted('ROLE_ADMIN') %}
 					<li class="item7"><a href="#">Administration</a>
 						<ul class="over">
