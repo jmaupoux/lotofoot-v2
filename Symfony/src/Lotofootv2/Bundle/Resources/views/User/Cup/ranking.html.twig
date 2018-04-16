@@ -56,7 +56,7 @@
             <td>{{account.statCupResults}}</td>
             <td>{% if account.statCupMatchs==0 %}0
 			    {% else %}
-			    {{ (account.cupPoints / account.statCupMatchs)|number_format(2, '.', ',')  }}
+			    {{ (account.cupPoints / matchCorrected)|number_format(2, '.', ',')  }}
 			    {% endif %}</td>
         </tr>
         {% endfor %}

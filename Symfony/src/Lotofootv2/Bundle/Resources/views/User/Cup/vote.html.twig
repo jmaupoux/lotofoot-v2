@@ -27,14 +27,7 @@
 {% endblock %}
 	
 {% block body %}
-
-
-    <strong>Attention : </strong> 
-    <ul>
-    	<li>Chaque match a une date limite et une heure limite qui lui est propre vous n'êtes pas obligé de parier sur tous les matchs proposés. Vous pouvez parier au fur et mesure que les matchs arrivent.</li>
-    	<li>De même, tant que la date limite n'est pas atteinte, vous pouvez parier autant de fois que vous le souhaitez sur un match.</li>
-    </ul><br/>
-    
+	
     {% if hasvoted and zero==false %}
         <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
     {% endif %}
@@ -58,13 +51,18 @@
     {% endif %}
     
 	<div class="row" style="text-align:center;">
+		<div class="col-lg-6">
 
-	    <table>
-	        <tr><td  style="border:none; vertical-align:top;">
 	           <input type="button" class="btn-admin tooltip-on" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/><br/><br/>
 	                
 	            <form action="{{ path('_cup_post') }}" method="post">
-	
+
+					<div class="control-group">
+						<div class="controls">
+							<input type="submit" class="btn-vote" style="margin-left: 140px;" value="Valider vos paris !"/>
+						</div>
+					</div>
+					
 		            <table  class="vote">
 		            	<tr>
 		        			<th colspan="7" style="border-bottom: 1px white solid">Votes en cours</th>
@@ -81,7 +79,7 @@
 		                {% for match in opens %}
 		                <tr class="vote-cup">
 		                    <td>
-		                        {{match.id}}
+		                        {{match.id - 64}}
 		                    </td>
 		                    <td class="match">
 		                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}} (1)</div><br/>
@@ -101,7 +99,7 @@
 		                    <td style="width:10px; padding:2px"><input id="result_{{match.id}}_2" type="radio" name="result_{{match.id}}" value="2"
 		                        {% if app.request.get('result_'~match.id) == '2' %}checked{% endif %}/> </td>
 		                    <td>    
-		                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:30px" placeholder="x-x"/>
+		                        <input id="score_{{match.id}}" type="text" autocomplete="off" name="score_{{match.id}}" value="{{ app.request.get('score_'~match.id) }}" size="3" maxlength="3" style="width:40px" placeholder="x-x"/>
 		                    </td>
 		                </tr>
 		                {% endfor %}
@@ -115,9 +113,9 @@
 		            <div style="clear:both"></div>
 		        </form><br/>
 	        <a href="http://www.lequipe.fr/Football/Euro/Saison-2016/calendrier-resultats.html" target="_blank" alt ="Résultats EURO 2016" ><img src="{{ asset('bundles/lotofootv2/img/logo-lequipe.png') }}"/></a>
-	        </td><td style="border:none; vertical-align:top;">
-	         
-	        
+			
+		</div>
+		<div class="col-lg-6">
 	         
 	         <table  class="vote">
 	         			<tr>
@@ -135,7 +133,7 @@
 	                    {% for match in closed %}
 	                    <tr class="vote-cup">
 	                        <td>
-	                            {{match.id}}
+	                            {{match.id - 64}}
 	                        </td>
 	                        <td style="text-align:center; width:170px;">
 	                            <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
@@ -159,10 +157,8 @@
 	                    </tr>
 	                    {% endfor %}
 	                </table>
-	        
-	        </td></tr>
-	    </table>
-    
+		</div>
+		</div>
     </div>
     
     <script type="text/javascript">
