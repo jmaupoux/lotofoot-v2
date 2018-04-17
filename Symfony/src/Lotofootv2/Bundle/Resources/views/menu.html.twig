@@ -1,13 +1,15 @@
 <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/menu.js')}}"></script> 
+<script type="text/javascript" src="{{asset('bundles/lotofootv2/js/modernizr.custom.js')}}"></script>
 
 <div class="container margin-container">
-	<div class="row">
-		<div class="logo-ballon">
+	<div class="row" style="text-align:center;">
+		<img  style="margin:auto;" src="{{ asset('bundles/lotofootv2/img/logo-lotofoot2018.png') }}"/>
+		<!-- <div class="logo-ballon">
 			<img class="img-responsive" style="display:inline;width:100%;" src="{{ asset('bundles/lotofootv2/img/logo-ballon2.png') }}"/>
 		</div>
-		<div class="logo-lotofoot"></div>
+		<div class="logo-lotofoot"></div>-->
 	<div>
-	<div class="row hidden-xs row-menu">
+	<!-- <div class="row hidden-xs row-menu">
 				<ul class="menu">
 					<li class="item1"><a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a></li>
 					<li class="item2"><a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a></li>
@@ -48,7 +50,7 @@
 							<li class="subitem3"><a href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Tes stats</a></li>
 							<li class="subitem4"><a href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes & Stats</a></li>
 						</ul>
-					</li>-->
+					</li>
 					{% if is_granted('ROLE_ADMIN') %}
 					<li class="item7"><a href="#">Administration</a>
 						<ul class="over">
@@ -63,8 +65,22 @@
 					{% endif %}
 				</ul>
 
-			</div>
+			</div>-->
+			
+			<header class="codrops-header">
+				<nav class="codrops-demos">
+					<a href="index.html">Accueil</a>
+					<a href="index2.html">Parier</a>
+					<a class="current-demo" href="index3.html">Classement</a>
+					<a href="index4.html">Règlement</a>
+					<a href="index5.html">Calendrier</a>
+					<a href="index6.html">Mon compte</a>
+					<a href="index6.html">Admin</a>
+				</nav>
 
+			</header>
+
+		
 		</div>	
 	</div>
 </div>
