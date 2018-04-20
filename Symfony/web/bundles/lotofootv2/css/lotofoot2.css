@@ -309,7 +309,7 @@ a:focus {
 
 /* Demo Buttons Style */
 .codrops-demos {
-	padding: 2em 0 3em;
+	padding: 2em 0 2em;
 }
 
 .codrops-demos a {
@@ -327,6 +327,21 @@ a:focus {
 	transition: all 0.2s;
 }
 
+.codrops-demos-admin a {
+	display: inline-block;
+	margin: 0.5em;
+	padding: 0.7em 1.1em;
+	outline: none;
+	border: 2px solid #20215A;
+	background-color:white;
+	color: #20215A;
+	text-decoration: none;
+	font-weight: 700;
+	opacity: 1;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
 .codrops-demos a:hover,
 .codrops-demos a.current-demo,
 .codrops-demos a.current-demo:hover,
@@ -334,6 +349,15 @@ a:focus {
 
 	color: #fff;
 	background-color:#CB3229;
+}
+
+.codrops-demos-admin a:hover,
+.codrops-demos-admin a.current-demo,
+.codrops-demos-admin a.current-demo:hover,
+.codrops-demos-admin a:focus {
+
+	color: #fff;
+	background-color:#20215A;
 }
 
 /* Related demos */

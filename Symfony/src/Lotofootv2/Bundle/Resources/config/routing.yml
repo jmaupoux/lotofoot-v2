@@ -64,6 +64,10 @@ _stats_teams:
     resource: "@Lotofootv2Bundle/Controller/User/Stats/TeamsController.php"
     type:     annotation
 
+_admin:
+    resource: "@Lotofootv2Bundle/Controller/Admin/AdminController.php"
+    type:     annotation
+    
 _admin_league:
     resource: "@Lotofootv2Bundle/Controller/Admin/LeagueController.php"
     type:     annotation
@@ -75,7 +79,6 @@ _admin_league_day:
 _admin_cup:
     resource: "@Lotofootv2Bundle/Controller/Admin/CupController.php"
     type:     annotation
-
 
 _admin_news:
     resource: "@Lotofootv2Bundle/Controller/Admin/NewsController.php"

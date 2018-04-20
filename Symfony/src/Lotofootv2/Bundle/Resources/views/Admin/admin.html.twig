@@ -1,0 +1,42 @@
+{% extends 'Lotofootv2Bundle::layout.html.twig' %}
+
+{% block navibar %}
+	{% include 'Lotofootv2Bundle::navibar.html.twig' %}
+{% endblock %}
+
+{% block menu %}
+	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+{% endblock %}
+
+{% block title_body %}
+	<br/><br/>
+	<div class="row">
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 title-body">
+				Admin utilisateurs
+			</div>
+			<div class="col-sm-3 hidden-xs">
+				<div class="ligne-body">&nbsp;</div>
+			</div>
+		</div>	
+{% endblock %}
+
+{% block body %}
+		<header class="codrops-header">
+				<nav class="codrops-demos-admin">
+					{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('_admin_users') }}" title="Administrer les utilisateurs">Admin utilisateurs</a>					
+					<a href="{{ path('_admin_cup') }}" title="Administrer World Cup">Admin World Cup</a>
+					<a href="{{ path('_admin_news') }}" title="Administrer les news">Poster une News</a>	
+					{% endif %}
+				</nav>
+
+			</header>
+	
+{% endblock %}
+
+{% block footer %}
+	{% include 'Lotofootv2Bundle::footer.html.twig' %}
+{% endblock %}

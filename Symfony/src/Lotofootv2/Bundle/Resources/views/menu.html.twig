@@ -69,13 +69,15 @@
 			
 			<header class="codrops-header">
 				<nav class="codrops-demos">
-					<a href="index.html">Accueil</a>
-					<a href="index2.html">Parier</a>
-					<a class="current-demo" href="index3.html">Classement</a>
-					<a href="index4.html">Règlement</a>
-					<a href="index5.html">Calendrier</a>
-					<a href="index6.html">Mon compte</a>
-					<a href="index6.html">Admin</a>
+					<a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a>
+					<a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a>
+					<a class="current-demo" href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a>
+					<a href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a>
+					<a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir">Calendrier</a>
+					<a href="{{ path('_profile') }}">Mon compte</a>
+					{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('_admin') }}">Admin</a>
+					{% endif %}
 				</nav>
 
 			</header>
@@ -84,5 +86,3 @@
 		</div>	
 	</div>
 </div>
-
-	
