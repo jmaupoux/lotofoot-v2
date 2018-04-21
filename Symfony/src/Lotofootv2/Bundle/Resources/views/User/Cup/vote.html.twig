@@ -11,23 +11,19 @@
 {% endblock %}
 
 {% block title_body %}
-	<br/><br/>
 	<div class="row">
-			<div class="col-sm-3 hidden-xs">
-				<div class="ligne-body">&nbsp;</div>
+		<div class="container container-home" style="text-align:center;">
+
+			<div class="title-body">TES PARIS - COUPE DU MONDE 2018	&nbsp;
+				<img src="{{ asset('bundles/lotofootv2/img/rewards/r12.png') }}"/>
 			</div>
-			<div class="col-sm-6 col-xs-12 title-body">
-				Tes Paris - COUPE DU MONDE 2018	&nbsp;
-			<img src="{{ asset('bundles/lotofootv2/img/rewards/r12.png') }}"/>
-			</div>
-			<div class="col-sm-3 hidden-xs">
-				<div class="ligne-body">&nbsp;</div>
-			</div>
+
 		</div>	
 {% endblock %}
 	
 {% block body %}
-	
+	<div class="row">
+		<div class="container container-home" style="text-align:center;">
     {% if hasvoted and zero==false %}
         <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
     {% endif %}
@@ -182,7 +178,8 @@
     }
         
     </script>
-
+</div>
+</div>
 {% endblock %}
 
 {% block footer %}

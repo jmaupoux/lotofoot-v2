@@ -8,50 +8,53 @@
 
 {% block menu %}
 	{% include 'Lotofootv2Bundle::menu.html.twig' %}
+	
 {% endblock %}
-
+	
 {% block title_body %}
+	
 	<div class="row">
-		<img class="img-responsive" style="display:inline;width:100%; padding-bottom:25px" src="{{ asset('bundles/lotofootv2/img/banner_orig.jpg') }}"/>
+		<div class="container">
+			<img class="img-responsive banner" src="{{ asset('bundles/lotofootv2/img/banner_orig.jpg') }}"/>
+		</div>
 	</div>
+	
 	<div class="row">
-		<div class="col-xs-1" style="padding:0">
-		{% if news is not null%}
-			<a href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"/></a>
-		{% endif %}
-		</div>
-		<div class="col-sm-3 hidden-xs">
-			<div class="ligne-body">&nbsp;</div>
-		</div>
-		<div class="col-sm-4 col-xs-10 title-body">
+		<div class="container container-home" style="text-align:center;">
+			
+			
+				{% if news is not null%}
+					<a href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"  onmouseover="this.src='{{ asset('bundles/lotofootv2/img/prev-hover.png') }}'" onmouseout="this.src='{{ asset('bundles/lotofootv2/img/prev.png') }}'"/></a>
+				{% endif %}
+			
+				<div class="title-body">
+					{% if news is not null%}
+						{{news.title}}
+					{% else %}
+						{{ 'home.welcome' | trans }}
+					{% endif %}
+				</div>
+			
 			{% if news is not null%}
-				{{news.title}}
-			{% else %}
-				{{ 'home.welcome' | trans }}
+				<a href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"  onmouseover="this.src='{{ asset('bundles/lotofootv2/img/next-hover.png') }}'" onmouseout="this.src='{{ asset('bundles/lotofootv2/img/next.png') }}'"/></a>
 			{% endif %}
+			
 		</div>
-		<div class="col-sm-3 hidden-xs">
-			<div class="ligne-body">&nbsp;</div>
-		</div>
-		<div class="col-xs-1" style="padding:0">
-		{% if news is not null%}
-			<a href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"/></a>
-		{% endif %}
-		</div>
-
 	</div>
 {% endblock %}
 	
 {% block body %}
-	
-	{% if news is not null%}
-		{{ news.date|date("d/m/Y") }}
-		{% autoescape false %}
-			{{news.text}}
-		{% endautoescape %}
-	{% else %}
-		 {{ 'home.nonews' | trans }}
-	{% endif %}
+	<div class="row">
+		<div class="container container-home">
+			{% if news is not null%}
+				{{ news.date|date("d/m/Y") }}
+				{% autoescape false %}
+					{{news.text}}
+				{% endautoescape %}
+			{% else %}
+				 {{ 'home.nonews' | trans }}
+			{% endif %}
+		
 	
 	<br/>
 	<div class="top-comment">
@@ -77,7 +80,8 @@
 
 	   {% endfor %}
 	{% endif %}
-	
+	</div>
+	</div>
 	
 {% endblock %}
 

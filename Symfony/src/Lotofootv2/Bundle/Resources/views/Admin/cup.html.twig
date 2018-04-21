@@ -10,20 +10,19 @@
 
 {% block title_body %}
 	<div class="row">
-			<div class="col-sm-3 hidden-xs">
-				<div class="ligne-body">&nbsp;</div>
+		<div class="container container-home" style="text-align:center;">
+
+			<div class="title-body">
+				ADMINISTRATION COUPE DU MONDE
 			</div>
-			<div class="col-sm-6 col-xs-12 title-body">
-				Administration de la Cup			&nbsp;
-			<img src="{{ asset('bundles/lotofootv2/img/rewards/r20.png') }}"/>
-			</div>
-			<div class="col-sm-3 hidden-xs">
-				<div class="ligne-body">&nbsp;</div>
-			</div>
+
 		</div>	
+	</div>
 {% endblock %}
 
 {% block body %}
+<div class="row">
+		<div class="container container-home">
 	<div class="stop-float"></div>
 	
 	<a href="{{ path('_admin_cup_stats') }}" class="btn-admin">Statistiques et votes</a>
@@ -180,6 +179,8 @@
 
 
 </ul>
+</div>
+</div>
 {% endblock %}
 
 {% block footer %}

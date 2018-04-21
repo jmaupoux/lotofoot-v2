@@ -7,6 +7,7 @@
         <title>Lotofoot !</title>
 		
 		<link rel="shortcut icon" type="image/ico" href="{{ asset('bundles/lotofootv2/favicon.ico') }}"/>
+		<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet"> 
 	    <link rel="apple-touch-icon" href="{{ asset('bundles/lotofootv2/img/logo-ballon.png') }}"/>
 	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/lotofoot2.css') }}" />
 	    <link rel="stylesheet" href="{{ asset('bundles/lotofootv2/css/bootstrap.min.css') }}" />
@@ -14,22 +15,20 @@
         <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/lib/jquery.tablesorter.min.js')}}"></script>
     </head>
-    <body {% if bg_cl is defined and bg_cl == true %} class="body-cl" {% elseif bg_wc is defined and bg_wc == true %} class="body-wc" {% endif %}>
+    <body>
+      
         {% block navibar %}
 		{% endblock %}
-    <div class="container">
 		
-	    	{% block menu %}
-			{% endblock %}
-	    <div class="bg-transparent">
-	        <div id="content">
-				{% block title_body %}
-				{% endblock %}
-				{% block body %}
-				{% endblock %}
-			</div>
-		</div>
-	</div>
+		{% block menu %}
+		{% endblock %}
+		
+		{% block title_body %}
+		{% endblock %}
+		
+		{% block body %}
+		{% endblock %}
+
 	
 		{% block footer %}
 		{% endblock %}

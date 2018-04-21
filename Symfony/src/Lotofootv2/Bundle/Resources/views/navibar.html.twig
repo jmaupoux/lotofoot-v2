@@ -1,19 +1,20 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
-  <a href="{{ path('_logout') }}"><img class="icon-disconnect tooltip-on" data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}" title="Déconnexion"/></a>
-    <div class="navbar-header">
+  	<a href="{{ path('_logout') }}"><img class="icon-disconnect tooltip-on" data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/logo-disconnect.png') }}" title="Déconnexion"/></a>
+  	
+  	<div class="navbar-header">
 
 	   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 	       <span class="icon-bar"></span>
 	       <span class="icon-bar"></span>
 	       <span class="icon-bar"></span>
 	    </button>
+	    
       <div class="navbar-brand">
-	      <a href="{{ path('_home') }}"><img class="navbar-profile icon-home" src="{{ asset('bundles/lotofootv2/img/icon-home.png') }}" title="Accueil"/></a>&nbsp;
-	       {{ app.user.username }}&nbsp;&nbsp;
-	      <a href="{{ path('_profile') }}"><img class="navbar-profile" src="{{ asset('bundles/lotofootv2/img/profile-icon.png') }}" title="Mon compte"/></a>
+	      {{ app.user.username }}
       </div>
+      
     </div>
     
     <div class="collapse navbar-collapse">
@@ -27,7 +28,7 @@
         	&nbsp;&nbsp;-&nbsp;&nbsp;
         	<img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-score.png') }}" title="Score"/>  : {{ app.user.cupPoints }}
         	&nbsp;&nbsp;-&nbsp;&nbsp;
-        	<img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-cagnoute.png') }}" title="Cagnoute EURO"/> : {{pot()*10}} €</div>
+        	<img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-cagnoute.png') }}" title="Cagnoute Coupe du Monde"/> : {{pot()*10}} €</div>
         </li>
         <li>
         	<div class="navbar-element">
@@ -50,32 +51,20 @@
 	 	 	<a href="{{ path('_cup_rules') }}" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/rewards/r20.png') }}"/>&nbsp;&nbsp;Règlement</a>
 		 </li>
 		 <li class="visible-xs">
-		 	<a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir" class="navbar-element"><img class="tooltip-on" data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-calendar.png') }}"/>&nbsp;&nbsp;Calendrier</a>
+		 	<a href="{{ path('_calendar') }}" title="Le calendrier des matchs à venir" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/icon-calendar.png') }}"/>&nbsp;&nbsp;Calendrier</a>
 		 </li>
-		 <li class="dropdown visible-xs">
-		 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-stats.png') }}"/>&nbsp;&nbsp;Les p'tits +&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
-		 	<ul class="dropdown-menu" role="menu">
-		 		<li><a class="navbar-element" href="{{ path('_stats_rewards') }}" title="Liste des médailles">-&nbsp;&nbsp; Les médailles</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_account_honnors') }}" title="Le Panthéon">-&nbsp;&nbsp; Hall of Fame</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">-&nbsp;&nbsp; Tes stats</a></li>
-		 		<li><a class="navbar-element" href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">-&nbsp;&nbsp; Équipes & Stats</a></li>
-		 	</ul>
+		 <li class="visible-xs">
+		 	<a href="{{ path('_profile') }}" title="Accéder aux paramètres de mon compte" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/icon-admin.png') }}"/>&nbsp;&nbsp;Mon compte</a>
 		 </li>
 		 {% if is_granted('ROLE_ADMIN') %}
-			 <li class="dropdown visible-xs">
-			 <a href="#" class="dropdown-toggle navbar-element" data-toggle="dropdown"><img class="tooltip-on"	data-placement="bottom" src="{{ asset('bundles/lotofootv2/img/icon-admin.png') }}"/>&nbsp;&nbsp;Administration&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
-			 	<ul class="dropdown-menu" role="menu">
-			 		<li><a class="navbar-element" href="{{ path('_admin_users') }}" title="Administrer les utilisateurs">-&nbsp;&nbsp; Admin utilisateurs</a></li>
-		 			<li><a class="navbar-element" href="{{ path('_admin_league_day') }}" title="Administrer une journée de championnat">-&nbsp;&nbsp; Admin Journée Championnat</a></li>
-		 			<li><a class="navbar-element" href="{{ path('_admin_cl') }}" title="Administrer une Champion's League">-&nbsp;&nbsp; Admin CL</a></li>
-		 			<li><a class="navbar-element" href="{{ path('_admin_cup') }}" title="Administrer World Cup">-&nbsp;&nbsp; Admin World Cup</a></li>
-		 			<li><a class="navbar-element" href="{{ path('_admin_news') }}" title="Administrer les news">-&nbsp;&nbsp; Poster une News</a></li>
-		 			<li><a class="navbar-element" href="{{ path('_admin_league') }}" title="Administrer un championnat">-&nbsp;&nbsp; Admin League</a></li>		 			
-			 	</ul>
-			 </li>
+		 <li class="visible-xs">
+		 	<a href="{{ path('_admin') }}}" title="Accéder à l'administration" class="navbar-element"><img class="tooltip-on" src="{{ asset('bundles/lotofootv2/img/icon-admin.png') }}"/>&nbsp;&nbsp;Administration</a>
+		 </li>
 		 {% endif %}
       </ul>
 	   
     </div>
    </div>
 </div>
+
+

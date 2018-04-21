@@ -2,87 +2,24 @@
 <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/modernizr.custom.js')}}"></script>
 
 <div class="container margin-container">
+
 	<div class="row" style="text-align:center;">
 		<img  style="margin:auto;" src="{{ asset('bundles/lotofootv2/img/logo-lotofoot2018.png') }}"/>
-		<!-- <div class="logo-ballon">
-			<img class="img-responsive" style="display:inline;width:100%;" src="{{ asset('bundles/lotofootv2/img/logo-ballon2.png') }}"/>
-		</div>
-		<div class="logo-lotofoot"></div>-->
-	<div>
-	<!-- <div class="row hidden-xs row-menu">
-				<ul class="menu">
-					<li class="item1"><a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a></li>
-					<li class="item2"><a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a></li>
-					<li class="item3"><a href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a></li>
-					<li class="item4"><a href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a></li>
-					<li class="item5"><a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir">Calendrier</a></li>
-					<li class="item6"><a href="{{ path('_stats_rewards') }}" title="Liste des médailles">Les p'tits +</a></li>
-					<!--  
-					<li class="item2"><a href="#">Championnat</a>
-						<ul class="over">
-							<li class="subitem1"><a href="{{ path('_league_vote') }}" title="Parier sur la prochaine journée de championnat">Parier</a></li>
-							<li class="subitem2"><a href="{{ path('_league_ranking_day') }}" title="Classement de la dernière journée">Classement Journée</a></li>
-							<li class="subitem3"><a href="{{ path('_league_ranking') }}" title="Classement Général">Classement Général</a></li>
-							<li class="subitem4"><a href="{{ path('_league_rules') }}" title="Règlement du championnat">Règlement</a></li>
-							<li class="subitem5"><a href="{{ path('_league_prizes') }}" title="Cadeaux Championnat 2014-2015">Cadeaux</a></li>
-						</ul>
-					</li>
-					<li class="item3"><a href="#">Champion's League</a>
-						<ul class="over">
-							<li class="subitem1"><a href="{{ path('_cl_vote') }}" title="Parier sur la prochaine journée de Champion's League">Parier</a></li>
-							<li class="subitem2"><a href="{{ path('_cl_board') }}" title="Tableau">Tableau Final</a></li>
-							<li class="subitem3"><a href="{{ path('_cl_rules') }}" title="Règlement">Règlement</a></li>
-							<li class="subitem4"><a href="{{ path('_cl_prizes') }}" title="Cadeaux">Cadeaux</a></li>
-						</ul>
-					</li>
-					<li class="item4"><a href="#">WORLD CUP 2018</a>
-						<ul class="over">
-							<li class="subitem1"><a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de l'EURO">Parier</a></li>
-							<li class="subitem2"><a href="{{ path('_cup_ranking') }}" title="Classement">Classement EURO</a></li>
-							<li class="subitem3"><a href="{{ path('_cup_rules') }}" title="Règlement du championnat">Règlement</a></li>
-						</ul>
-					</li>
-					<li class="item5"><a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir">Calendrier</a></li>
-					<li class="item6"><a href="#">Stats & Médailles</a>
-						<ul class="over">
-							<li class="subitem1"><a href="{{ path('_stats_rewards') }}" title="Liste des médailles">Les médailles</a></li>
-							<li class="subitem2"><a href="{{ path('_account_honnors') }}" title="Les glorieux anciens">Hall of Fame</a></li>
-							<li class="subitem3"><a href="{{ path('_league_history') }}" title="Suivre l'évolution des joueurs">Tes stats</a></li>
-							<li class="subitem4"><a href="{{ path('_stats_teams') }}" title="Les différentes stats des équipes">Équipes & Stats</a></li>
-						</ul>
-					</li>
-					{% if is_granted('ROLE_ADMIN') %}
-					<li class="item7"><a href="#">Administration</a>
-						<ul class="over">
-							<li class="subitem1"><a href="{{ path('_admin_users') }}" title="Administrer les utilisateurs">Admin utilisateurs</a></li>
-							<li class="subitem2"><a href="{{ path('_admin_league_day') }}" title="Administrer une journée de championnat">League Day</a></li>
-							<li class="subitem3"><a href="{{ path('_admin_cl') }}" title="Administrer une Champion's League">Admin CL</a></li>
-							<li class="subitem4"><a href="{{ path('_admin_cup') }}" title="Administrer World Cup">Admin World Cup</a></li>
-							<li class="subitem5"><a href="{{ path('_admin_news') }}" title="Administrer les news">Poster une News</a></li>		
-							<li class="subitem6"><a href="{{ path('_admin_league') }}" title="Administrer un championnat">Admin League</a></li>
-						</ul>
-					</li>
-					{% endif %}
-				</ul>
-
-			</div>-->
-			
-			<header class="codrops-header">
-				<nav class="codrops-demos">
-					<a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a>
-					<a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a>
-					<a class="current-demo" href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a>
-					<a href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a>
-					<a href="{{ path('_calendar') }}" title="Le calendrier des journées à venir">Calendrier</a>
-					<a href="{{ path('_profile') }}">Mon compte</a>
-					{% if is_granted('ROLE_ADMIN') %}
-					<a href="{{ path('_admin') }}">Admin</a>
-					{% endif %}
-				</nav>
-
-			</header>
-
-		
-		</div>	
+	</div>
+	
+	<div class="row hidden-xs row-menu">	
+		<header class="menu-header">
+			<nav class="menu-item">
+				<a href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a>
+				<a href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a>
+				<a class="current-demo" href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a>
+				<a href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a>
+				<a href="{{ path('_calendar') }}" title="Le calendrier des matchs à venir">Calendrier</a>
+				<a href="{{ path('_profile') }}">Mon compte</a>
+				{% if is_granted('ROLE_ADMIN') %}
+				<a href="{{ path('_admin') }}">Admin</a>
+				{% endif %}
+			</nav>
+		</header>
 	</div>
 </div>
