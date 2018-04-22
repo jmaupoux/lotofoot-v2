@@ -145,23 +145,31 @@ class RewardService
     	}
     }
     
-	public function rewardEclair($accounts){
-		$queryMaxPoints = $this->em->createQuery(
-		    'SELECT DISTINCT (h.account_id) 
-		     FROM Lotofootv2Bundle:LeagueHistory h 
-		     WHERE h.points = (SELECT max(h2.points) FROM Lotofootv2Bundle:LeagueHistory h2)');
-
-    	$rewarded = $queryMaxPoints->getResult();
+public function rewardEclair($accounts){
+		$rewarded = array();
+    	
+    	$min = 1000;
+    	
+    	foreach ($accounts as $acc) {
+    		if($acc->getStatScores() == $min){
+    			array_push($rewarded, $acc->getId());
+    		}elseif($acc->getStatScores() < $min){
+    			$rewarded = array();
+    			array_push($rewarded, $acc->getId());
+    			$min = $acc->getStatScores();
+    		}
+    	}
     	
     	foreach ($rewarded as $toreward){
     		$reward = new Reward();
-    		$reward->setAccountId($toreward['account_id']);
+    		$reward->setAccountId($toreward);
     		$reward->setRewardId(4);
     		$reward->setType('d');
     		
     		$this->em->persist($reward);
     	}
     }
+    
     
 	public function rewardBourseMolle($accounts){
 		$queryMinPoints = $this->em->createQuery(
