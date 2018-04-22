@@ -1,24 +1,21 @@
 <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/menu.js')}}"></script> 
 <script type="text/javascript" src="{{asset('bundles/lotofootv2/js/modernizr.custom.js')}}"></script>
-<script language=javascript>
-var url= document.URL;
-</script>
 
 <div class="container margin-container">
 
 	<div class="row" style="text-align:center;">
 		<img  style="margin:auto;" src="{{ asset('bundles/lotofootv2/img/logo-lotofoot2018.png') }}"/>
 	</div>
-	
+
 	<div class="row hidden-xs row-menu">	
 		<header class="menu-header">
 			<nav class="menu-item">
-				<a {% if url == "{{ path('_home') }}" %} class="current-menu" {% endif %} href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a>
-				<a {% if url == "{{ path('_cup_vote') }}" %} class="current-menu" {% endif %} href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a>
-				<a {% if url == "{{ path('_cup_ranking') }}" %} class="current-menu" {% endif %} href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a>
-				<a {% if url == "{{ path('_cup_rules') }}" %} class="current-menu" {% endif %} href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a>
-				<a {% if url == "{{ path('_calendar') }}" %} class="current-menu" {% endif %} href="{{ path('_calendar') }}" title="Le calendrier des matchs à venir">Calendrier</a>
-				<a {% if url == "{{ path('_profile') }}" %} class="current-menu" {% endif %} href="{{ path('_profile') }}">Mon compte</a>
+				<a {% if app.request.attributes.get('_route') == '_home' %} class="current-menu" {% endif %} href="{{ path('_home') }}" title="Aller à la page d'accueil">Accueil</a>
+				<a {% if app.request.attributes.get('_route') == '_cup_vote' %} class="current-menu" {% endif %} href="{{ path('_cup_vote') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Parier</a>
+				<a {% if app.request.attributes.get('_route') == '_cup_ranking' %} class="current-menu" {% endif %} href="{{ path('_cup_ranking') }}" title="Parier sur les prochains matchs de la Coupe du Monde">Classement</a>
+				<a {% if app.request.attributes.get('_route') == '_cup_rules' %} class="current-menu" {% endif %} href="{{ path('_cup_rules') }}" title="Règlement de la Coupe du Monde">Règlement</a>
+				<a {% if app.request.attributes.get('_route') == '_calendar' %} class="current-menu" {% endif %} href="{{ path('_calendar') }}" title="Le calendrier des matchs à venir">Calendrier</a>
+				<a {% if app.request.attributes.get('_route') == '_profile' %} class="current-menu" {% endif %} href="{{ path('_profile') }}">Mon compte</a>
 				{% if is_granted('ROLE_ADMIN') %}
 				<a {% if url == "{{ path('_admin') }}" %} class="current-menu" {% endif %} href="{{ path('_admin') }}">Admin</a>
 				{% endif %}
