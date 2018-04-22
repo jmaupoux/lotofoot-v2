@@ -25,31 +25,89 @@
 {% block body %}
 	<div class="row">
 		<div class="container container-home">
-	{% if error is defined %}
-        <div class="error">{{ error.message }}</div>
-    {% endif %}
-    {% if u %}
-        <div>Modification enregistrée</div>
-        <br/>
-    {% endif %}
-	<br/><br/>
-	<form action="{{ path('_profile_mail') }}" method="post">
+			{% if error is defined %}
+		        <div class="error">{{ error.message }}</div>
+		    {% endif %}
+		    {% if u %}
+		        <div>Modification enregistrée</div>
+		        <br/>
+		    {% endif %}
+			<br/><br/>
+			<h2><span class="rules">&nbsp;INFORMATIONS GENERALES&nbsp;</span></h2>
+			<form action="{{ path('_profile_mail') }}" method="post">
+		
+				Mon pseudo : <strong>{{app.user.username}}</strong><br/>
+				Mon email : <strong>{{app.user.email}}</strong>&nbsp;&nbsp;-&nbsp;&nbsp;Changer email : 
+			
+				<input type="text" id="_mail" name="mail" placeholder="Nouvel email"/><br/><br/>
+				
+				Je souhaite être averti par mail si je n'ai pas parié : &nbsp;&nbsp;
+				Oui <input id="mailing" type="radio" name="mailing" value="Oui" checked="checked"/>&nbsp;&nbsp;
+				Non <input id="mailing" type="radio" name="mailing" value="Non"/>&nbsp;&nbsp;<br/><br/>
+				
+				
+				 <input type="submit" class="btn-admin" value="Mettre à jour"/><br/><br/>
+		
+			</form>
+			
+			<h2><span class="rules">&nbsp;TON CERCLE&nbsp;</span></h2>
 
-		Mon pseudo : <strong>{{app.user.username}}</strong><br/>
-		Mon email : <strong>{{app.user.email}}</strong>&nbsp;&nbsp;-&nbsp;&nbsp;Changer email : 
-	
-		<input type="text" id="_mail" name="mail" placeholder="Nouvel email"/><br/><br/>
-		
-		Je souhaite être averti par mail si je n'ai pas parié : &nbsp;&nbsp;
-		Oui <input id="mailing" type="radio" name="mailing" value="Oui" checked="checked"/>&nbsp;&nbsp;
-		Non <input id="mailing" type="radio" name="mailing" value="Non"/>&nbsp;&nbsp;<br/><br/>
-		
-		
-		 <input type="submit" class="btn-admin" value="Mettre à jour"/><br/><br/>
-
-	</form>
-</div>		
-</div>
+			
+			<h2><span class="rules">&nbsp;TON EQUIPE FAVORITE&nbsp;</span></h2>
+						<div class="row" style="text-align:center;">
+				<div class="title-body">
+					<a class="letter" href="#A">A</a> 
+					<a class="letter" href="#B">B</a> 
+					<a class="letter" href="#C">C</a> 
+					<a class="letter" href="#D">D</a> 
+					<a class="letter" href="#E">E</a> 
+					<a class="letter" href="#F">F</a> 
+					<a class="letter" href="#G">G</a> 
+					<a class="letter" href="#H">H</a> 
+					<a class="letter" href="#I">I</a> 
+					<a class="letter" href="#J">J</a> 
+					<a class="letter" href="#K">K</a> 
+					<a class="letter" href="#L">L</a> 
+					<a class="letter" href="#M">M</a> 
+					<a class="letter" href="#N">N</a> 
+					<a class="letter" href="#O">O</a> 
+					<a class="letter" href="#P">P</a> 
+					<a class="letter" href="#Q">Q</a> 
+					<a class="letter" href="#R">R</a> 
+					<a class="letter" href="#S">S</a> 
+					<a class="letter" href="#T">T</a> 
+					<a class="letter" href="#U">U</a> 
+					<a class="letter" href="#V">V</a> 
+					<a class="letter" href="#W">W</a> 
+					<a class="letter" href="#X">X</a> 
+					<a class="letter" href="#Y">Y</a> 
+					<a class="letter" href="#Z">Z</a>
+				</div>
+			</div>	
+		{% for letter in registry %}
+			<div class="row" style="padding:0 10%;">
+				<div class="row underlined-title" style="margin:20px 0;">
+					<h3>{{letter[0]}}</h3>
+				</div>
+					<div id="{{letter[0]}}">
+						
+						{% for team in letter[1] %}
+							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank"><img src="http://medias.lequipe.fr/logo-football/{{team[1]}}/30"/></a> 
+							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank">{{team[0]}}</a>
+							{% if myteam != team[1] %}
+							<a class="lettre pull-right" href="{{ path('_profile_team_my')~'?t='~team[1] }}">Choisir comme équipe favorite</a>
+							{% else %}
+							<span class="pull-right">(Mon équipe favorite)</span>
+							{% endif %}
+							<br/>
+						{% endfor %}
+					</div>
+					
+				
+			</div>
+			{% endfor %}
+		</div>		
+	</div>
 {% endblock %}
 
 {% block footer %}
