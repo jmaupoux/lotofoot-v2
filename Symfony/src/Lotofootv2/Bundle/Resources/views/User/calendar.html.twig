@@ -14,8 +14,7 @@
 <div class="row">
 		<div class="container container-home" style="text-align:center;">
 
-			<div class="title-body">CALENDRIER DES MATCHS&nbsp;
-				<img src="{{ asset('bundles/lotofootv2/img/rewards/r12.png') }}"/>
+			<div class="title-body">CALENDRIER DES MATCHS
 			</div>
 
 		</div>	
@@ -35,7 +34,7 @@
 		{% for day in days %}
 			<tr class="calendar{% if day.type == 'cl' %}-cl{% elseif day.type == 'vote-cup' %}-vote-cup{% endif %}">
 				<td>{{day.number}}</td>
-				<td>{% if day.type == 'vote-cup' %}Match de {% else %}Journée de {% endif %}
+				<td>{% if day.type == 'vote-cup' %}Match de {% else %}Match {% endif %}
 					{% if day.type == 'l' %}championnat{% elseif day.type == 'cl' %}Ligue des Champions{% else %}Coupe du Monde{% endif %} 
 					N°{{day.number}}</td>
 				<td>Avant le {{ day.before|date("d/m/Y H:i") }}</td>
@@ -43,7 +42,7 @@
 				{% if day.before <  date() %}
 				<td class="calendar-termine">Terminé</td>
 				{% elseif day.opened == true %}
-				<td class="calendar-encours">En cours</td>
+				<td class="calendar-encours">Prochain match</td>
 				{% else %}
 				<td class="calendar-avenir">A venir</td>
 				{% endif %}

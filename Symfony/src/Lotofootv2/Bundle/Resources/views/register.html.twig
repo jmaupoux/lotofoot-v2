@@ -7,90 +7,85 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-	            
-	            <!-- box -->
-	            <!-- top -->
-	            <div>
-	               <img src="{{ asset('bundles/lotofootv2/img/login-logo.jpg')}}" class="img-responsive" style="display:inline;width:100%"/>
-	            </div>
-	            <!-- bottom -->
-	           <div class="login-box-bottom">	           
-	               
-		               <div class="row"> 
-		               
-		               	
-		               	{% if error is defined and error is not null %}
-	        				<div style="color:red">{{ error }}</div>
-	    				{% endif %}
-		
-					<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
-						<div class="col-sm-6 col-xs-12" style="padding:20px 40px;padding-bottom:0px">
-			
-							<div class="control-group">
-								<label class="control-label" for="_username">
-								 Nom d'utilisateur <span style="color:red"> * </span> 
-								</label>
-								<div class="controls">
-									<div class="input-prepend">
-										 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur" style="width:180px" class="form-control input-sm"/>
-									 </div>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="_password">
-									 Mot de passe <span style="color:red"> * </span> 
-								</label>
-								<div class="controls">
-									<div class="input-prepend">
-										 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}" style="width:180px"  class="form-control input-sm"/>
-									 </div>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="_password2">
-									 Mot de passe (vérification) <span style="color:red"> * </span> 
-								</label>
-								<div class="controls">
-									<div class="input-prepend">
-										 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}" style="width:180px"  class="form-control input-sm"/>
-									 </div>
-								</div>
-							</div>
-													
-		               	</div>
-		               	
-		               	<div class="col-sm-6 col-xs-12" style="padding:20px 40px;padding-bottom:0px">
-							<div class="control-group">
-								<label class="control-label" for="_mail">
-									 Email <span style="color:red"> * </span> 
-								</label>
-								<div class="controls">
-									<div class="input-prepend">
-										 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail" style="width:180px"  class="form-control input-sm"/>
-									 </div>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="_whoru" style="text-align:left">
-								Qui êtes vous ? <br/>(inscription modérée) <span style="color:red"> * </span> 
-								</label>
-								<div class="controls">
-									<div class="input-prepend">
-										 <textarea id="_whoru" name="whoru" rows="2"  class="form-control input-sm">{{ app.request.get('whoru') }}</textarea>
-									 </div>
-								</div>
-							</div>	
-		               	</div>
-	              	    <div class="col-xs-12" style="padding-bottom:20px;text-align: center">
-	              	        <button type="submit" class="btn-admin" value="Créer login">Créer son identifiant LotoFoot</button>
-	              	    </div>         
-		           </form>
-	            </div>
-            </div>
+<div class="row">
+    <div class="container-login">
+    	<div style="text-align:center;">
+           <img src="{{ asset('bundles/lotofootv2/img/logo-lotofoot2018.png') }}" />
         </div>
-	</div>
+        
+        <div class="login-box-bottom">	           
+        	<div class="row"> 
+            
+            	{% if error is defined and error is not null %}
+    				<div style="color:red">{{ error }}</div>
+				{% endif %}
+
+		<form action="{{ path('_register_post') }}" method="post" class="form form-horizontal">
+			<div class="col-sm-6 col-xs-12" style="padding-top:20px; padding-left:50px;padding-bottom:0px">
+		
+				<div class="control-group">
+					<label class="control-label" for="_username">
+					 Nom d'utilisateur <span style="color:red"> * </span> 
+					</label>
+					<div class="controls">
+						<div class="input-prepend">
+							 <input type="text" id="_username" name="username" value="{{ app.request.get('username') }}" placeholder="Nom d'utilisateur" style="width:230px" class="form-control input-sm"/>
+						 </div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="_password">
+						 Mot de passe <span style="color:red"> * </span> 
+					</label>
+					<div class="controls">
+						<div class="input-prepend">
+							 <input type="password" id="_password" name="pass1" value="{{ app.request.get('pass1') }}" style="width:230px"  class="form-control input-sm"/>
+						 </div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="_password2">
+						 Mot de passe (vérification) <span style="color:red"> * </span> 
+					</label>
+					<div class="controls">
+						<div class="input-prepend">
+							 <input type="password" id="_password2" name="pass2" value="{{ app.request.get('pass2') }}" style="width:230px"  class="form-control input-sm"/>
+						 </div>
+					</div>
+				</div>
+								
+            	</div>
+            	
+            	<div class="col-sm-6 col-xs-12" style="padding-top:20px; padding-right:50px;padding-bottom:0px">
+		<div class="control-group">
+			<label class="control-label" for="_mail">
+				 Email <span style="color:red"> * </span> 
+			</label>
+			<div class="controls">
+				<div class="input-prepend">
+					 <input type="text" id="_mail" name="mail" value="{{ app.request.get('mail') }}" placeholder="Mail" style="width:250px"  class="form-control input-sm"/>
+				 </div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="_whoru" style="text-align:left">
+			Qui vous a parrainé ? <br/>(inscription modérée) <span style="color:red"> * </span> 
+			</label>
+			<div class="controls">
+				<div class="input-prepend">
+					 <textarea id="_whoru" name="whoru" rows="2"  class="form-control input-sm" style="width:250px;"">{{ app.request.get('whoru') }}</textarea>
+				 </div>
+			</div>
+		</div>	
+            	</div>
+          	    <div class="col-xs-12" style="padding-bottom:20px;text-align: center">
+          	        <button type="submit" class="btn-admin" value="Créer login">Créer son identifiant LotoFoot</button>
+          	    </div>         
+        </form>
+        </div>
+       </div>
+   </div>
+   </div>
+
 
 {% endblock %}

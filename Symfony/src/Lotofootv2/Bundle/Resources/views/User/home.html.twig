@@ -24,7 +24,7 @@
 			
 			
 				{% if news is not null%}
-					<a href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img src="{{ asset('bundles/lotofootv2/img/prev.png') }}"  onmouseover="this.src='{{ asset('bundles/lotofootv2/img/prev-hover.png') }}'" onmouseout="this.src='{{ asset('bundles/lotofootv2/img/prev.png') }}'"/></a>
+					<a href="{{ path('_home_prev_news')~'?number='~news.number}}" title="Info précédente"><img style="margin-top:-15px;" src="{{ asset('bundles/lotofootv2/img/prev.png') }}"  onmouseover="this.src='{{ asset('bundles/lotofootv2/img/prev-hover.png') }}'" onmouseout="this.src='{{ asset('bundles/lotofootv2/img/prev.png') }}'"/></a>
 				{% endif %}
 			
 				<div class="title-body">
@@ -36,7 +36,7 @@
 				</div>
 			
 			{% if news is not null%}
-				<a href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img src="{{ asset('bundles/lotofootv2/img/next.png') }}"  onmouseover="this.src='{{ asset('bundles/lotofootv2/img/next-hover.png') }}'" onmouseout="this.src='{{ asset('bundles/lotofootv2/img/next.png') }}'"/></a>
+				<a href="{{ path('_home_next_news')~'?number='~news.number}}" title="Info suivante"><img style="margin-top:-15px;" src="{{ asset('bundles/lotofootv2/img/next.png') }}"  onmouseover="this.src='{{ asset('bundles/lotofootv2/img/next-hover.png') }}'" onmouseout="this.src='{{ asset('bundles/lotofootv2/img/next.png') }}'"/></a>
 			{% endif %}
 			
 		</div>

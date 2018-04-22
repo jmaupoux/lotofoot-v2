@@ -13,9 +13,14 @@ class RulesController extends Controller
 	/**
      * @Route("/cup/rules", name="_cup_rules")
      */
+    
     public function indexAction()
     {
-       return $this->render('Lotofootv2Bundle:User\Cup:rules.html.twig');
+    	$rewards = $this->get('reward_service')->getRewardedAccounts();
+    	$accounts = $this->get('account_service')->all();
+    
+    
+    	return $this->render('Lotofootv2Bundle:User\Cup:rules.html.twig', array('rewards' => $rewards, 'users'=>$accounts));
     }
 
 }

@@ -1,7 +1,7 @@
 rewards:
     r1:
         title: THE KING
-        desc: Tout simplement le Roi. 1er du championnat
+        desc: Tout simplement le Roi. 1er du classement
     r2:
         title: THE CHOUNE
         desc: Réservé au joueur qui a trouvé le plus de scores exacts depuis le début
@@ -9,53 +9,23 @@ rewards:
         title: THE BOUSE
         desc: Le latéral gauche. Bref, le dernier
     r4:
-        title: L'ÉCLAIR
-        desc: Le plus gros marqueur sur une journée
+        title: THE GUIGNE
+        desc: Réservé au joueur qui a trouvé le moins de scores exacts depuis le début
     r5:
-        title: THE BOURSE MOLLE
-        desc: Le plus faible marqueur sur une journée
+        title: TOP 5
+        desc: Réservé aux 5 premiers du classement
     r6:
-        title: THE SMOKING
-        desc: Comme Ronnie, le mec choisit ses matchs. C'est le plus gros marqueur sur les bonus uniquement
+        title: TOP 10
+        desc: Réservé aux 10 premiers du classement
     r7:
-        title: TOP 50
-        desc: Vous avez dépassé la barre des 50 points
+        title: TOP 20
+        desc: Réservé aux 20 premiers du classement   
     r8:
-        title: TOP 100
-        desc: Vous avez dépassé la barre des 100 points
-    r9:
-        title: TOP 200
-        desc: Vous avez dépassé la barre des 200 points        
-    r10:
-        title: LA CAGNOUTE
-        desc: Vous avez payé le droit de conquérir à la cagnoute suprême
-    r11:
-        title: CHAMPION'S LEAGUE
-        desc: Vous faîtes pour le moment partie des 16 qualifiés pour la compétition Reine ! La Champion's League 2013 - 2014.
-    r12:
         title: WORLD CUP WINNER
         desc: Vous avez remporté le titre suprême : la coupe du monde
-    r13:
-        title: CHAMPION'S LEAGUE WINNER
-        desc: Vous avez remporté le titre suprême du vieux continent : la Champion's League
-    r14:
-        title: LEAGUE WINNER
-        desc: Bravo pour votre régularité ! Le championnat est dans votre besace, longue vie au KING
-    r15:
+    r9:
         title: LA CAGNOUTE WORLD CUP
         desc: Vous avez payé le droit de conquérir à la cagnoute suprême pour la Coupe du Monde
-    r16:
-        title: ADDICT
-        desc: Le mec qui lâche pas le lotofoot !
-    r17:
-        title: NEWBIE
-        desc: Vous êtes inscrit depuis moins d'un an au LotoFoot
-    r18:
-        title: TOP 400
-        desc: Vous avez dépassé la barre des 400 points !!! Amaaazing
-    r19:
-        title: FOURMI
-        desc: Vous enchainez les résultats ! Petit à petit on devient moins petit...
 
 navibar:
     hello: Bienvenue

@@ -10,23 +10,19 @@
 {% endblock %}
 
 {% block title_body %}
-		<br/><br/>
 	<div class="row">
-			<div class="col-sm-3 hidden-xs">
-				<div class="ligne-body">&nbsp;</div>
+		<div class="container container-home" style="text-align:center;">
+
+			<div class="title-body">LES MEDAILLES - COUPE DU MONDE 2018
 			</div>
-			<div class="col-sm-6 col-xs-12 title-body">
-				Les Médailles
-			</div>
-			<div class="col-sm-3 hidden-xs">
-				<div class="ligne-body">&nbsp;</div>
-			</div>
-		</div>
+
+		</div>	
+	</div>
 {% endblock %}
 	
 {% block body %}
-<br/><br/>
-<div class="row" >
+	<div class="row">
+		<div class="container container-home">
 
 	<table class="table-striped vote">
 	
@@ -36,15 +32,15 @@
             <th>Description</th>
         </tr>
 
-		{% for index1 in 1..18 %}
+		{% for index1 in 1..9 %}
 			<tr style="text-align:left;">
-				<td style="background-color:rgb(55,46,50);color:white;text-align:center;">				
+				<td style="background-color:#CB3229;color:white;text-align:center;">				
 					<img src="{{ asset('bundles/lotofootv2/img/rewards/r'~index1~'.png') }}" 
 					class="tooltip-on"			
 					title="{{('rewards.r'~index1~'.desc') | trans}}"
 					data-placement="bottom">
 				</td>
-				<td style="background-color:rgb(55,46,50);color:white;">
+				<td style="background-color:#CB3229;color:white;">
 					{{('rewards.r'~index1~'.title') | trans}}
 				</td>
 				<td>
@@ -53,10 +49,10 @@
 			</tr>
 		{% endfor %}
 	</table>
-</div>
+
 	<br/><br/>
 	
-<div class="row">
+
 	<table id="ranking_table" class="vote">
 	<thead>
 		<tr>
@@ -86,7 +82,7 @@
 	</table>
 	
 	<br/><br/>
-	
+	</div>
 </div>
 
 <script type="text/javascript">
