@@ -49,9 +49,19 @@
 				 <input type="submit" class="btn-admin" value="Mettre à jour"/><br/><br/>
 		
 			</form>
-			
-			<h2><span class="rules">&nbsp;TON CERCLE&nbsp;</span></h2>
 
+			<h2><span class="rules">&nbsp;TON CERCLE&nbsp;</span></h2>
+            <form action="{{ path('_profile_group') }}" method="post">
+                <select name="group">
+					{{ app.user.groups }}
+                    {% for g in groups %}
+                        <option value="{{g}}" {% if g == app.user.groups %}selected{% endif %}>{{g}}</option>
+                    {% endfor %}
+                </select>
+
+				 <input type="submit" class="btn-admin" value="Mettre à jour"/><br/><br/>
+
+			</form>
 			
 			<h2><span class="rules">&nbsp;TON EQUIPE FAVORITE&nbsp;</span></h2>
 						<div class="row" style="text-align:center;">

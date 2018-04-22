@@ -140,17 +140,34 @@ class ProfileController extends Controller
     	$registry = $this->register($registry,'Werder Brême','61');
     	$registry = $this->register($registry, 'West Bromwich Albion', '750');
     	$registry = $this->register($registry, 'West Ham', '77');
-    	 
-    	return $this->render('Lotofootv2Bundle:User:profile.html.twig', array('u' => $request->query->has('u'),'registry' => $registry, 'myteam' => $this->getUser()->getTeam()));
+
+    	$groups = $this->get('account_service')->listGroups();
+
+    	return $this->render('Lotofootv2Bundle:User:profile.html.twig', array('u' => $request->query->has('u'),'registry' => $registry, 'myteam' => $this->getUser()->getTeam(), 'groups' => $groups));
     }
     
     private function register($registry, $name, $code){
     	array_push($registry[ord($name[0])-65][1], array($name, $code));
     	return $registry;
     }
-    
-    
-    
+
+	/**
+     * @Route("/profile/group", name="_profile_group")
+     */
+    public function changeGroup(Request $request)
+    {
+    	$group = $request->request->get('group');
+
+   		if($group == null || trim($group) == ''){
+    		$group = null;
+    	}
+
+    	$this->get('account_service')->updateGroup($this->getUser(), $group);
+    	$this->getUser()->setGroups($group);
+
+    	return $this->redirect($this->generateUrl('_profile', array('u' => 1)));
+    }
+
 	/**
      * @Route("/profile/mail", name="_profile_mail")
      */
