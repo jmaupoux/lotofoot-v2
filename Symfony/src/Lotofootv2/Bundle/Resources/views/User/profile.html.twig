@@ -49,11 +49,23 @@
 				 <input type="submit" class="push_button red" value="METTRE A JOUR"/><br/><br/>
 		
 			</form>
-			
+
 			<h2><span class="rules">&nbsp;TON CERCLE&nbsp;</span></h2>
-			<strong>Vous faîtes partie de la même société ou de la même bande de potes ?</strong><br/>
+            <strong>Vous faîtes partie de la même société ou de la même bande de potes ?</strong><br/>
 			N'hésitez pas à nous demander d'ajouter le logo de votre cercle et son nom par mail à l'adresse : <a href="mailto:lotofoot.mail@gmail.com">lotofoot.mail@gmail.com</a><br/>
 			Une fois la demande reçue nous intégrerons cette équipe dans la liste des équipes ci-dessous.<br/><br/>
+            
+            <form action="{{ path('_profile_group') }}" method="post">
+                <select name="group">
+					{{ app.user.groups }}
+                    {% for g in groups %}
+                        <option value="{{g}}" {% if g == app.user.groups %}selected{% endif %}>{{g}}</option>
+                    {% endfor %}
+                </select>
+
+				 <input type="submit" class="btn-admin" value="Mettre à jour"/><br/><br/>
+			
+			</form>
 			
 			<h2><span class="rules">&nbsp;TON EQUIPE FAVORITE&nbsp;</span></h2>
 						<div class="row" style="text-align:center;">

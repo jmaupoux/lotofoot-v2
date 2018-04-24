@@ -149,7 +149,12 @@ class Account implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="wins_cl", type="integer")
      */
     private $winsCL = 0;
-        
+
+    /**
+     * @ORM\Column(name="groups", type="string", length=64, nullable=true)
+     */
+    private $groups;
+
     
     public function __construct()
     {
@@ -547,5 +552,17 @@ class Account implements AdvancedUserInterface, \Serializable
     public function getWinsCup()
     {
         return $this->winsCup;
+    }
+
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+
+    public function setGroups($group)
+    {
+        $this->groups = $group;
+
+        return $this;
     }
 }

@@ -68,6 +68,15 @@ class AccountService
     	$this->em->flush();
     }
 
+    public function updateGroup($account, $group){
+        $a = $this->findById($account->getId());
+
+        $a->setGroups($group);
+
+        $this->em->persist($a);
+        $this->em->flush();
+    }
+
     public function updateTeam($account, $team){
         $a = $this->findById($account->getId());
         
@@ -86,5 +95,25 @@ class AccountService
     	$this->em->flush();
     	
     	return $a;
+    }
+
+    public function listGroups(){
+        $query = $this->em->createQuery(
+                             'SELECT a.groups
+                             FROM Lotofootv2Bundle:Account a
+                             GROUP BY a.groups
+                             ORDER BY a.groups');
+
+        $result = $query->getArrayResult();
+
+        $groups = array();
+
+        foreach($result as $r){
+            array_push($groups, $r['groups']);
+        }
+
+        natcasesort($groups);
+
+        return $groups;
     }
 }
