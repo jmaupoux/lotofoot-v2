@@ -48,7 +48,10 @@
             </td>
             <td style="text-align:left;">{{account.username}} {% if account.cupCagnoute == 1 %} &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}"/>{% endif %}
             {% if account.groups is defined and account.groups is not null %}
-                &nbsp; <img src="{{ asset('bundles/lotofootv2/img/groups/' ~ account.groups ~ '.png') }}" style="height: 16px"/>
+                &nbsp; <img src="{{ asset('bundles/lotofootv2/img/groups/' ~ account.groups ~ '.png') }}" title="{{ asset(account.groups)}}" style="height: 16px"/>
+            {% endif %}
+            {% if account.myteam is defined and account.myteam is not null %}
+                &nbsp; <img src="http://medias.lequipe.fr/logo-football/{{myteam}}/30"/>
             {% endif %}
             </td>
             <td>{{account.cupPoints}}</td>
