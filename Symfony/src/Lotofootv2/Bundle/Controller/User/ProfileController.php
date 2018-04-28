@@ -104,19 +104,19 @@ class ProfileController extends Controller
     }
     
     /**
-     * @Route("/profile/team/my", name="_profile_team_my")
+     * @Route("/profile/my", name="_profile_my")
      */
     public function changeTeam(Request $request)
     {
         $team = $request->query->get('t');
         
         if($team == null || trim($team) == ''){
-            return $this->redirect($this->generateUrl('_stats_teams'));
+            return $this->redirect($this->generateUrl('_profile'));
         }
         
         $this->get('account_service')->updateTeam($this->getUser(), $team);
         $this->getUser()->setTeam($team);
         
-        return $this->redirect($this->generateUrl('_stats_teams'));
+        return $this->redirect($this->generateUrl('_profile'));
     }
 }

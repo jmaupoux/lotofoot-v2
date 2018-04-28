@@ -23,32 +23,39 @@
 {% block body %}
 	<div class="row">
 		<div class="container container-home" style="text-align:center;">
-    {% if hasvoted and zero==false %}
-        <span style="color:rgb(64,200,83)">Votes enregistrés</span><br/>
-    {% endif %}
-   
-     {% if warn is defined and warn is not null %}
-        <span style="color:orange">{{warn}}</span><br/>
-    {% endif %}
-    
-    {% if hasvoted and zero==true %}
-        <span style="color:red">Aucun pari renseigné</span><br/>
-    {% endif %}
-    
-        {% if err is defined and err is not null %}
-    
-    <span style="color:red">
-        {% autoescape false %}
-        {{err}}
-        {% endautoescape %}
-    </span>
-    
-    {% endif %}
-    
+			
+			    {% if hasvoted and zero==false %}
+			    <div class="error2018" style="background:rgb(64,200,83);color:white">
+			        Votes enregistrés
+			    </div><br/>
+			    {% endif %}
+			   
+			     {% if warn is defined and warn is not null %}
+			        <div class="error2018" style="background:orange;color:white">
+			        {{warn}}
+			        </div><br/>
+			    {% endif %}
+			    
+			    {% if hasvoted and zero==true %}
+			        <div class="error2018" style="background:red;color:white">
+			        Aucun pari renseigné
+			        </div><br/>
+			    {% endif %}
+			    
+			        {% if err is defined and err is not null %}
+			    <div class="error2018" style="background:red;color:white">
+			    
+			        {% autoescape false %}
+			        {{err}}
+			        {% endautoescape %}
+			    
+			    </div><br/>
+			    {% endif %}
+    		
 	<div class="row" style="text-align:center;">
 		<div class="col-lg-6">
 
-	           <input type="button" class="push_button blue" style="margin-left: 140px;" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>
+	           <!-- <input type="button" class="push_button blue" style="margin-left: 140px;" value="Auto 1 N 2" data-title="Remplit automatiquement le resultat en fonction du score !" onclick="autoResult()"/>-->
 	                
 	            <form action="{{ path('_cup_post') }}" method="post">
 
@@ -60,7 +67,7 @@
 					
 		            <table  class="vote">
 		            	<tr>
-		        			<th colspan="7" style="border-bottom: 1px white solid">Votes en cours</th>
+		        			<th colspan="7" style="border-bottom: 1px white solid">Tes paris en cours</th>
 		      			</tr>
 		                <tr>
 		                    <th>#</th>
@@ -100,11 +107,7 @@
 		                {% endfor %}
 		            </table>
 		            
-		            <div class="control-group">
-		                <div class="controls">
-		                     <input type="submit" class="push_button red" style="margin-left: 140px;" value="Valider vos paris !"/>
-		                </div>
-		            </div>
+
 		            <div style="clear:both"></div>
 		        </form><br/>
 	        Accédez à tous les résultats officiels sur le site <a href="https://www.lequipe.fr/Football/Coupe-du-monde/Saison-2018/calendrier-resultats.html" target="_blank" alt ="Résultats COUPE DU MONDE 2018" ><img style="width:100px;" src="{{ asset('bundles/lotofootv2/img/logo-lequipe-HD.jpg') }}"/></a>
@@ -114,7 +117,7 @@
 	         
 	         <table  class="vote">
 	         			<tr>
-		        			<th colspan="7" style="border-bottom: 1px white solid">Votes terminés</th>
+		        			<th colspan="7" style="border-bottom: 1px white solid">Tes paris terminés</th>
 		      			</tr>
 	                    <tr>
 	                        <th>#</th>

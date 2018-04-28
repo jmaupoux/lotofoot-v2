@@ -7,66 +7,49 @@
 
 {% block body %}
 
-    <div class="row">
+<div class="row">
     <div class="container-login">
+    
+    	<div style="text-align:center;">
+           <img class="logo" src="{{ asset('bundles/lotofootv2/img/logo-lotofoot2018.png') }}" />
+        </div>
         
-                <div>                
-                <!-- errors -->
-	                {% if error %}
-	                <div class="error">{{ error.message }}</div>
-		            {% endif %}
-		            {% if registered %}
-		                <div>Votre inscription a bien été prise en compte et votre compte est en cours d'activation par les administrateurs</div>
-		                <br/>
-		            {% endif %}
-		            {% if recovered %}
-		                <div>Votre mot de passe vient de vous être envoyé par email</div>
-		                <br/>
-		            {% endif %}
-	            </div>
-	            
-	            <!-- box -->
-	            <!-- top -->
-	            <div style="text-align:center;">
-	               <img src="{{ asset('bundles/lotofootv2/img/logo-lotofoot2018.png') }}" />
-	            </div>
-	            <!-- bottom -->
-	           <div class="login-box-bottom">	           
-	          
-	               <form action="{{ path('_login_check') }}" method="post" >
-	               
-		               <div class="row"> 
-		               
-		               	<div class="col-sm-6">
-		               	
-		               		<div class="login-field">
-							    <label for="_username">Pseudo</label>
-							    <input type="text" id="_username" name="_username" value="{{last_username}}" placeholder="Nom d'utilisateur" class="form-control input-sm"/>
-							</div>
-							
-							<div class="login-field">
-	                            <label class="control-label" for="_pass">Mot de passe </label>
-	                            <input type="password" id="_password" name="_password" class="form-control input-sm" />
-	                        </div>
-		           
-		                    <input type="hidden" name="_target_path" value="/home" />
-		               	</div>
-		               	
-		               	<div class="col-sm-6">
-		               		<div class="login-connexion">
-		               			<button type="submit" class="push_button red" style="margin:0" value="">Connexion au LotoFoot</button>
-							</div>
-		               		<div class="login-link">
-		               			<a href="{{path('_register')}}">Créer un compte</a><br/>
-		               			<a href="{{path('_password_lost')}}">Mot de passe oublié</a>
-		               		</div>
-		               	</div>
-		               	
+        <div class="register-box-bottom">	           
+        	<div class="row"> 	
+	        	<form action="{{ path('_login_check') }}" method="post" >	               
+
+	                <div>                
+	                <!-- errors -->
+		                {% if error %}
+		                <div class="error2018">{{ error.message }}</div>
+			            {% endif %}
+			            {% if registered %}
+			                <div>Votre inscription a bien été prise en compte et votre compte est en cours d'activation par les administrateurs</div>
+			                <br/>
+			            {% endif %}
+			            {% if recovered %}
+			                <div>Votre mot de passe vient de vous être envoyé par email</div>
+			                <br/>
+			            {% endif %}
+		             </div>	 
+			               
+	
+				    <label for="_username">Pseudo</label><br/>
+				    <input type="text" id="_username" name="_username" value="{{last_username}}" placeholder="Nom d'utilisateur" class="input-label" /><br/><br/>
 		
+	                <label class="control-label" for="_pass">Mot de passe </label><br/>
+	                <input type="password" id="_password" name="_password" class="input-label"  /><br/><br/>	                   
+			           
+			        <input type="hidden" name="_target_path" value="/home" />
+			               		               	
+			        <button type="submit" class="push_button red" style="margin:0" value="">Connexion au LotoFoot</button>	<br/>				
+			               		
+	       			<a href="{{path('_register')}}" style="color:white">Créer un compte</a><br/>
+	       			<a href="{{path('_password_lost')}}" style="color:white">Mot de passe oublié</a>		               		
 	              	             
 		           </form>
 	            </div>
             </div>
         </div>
-	</div>
+</div>	
 {% endblock %}

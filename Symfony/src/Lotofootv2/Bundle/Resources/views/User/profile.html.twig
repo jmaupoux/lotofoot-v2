@@ -62,7 +62,7 @@
                     {% endfor %}
                 </select>
 
-				 <input type="submit" class="push_button blue" value="METTRE A JOUR"/><br/><br/>
+				 <input type="submit" class="push_button red" value="METTRE A JOUR"/><br/><br/>
 			
 			</form>
 			
@@ -108,7 +108,7 @@
 							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank"><img src="http://medias.lequipe.fr/logo-football/{{team[1]}}/30"/></a> 
 							<a class="letter" href="http://www.lequipe.fr/Football/FootballFicheClub{{team[1]}}.html" target="blank">{{team[0]}}</a>
 							{% if myteam != team[1] %}
-							<a class="lettre pull-right" href="{{ path('_profile')~'?t='~team[1] }}">Choisir comme équipe favorite</a>
+							<a class="lettre pull-right" href="{{ path('_profile_my')~'?t='~team[1] }}">Choisir comme équipe favorite</a>
 							{% else %}
 							<span class="pull-right">(Mon équipe favorite)</span>
 							{% endif %}
