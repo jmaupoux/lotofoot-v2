@@ -33,12 +33,12 @@ body.body-wc{
 
 @media screen and (min-width: 400px) and (max-width: 600px) {
 	.container{
-		width:400px;}
+		width:450px;}
 } 
 
 @media screen and (max-width: 400px) {
 	.container{
-		width:250px;}
+		width:350px;}
 }
 
 /*********************************************/
@@ -410,6 +410,15 @@ a:focus {
 	background-color:white;
 	padding : 40px !important;}
 	
+@media screen and (max-width: 400px) {
+	.container-home{
+	padding-top:20px !important;
+	padding-bottom:0 !important;
+	padding-left:20px !important;
+	padding-right:20px !important;
+	}
+}
+	
 .title-body{
 	color: #074B91 ;
 	font-size: 2em;
@@ -417,6 +426,13 @@ a:focus {
 	padding-right:70px;
 	display: inline-block;
 	font-family: 'Passion One', cursive;}
+
+@media screen and (max-width: 400px) {
+	.title-body{
+	padding-left:0;
+	padding-right:0;
+	}
+}
 
 .title-body a{
 	color: #CB3229;}
