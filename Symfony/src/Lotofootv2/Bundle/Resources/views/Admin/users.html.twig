@@ -30,6 +30,7 @@
 			<th>Email</th>
 			<th>Activation</th>
 			<th>Adminitrateur</th>
+			<th>cagnoute</th>
 		</tr>
 		{% for u in users %}
 		<tr>
@@ -37,7 +38,8 @@
 				{{u.ID}}
 			</td>
 			<td>
-				{{u.username}}
+				{{u.username}} &nbsp; {% if u.cupCagnoute %}
+					<img src="{{ asset('bundles/lotofootv2/img/rewards/r9.png') }}" style="width:16px;height:16px"/>{% endif %}	
 			</td>
 			<td>
 				{{u.email}}
@@ -45,9 +47,9 @@
 			<td>
 				<a href="{{ path('_admin_users_activation') }}?id={{u.id}}">
 					{% if u.enabled %}
-					Passer inactif
+					<span style="color:green">Passer inactif</span>
 					{% else %}
-					Passer actif
+					<span style="color:red">Passer actif</span>
 					{% endif %}				
 				</a>
 			</td>
@@ -55,6 +57,16 @@
 				{% if u.admin %}
 					<img src="{{ asset('bundles/lotofootv2/img/found.png') }}" style="width:16px;height:16px"/>
 				{% endif %}				
+			</td>
+			<td>
+				<a href="{{ path('_admin_cagnoute_activation') }}?id={{u.id}}">
+					{% if u.cupCagnoute %}
+					<span style="color:green">Enlever Cagnoute</span>
+					{% else %}
+					<span style="color:red">Ajouter Cagnoute</span>
+					{% endif %}				
+				</a>
+		
 			</td>
 		</tr>
 		{% endfor %}

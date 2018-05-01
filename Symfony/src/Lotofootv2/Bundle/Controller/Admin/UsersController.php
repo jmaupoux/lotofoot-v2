@@ -40,6 +40,18 @@ class UsersController extends Controller
 		return $this->redirect($this->generateUrl('_admin_users'));
     }
     
+    /**
+     * @Route("/admin/users/activation_cagnoute", name="_admin_cagnoute_activation")
+     */
+    public function activationCagnoute(Request $request)
+    {
+    	$id = $request->query->get('id');
+    	 
+    	$acc = $this->get('account_service')->switchActivation($id);
+    	 
+    	return $this->redirect($this->generateUrl('_admin_users'));
+    }
+    
 	private function mailActivation($account)
     {
     	$from = $this->container->getParameter('mailer_from');

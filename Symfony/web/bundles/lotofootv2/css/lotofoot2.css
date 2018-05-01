@@ -10,7 +10,7 @@ html {
 
 body{
     background: #CB3229;
-	background-image: url(../img/bg-wc2018.jpg);
+	background-image: url(../img/Background_02.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover; /* pour Chrome et Safari */
  	-moz-background-size: cover; /* pour Firefox */
@@ -154,7 +154,8 @@ body.body-wc{
 padding: 0px 0 !important;}
 	
 .navbar-brand{
-	color:white !important;}
+	color:white !important;
+	line-height: 40px !important;}
 
 .in .dropdown-menu .navbar-element{
 	background-color:#d7d5db !important;
@@ -206,7 +207,7 @@ padding: 0px 0 !important;}
 	
 .icon-disconnect{
 	padding: 13px 13px;
-	margin-top:5px;
+	margin-top:10px;
 	float:right;}
 
 .tooltip{

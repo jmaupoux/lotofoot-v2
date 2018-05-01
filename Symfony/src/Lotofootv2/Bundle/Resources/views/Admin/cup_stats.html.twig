@@ -83,9 +83,9 @@
       {% endif %}
       
     <br/>
-      <h3>Prochain match le {{next.deadline|date('d/m/Y H:i')}}</h3>
+      {% if next is not null %}<h3>Prochain match le {{next.deadline|date('d/m/Y H:i')}}</h3>
     <div class="drapeau {{next.teamHome}}"></div> <h4>{{('nationalteams.'~next.teamHome)|trans}} </h4>
-    <div class="drapeau {{next.teamVisitor}}"></div> <h4>{{('nationalteams.'~next.teamVisitor)|trans}} </h4>
+    <div class="drapeau {{next.teamVisitor}}"></div> <h4>{{('nationalteams.'~next.teamVisitor)|trans}} </h4>{% endif %}
     <br/>
     <u><b>N'a pas voté ({{not_voted|length}}):</b></u> <br/>
     {% for v in not_voted %}
