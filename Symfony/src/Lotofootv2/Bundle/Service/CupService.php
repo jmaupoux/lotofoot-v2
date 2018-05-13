@@ -15,12 +15,14 @@ class CupService
 {
 	private $em;
 	private $logger;
+    private $rewardService;
 	private $db_conn;
 	
-	public function __construct(EntityManager $em, Logger $logger, $db_conn)
+	public function __construct(EntityManager $em, Logger $logger, RewardService $rewardService, $db_conn)
     {
         $this->em = $em;
         $this->logger = $logger;
+        $this->rewardService = $rewardService;
         $this->db_conn = $db_conn;
     }
     
@@ -123,6 +125,8 @@ class CupService
         $this->em->flush();
         $this->updateAccounts();
         $this->em->flush();
+        $this->updateRewards();
+        $this->em->flush();
     }
     
     public function compute($matches){
@@ -157,8 +161,8 @@ class CupService
     	$conn = $this->db_conn;
 		$sql = '
 		UPDATE lfv2_account a SET
-		    a.cup_points = (SELECT sum(v.points) FROM lfv2_cup_vote v  WHERE v.account_id = a.id group by v.account_id),
-            a.stat_cup_matchs = (SELECT count(v.id) FROM lfv2_cup_vote v  WHERE v.account_id = a.id and v.score != \'\' and v.result != \'\' group by v.account_id),
+		    a.cup_points = IFNULL( (SELECT sum(v.points) FROM lfv2_cup_vote v  WHERE v.account_id = a.id group by v.account_id), 0),
+            a.stat_cup_matchs = IFNULL( (SELECT count(v.id) FROM lfv2_cup_vote v  WHERE v.account_id = a.id and v.score != \'\' and v.result != \'\' group by v.account_id), 0),
             a.stat_cup_scores = (SELECT count(v.id)
                 FROM lfv2_cup_vote v WHERE v.scoreOk = true AND v.account_id = a.id),
             a.stat_cup_results = (SELECT count(v.id)
@@ -179,6 +183,21 @@ class CupService
             $account->setCupRank($i);
             $i++;
         }
+    }
+
+    public function updateRewards(){
+
+        $queryAccounts =  $this->em->createQuery(
+            'SELECT a FROM Lotofootv2Bundle:Account a
+            WHERE a.isActive = true
+            ORDER BY a.cupPoints DESC, a.statCupScores DESC, a.statCupResults DESC, a.id ASC');
+
+        $accounts = $queryAccounts->getResult();
+
+        $this->rewardService->cleanUpDailies();
+        $this->em->flush();
+        $this->rewardService->rewardAllCupDailies($accounts);
+        $this->em->flush();
     }
 
     

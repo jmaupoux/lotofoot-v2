@@ -69,6 +69,18 @@ class RewardService
         $this->rewardFourmi($accounts);
     	//$this->rewardChampionsLeague($accounts);
     }
+
+	public function rewardAllCupDailies($accounts){
+		$this->rewardKing($accounts);
+		$this->rewardCupChoune($accounts);
+		$this->rewardBouse($accounts);
+		$this->rewardCupEclair($accounts);
+		//$this->rewardBourseMolle($accounts);
+		//$this->rewardSmoking($accounts);
+		$this->rewardAddict($accounts);
+		$this->rewardCupFourmi($accounts);
+		//$this->rewardChampionsLeague($accounts);
+	}
     
 	public function rewardKing($accounts){
     	$rewarded = array();
@@ -94,7 +106,33 @@ class RewardService
     		$this->em->persist($reward);
     	}
     }
-    
+
+	public function rewardCupChoune($accounts){
+		$rewarded = array();
+
+		$max = 1;
+
+		foreach ($accounts as $acc) {
+			if($acc->getStatCupScores() == $max){
+				array_push($rewarded, $acc->getId());
+			}elseif($acc->getStatCupScores() > $max){
+				$rewarded = array();
+				array_push($rewarded, $acc->getId());
+				$max = $acc->getStatCupScores();
+			}
+		}
+
+		foreach ($rewarded as $toreward){
+			$reward = new Reward();
+			$reward->setAccountId($toreward);
+			$reward->setRewardId(2);
+			$reward->setType('d');
+
+			$this->em->persist($reward);
+		}
+	}
+
+
 	public function rewardChoune($accounts){
 		$rewarded = array();
     	
@@ -144,8 +182,34 @@ class RewardService
     		$this->em->persist($reward);
     	}
     }
-    
-public function rewardEclair($accounts){
+
+	public function rewardCupEclair($accounts){
+		$rewarded = array();
+
+		$min = 1000;
+
+		foreach ($accounts as $acc) {
+			if($acc->getStatCupScores() == $min){
+				array_push($rewarded, $acc->getId());
+			}elseif($acc->getStatCupScores() < $min){
+				$rewarded = array();
+				array_push($rewarded, $acc->getId());
+				$min = $acc->getStatCupScores();
+			}
+		}
+
+		foreach ($rewarded as $toreward){
+			$reward = new Reward();
+			$reward->setAccountId($toreward);
+			$reward->setRewardId(4);
+			$reward->setType('d');
+
+			$this->em->persist($reward);
+		}
+	}
+
+
+	public function rewardEclair($accounts){
 		$rewarded = array();
     	
     	$min = 1000;
@@ -238,6 +302,32 @@ public function rewardEclair($accounts){
         
         $this->em->flush();
     }
+
+	public function rewardCupFourmi($accounts){
+		$rewarded = array();
+
+		$max = 1;
+
+		foreach ($accounts as $acc) {
+			if($acc->getStatCupResults() == $max){
+				array_push($rewarded, $acc->getId());
+			}elseif ($acc->getStatCupResults() > $max){
+				$rewarded = array();
+				array_push($rewarded, $acc->getId());
+				$max = $acc->getStatCupResults();
+			}
+
+		}
+
+		foreach ($rewarded as $toreward){
+			$reward = new Reward();
+			$reward->setAccountId($toreward);
+			$reward->setRewardId(19);
+			$reward->setType('d');
+
+			$this->em->persist($reward);
+		}
+	}
 
     public function rewardFourmi($accounts){
         $rewarded = array();
