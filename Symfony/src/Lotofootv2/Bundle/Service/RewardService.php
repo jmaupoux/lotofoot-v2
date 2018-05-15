@@ -59,14 +59,14 @@ class RewardService
     }
     
 	public function rewardAllDailies($accounts){
-    	$this->rewardKing($accounts);
-    	$this->rewardChoune($accounts);
-    	$this->rewardBouse($accounts);
-    	$this->rewardEclair($accounts);
-    	$this->rewardBourseMolle($accounts);
-    	$this->rewardSmoking($accounts);
-    	$this->rewardAddict($accounts);
-        $this->rewardFourmi($accounts);
+    	//$this->rewardKing($accounts);
+    	//$this->rewardChoune($accounts);
+    	//$this->rewardBouse($accounts);
+    	//$this->rewardEclair($accounts);
+    	//$this->rewardBourseMolle($accounts);
+    	//$this->rewardSmoking($accounts);
+    	//$this->rewardAddict($accounts);
+        //$this->rewardFourmi($accounts);
     	//$this->rewardChampionsLeague($accounts);
     }
 
@@ -85,15 +85,10 @@ class RewardService
 	public function rewardKing($accounts){
     	$rewarded = array();
     	
-    	$max = 0;
-    	
+    	   	
     	foreach ($accounts as $acc) {
-    		if($acc->getPoints() == $max){
+    		if($acc->getCupRank() == 1){
     			array_push($rewarded, $acc->getId());
-    		}elseif($acc->getPoints() > $max){
-    			$rewarded = array();
-    			array_push($rewarded, $acc->getId());
-    			$max = $acc->getPoints();
     		}
     	}
     	
@@ -164,12 +159,12 @@ class RewardService
     	$min = 99999;
     	
     	foreach ($accounts as $acc) {
-    		if($acc->getPoints() == $min){
+    		if($acc->getCupPoints() == $min){
     			array_push($rewarded, $acc->getId());
-    		}elseif($acc->getPoints() < $min){
+    		}elseif($acc->getCupPoints() < $min){
     			$rewarded = array();
     			array_push($rewarded, $acc->getId());
-    			$min = $acc->getPoints();
+    			$min = $acc->getCupPoints();
     		}
     	}
     	
