@@ -62,6 +62,7 @@
     </thead>
     <tbody>
         {% for u in users %}
+        
         <tr style="text-align:left;" class="{% if u.username == app.user.username %}my-rank{% endif %}">
         	<td>
         		<span class="sort">    
@@ -77,6 +78,7 @@
 				{% endfor %}
         	</td>
         </tr>
+        
         {% endfor %}
         </tbody>
 	</table>

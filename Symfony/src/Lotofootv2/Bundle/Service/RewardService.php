@@ -77,8 +77,8 @@ class RewardService
 		$this->rewardCupEclair($accounts);
 		//$this->rewardBourseMolle($accounts);
 		//$this->rewardSmoking($accounts);
-		$this->rewardAddict($accounts);
-		$this->rewardCupFourmi($accounts);
+		//$this->rewardAddict($accounts);
+		//$this->rewardCupFourmi($accounts);
 		//$this->rewardChampionsLeague($accounts);
 	}
     
@@ -350,7 +350,34 @@ class RewardService
         }
     }
     
-    public function reward50($accountId){
+    public function reward5($accountId){
+    	$reward = new Reward();
+    	$reward->setAccountId($accountId);
+    	$reward->setRewardId(5);
+    	$reward->setType('s');
+    	 
+    	$this->em->persist($reward);
+    }
+    
+    public function reward10($accountId){
+    	$reward = new Reward();
+    	$reward->setAccountId($accountId);
+    	$reward->setRewardId(6);
+    	$reward->setType('s');
+    	 
+    	$this->em->persist($reward);
+    }
+    
+    public function reward20($accountId){
+    	$reward = new Reward();
+    	$reward->setAccountId($accountId);
+    	$reward->setRewardId(7);
+    	$reward->setType('s');
+    	 
+    	$this->em->persist($reward);
+    }
+    
+ /*   public function reward50($accountId){
  	   	$reward = new Reward();
     	$reward->setAccountId($accountId);
     	$reward->setRewardId(7);
@@ -384,7 +411,7 @@ class RewardService
         $reward->setType('s');
         
         $this->em->persist($reward);
-    }
+    }*/
     
     public function rewardChampionsLeague($accounts){
     	for ($i=0; $i<=15; $i++){
