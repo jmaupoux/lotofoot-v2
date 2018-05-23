@@ -47,8 +47,8 @@ class UsersController extends Controller
     {
     	$id = $request->query->get('id');
     	 
-    	$acc = $this->get('account_service')->switchActivation($id);
-    	 
+    	$acc = $this->get('account_service')->addCagnoute($id);
+    	$acc = $this->get('reward_service')->rewardCupCagnoute($id);
     	return $this->redirect($this->generateUrl('_admin_users'));
     }
     

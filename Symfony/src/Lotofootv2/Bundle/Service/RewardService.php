@@ -74,7 +74,10 @@ class RewardService
 		$this->rewardKing($accounts);
 		$this->rewardCupChoune($accounts);
 		$this->rewardBouse($accounts);
-		$this->rewardCupEclair($accounts);
+		$this->reward5($accounts);
+		$this->reward10($accounts);
+		$this->reward20($accounts);
+		//$this->rewardCupEclair($accounts);
 		//$this->rewardBourseMolle($accounts);
 		//$this->rewardSmoking($accounts);
 		//$this->rewardAddict($accounts);
@@ -100,6 +103,16 @@ class RewardService
     		
     		$this->em->persist($reward);
     	}
+    }
+    
+    public function rewardCupCagnoute($accountId){
+    	$reward = new Reward();
+    	$reward->setAccountId($accountId);
+    	$reward->setRewardId(9);
+    	$reward->setType('s');
+    	 
+    	$this->em->persist($reward);
+    	$this->em->flush();
     }
 
 	public function rewardCupChoune($accounts){
@@ -350,31 +363,66 @@ class RewardService
         }
     }
     
-    public function reward5($accountId){
-    	$reward = new Reward();
-    	$reward->setAccountId($accountId);
-    	$reward->setRewardId(5);
-    	$reward->setType('s');
+    public function reward5($accounts){
+    	$rewarded = array();
     	 
-    	$this->em->persist($reward);
+    		
+    	foreach ($accounts as $acc) {
+    		if($acc->getCupRank() <= 5){
+    			array_push($rewarded, $acc->getId());
+    		}
+    	}
+    	 
+    	foreach ($rewarded as $toreward){
+    		$reward = new Reward();
+    		$reward->setAccountId($toreward);
+    		$reward->setRewardId(5);
+    		$reward->setType('d');
+    
+    		$this->em->persist($reward);
+    	}
     }
     
-    public function reward10($accountId){
-    	$reward = new Reward();
-    	$reward->setAccountId($accountId);
-    	$reward->setRewardId(6);
-    	$reward->setType('s');
+	public function reward10($accounts){
+    	$rewarded = array();
     	 
-    	$this->em->persist($reward);
+    		
+    	foreach ($accounts as $acc) {
+    		if($acc->getCupRank() > 5 and $acc->getCupRank() <= 10){
+    			array_push($rewarded, $acc->getId());
+    		}
+    	}
+    	 
+    	foreach ($rewarded as $toreward){
+    		$reward = new Reward();
+    		$reward->setAccountId($toreward);
+    		$reward->setRewardId(6);
+    		$reward->setType('d');
+    
+    		$this->em->persist($reward);
+    	}
     }
     
-    public function reward20($accountId){
-    	$reward = new Reward();
-    	$reward->setAccountId($accountId);
-    	$reward->setRewardId(7);
-    	$reward->setType('s');
+    
+    
+	public function reward20($accounts){
+    	$rewarded = array();
     	 
-    	$this->em->persist($reward);
+    		
+    	foreach ($accounts as $acc) {
+    		if($acc->getCupRank() > 10 and $acc->getCupRank() <= 20){
+    			array_push($rewarded, $acc->getId());
+    		}
+    	}
+    	 
+    	foreach ($rewarded as $toreward){
+    		$reward = new Reward();
+    		$reward->setAccountId($toreward);
+    		$reward->setRewardId(7);
+    		$reward->setType('d');
+    
+    		$this->em->persist($reward);
+    	}
     }
     
  /*   public function reward50($accountId){

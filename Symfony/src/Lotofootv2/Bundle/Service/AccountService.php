@@ -96,6 +96,16 @@ class AccountService
     	
     	return $a;
     }
+    
+    public function addCagnoute($id){
+    	$a = $this->findById($id);
+    	$a->setCupCagnoute(true);
+    	 
+    	$this->em->persist($a);
+    	$this->em->flush();
+    	 
+    	return $a;
+    }
 
     public function listGroups(){
         $query = $this->em->createQuery(
