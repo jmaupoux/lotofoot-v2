@@ -960,22 +960,18 @@ td.invisible{
 	border-spacing:0;}
 
 tr.calendar-vote-cup{
-	height: 70px;
+	height: 40px;
 	color: #CB3229;
-	background-image: url(../img/tab-bg-euro.jpg) !important;
+	background-image: url(../img/tab-bg-yellow.jpg) !important;
 	background-repeat: no-repeat-x;
-	border-spacing: 0;
-	background-size: 100% 100%;
-	border: 1px #CB3229 solid;
+	border-spacing:0;
 }
 
 tr.vote-cup{
-	height: 40px;
+	height: 70px;
 	color: #CB3229;
-	background-image: url(../img/tab-bg-euro.jpg) !important;
-	background-repeat: no-repeat-x;
-	border-spacing:0;
-	background-size: 100% 100%;
+	border-spacing: 0;
+	border: 1px #CB3229 solid;
 }
 
 td.calendar-termine{
