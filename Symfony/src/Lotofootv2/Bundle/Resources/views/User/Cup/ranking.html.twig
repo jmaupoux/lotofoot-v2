@@ -22,11 +22,26 @@
 {% endblock %}
 
 {% block body %}
+
+<style type="text/css">
+    {% for g in groups %}
+    .group-{{ g }} tr.{{ g }} {
+        display: table-row !important;
+    }
+    .group-{{ g }} tr.account:not(.{{ g }}) {
+        display: none;
+    }
+    {% endfor %}
+</style>
+
 <div class="row">
 		<div class="container container-home">
 	<br/>
 	<div class="row" style="text-align:center;">
-	<table class="table-striped vote">
+        {% for g in groups %}
+            <img src="{{ asset('bundles/lotofootv2/img/groups/' ~ g ~ '.png') }}" title="{{ g}}" style="height: 50px; cursor: pointer" onclick="toggleGroup('{{ g }}')"/>
+        {% endfor %}
+	<table id="ranking" class="table-striped vote">
         <tr>
             <th>Rang <span class="caret"></th>
             <th>Joueur <span class="caret"></th>
@@ -37,7 +52,7 @@
             <th>Moyenne <span class="caret"></span></th>
         </tr>
         {% for account in accounts %}
-        <tr class="{% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index % 10 == 0 %} cl-limit {% endif %}" >
+        <tr class="account {% if account.id == app.user.id %}my-rank{% endif %} {% if loop.index % 10 == 0 %} cl-limit {% endif %} {% if account.groups is defined and account.groups is not null %} {{ account.groups }} {% endif %}" >
             <td>
             <span class="sort" style="display:none"> {{loop.index}}</span>
             {% if account.cupRank == 99 or account.cupRank == 0 %}
@@ -48,7 +63,7 @@
             </td>
             <td style="text-align:left;">{{account.username}} {% if account.cupCagnoute == 1 %} &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}"/>{% endif %}
             {% if account.groups is defined and account.groups is not null %}
-                &nbsp; <img src="{{ asset('bundles/lotofootv2/img/groups/' ~ account.groups ~ '.png') }}" title="{{ asset(account.groups)}}" style="height: 30px"/>
+                &nbsp; <img src="{{ asset('bundles/lotofootv2/img/groups/' ~ account.groups ~ '.png') }}" title="{{ account.groups}}" style="height: 30px"/>
             {% endif %}
             {% if account.team is defined and account.team is not null %}
                 &nbsp; <img src="http://medias.lequipe.fr/logo-football/{{account.team}}/30"/>
@@ -68,6 +83,26 @@
 	</div>
 	</div>
 	</div>
+    <script type="text/javascript">
+        var groupFiltered = [];
+        function toggleGroup(groupName) {
+            if ( groupFiltered.indexOf(groupName) != -1 ) {
+                groupFiltered.splice(groupFiltered.indexOf(groupName), 1);
+            } else {
+                groupFiltered.push(groupName);
+            }
+
+            console.log(groupFiltered)
+
+            {% for g in groups %}
+            $("table#ranking").removeClass("group-{{ g }}");
+            {% endfor %}
+
+            groupFiltered.forEach( (g) => {
+                $("table#ranking").addClass("group-"+g);
+            });
+        }
+    </script>
 {% endblock %}
 
 {% block footer %}

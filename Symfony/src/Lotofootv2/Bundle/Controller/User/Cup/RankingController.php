@@ -16,7 +16,9 @@ class RankingController extends Controller
     	$accounts = $this->get('cup_service')->getRankingAccounts();
 
         $matchCorrected = count($this->get('cup_service')->getClosedMatchs());
+
+        $groups = $this->get('account_service')->listGroups();
         
-    	return $this->render('Lotofootv2Bundle:User\Cup:ranking.html.twig', array('accounts' => $accounts, 'matchCorrected' => $matchCorrected));
+    	return $this->render('Lotofootv2Bundle:User\Cup:ranking.html.twig', array('accounts' => $accounts, 'matchCorrected' => $matchCorrected, 'groups' => $groups));
     }
 }
