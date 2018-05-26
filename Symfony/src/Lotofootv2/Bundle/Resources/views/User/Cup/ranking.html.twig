@@ -61,7 +61,7 @@
                 {{account.cupRank}}
             {% endif %}
             </td>
-            <td style="text-align:left;">{{account.username}} {% if account.cupCagnoute == 1 %} &nbsp; <img src="{{ asset('bundles/lotofootv2/img/picto-cagnoute-cup.png') }}"/>{% endif %}
+            <td style="text-align:left;">{{account.username}} {% if account.cupCagnoute == 1 %} &nbsp; <img src="{{ asset('bundles/lotofootv2/img/rewards/r9.png') }}"/>{% endif %}
             {% if account.groups is defined and account.groups is not null %}
                 &nbsp; <img src="{{ asset('bundles/lotofootv2/img/groups/' ~ account.groups ~ '.png') }}" title="{{ account.groups}}" style="height: 30px"/>
             {% endif %}
