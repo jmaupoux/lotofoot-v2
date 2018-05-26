@@ -81,7 +81,7 @@
 		                {% for match in opens %}
 		                <tr class="vote-cup">
 		                    <td>
-		                        {{match.id - 64}}
+		                        {{match.id - 17}}
 		                    </td>
 		                    <td class="match">
 		                        <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}} (1)</div><br/>
@@ -131,7 +131,7 @@
 	                    {% for match in closed %}
 	                    <tr class="vote-cup">
 	                        <td>
-	                            {{match.id - 64}}
+	                            {{match.id - 17}}
 	                        </td>
 	                        <td style="text-align:center; width:170px;">
 	                            <div class="drapeau {{match.teamHome}}"></div><div class="match-cup">{{('nationalteams.'~match.teamHome) | trans}}</div><br/>
